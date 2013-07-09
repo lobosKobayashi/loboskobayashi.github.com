@@ -1,0 +1,764 @@
+..... Lorentz attractor
+//@@
+# 09.10.21 Lorentz Atractor
+import pysf.sfFnctns as sf
+#y0 = [100,200,300]
+y0 = [10,20,30]
+y0 = [1,2,3]
+sigma = 10
+#sigma = 5
+b = 8.0/3
+gamma = 28
+def func(y, t):
+    return -sigma*(y[0]-y[1]), -y[0]*y[2]+gamma*y[0]-y[1], y[0]*y[1]-b*y[2]
+
+t = sf.sc.arange(0,20, 0.01)
+y = sf.si.odeint(func, y0, t)
+
+sf.plotTrajectory(y)
+sf.vs.sphere(pos=y0, radius=2)  # mark to indicate start points
+#sf.putSf(y)
+//@@@
+C:\my\sf\other\sfHtm\pySfHtm\Lorentzattractor.jpg
+
+..... 球面調和関数
+現在の日付: 2009/10/18 日 
+http://ja.wikipedia.org/wiki/%E7%90%83%E9%9D%A2%E8%AA%BF%E5%92%8C%E9%96%A2%E6%95%B0
+
+cd C:\my\sf\gc
+半径 1 の球面にメッシュを設定して、その位置での中心からの方向 球面調和関数の絶対値：r を割り当てて x,y,z 座標を計算し、位相回転を是体値 0.99 の複素数で表して kkRGB 表示させている
+//@@
+import scipy as sc
+import scipy.optimize as so
+import scipy.special as ss
+import pysf.sfFnctns as sf
+
+def getAuxiliaryAngle(phi):
+    # return theta at Molweide transformation
+    return so.fsolve(lambda x:2*x + sc.sin( 2*x) - sc.pi*sc.sin(phi), 0)
+
+N=64
+#N=16
+dctAt={}
+clAt = sf.ClCplxColor()
+for idx,(theta,phi) in sf.enmasq([sc.pi/2,N,-sc.pi/N],[-sc.pi,N,2*sc.pi/N]):
+    #cplxAt = ss.sph_harm(1,4, theta,phi)
+    cplxAt = ss.sph_harm(1,3, theta,phi)
+    cplxAt = ss.sph_harm(1,2, theta,phi)
+    r=abs(cplxAt)
+    vctColorAt = clAt.GetFltColor(0.99*cplxAt/r)
+
+    dctAt[idx]=[ [r *sc.cos(theta) *sc.cos(phi),
+                  r *sc.cos(theta) *sc.sin(phi),
+                  r *sc.sin(theta)
+                  ],
+                  vctColorAt
+                ]
+
+sf.renderFacesWithRGB(dctAt)
+//@@@
+D:\my\sf\other\sfHtm\pySfHtm\gllry_sphHrmnc_1_3.jpg
+D:\my\sf\other\sfHtm\pySfHtm\gllry_sphHrmnc_1_2.jpg
+
+C:\my\sf\other\sfHtm\pySfHtm\gllry_sphHrmnc_1_3.jpg
+C:\my\sf\other\sfHtm\pySfHtm\gllry_sphHrmnc_1_2.jpg
+
+..... Mollweide 変換によるメッシュ表示
+現在の日付: 2009/10/18 日 
+http://en.wikipedia.org/wiki/Mollweide_projection
+
+//@@
+import scipy as sc
+import scipy.optimize as so
+import pysf.sfFnctns as sf
+
+def getAuxiliaryAngle(phi):
+    # return theta at Molweide transformation
+    return so.fsolve(lambda x:2*x + sc.sin( 2*x) - sc.pi*sc.sin(phi), 0)
+
+#N=64
+N=16
+dctAt={}
+for idx,(theta,phi) in sf.enmasq([sc.pi/2,N,-sc.pi/N],[-sc.pi,N,2*sc.pi/N]):
+    theta_ds= getAuxiliaryAngle(theta)
+    dctAt[idx]=[2*2**0.5/sc.pi* phi * sc.cos(theta_ds), 
+                2**0.5 *sc.sin(theta_ds),
+                0]
+
+#sf.renderFaces(dctAt, blMeshOnly=True, frame=True)
+sf.renderFaces(dctAt, blMeshOnly=True)
+"""'
+print [dctAt[8,k] for k in range(N)]
+print
+print [dctAt[k,8] for k in range(N)]
+sf.plotGr( [dctAt[8,k][0] for k in range(N)])
+sf.plotGr( [dctAt[k,8][1] for k in range(N)])
+'"""
+//@@@
+<== 3 次元表示を使ってメッシュ表示しているので、手での調整が必要です
+D:\my\sf\other\sfHtm\pySfHtm\gllry_MollweideTrnsf.jpg
+C:\my\sf\other\sfHtm\pySfHtm\gllry_MollweideTrnsf.jpg
+
+
+..... SO(3), SU(2), su(2)
+09.10.02  Fri 曇り
+
+w:"\books\science\physics\Quantum Mechanics\Quantum Mechanics Textbooks\Sakurai J. J., Modern quantum mechanics (AW, 1994)(802dpi)(T)(ISBN 0201539292)(513s)".djvu
+
+page 183/635
+    U = exp(i γ) ~[ [a,b], [-conjugate(b), conjugate(a)]
+    a^2 + b^2 == 1, a,b∈Complex
+    <== U(2) であって SU(2) ではない
+        <== SU(2) は γ == 0
+page 170 for 183
+
+//@@
+N=16
+dct={}
+
+# render SO(3)
+for idx, (α,β) in enmasq([0,N,2pi/N], [0,N,pi/N]):
+    dct[idx]=[sin(β) cos(α),sin(β) sin(α),cos(β)]
+
+renderFaces(dct, blMeshOnly = True, meshColor =red)
+
+# calculate SU(2) and su(2) for SO(3)
+γ=0
+dct_su = {}
+for idx, (α,β) in enmasq([0,N,2pi/N], [0,N,pi/N]):
+    mt= expm(-`i `σz α/2) expm(-`i `σy β/2) expm(-`i `σz γ/2)
+
+    a = mt[0,0]
+    b = mt[0,1]
+
+    dct[idx] = [a.real, a.imag, abs(b)]
+
+
+    # calculate su(2)
+    mtHr = logm(mt)
+
+    dct_su[idx] = [(mtHr `σx.d `i 2^-0.5).trace().real,
+                   (mtHr `σy.d `i 2^-0.5).trace().real,
+                   (mtHr `σz.d `i 2^-0.5).trace().real]
+    
+
+renderFaces(dct, blMeshOnly = True, meshColor =green)
+
+#print dct_su
+renderFaces(dct_su, blMeshOnly = True, meshColor =cyan)
+
+//@@@
+//copy \#####.### temp /y
+//sfPP.py -f temp
+
+C:\my\sf\other\sfHtm\pySfHtm\gllry_SO3_SU2_su2.jpg
+
+
+..... SO(3), SU(2) Mollweide RGB
+//@@
+import scipy as sc
+import scipy.optimize as so
+import scipy.special as ss
+import pysf.sfFnctns as sf
+
+def getAuxiliaryAngle(theta):
+    # return theta at Molweide transformation
+    return so.fsolve(lambda x:2*x + sc.sin( 2*x) - sc.pi*sc.sin(theta), 0)
+
+def getInvAuxiliaryAngle(theta):
+    # return theta at Molweide transformation
+    return so.fsolve(lambda x:2*theta + sc.sin( 2*theta) - sc.pi*sc.sin(x), 0)
+
+#N=34
+N=256
+γ=0
+dctAt_a={}
+dctAt_b={}
+for idx, (y,x) in sf.enmasq([2**0.5,N, -2*2**0.5/N]
+                           ,[-2*2**0.5,2*N, 4*2**0.5/(2*N)]):
+    theta = sc.arcsin( y/2**0.5)
+    phi = x *sc.pi/( 2*2**0.5 * sc.cos(theta) )
+    if ( -sc.pi < phi < sc.pi ):
+        mt= expm(-`i `σz theta/2) expm(-`i `σy phi/2) expm(-`i `σz γ/2)
+        dctAt_a[idx] = mt[0,0]
+        dctAt_b[idx] = mt[0,1]
+    else:
+        dctAt_a[idx] = 0+0j
+        dctAt_b[idx] = 0+0j
+    
+
+sf.putPv(dctAt_a, "su2_a_gamma_00")
+sf.putPv(dctAt_b, "su2_b_gamma_00")
+
+γ=0.3
+dctAt_a={}
+dctAt_b={}
+for idx, (y,x) in sf.enmasq([2**0.5,N, -2*2**0.5/N]
+                           ,[-2*2**0.5,2*N, 4*2**0.5/(2*N)]):
+    theta = sc.arcsin( y/2**0.5)
+    phi = x *sc.pi/( 2*2**0.5 * sc.cos(theta) )
+    if ( -sc.pi < phi < sc.pi ):
+        mt= expm(-`i `σz theta/2) expm(-`i `σy phi/2) expm(-`i `σz γ/2)
+        dctAt_a[idx] = mt[0,0]
+        dctAt_b[idx] = mt[0,1]
+    else:
+        dctAt_a[idx] = 0+0j
+        dctAt_b[idx] = 0+0j
+
+sf.putPv(dctAt_a, "su2_a_gamma_03")
+sf.putPv(dctAt_b, "su2_b_gamma_03")
+//@@@
+//copy \#####.### temp /y
+
+=:su2_a_gamma_00,su2_b_gamma_00;sf.render2dRGB(su2_a_gamma_00, 0.3, 0.8)
+C:\my\sf\other\sfHtm\pySfHtm\su2_a_gamma_00.jpg
+=:su2_a_gamma_00,su2_b_gamma_00;sf.render2dRGB(su2_b_gamma_00, 0.3, 0.8)
+C:\my\sf\other\sfHtm\pySfHtm\su2_b_gamma_00.jpg
+
+=:su2_a_gamma_03,su2_b_gamma_03;sf.render2dRGB(su2_a_gamma_03, 0.3, 0.8)
+C:\my\sf\other\sfHtm\pySfHtm\su2_a_gamma_03.jpg
+=:su2_a_gamma_03,su2_b_gamma_03;sf.render2dRGB(su2_b_gamma_03, 0.3, 0.8)
+C:\my\sf\other\sfHtm\pySfHtm\su2_b_gamma_03.jpg
+
+
+..... H(x,p)=0.5(x^2+p^2) での作用 S(x,y) の数値解
+from;;C:\my\sf\work\PySfNum.jot
+//@@
+# 07.11.28 OK
+import scipy.optimize as so
+#import sf
+import pysf.sfFnctns as sf
+def arH(x, t):
+    return (x[2], x[3], -x[0], -x[1])
+    
+def L(x):
+    return 0.5*(x[3]**2+x[2]**2-x[1]**2-x[0]**2)
+    
+import time
+startTimeAt = time.time()
+N=32
+N=16
+xPos = sf.vctr(1,1)  # [x,y]
+
+N=64
+M = 100
+#arT = sf.sc.arange(0,5, 5.0/M)
+T=1.0
+T=2.5
+dt = T/M
+arT = sf.sc.arange(0,T, dt)
+dctS={}
+for theta, n in zip(sf.arSqnc(0, N, 2*sf.pi/N), range(N) ):
+    y0 = sf.vctr(1,1, sf.cos(theta), sf.sin(theta) )
+    
+    y = sf.si.odeint(arH, y0, arT)
+    for k, val in enumerate(sf.si.cumtrapz(map(L,y), dx=dt)):
+        dctS[n,k+1] = (y[k+1][0], y[k+1][1], val)
+    dctS[n,0] = (y[0][0], y[0][1],0)
+
+print "Total executing time:",time.time() - startTimeAt
+#sf.renderFaces(dctS, blMesh=True)
+sf.renderFaces(dctS, blMeshOnly=True)
+sf.drawAxis()
+//@@@
+
+D:\my\sf\other\sfHtm\pySfHtm\gllry_HmltnYcb_Sxy.jpg
+C:\my\sf\other\sfHtm\pySfHtm\gllry_HmltnYcb_Sxy.jpg
+
+..... Euler angles: Encyclopedia II - Euler angles - Definition
+Wiki;;http://www.experiencefestival.com/a/Euler_angles_-_Definition/id/1371944
+
+C:\my\sf\other\sfHtm\pySfHtm\EulerAngle.jpg
+<== こんな図は CAD ソフトを使っても描きたくないでしょう
+
+//@@
+#07.09.28 
+# visualize Euler;;http://www.experiencefestival.com/a/Euler_angles_-_Definition/id/1371944
+import visual as vs
+
+x = vs.vector([1,0,0])
+y = vs.vector([0,1,0])
+z = vs.vector([0,0,1])
+vs.arrow( axis = x,  color=vs.crayola.red, shaftwidth = 0.1 )
+vs.arrow( axis = y,  color=vs.crayola.green, shaftwidth = 0.1 )
+vs.arrow( axis = z,  color=vs.crayola.blue, shaftwidth = 0.1 )
+
+import math
+X = vs.rotate([1,0,0], math.pi/6, [1,2,3])
+Y = vs.rotate([0,1,0], math.pi/6, [1,2,3])
+Z = vs.rotate([0,0,1], math.pi/6, [1,2,3])
+vs.arrow( axis = X,  color=vs.crayola.orange, shaftwidth = 0.1 )
+vs.arrow( axis = Y,  color=vs.crayola.cyan, shaftwidth = 0.1 )
+vs.arrow( axis = Z,  color=vs.crayola.magenta, shaftwidth = 0.1 )
+
+#import sf
+import pysf.sfFnctns as sf
+N=10
+dctAt ={}
+# display x,y plane with red 10x10 mesh
+for value, index in zip( sf.masq([-1,2*N, 1.0/N], [-1,2*N,1.0/N])
+                        , sf.mrng(2*N,2*N) ):
+    dctAt[index] = value[0]*x + value[1]*y
+#sf.makeFaces(dctAt, blMeshOnly = True, colorMesh = vs.color.red)
+sf.renderFaces(dctAt, blMeshOnly = True, meshColor = vs.color.red)
+
+# display X,Y plane with orange 10x10 mesh
+for value, index in zip( sf.masq([-1,2*N, 1.0/N], [-1,2*N,1.0/N])
+                        , sf.mrng(2*N,2*N) ):
+    dctAt[index] = value[0]*X + value[1]*Y
+#sf.makeFaces(dctAt, blMeshOnly = True, colorMesh = vs.color.orange)
+sf.renderFaces(dctAt, blMeshOnly = True, meshColor = vs.color.orange)
+#sf.makeFaces(dctAt)
+
+#nodeAt = vs.norm(-X[2]*x + Y[2]*y)
+#nodeAt = vs.norm(-Y[2]*x + X[2]*y)
+nodeAt = vs.norm(Y[2]*X - X[2]*Y)
+vs.cylinder( pos=-nodeAt, radius=0.05, axis= 2*nodeAt )
+
+#vs.label(pos=[0.5,0.5, 0], text='alpha', xoffset=60, yoffset=60, height=30, border=6)
+
+def writeArch(nrmLeftAt, nrmRightAt):
+    axisAt = vs.cross(nrmLeftAt, nrmRightAt)
+    thetaAt = math.acos(vs.dot(nrmLeftAt, nrmRightAt))
+    N=10
+    crvAt = vs.curve()
+    for angleAt in sf.arSqnc(0,N, thetaAt/N):
+        crvAt.append( vs.rotate(0.5*nrmLeftAt, angleAt, axisAt) )
+
+    return vs.rotate(0.5*nrmLeftAt, thetaAt/2, axisAt)
+
+vs.label(pos = writeArch(x,nodeAt)
+        , text='alpha', xoffset=-60, yoffset=60, height=30, border=6)
+vs.label(pos = writeArch(z,Z)
+        , text='beta', xoffset=-60, yoffset=-60, height=30, border=6)
+vs.label(pos = writeArch(nodeAt,X)
+        , text='gamma', xoffset=60, yoffset=60, height=30, border=6)
+//@@@
+
+..... 地球
+//@@
+# 07.11.26
+#import sf
+import pysf.sfFnctns as sf
+lstPos = []
+
+dctMsh ={}
+N,M= 20,10
+
+# draw logntude, lattitud axies
+for (lngtd,lttd), index in zip( sf.masq([-sf.pi, N, 2*sf.pi/N], [-sf.pi/2,M, sf.pi/M])
+                              , sf.mrng(N,M) ):
+     #[sf.cos(lngtd)*sf.cos(lttd), sf.sin(lgtd)*sf.cos(lttd), sf.sin(lttd)]
+     dctMsh[index] = [sf.cos(lngtd)*sf.cos(lttd), sf.sin(lngtd)*sf.cos(lttd), sf.sin(lttd)]
+
+sf.renderFaces(dctMsh, blMeshOnly=True)#, meshColor=sf.green)
+
+# draw world map on glob
+for line in open("\my\sf\other\if\map.txt"):
+    lineAt = line.strip()
+    if line[0] == '#':
+        continue
+
+    if lineAt == "" :
+        if len(lstPos)> 0:
+            grphAt = sf.vs.curve(color = sf.green)
+            for lngtd,lttd in lstPos:
+                grphAt.append(pos = [sf.cos(lngtd)*sf.cos(lttd)
+                                   , sf.sin(lngtd)*sf.cos(lttd)
+                                   , sf.sin(lttd)])
+        lstPos = []
+    else:
+        lstStr = lineAt.split()
+        lstPos.append( (float(lstStr[0])*sf.pi/180, float(lstStr[1])*sf.pi/180) )
+//@@@
+
+c:\my\sf\other\if\worldGlob.jpg
+
+..... conveyer
+//@@
+# 07.11.26 beer barrel form pulley
+# width = 5 meter, hieght = 1meer,  depth 1 meter, 
+
+#import sf
+import pysf.sfFnctns as sf
+
+N, M =20,5
+dctUpper={}
+dctLower={}
+for pos, index in zip(sf.masq([-2.5,N+1, 5.0/N],[-0.5,M+1, 1.0/M]), sf.mrng(N+1,M+1) ):
+    dctUpper[index] = (pos[0], 1, pos[1])
+    dctLower[index] = (pos[0],-1, pos[1])
+
+N, M = 10,5
+dctLeft ={}
+dctRight ={}
+for (theta, z), index in zip(sf.masq([sf.pi/2, N+1, -sf.pi/N], [-0.5, M+1, 1.0/M])
+                            ,sf.mrng(N+1,M+1) ):
+    dctRight[index] = [2.5+sf.cos(theta), sf.sin(theta),z]
+    dctLeft[index] = [-2.5-sf.cos(theta), sf.sin(theta),z]
+
+
+sf.renderFaces(dctUpper)
+sf.renderFaces(dctLower)
+sf.renderFaces(dctLeft)
+sf.renderFaces(dctRight)
+
+dctLeft ={}
+dctRight ={}
+N=40
+for (theta, z), index in zip(sf.masq([sf.pi, N+1, -2*sf.pi/N], [-0.5, M+1, 1.0/M])
+                            ,sf.mrng(N+1,M+1) ):
+    dctRight[index] = [2.5+(2-sf.cosh(z))*sf.cos(theta), (2-sf.cosh(z))*sf.sin(theta),z]
+    dctLeft[index] = [-2.5-(2-sf.cosh(z))*sf.cos(theta), (2-sf.cosh(z))*sf.sin(theta),z]
+
+sf.renderFaces(dctLeft, blMeshOnly=True, meshColor=sf.red)
+sf.renderFaces(dctRight, blMeshOnly=True, meshColor=sf.red)
+//@@@
+c:\my\sf\work\BeerBarrelFormPulley.jpg
+
+//@@
+# 07.11.26
+# width = 5 meter, hieght = 1meer,  depth 1 meter, 
+
+#import sf
+import pysf.sfFnctns as sf
+
+N, M =20,5
+dctUpper={}
+dctLower={}
+for pos, index in zip(sf.masq([-2.5,N+1, 5.0/N],[-0.5,M+1, 1.0/M]), sf.mrng(N+1,M+1) ):
+    dctUpper[index] = (pos[0], 1, pos[1])
+    dctLower[index] = (pos[0],-1, pos[1])
+
+N, M = 10,5
+dctLeft ={}
+dctRight ={}
+for (theta, z), index in zip(sf.masq([sf.pi/2, N+1, -sf.pi/N], [-0.5, M+1, 1.0/M])
+                            ,sf.mrng(N+1,M+1) ):
+    dctRight[index] = [2.5+sf.cos(theta), sf.sin(theta),z]
+    dctLeft[index] = [-2.5-sf.cos(theta), sf.sin(theta),z]
+
+
+sf.renderFaces(dctUpper)
+sf.renderFaces(dctLower)
+sf.renderFaces(dctLeft)
+sf.renderFaces(dctRight)
+
+dctLeft ={}
+dctRight ={}
+N=40
+for (theta, z), index in zip(sf.masq([sf.pi, N+1, -2*sf.pi/N], [-0.5, M+1, 1.0/M])
+                            ,sf.mrng(N+1,M+1) ):
+    dctRight[index] = [2.5+sf.cosh(z)*sf.cos(theta), sf.cosh(z)*sf.sin(theta),z]
+    dctLeft[index] = [-2.5-sf.cosh(z)*sf.cos(theta), sf.cosh(z)*sf.sin(theta),z]
+
+sf.renderFaces(dctLeft, blMeshOnly=True, meshColor=sf.red)
+sf.renderFaces(dctRight, blMeshOnly=True, meshColor=sf.red)
+
+thetaS = 2.05117740593
+#Z0 = 0.48121182506 # real value
+Z0 = 0.35   # exagerated value
+lstRear =[(2.5+sf.cosh(0.5)*sf.cos(thetaS),1,-0.5), (2.5, sf.cosh(-Z0), -Z0)]
+lstFront =[(2.5+sf.cosh(0.5)*sf.cos(thetaS),1,0.5), (2.5, sf.cosh(Z0), Z0)]
+N=30
+for theta in sf.arSqnc(sf.pi/2, N+1, -sf.pi/N):
+    lstRear.append( (2.5+sf.cosh(Z0)*sf.cos(theta), sf.cosh(-Z0)*sf.sin(theta),-Z0) )
+    lstFront.append( (2.5+sf.cosh(Z0)*sf.cos(theta), sf.cosh(Z0)*sf.sin(theta),Z0) )
+
+sf.plotTrajectory(lstRear, blAxis=False)
+sf.plotTrajectory(lstFront, blAxis=False)
+//@@@
+C:\my\sf\other\sfHtm\pySfHtm\conveyerHourGlassShaped.jpg
+
+
+.. mayavi
+... mlab
+..... 一様乱数の三次元分布
+N=1000;sc.random.seed(0);arAt=sc.rand(N,3);mlb().points3d(arAt[:,0], arAt[:,1], arAt[:,2], scale_factor=0.02);mshow()
+C:\my\sf\other\sfHtm\pySfHtm\uniformRandomDistribution3d.jpg
+<==void 具合が規則性があるような無いような微妙な感じを受ける
+    <== 重力を想定して収縮させるならば結構早くに収縮しそうです
+
+N=5000;sc.random.seed(0);arAt=sc.randn(N,3);mlb().points3d(arAt[:,0], arAt[:,1], arAt[:,2], scale_factor=0.02);mlb().axes();mlb().axes();mlb().show()
+C:\my\sf\other\sfHtm\pySfHtm\normalRandomDistribution3d.jpg
+
+C:\my\sf\other\sfHtm\pySfHtm\.jpg
+
+.. sympy
+..... Eq, solve
+ts.solve(ts.Eq(`x^3 + 2`x^2 + 4`x + 8, 0), `x)
+===============================
+[-2*I, 2*I, -2]
+
+
+ts.solve([`x + 5*`y - 2, -3*`x + 6*`y - 15], [`x, `y])
+===============================
+{x: -3, y: 1}
+
+ts.solve([`x^2 + 5*`y - 2, -3*`x + 6*`y - 15], [`x, `y])
+===============================
+[(-5/4 - I*143**(1/2)/4, 15/8 - I*143**(1/2)/8), (-5/4 + I*143**(1/2)/4, 15/8 + I*143**(1/2)/8)]
+
+ts.solve([`x^2 + 5*`y - 2, -3*`x + 6*`y^2 - 15], [`x, `y])
+===============================
+[]
+<== 無理させすぎ
+
+..... シンボリックな微分 積分
+(2.7), (2.8) 式は下のようにすべき。証明も、この意味になっている。
+    F(u) <= F(u+v) for ∀ v 但し v(0)==v(a)== 0
+                   a
+    F(u+v)-F(u) = ∫ v' v'/2 - v f(x) dx
+                   0
+
+<== (2.8)式は無理
+F(u*v), F(u);;u=(`x^3/6 - `x/6);v=`x (`x-1);ts.integrate(ts.diff(u*v,`x)^2/2 - (u*v) `x, (`x,0,1) ), ts.integrate(ts.diff(u,`x)^2/2 - u `x, (`x,0,1) )
+===============================
+(-17/4536, 1/30)
+
+F(u+v), F(u);;u=(`x^3/6 - `x/6);v=`x (`x-1);ts.integrate(ts.diff(u+v,`x)^2/2 - (u+v) `x, (`x,0,1) ), ts.integrate(ts.diff(u,`x)^2/2 - u `x, (`x,0,1) )
+===============================
+(11/30, 1/30)
+
+...... 二階微分:diff( fn, `x, 2)
+f=`x^3/6 - `x/6;ts.diff(f,`x,2)
+===============================
+x
+
+f=`y `x^3/6 - `x/6;ts.diff(f,`x,2)
+===============================
+x*y
+
+
+..... ts.S('....') を活用した行列計算
+すばらしい
+δ=ts.Matrix(sc.diag([1,1,1]));mt = ts.S('Matrix([[a00,a01,a02],[a10,a11,a12],[a20,a21,a22]])');sum([δ[i,j] δ[k,l] mt[i,j] mt[k,l] for i,j,k,l in mrng(3,3,3,3)])
+===============================
+2*a00*a11 + 2*a00*a22 + 2*a11*a22 + a00**2 + a11**2 + a22**2
+<== block の方 が readable
+
+mt = ts.S('Matrix([[a00,a01,a02],[a10,a11,a12],[a20,a21,a22]])');mt.det()
+===============================
+a00*a11*a22 + a01*a12*a20 + a02*a10*a21 - a00*a12*a21 - a01*a10*a22 - a02*a11*a20
+
+mt = ts.S('Matrix([[a00,a01],[a10,a11]])');mt.det()
+===============================
+a00*a11 - a01*a10
+
+mt = ts.S('Matrix([[a00,a01],[a10,a11]])');1/mt
+unsupported operand type(s) for /: 'int' and 'Matrix' at excecuting:1/mt
+
+mt = ts.S('Matrix([[a00,a01],[a10,a11]])');mt 2
+===============================
+[2*a00, 2*a01]
+[2*a10, 2*a11]
+
+.. vpython
+..... log 複素解析関数
+//@@
+# 07.11.22
+import pysf.sfFnctns as sf
+import scipy.special as ss
+
+N=40
+dctAt={}
+dctMt = {}
+clAt = sf.ClCplxColor()
+#S = -2.0
+S =  2.0
+lstDbg = [0,11]
+for  index, tplZ in zip(sf.mrng(N,N), sf.masq([-S+1.0/N, N, 2*S/N],[S+1.0/N, N, -2*S/N]) ):
+    dbCplxAt = tplZ[0]+tplZ[1]*1.0j
+    dbCplxAt = ss.log(dbCplxAt)
+    if dbCplxAt != 0+0j:
+        #phaseAt = 1.001*dbCplxAt/abs(dbCplxAt) # display image/real distribution
+        phaseAt = 0.999*dbCplxAt/abs(dbCplxAt) # use 0.999 to avoid abs(pahseAt) == dbBoundary
+    else:
+        phaseAt = 0+0j
+    if index == tuple(lstDbg):
+        print dbCplxAt
+        print tplZ
+    #print abs(dbCplxAt)
+    #dctAt[index] = [ (tplZ[0], tplZ[1], ss.log(abs(dbCplxAt)) ) 
+    dctAt[index] = [ (tplZ[0], tplZ[1], abs(dbCplxAt) ) 
+                    , clAt.GetFltColor(phaseAt) ]
+
+sf.renderFacesWithRGB(dctAt, blMesh = True, blDirection = False)
+
+dctAt.clear()
+for  index, tplZ in zip(sf.mrng(N/2,N/2), sf.masq([-S+1.0/N, N/2, 2*S/N],[S+1.0/N, N/2, -2*S/N]) ):
+    dbCplxAt = tplZ[0]+tplZ[1]*1.0j
+    dbCplxAt = sf.log(abs(dbCplxAt-1)) + (-sf.pi + sf.arctan(tplZ[1]/tplZ[0]))*1j
+
+    phaseAt = 0.999*dbCplxAt/abs(dbCplxAt) # use 0.999 to avoid abs(pahseAt) == dbBoundary
+    dctAt[index] = [ (tplZ[0], tplZ[1], abs(dbCplxAt) ) 
+                    , clAt.GetFltColor(phaseAt) ]
+    
+sf.renderFacesWithRGB(dctAt, blMesh = True, blDirection = False)
+
+dctAt.clear()
+for  index, tplZ in zip(sf.mrng(N/2,N/2), sf.masq([-S+1.0/N, N/2, 2*S/N],[ -1.0/N, N/2, -2*S/N]) ):
+    dbCplxAt = tplZ[0]+tplZ[1]*1.0j
+    dbCplxAt = sf.log(abs(dbCplxAt-1)) + ( sf.pi + sf.arctan(tplZ[1]/tplZ[0]))*1j
+
+    phaseAt = 0.999*dbCplxAt/abs(dbCplxAt) # use 0.999 to avoid abs(pahseAt) == dbBoundary
+    dctAt[index] = [ (tplZ[0], tplZ[1], abs(dbCplxAt) ) 
+                    , clAt.GetFltColor(phaseAt) ]
+    
+sf.renderFacesWithRGB(dctAt, blMesh = True, blDirection = False)
+//@@@
+(0.779729771314+2.70358045311j)
+(-1.9750000000000001, 0.92499999999999982)
+
+6
+
+..... big bang and matter
+//@@
+from __future__ import division
+import visual as vs
+import pysf.sfFnctns as sf
+
+scene = vs.display(title="test", width=300, height=200,
+#                center=(-5,0,-0), range=(30,20,10)
+                forward=(0, 0,-1)
+                ,center=(60,60,0), range=(200,200,200), background=vs.color.cyan )
+
+def makeRing(posAg, radiusAg):
+    return vs.ring(pos=posAg,axis=(1,1,0), thickness=1, radius = radiusAg
+                , color=sf.blue)
+
+obSpAt = vs.sphere(color = sf.white, pos=(0,0,0), radius=1)
+
+#obRngAt=makeRing([0,0,0], 1)
+
+lstRngAt=[]
+N=12
+for k in range(1,N):
+    phiAt = k*sf.pi/N
+    radiusAt = 1.05* sf.sin(phiAt)
+    originedLengthAt= 1-sf.cos(phiAt)
+    objRngAt = makeRing([originedLengthAt/1.414, originedLengthAt/1.414], radiusAt)
+    lstRngAt.append([objRngAt, originedLengthAt, radiusAt])
+
+
+N=180
+for diameter in range(2,N):
+    vs.rate(5)
+
+    r = diameter/2
+    for objRngAt, ol, rd in lstRngAt:
+        objRngAt.radius = rd*r
+        objRngAt.pos = [ol*r/1.414, ol*r/1.414]
+
+    obSpAt.radius = r
+    obSpAt.pos = [r/1.414,r/1.414,0]
+//@@@
+
+<==「-t^2 + x^2 + y^2 == 0」に相当する式は？
+
+
+..... big bang and light
+-t^2 + x^2 + y^2 == 0
+//@@
+from __future__ import division
+import visual as vs
+import pysf.sfFnctns as sf
+
+scene = vs.display(title="test", width=300, height=200,
+#                center=(-5,0,-0), range=(30,20,10)
+                forward=(0, 0,-1)
+                ,center=(60,60,0), range=(200,200,200), background=vs.color.cyan )
+
+def makeRing(posAg, radiusAg):
+    return vs.ring(pos=posAg,axis=(1,1,0), thickness=1, radius = radiusAg
+                , color=sf.blue)
+
+obSpAt = vs.sphere(color = sf.white, pos=(0,0,0), radius=1)
+
+#obRngAt=makeRing([0,0,0], 1)
+
+lstRngAt=[]
+N=180
+for diameter in range(2,N):
+    vs.rate(5)
+
+    r = diameter/2
+    for objRngAt, d in lstRngAt:
+        objRngAt.radius = r*sf.sin(sf.arccos((d-r)/r))
+
+    if diameter % (N//10) == 2:
+        originedLengthAt = diameter -1 
+        radius = 1.05* r*sf.sin(sf.arccos((originedLengthAt-r)/r))
+        objRngAt = makeRing([diameter/1.414, diameter/1.414], radius)
+        lstRngAt.append([objRngAt, originedLengthAt])
+
+    obSpAt.radius = r
+    obSpAt.pos = [r/1.414,r/1.414,0]
+//@@@
+
+<==リング半径の決め方
+r=1;a=0.8 r;pt=plotTrajectory;pt([(cos(x),sin(x)) for x in sc.linspace(0,2pi)]);Δx=-sin(arccos(a/r));pt([(x, -a x/Δx) for x in sc.linspace(0,Δx)],color=red);
+
+.... graph animation
+..... うなり
+//@@
+# 07.05.07 graph animation
+import visual as vs
+import visual.graph as vg
+grphAtc = vg.gcurve(color = vs.color.cyan)
+grphAtr = vg.gcurve(color = vs.color.red)
+#grphAtb = vg.gcurve(color = vs.color.blue)
+grphAtb = vg.gcurve(color = vs.color.green)
+
+def drawGrh(t,x):
+    return (vs.sin(-36*t + 6*x)+vs.sin((-11+36/2)*t+ 5*x),
+            vs.sin(-36*t + 6*x),
+            vs.sin((-11+36/2)*t + 5*x) )
+
+for x in vs.arange(0, 2*vs.pi, 0.01):
+    a,b,c = drawGrh(0,x)
+    grphAtc.plot(pos = [x, a] )
+    grphAtr.plot(pos = [x, b] )
+    grphAtb.plot(pos = [x, c] )
+
+for t in vs.arange(0, 10, 0.005):
+    vs.rate(20)
+    for i, x in enumerate(vs.arange(0, 2*vs.pi, 0.01)):
+        a,b,c = drawGrh(t,x)
+        grphAtc.gcurve.y[i] = a
+        grphAtr.gcurve.y[i] = b
+        grphAtb.gcurve.y[i] = c
+//@@@
+
+//@@
+N=128
+#plotTrajectory([(t-sin(t), 1-cos(t)) for t in arsq(0,N,4 pi/N)])
+plotTrajectory([(t-sin(t), 1-cos(t)) for t in arsq(0,N,1 pi/N)])
+
+lstAt = [(1+cos(t), 1+sin(t)) for t in arsq(0,N,2 pi/N)]
+circleAt = plotTrajectory(lstAt)
+plotTrajectory([(0,0),(1,1)])
+plotTrajectory([(1+ 0.1 cos(t), 1+ 0.1 sin(t)) for t in arsq(0,N,2 pi/N)], color=blue)
+plotTrajectory([(1-cos(pi/4)+ 0.1 cos(t), 1-sin(pi/4)+ 0.1 sin(t)) for t in arsq(0,N,2 pi/N)], color=red)
+
+vs=vr()
+for t in arsq(0, 1, 1.0/N):
+    vs.rate(500)
+    for i, x in enumerate(arsq(0,N,2 pi/N)):
+        print "debug i:",i
+        circleAt.gcurve.x[i],circleAt.gcurve.y[i] = (1+t+cos(x), 1+sin(x))
+"""'
+'"""
+//@@@
+//copy c:\#####.### temp.py /y
+//python sfPP.py -fs temp.py
+//python -u __tempConverted.py
+
+<==  2.5 でアニメーションするのか
+
+.. sfFnctns
+.... 逆関数 inv
+plotGr(inv(λ x:x^3+x), klsp(-1,1))
+
+.. others
+..... Jacobian in sfFnctns and sympy
