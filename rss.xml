@@ -5,10 +5,23 @@
         <description>Jekyll Bootstrap - Name Lastname</description>
         <link>http://username.github.io</link>
         <link>http://username.github.io</link>
-        <lastBuildDate>2013-07-09T10:53:34+09:00</lastBuildDate>
-        <pubDate>2013-07-09T10:53:34+09:00</pubDate>
+        <lastBuildDate>2013-07-20T07:39:17+09:00</lastBuildDate>
+        <pubDate>2013-07-20T07:39:17+09:00</pubDate>
         <ttl>1800</ttl>
 
+
+        <item>
+                <title>Blog Pythonsf Calculations On Emacs</title>
+                <description>&lt;h2 id=&quot;section&quot;&gt;概要&lt;/h2&gt;
+
+&lt;p&gt;PythonSf を使えば vim や emacs といったエディタを Matlab や Mathematica 以上に有用な計算ツールに変貌させられます。PythonSf と使い慣れたエディタを使って効率的に計算作業をコンピュータに行わせましょう。&lt;/p&gt;
+
+&lt;h2 id=&quot;emacs--pysfel-script-&quot;&gt;Emacs での pysf.el script 組み込み&lt;/h2&gt;
+</description>
+                <link>http://username.github.io/pythonsf/2013/07-18/blog-PythonSf-calculations-on-Emacs</link>
+                <guid>http://username.github.io/pythonsf/2013/07-18/blog-PythonSf-calculations-on-Emacs</guid>
+                <pubDate>2013-07-18T00:00:00+09:00</pubDate>
+        </item>
 
         <item>
                 <title>Blog Pythonsf Calculations On Editors</title>
@@ -17,18 +30,68 @@
 
 &lt;p&gt;PythonSf を使えば vim や emacs といったエディタを Matlab や Mathematica 以上に有用な計算ツールに変貌させられます。PythonSf と使い慣れたエディタを使って効率的に計算作業をコンピュータに行わせましょう。&lt;a href=&quot;#test name reference&quot;&gt;1&lt;/a&gt;&lt;/p&gt;
 
+&lt;h2 id=&quot;vim--pysfvim-script-&quot;&gt;Vim での pysf.vim script 組み込み&lt;/h2&gt;
+&lt;p&gt;Vim エディタで PythonSf 計算をさせるには pysf.vim script を Vim に組み込みます。その手順は簡単です。Git で配布している pysf.vim を Vim がインストールされているディレクトリの ..\vim73\plugin\に置くだけです。キー･バインドは pysf.vim にハード･コーディングされています。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/2013/pysfVimToPlugin.png&quot; alt=&quot;pysf.vim を Vim73\plugin へ&quot; title=&quot;pysf.vim のコピー&quot; /&gt;&lt;/p&gt;
+
+&lt;!--
+//@@
+    Git                  Vim73\vim\plugin\
+    +------------+       +---------------+  
+    |            | copy  |               |  
+    |  pysf.vim  +---- -&gt;|  pysf.vim     |  
+    |            |       |               |  
+    +------------+       +---------------+
+                         
+//@@@
+//java -jar \utl\ditaa0_9.jar __tmp pysfVimToPlugin.png
+--&gt;
+
+&lt;h2 id=&quot;emacs--pysfel-script-&quot;&gt;Emacs での pysf.el script 組み込み&lt;/h2&gt;
+
+&lt;p&gt;Emacs エディタへの pysf.el script の組み込みは&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/2013/pysfElToElisp.png&quot; alt=&quot;pysf.el を .emacs.d\elisp\ へ&quot; title=&quot;pysf.el のコピー&quot; /&gt;&lt;/p&gt;
+
+&lt;!--
+//@@
+    Git                  .emacs.d\elisp\
+    +------------+       +---------------+  
+    |            | copy  |               |  
+    |  pysf.el   +---- -&gt;|  pysf.el      |  
+    |            |       |               |  
+    +------------+       +---------------+
+                         
+//@@@
+//java -jar \utl\ditaa0_9.jar __tmp pysfElToElisp.png
+--&gt;
+
+&lt;pre&gt;&lt;code&gt;; 下のキー・バインディングを .emacs.d\init.el に追加する
+(require 'pysf)
+(global-set-key (kbd &quot;C-; C-j&quot;) 'ExecPySf_1liner)       ;PythonSf one-liner
+(global-set-key (kbd &quot;C-; C-a&quot;) 'Exec_command)          ;shell command one-liner
+(global-set-key (kbd &quot;C-; C-f&quot;) 'Exec_start)            ;shell command one-liner with start
+(global-set-key (kbd &quot;C-, C-j&quot;) 'ExecPySfOp_1liner)   ;PythonSfOp one-liner
+(global-set-key (kbd &quot;C-; C-k&quot;) 'ExecSf_Block)          ;PythonSf Block
+(global-set-key (kbd &quot;C-; C-p&quot;) 'ExecPy_Block)          ;PythonSf Block
+(global-set-key (kbd &quot;C-, C-k&quot;) 'ExecSfOp_Block)      ;PythonSfOp Block
+
+(global-set-key (kbd &quot;C-, C-g&quot;) 'ConvertAlpbt2Greek)    ;Convert alpahbet to Greek
+&lt;/code&gt;&lt;/pre&gt;
+
 &lt;h2 id=&quot;vim-&quot;&gt;Vim での計算例&lt;/h2&gt;
-&lt;p&gt;Vim エディタで PythonSf 計算をさせるには pysf.vim script を使います。このスクリプトを組み込んだ Vim も Git での PythonSf の配布ファイルに入っています。Vim を使える方は、評価のためには こちらを使われると便利です。ダウンロードした git working directory で下のコマンドを実行させるだけで Python Sf 計算を始められます。&lt;/p&gt;
+&lt;p&gt;Vim エディタで PythonSf 計算をさせるには pysf.vim script を使います。このスクリプトを組み込んだ Vim も Git での &lt;a href=&quot;https://github.com/lobosKobayashi/PythonSfCp932&quot;&gt;PythonSfCp932&lt;/a&gt; の配布ファイルに入っています。Windows で Vim を使える方は、評価のためには こちらを使われると便利です。ダウンロードした git working directory で下のコマンドを実行させるだけで Python Sf 計算を始められます。&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;vim\gvim.exe
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;\(\pi^{0.5}\) を計算したいときの Vim エディタ操作例を見てみましょう。(なお このための&lt;m-f14&gt; Vim script を組み込んだ Vim 自体も　Git PythonSf にもおいてあります。) この Vim エディタで計算をするときは、 pi^0.5 式の文字列行を打ち込み、その行にカーソルを置いたまま Vim normal mode で  **;j** 操作を行います。&lt;/m-f14&gt;&lt;/p&gt;
+&lt;p&gt;\(\pi^{0.5}\) を計算したいときの Vim エディタ操作例を見てみましょう。 Vim エディタで計算をするときは、 pi^0.5 式の文字列行を打ち込み、その行にカーソルを置いたまま Vim normal mode で  &lt;strong&gt;;j&lt;/strong&gt; 操作を行います。&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;pi^0.5
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;すると Vim 画面最下段のコマンド・エリアに下の   に計算結果が表示されます&lt;/p&gt;
+&lt;p&gt;すると Vim 画面最下段のコマンド・エリアに下のように計算結果が表示されます&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;===============================
 1.77245385091
@@ -58,7 +121,7 @@
 &lt;p&gt;Jekyll is a parsing engine bundled as a ruby gem used to build static websites from
 dynamic components such as templates, partials, liquid code, markdown, etc. Jekyll is known as “a simple, blog aware, static site generator”.&lt;/p&gt;
 
-&lt;h3 id=&quot;a-idtest-name-referencea-examples&quot;&gt;&lt;a id=&quot;test name reference&quot;&gt;&lt;/a&gt; Examples&lt;/h3&gt;
+&lt;h3 id=&quot;name-idtest-name-referencename-examples&quot;&gt;&lt;name id=&quot;test name reference&quot;&gt;&lt;/name&gt; Examples&lt;/h3&gt;
 
 &lt;p&gt;This website is created with Jekyll. &lt;a href=&quot;https://github.com/mojombo/jekyll/wiki/Sites&quot;&gt;Other Jekyll websites&lt;/a&gt;.&lt;/p&gt;
 

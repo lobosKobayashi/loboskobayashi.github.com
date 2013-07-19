@@ -8,5 +8,6 @@ http://username.github.io/rss.xml
 http://username.github.io/sitemap.txt
 http://username.github.io/tags.html
 
+http://username.github.io/pythonsf/2013/07-18/blog-PythonSf-calculations-on-Emacs
 http://username.github.io/lessons/2013/06-12/blog-PythonSf-calculations-on-editors
 http://username.github.io/lessons/2011/12-29/jekyll-introduction
