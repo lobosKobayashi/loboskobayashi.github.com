@@ -1,6 +1,6 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <HEAD>
-<TITLE>one-liners</TITLE>
+<TITLE>one-linersE</TITLE>
 <META HTTP-EQUIV="Content-Type" CONTENT="text/html; CHARSET=Shift_JIS"> 
 <LINK href="./style.css" type="text/css" rel="stylesheet">
 <STYLE>
@@ -12,24 +12,26 @@
 <h2>■■ Table Of Contents  </h2>
 <a href="#■■ はじめに">■■ introduction</a><br>
 <a href="#■■ Portable PythonSf">■■ Portable PythonSf</a><br>
-<a href="#■■ PythonSf vim operation">■■ PythonSf vim operation</a><br>
+<a href="#■■ PythonSf vim operation">■■ PythonSf Vim operations</a><br>
+<a href="#■■ PythonSf emacs operation">■■ PythonSf Emacs operations</a><br>
 <a href="#■■ PythonSf Fast Tour">■■ PythonSf Fast Tour</a><br>
-<a href="#■■ グラフ表示">■■ グラフ表示</a><br>
-<a href="#■■ 積分:quadR(..), quadC(..), quadAn(..)">■■ 積分:quadR(..), quadC(..), quadAn(..)</a><br>
-<a href="#■■ 行列演算 2">■■ 行列演算 2</a><br>
-<a href="#■■ 代数系">■■ 代数系</a><br>
-<a href="#■■ 多項式">■■ 多項式</a><br>
-<a href="#■■ 無限長数列と itertools">■■ 無限長数列と itertools</a><br>
-<a href="#■■ その他">■■ その他</a><br>
-<a href="#■■ Laplace 演算子:`s および遅延演算子 z^-1">■■ Laplace 演算子:`s および遅延演算子 z^-1</a><br>
-<a href="#■■ 置換群：Sn(N)">■■ 置換群：Sn(N)</a><br>
-<a href="#■■ PythonSf を使った遊び">■■ PythonSf を使った遊び</a><br>
-<a href="#■■ 正規表現">■■ 正規表現</a><br>
-<a href="#■■ PythonSf Octernion と Cayley/Dickson construction">■■ PythonSf Octernion と Cayley/Dickson construction</a><br>
+<a href="#■■ グラフ表示">■■ To Implement graph functions by users</a><br>
+Sorry! Below chapters are not translated yet.<br>
+<a href="#■■ 積分:quadR(..), quadC(..), quadAn(..)">■■ integral:quadR(..), quadC(..), quadAn(..)</a><br>
+<a href="#■■ 行列演算 2">■■ matrix operations</a><br>
+<a href="#■■ 代数系">■■ algebraic systems</a><br>
+<a href="#■■ 多項式">■■ polynomials</a><br>
+<a href="#■■ 無限長数列と itertools">■■ infinite sequences and  itertools</a><br>
+<a href="#■■ その他">■■ others</a><br>
+<a href="#■■ Laplace 演算子:`s および遅延演算子 z^-1">■■ Laplace operator:`s delaying operator:z^-1</a><br>
+<a href="#■■ 置換群：Sn(N)">■■ permutation group：Sn(N)</a><br>
+<a href="#■■ PythonSf を使った遊び">■■ PythonSf monkey business</a><br>
+<a href="#■■ 正規表現">■■ regular expressions</a><br>
+<a href="#■■ PythonSf Octernion と Cayley/Dickson construction">■■ PythonSf Octernion and the Cayley/Dickson construction</a><br>
 <a href="#■■ Category Theory">■■ Category Theory</a><br>
-<a href="#■■ オペアンプ・フィルタ回路">■■ オペアンプ・フィルタ回路</a><br>
-<a href="#■■ Fractal 図形">■■ Fractal 図形</a><br>
-<a href="#■■ wav データ処理">■■ wav データ処理</a><br>
+<a href="#■■ オペアンプ・フィルタ回路">■■ circuits of operational amplifires or filters</a><br>
+<a href="#■■ Fractal 図形">■■ Fractal figures</a><br>
+<a href="#■■ wav データ処理">■■ wav data processing</a><br>
 
 <a name="■■ はじめに"></a>
 <h2>■■ introduction</h2>
@@ -196,15 +198,17 @@ Users can freely import any module or package and assign any object to any label
 <p>
 Please notice the extension of name space by back quote:`. It is too incautious to assign Bool field  coefficient unary polynomial to one character P, because unexpected results might occur by the collision of name. But `P restrict the collision within the area inside PythonSf expressions. It is not necessary to worry about collisions of name. So you can express short PythonSf form and calculate complex mathematical expressions. For real, you can calculate a division of Bool field coefficient polynomial by only (`P^7+1)/(`P^2+1) form.
 <p>
-You can describe customizations that is limited for an current directory if you write them in sfCrrntIni.py on the current directory. if you assign special equations to global variables in sfCrntIni.py that fill the needs for your special fields of study, then you can operates calculation with short PythonSf expressions.
+You can describe customizing program codes that are limited for an current directory if you write them in sfCrrntIni.py on the current directory. If you assign some labels to global variable with equations in sfCrntIni.py that fill the needs for your special fields of study, then you can operates calculations with short PythonSf expressions.
 <p>
-If you customize PythonSf, you might solve 90 percent or more of your daily mathematical problems with PythonSf one-liners. You can freely set the customizations to calculate like (`P^7+1)/(`P^2+1).
+If you adequately customize PythonSf, you might solve 90 percent or more of your daily mathematical problems with PythonSf one-liners. You can freely set the customizing functions like as setting `P to calculate (`P^7+1)/(`P^2+1).
 <p>
-Please notice that you explicitly condense your thinking given expressions.
+Please notice that you will explicitly condense your thinking in a sfCrrntIni.py file. In a sfCrrntIni.py customize file, there are just only important functions those are referred many times from PythonSf one-liners.
+Even after one year you can easily reconstruct the context that you was thinking at easy brousing of sfCrrntIn.py. And you can redo the old one-liner expressions leaved in a note.
 <p>
-At a notebook as of Mathematica, You can save calculation process and can refer it. But the great extents of it are rubbish. And it is difficult to sort out what are important expressions. Immediately after writing expressions it is useful because you still take the context and the important expressions in your brain. But after one year you must read the notebook from the beginning and reconstruct the context that you was thinking in long-ago days. You must work very hard to pick up important expression from the garbage and to reconstruct the old context.
+The easiness of the recalculations comes from that the one-liners depend only sfCrrntIn.py and not depend on many other calculations those were calculated long time ago. Because PythonSf one-liners are self-contained by themselves.
 <p>
-In sfCrrntIn.py there are only important expressions that are referred many times. Eve after one year you can reconstruct the context that you was thinking after rereading sfCrrntIn.py. And you can redo the old one-liner expressions in remaining memo pads
+
+At a notebook as of Mathematica, their each expression is not self-contained. You can save calculation process and can refer it. But the great extents of it are rubbish. And it is difficult to sort out what are important expressions. Immediately after writing the expression, the expression is useful because you are still memorizing all of the context and the important expressions in your brain. But after one year you must read the notebook from the beginning and reconstruct the context that you thought long-ago days. You must work very hard to pick up important expression from the garbage and to reconstruct the old context from the notebook.
 
 <h3>PythonSf uses CUI beneficial in human interface</h3>
 <!--
@@ -349,6 +353,8 @@ Currently we distribute only only for windows, The difference between smallWitho
 We distribute <a href="http://www.adrive.com/public/akJe3F/bigIncludingPythonSf096a_win7_64.zip">bigIncludingPython_v096a_win7_64.zip</a> ,<a href="http://www.adrive.com/public/6XjKBZ/bigIncludingPython_v096a_win_32.zip">bigIncludingPython_v096a_win_32.zip</a> for users who have not installed Python and SciPy,VPython,SymPy,Matplotlib packages that are needed to work PythonSf. Big PythonSf is a set in big file size:250MB. You don't need to install Python. In return for that, the size become big as 1.2GB after extracting it. But you can carry about it in current USB memory without problems.
 <p>
 Currently we distribute only only for windows, The difference between bigIncludingPython_v096a_win7_64 and bigIncludingPython_v096a_win_32 is in only for Vim editor. PythonSf itself works at both of 64/32 bit environments.
+<p>
+In addition, Vim in portable PythonSf is <a href="http://www.kaoriya.net/software/vim">kaoriya's vim </a>. It is a Vim distribution for Japanese. It will be less troublesome at using kanji symbol characters:∂∇□△ and kanji Greek characters:α β---. By the way, you should ask kVerifireLab for problems betwenn PythonSf and Vim. These are nothing to do with Vim of Kaoriya san.
 <h3>Install PythonSf</h3>
 <p>
 If you approve PythonSf after trying it, you can install it in your computer as below
@@ -372,9 +378,9 @@ If you use bigIncludingPython_v???, you have to do below works.
 Vc7VrfyMDdRt10D.zip is a key file to make a evaluation version of PythonSf work. You will not use Vc7VrfyMDdRt10D.zip after upgrading to a commercial version of PythonSf.
 
 
-<h3>Differences between a evaluation version and commertial version of PythonSf</h3>
+<h3>Differences between a evaluation version and commercial version of PythonSf</h3>
 <p>
-Differences between a evaluation version and commertial version of PythonSf is only below 2 points.
+Differences between a evaluation version and commercial version of PythonSf is only below 2 points.
 <ol>
 <li>There is a 5 sec delay at starting a calculation.
 <li>You need Vc7VrfyMDdRt10D.zip at current directory to make PythonSf work.が必要となる
@@ -385,19 +391,19 @@ If you approve PythonSf and want a commercial vesion of PythonSf, please send a 
 The price of the commercial PythonSf is \5000 or $60.
 
 <a name="■■ PythonSf vim operation"></a>
-<h2>■■ PythonSf vim operation</h2>
+<h2>■■ PythonSf Vim operations</h2>
 <p>
-Python is a CUI interface software which is superior in human interfaces. We implements PythonSf supposing that PythonSf is embedded in a editor which is familiar for each youser and have a console interface. For example we distribute Vim in portable PythonSf. It includes Vim macro:pysf.vim whichcalculates the strings under the cursor in Vim editor. We expect thant pairing PythonSf and vim bring about life changing software environments.
+Python is a CUI interface software. Because  that is used on a superior in human interfaces. We implements PythonSf supposing that PythonSf is embedded in a editor which is familiar for each user and has a console interface. We distribute pysf.vim macro file for Vim and pysf.el for Emacs. In this chapter we explain how to use PythonSf uder pysf.vim macro. There are PythonSf features which are base on the pysf macros embedded in a editor. Kanji λ:lambda expression is good one example.
 <p>
-If you wand to use your Vim not a unfamiliar Vim in a portable PythonSf distribution, then copy vim\vim73\plugin\pysf.vim to you Vim plungin directory. If you want to customize key bindings, please modify nnoremap lines. pysf.vim is a small macro which consists of 300 lines. If you know vim macros then you can customize it easily. Hereafter we explain pysf.vim macro assuming that you embedded pysf.vim in the vim plugin directory.
+In addition to calculating PythonSf expressions, pysf.vim macros can execute normal python codes. It also can execute OS commands. So on Vim, you can compile and execute other languages that are installed in your HDD drive. You might use PythonSf with combinating other softwares. 
 <p>
-Though pysf.vim is symple and small macros, you can use it for not only calculations of PythonSf expressions but also execution of Python codes, execution of os commands, and compilations of C language or others that are installed in you computer. Those macros are sorted to 2 types:macros related to one-liners and macros related tor blocks. Let start looking at simpler macros related to one-liners.
+&quot;pysf.vim&quot; consists of simple and small macros. Each of them are less than 20 lines. You can easily modify their codes like as key bindings. 
 <p>
-In addition, Vim in portable PythonSf is <a href="http://www.kaoriya.net/software/vim">kaoriya's vim </a>. It is a Vim distribution for Japanese. It will be less troublesome at using kanji simbole characters:∂∇□△ and kanji Greek characters:α β---.
+You can use PythonSf Vim macsros for not only calculations of PythonSf expressions but also executions of Python codes, executions of os commands, and compilations of C language or others languages that are installed in you computer. Those macros are dividable principally to 2 types:macros related to one-liners and macros related to blocks. Let start looking at simpler macros related to one-liners.
 <h3>Vim macros related to one-liners</h3>
 <h4>calculation of PythonSf one-liners</h4>
 <p>
-To calculate a PythonSf one-liner expression in Portable PythonSf Vim editor, you move the cursor ont to the one-liner expression string and operate keys:&quot;;j&quot; at normal mode and at insert mode operta keys&quot;Alt+;j"
+To calculate a PythonSf one-liner expression in Vim editor, you move the cursor on the one-liner expression:the character string and operate keys:&quot;;j&quot; at normal mode. At insert mode, you can operate keys&quot;Alt+;j&quot; too.
 <pre>
 <code>
 <span style="color: #9f009f;">
@@ -410,14 +416,16 @@ To calculate a PythonSf one-liner expression in Portable PythonSf Vim editor, yo
 </pre>
 <img src="./jpg/1111/one_liner_python_sf_eq_e.jpg">
 <p>
-The operation ;j make OS execute 3+4 string adding python -u -m sfPP strign before it. And in the command line at the bottom of Vim editor, the macro displays a string which OS returns from CUI
+The operation ;j makes a file:__tmp that contains &quot;3+4&quot; string, in current directory. And execute &quot;python -u -m sfPP -fl __tmp&quot; command string to pre-process it and execute pre-processed lines. Emacs display the computed result in the buffer arear at the bottom of Vim editor. At the same time Vim yanks the resulted strings which OS returned through CUI.
 <img src="./jpg/1111/one_liner_python_sf_eq_execute_e.jpg">
 <p>
-If you want to write the calculated result, you operate &quot;p&quot; at Vim normal mode.
+If you want to execute a PythohSf one-liner with the PythonSf Open version, then you should operate the &quot;,j&quot key operation at normal mode.
+<p>
+If you want to write down the calculated result in the text, you should operate &quot;p&quot; at Vim normal mode.
 <img src="./jpg/1111/one_liner_python_sf_eq_execute_paste_e.jpg">
 <h4>execution of Python one-liners</h4>
 <p>
-PythonSf is upper compatible with Python, so you can execute Python one-liners with ;j operation. At Vim normal mode, move the cursor on a Python one-liner code and do ;t key operation and Vim will execute the one-liner as below.
+PythonSf is upper compatible with Python, so you can execute Python one-liners with ;j operation. At Vim normal mode, move the cursor on a Python one-liner code and do the ;j key operation. So Vim will execute the one-liner as below.
 <pre>
 <code>
 <span style="color: #9f009f;">
@@ -428,7 +436,7 @@ IOError:You may use nonexistent variable name:[Errno 2] No such file or director
 </code>
 </pre>
 <p>
-By the way, it is below 9 lines that we implement a Vim macro for ;j operation.
+By the way, it is the below 11 lines where we implement the Vim macro for ;j operation.
 <pre>
 <code>
 function! ExecPySf_1liner()
@@ -446,11 +454,13 @@ endfunction
 </code>
 </pre>
 <p>
-You can customize this short Vim macro easily if you cant accept these operations.
+You can customize this short Vim macro easily if you cant accept these operations and actions.
+<!-- Below lines are obsolete
 <p>
 <b>ATTENTION</b>
 <p>
 Plese note that you can't use &quot; at Python/PythonSf one-liners. You have to enclse a string with single quote:' because Vim one-liner macro make a OS command string:python -u -m sfPP+adding &qutot;string under the cursor&quot; 
+-->
 <h4>execution of OS commands</h4>
 <p>
 pysf.vim macro can also execute OS commands under the cursor at normal mode, operating ;a as below.
@@ -460,7 +470,7 @@ dir cl*.pvl
 </pre>
 <img src="./jpg/1111/one_liner_command_execute.jpg">
 <p>
-You might not be approval doing dir command from Vim editor, but please think that it can execute any commands or executable files with parameters. It can do many things, For example do ;a key operation at Vim normal mode moving the cursor on the below string. It will open a byte_of_vim_v051 pdf file just at the 10th page. If you modify the page parameter 10 and file name, you can open the file at the page.
+You might not be approval for just doing dir command in Vim editor, but please think that it can execute any commands (or executable files with parameters at Windows OS). It can do many things, For example do ;a key operation at Vim normal mode after moving the cursor on the below string. It will open the byte_of_vim_v051 pdf file just at the 10th page. If you modify the page parameter 10 and file name, you can open the file at a page that you want.
 <pre>
 <b>command starting Acrobat assigning a page number</b>
 C:"\Program Files (x86)\Adobe\Reader 9.0\Reader\AcroRd32.exe" /A page=10 D:\utl\vim73\byte_of_vim_v051.pdf
@@ -484,16 +494,17 @@ http://www.nhk.or.jp/daily/english/
 <h4>start execution of PythonSf calculations</h4>
 <p>
 It is often wanted to display another graph leaving the first graph displaying. At a time like this, please do ;s key operation and Vim macro:ExecSf_start_1liner() will execute to calculate PythonSf expression in another process. This gives you to edit at Vim in parallel leaving displaying other graphs.
-<pre>
 
 <h4>line head comments of one liners</h4>
 <p>
-Comments are written in line head to ;; at Vim one-liner execution macro.
-<b>comment + ;; + a string of PythonSf expression </b>
+You can write comments in line left side till ;; with Vim one-liner execution macro.
+<pre>
+<b>comment + ;; + a string of a PythonSf expression </b>
 PythonSf expression displaying a graph;;plotGr(sin, 0,2pi)
 </pre>
 <p>
-We put comments in a line head because it is difficult to find out a start point of a one-liner at a glance. It become clearer at very long URL. So that Vim one-liner macro use ;; as a delimiter and take away the comment from line head to ;; and execute the command or expression after the ;;. For example move the cursor one the below URL and do ;f key operation then OS make a default browser go to a web page where you can download the news voice file ro calculate a PythonSf expression.
+Why we insist on putting a comment to head side? Though, in a PythonSf expression, we can put a comment after &quot;#&quot;. Because we can't recognize the comment at a glance, if the PythonSf expression become long. We encounter same problems for long OS commands or URL strings. So pysf.el one-liner macro recognize a line head comment till &quot;;;&quot; by assuming it as delimeter. For example, move the cursor on the below URL and do ;f key operation then OS make a default browser go to a web page where you can download the news voice file ro calculate a PythonSf expression.
+
 <pre>
 <b>comment + ;; + URL string</b>
 NHK English news;;http://www.nhk.or.jp/nhkworld/english/radio/program/index.html
@@ -501,9 +512,9 @@ NHK English news;;http://www.nhk.or.jp/nhkworld/english/radio/program/index.html
 <b>comment + ;; + PythonSf expression string</b>
 comment for a PythonSf expression;;3+4
 </pre>
-<h3>Vim macro related to a block</h3>
+<h3>Vim macros related to a block</h3>
 <p>
-pysf.vim macros can compile and execute a block code of Python or C or other general programming language.
+pysf.vim macros can compile and execute a block code of Python or C or any other programming language.
 <p>
 Block lines at pysf.vim means lines between //@@ and //@@@ strings as blow. Macro of pysf.vim executes or compiles the block.
 <pre>
@@ -519,14 +530,14 @@ Block lines at pysf.vim means lines between //@@ and //@@@ strings as blow. Macr
 
 <h4>calculations of PythonSf block expressions</h4>
 <p>
-If you want to calculate a number of PythonSf expressions in a block than calculating in a one-liner, please do the next things.
+If you want to calculate a number of PythonSf expressions in a block but to calculate in a one-liner, please do the next things.
 <ol>
-<li>write down the PythonSf expressions between &quot;//@@&quot; line and &quot;//@@&quot; line
+<li>write down the PythonSf expressions between &quot;//@@&quot; line and &quot;//@@@&quot; line
 <li>move the cursor on a line between &quot;//@@&quot; and  &quot;//@@@&quto;
 <li>do ;k key operation at Vim normal mode
 </ol>
 <p>
-Then pysf.vim macro writes down lines between //@@ and //@@@ to temp.py in current directory and executes python -u -m sfPP -fs temp.py. The the pre-processor transforms temp.py to __tempConverted.py that Python can deal with. After that it executes &quot;python -u __tempConverted.py&quot;.
+Then pysf.vim macro writes down lines between //@@ and //@@@ to __tmp file in current directory and executes python -u -m sfPP -fs __tmp. Then the pre-processor transforms the __tmp file to _tmC.py that Python can deal with. After that it executes &quot;python -u _tmC.py&quot;.
 
 <pre>
 <code>
@@ -581,9 +592,9 @@ The upper PythonSf block expressions draws a 3D belt conveyer graphic.
 <br>
 <img src="./jpg/1111/block_python_sf_comveyer.jpg">
 <p>
-By the way pulleys of belt conveyers is bigger at the center than at edge. It preserve the belt in center although it oppose your intuition.
+By the way the radius of the pulleys in the belt conveyer is bigger at the center than at the edges. It preserve the belt in center although it may oppose your intuition.
 <p>
-Adversely if you make the center of th pulley nallow, then the conveyer bolt will be pulled to one of the edge of th pulley and the conveyer will be destroyed.
+Adversely if you make the center of th pulley nallow, then the conveyer belt will be pulled to one of the edges of the pulley and the conveyer will be destroyed.
 <pre>
 <code>
 <span style="color: #9f009f;">
@@ -650,7 +661,7 @@ It is a hard work to draw up 3D graphs like upper ones using drawing software li
 
 <h4>execution of Python block codes</h4>
 <p>
-You can also execute Python codes between //@@ and //@@@, doing ;p key operation at Vin normal mode like upper PythonSf block executions.
+You can also execute Python codes between //@@ and //@@@, doing ;p key operation at Vim normal mode in the same manner as upper PythonSf block executions.
 <pre>
 <code>
 <span style="color: #9f009f;">
@@ -685,15 +696,450 @@ t.exitonclick()
 <p>
 In addition PythonSf is upper compatible with Python, so you can execute the upper Python block codes as a block of PythonSf expression and you can also execute the upper turtle program by ;k operation It will draw the same Koch curve. It will elapse more CPU time to pre-process the codes although you will not be aware of the time difference at a commercial version of PythonSf. At a evaluation version of PythonSf, there is a 5 sec delay and you will be aware the differnece of elapsed time.
 <p>
-By the way Vim macro:ExecPy_Bloc() executes the PythonSf block expressions. If you are interested to it, please refer it in pysf.vim file.
+By the way Vim macro:ExecPy_Bloc() executes the Python block codes. If you are interested to it, please refer it in pysf.vim file.
 
 <h4>Continuous execution after block</h4>
 <p>
-You can compile,link and execute any language continuing execution of string lines which is written just after a block. We have assigned this to ;e key operation.
+You can compile,link and execute any language, continuing execution of string lines which is written just after a block. We have assigned this to ;e key operation.
 <p>
-If you do ;e key operation putting cursor in a code block between //@@ and //@@@, then pysf.vim macro:Exec_BlockCntn() will do the below things.
+If you do the ;e key operation, putting cursor in a code block between //@@ and //@@@, then pysf.vim macro:Exec_BlockCntn() will do below things.
 <ol>
-<li>write to a __temp file the block codes between &quot;//@@&quot; line and &quot;//@@&quot; line
+<li>to a __temp file, write block codes between &quot;//@@&quot; line and &quot;//@@&quot; line
+<li>look for the next string lines //@@@
+<li>if the head of the string line is &quot;//&quot; then execute the string line as OS command
+<li>continue the executions until it finds no &quot;//&quot;
+</ol>
+<p>
+If you had written down a copy command and a compile command as //copy __temp ... //gcc ..., in __temp file Exec_BlockCntn() macro writes the code beteween //@@ and //@@@ and copy and compile as a below example. 
+<pre>
+<code>
+<span style="color: #9f009f;">
+<b>continuing execution of command with a block code： compile and execute C programm</b>
+//@@
+//06.01.28  test valarray sum <== OK
+#include &;t;valarray&gt;
+#include &;t;iostream&gt;   // iostream cannot co-exist with systemc.h
+using namespace std;
+
+int main()
+{
+    valarray&lt;int&gt; vlrInAt(5);  // size 5 vararray initialize by 0
+    vlrInAt[0]=1;
+    vlrInAt[1]=2;
+    vlrInAt[2]=3;
+    vlrInAt[3]=4;
+    vlrInAt[4]=5;
+    
+    cout &lt;&lt; vlrInAt.sum() &lt;&lt; endl;
+    return 0;
+}
+//@@@
+//copy __temp a.cpp /y
+//g++ a.cpp  -O0 -g
+//a
+
+</span>
+</code>
+</pre>
+<br>
+<img src="./jpg/1111/block_gpp_block_continue.jpg">
+
+<p>
+You can write any string lines after &quot;//@@@&quot; with ;e key operation:continuing execution of command with a block code. If you want to execute block codes with Haskell, you might just write down as below.
+<pre>
+<code>
+<span style="color: #9f009f;">
+<b>continuing execution of command with a block code： compile and execute C programm</b>
+//@@
+data Variables = C Char | S String | I Int | Iex Integer | D Double | F Float
+data VarList a = VarX a [Variables]
+
+instance Show Variables where
+    show (C ch)  = "C "   ++ show ch
+    show (S str) = "S "   ++ show str
+    show (I m)   = "I "   ++ show m
+    show (Iex n) = "Iex " ++ show n
+    show (D o)   = "D "   ++ show o
+    show (F p)   = "F "   ++ show p
+
+instance Show a => Show (VarList a) where
+    show (VarX x y) = "Var " ++ show x ++ " " ++ show y
+
+x = VarX 11 [(Iex 21), (S "fd"), (C 'a')]
+
+main = do
+    print x
+//@@@
+//copy __temp temp.hs /y
+//D:\lng\Haskell\ghc6121\bin\runghc.exe temp.hs
+
+Var 11 [Iex 21,S "fd",C 'a']
+</span>
+</code>
+</pre>
+<p>
+You can execute upper Haskell program even without setting PATH environment variable becuase the upper example executes Haskell with the full path file name.
+<p>
+Continuing execution of commands with a block code is convenient for execution of test program codes which are so many and small. If you would have these small test code files by hundreds, You couldn't manage them. But you can put the codes in big one file. You would leave compile/liner options too in the big file. You can rerun each of the codes any time and a number of time just moving the cursor on one of the code block and doing the key operation ;e at Vim normal mode.
+<p>
+By the way there is no error handlings in Exec_BlockCntn() code. That should be fixed up. But even the current Exec_BlocnTntn() is sufficiently convenient. So we make a test exhibition of Exec_BlockCntn()
+
+<h3>Inputting kanji characters of greek letters or ∂∇□△ symbols</h3>
+<p>
+You could input kanji characters of greek letters or ∂∇□△ symbols using Windows IME. But it is bother to do on/off operations of IME in the typing actions of expressions. We have implemented Vim macro:ConvertAlpbt2Greek() that help out to input the greek/symbol characters
+<ol>
+<li>You can input each of αβγδεζηθικλμνξοπρστυφχψω by ctrl+a g key operation at Vim input mode just just after each of abgdezhqiklmnxoprstufcyw.
+<li>You can input each of ΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩby ctrl+a g key operation at Vim input mode just after each of ABGDEZHQIKLMNXOPRSTUFCYW.
+<li>You can input ∂:round kenji character by ctrl+a+g key operation just after r`
+<li>You can input ∇:nabla kenji character by ctrl+a+g key operation just after n`
+<li>You can input □:dalembertian kenji character by ctrl+a+g key operation just after d`
+<li>You can input △:laplacian kenji character by ctrl+a+g key operation just after l`
+</ol>
+
+<a name="■■ PythonSf emacs operation"></a>
+<h2>■■ PythonSf Emacs operations</h2>
+<p>
+Python is a CUI interface software. Because  that is used on a superior in human interfaces. We implements PythonSf supposing that PythonSf is embedded in a editor which is familiar for each user and has a console interface. We distribute pysf.vim macro file for Vim and pysf.el for Emacs. In this chapter we explain how to use PythonSf uder pysf.el macro. There are PythonSf features which are base on the pysf macros embedded in a editor. Kanji λ:lambda expression is good one example.
+<p>
+In addition to calculating PythonSf expressions, pysf.el macros can execute normal python codes. It also can execute OS commands. So on Emacs, you can compile and execute other languages that are installed in your HDD drive. You might use PythonSf with combinating other softwares. 
+<p>
+&quot;pysf.el&quot; consists of simple and small macros. Each of them are less than 20 lines. You can easily modify their codes like as key bindings. 
+<p>
+You can use PythonSf Vim macsros for not only calculations of PythonSf expressions but also executions of Python codes, executions of os commands, and compilations of C language or others languages that are installed in you computer. Those macros are dividable principally to 2 types:macros related to one-liners and macros related to blocks. Let start looking at simpler macros related to one-liners.
+<h3>Emacs macros related to one-liners</h3>
+<h4>calculation of PythonSf one-liners</h4>
+<p>
+To calculate a PythonSf one-liner expression in Emacs editor, you move the cursor on the one-liner expression:the character string and operate keys:&quot;C-;C-j&quot;.
+<pre>
+<code>
+<span style="color: #9f009f;">
+<b>PythonSf one-liner</b>
+3+4
+===============================
+7
+</span>
+</code>
+</pre>
+<img src="./jpg/1111/one_liner_python_sf_eq_emacs.jpg">
+<p>
+The operation C-; C-j makes a file:__tmp that contains &quot;3+4&quot; string, in current directory. And execute &quot;python -u -m sfPP -fl __tmp&quot; command string to it and execute pre-processed lines. Emacs display the computed result in the echo arear at the bottom of Emacs editor. At the same time Emacs yanks the resulted strings which OS returned through CUI.
+<img src="./jpg/1111/one_liner_python_sf_eq_execute_emacs.jpg">
+<p>
+If you want to execute a PythohSf one-liner with the PythonSf Open version, then you should operate the C-, C-j key operation.
+<p>
+If you want to write down the calculated result in the text, you should operate &quot;C-y&quot;:yank.
+<img src="./jpg/1111/one_liner_python_sf_eq_execute_paste_emacs.jpg">
+<h4>execution of Python one-liners</h4>
+<p>
+PythonSf is upper compatible with Python, so you can execute Python one-liners with C-; C-j operation. Move the cursor on a Python one-liner code and do the C-; C-j key operation. So Emacs will execute the one-liner as below.
+<pre>
+<code>
+<span style="color: #9f009f;">
+<b>PythonSf one-liner</b>
+import tarfile as tr; tr.open('pycrypto-2.0.1.tar.gz', 'r').extractall()
+IOError:You may use nonexistent variable name:[Errno 2] No such file or directory: 'pycrypto-2.0.1.tar.gz'
+</span>
+</code>
+</pre>
+<p>
+By the way, it is below 10 lines where we implement the Emacs macro for C-; C-j operation.
+<pre>
+<code>
+<span style="color: #9f009f;">
+<b>pysf.el function for PythonSf one-liners</b>
+(defun ExecPySf_1liner()
+    "Evaluates the current line in PythonSf, then copies the result to the clipboard."
+    (interactive)
+    (write-region (__getLineOmittingComment) (line-end-position) "__tmp" nil)
+
+    (let ((strAt
+             (shell-command-to-string "python -u -m sfPP -fl __tmp" )
+         ))
+        (message strAt)
+        (kill-new strAt)))
+</span>
+</code>
+</pre>
+<p>
+Additionaly we show the C-, C-j corresponding macro code which are called with PythonSf Open version one-liners.
+<pre>
+<code>
+<span style="color: #9f009f;">
+<b>pysf.el function for open version PythonSf one-liners</b>
+(defun ExecPySfOp_1liner()
+    "Evaluates the current line in PythonSf, then copies the result to the clipboard."
+    (interactive)
+    (write-region (__getLineOmittingComment) (line-end-position) "__tmp" nil)
+
+    (let ((strAt
+             (shell-command-to-string "python -u -m sfPPOp -fl __tmp" )
+         ))
+        (message strAt)
+        (kill-new strAt)))
+</span>
+</code>
+</pre>
+<p>
+You can customize this short Emacs macro easily if you cant accept these operations and actions.
+<blockquote>
+<div class="qtitle">the pre-processor, a __tmp file and a _tmC.py file</div>
+<p>
+Emacs macro:pysf.el generates a __tmp file in a current directory with the C-; C-j or C-, C-j operation and executes &quot;python -u -m sfPP -fl __tmp&quot; or &quot;python -u -m sfPPOp -fl __tmp&quot; commands. Then it pre-processes the __tmp file and executes the python code lines which are generated by the pre-processor. The python code lines are save at the _tmC.py file in the current directory at the same time. PythonSf does not directly execute the _tmC.py file. PythonSf generates the _tmC.py file to debug it. If you want more particular trace information, you should execute the _tmC.py file. If you want single step traces. then do &quot;python -m pdb _tmC.py&quot;
+</blockquote>
+<!-- Below lines are obsolete
+<b>ATTENTION</b>
+<p>
+Plese note that you can't use &quot; at Python/PythonSf one-liners. You have to enclse a string with single quote:' because Vim one-liner macro make a OS command string:python -u -m sfPP+adding &qutot;string under the cursor&quot; 
+-->
+<h4>execution of OS commands</h4>
+<p>
+pysf.el macro can also execute OS commands under the cursor, operating C-; C-a as below.
+<pre>
+<b>dir command string</b>
+dir cl*.pvl
+</pre>
+<img src="./jpg/1111/one_liner_command_execute_emacs.jpg">
+<p>
+You might not be approval for just doing dir command in Emacs editor, but please think that it can execute any commands (or executable files with parameters at Windows). It can do many things, For example do ;a key operation in Emacs after moving the cursor on the below string. It will open the byte_of_vim_v051 pdf file just at the 10th page. If you modify the page parameter 10 and file name, you can open the file at the page that you want.
+<pre>
+<b>command starting Acrobat assigning a page number</b>
+C:"\Program Files (x86)\Adobe\Reader 9.0\Reader\AcroRd32.exe" /A page=10 D:\utl\vim73\byte_of_vim_v051.pdf
+</pre>
+<p>
+By the way, Exc_command() Emacs macro executes OS commands. If you interest it or want to customize it then refer to pysf.el file.
+<h4>execution of OS command with start</h4>
+<p>
+The upper command, which opens a pdf, file doesn't require a return value. But you can't edit Emacs while opening the pdf file because Emacs executes the opening command as a child process of Emacs. To avoid this, please do C-; Cf operation in Emacs if you are using Windows OS. Emacs macro:Exec_start() executes commands adding &quot;start&quot; string at Windows OS.
+<p>
+If you execute &quot;start fileName&quot; at Windows OS, then OS executes an application programm that are associated with the filename extension using the filename as a command parameter. Applying this, you might operate computers more conveniently. For example you move the cursor on URL string in Emacs and do the key operation C-; C-f then Windows OS executes the default brauser with the URL as below. 
+<p>
+C-; C-f operation is useless at Linux. Because there is no functions that relate extensions to applications. If you want to execute OS commands concurrently, please add ; to OS command strings.
+<pre>
+<b>C-; C-f operation on a URL string i.e start execution</b>
+http://www.nhk.or.jp/daily/english/
+</pre>
+<br>
+<b>After the upper C-; C-f operation, the web page of NHK English news will be opend in a default brauser.</b>
+<br>
+<img src="./jpg/1111/one_liner_start_nhk.jpg">
+<!--
+<h4>start execution of PythonSf calculations</h4>
+<p>
+It is often wanted to display another graph leaving the first graph displaying. At a time like this, please do C-; C-s key operation and Emacs macro:ExecSf_start_1liner() will execute to calculate PythonSf expression in another process. This gives you to edit at Emacs in parallel leaving displaying other graphs.
+<p>
+Sorry, this function is only for Windows, yet implemented  for Linux.
+-->
+<h4>line head comments of one liners</h4>
+<p>
+You can write a comment to a one-liner in the left side untill &quot;;;&quot;:head side for Emacs one-liner execution macros.
+<pre>
+<b>comment + ;; + a string of a PythonSf expression </b>
+PythonSf expression displaying a sin function graph;;plotGr(sin, 0,2pi)
+</pre>
+<p>
+Why we insist on putting a comment to head side? Though, in a PythonSf expression, we can put a comment after &quot;#&quot;. Because we can't recognize the comment at a glance, if the PythonSf expression become long. We encounter same problems for long OS commands or URL strings. So pysf.el one-liner macro recognize a line head comment till &quot;;;&quot; by assuming it as delimeter. For example, move the cursor on the below URL and do C-; C-f key operation then OS make a default browser go to a web page where you can download the news voice file ro calculate a PythonSf expression.
+
+<pre>
+<b>comment + ;; + URL string</b>
+NHK English news;;http://www.nhk.or.jp/nhkworld/english/radio/program/index.html
+Kennedy: We Choose to go to the Moon;;http://www.youtube.com/watch?v=g25G1M4EXrQ
+
+<b>comment + ;; + PythonSf expression string</b>
+comment for a PythonSf expression;;3+4
+</pre>
+<h3>Emacs macros related to a block</h3>
+<p>
+pysf.el macros can compile and execute a block code of Python or C or any other programming languages.
+<p>
+Block lines at pysf.el means lines between //@@ and //@@@ strings as blow. Macro of pysf.el executes or compiles the block.
+<pre>
+<code>
+<b>a block for pysf.vim</b>
+//@@
+    ・
+  block lines
+    ・
+//@@@
+</code>
+</pre>
+
+<h4>calculations of PythonSf block expressions</h4>
+<p>
+If you want to calculate a number of PythonSf expressions in a block but to calculate in a one-liner, please do the next things.
+<ol>
+<li>write down the PythonSf expressions between &quot;//@@&quot; line and &quot;//@@@&quot; line
+<li>move the cursor on a line between &quot;//@@&quot; and  &quot;//@@@&quto;
+<li>do C-; C-k key operation
+</ol>
+<p>
+Then pysf.el macro writes down lines between //@@ and //@@@ to __tmp file in current directory and executes python -u -m sfPP -fs __tmp. Then the pre-processor transforms the __tmp file to _tmC.py that Python can deal with. After that it executes &quot;python -u _tmC.py&quot;.
+
+<pre>
+<code>
+<span style="color: #9f009f;">
+<b>PythonSf block</b>
+//@@
+# 07.11.26 beer barrel form pulley
+# width = 5 meter, hieght = 1meer,  depth 1 meter, 
+
+#import sf
+import pysf.sfFnctns as sf
+
+N, M =20,5
+dctUpper={}
+dctLower={}
+for pos, index in zip(sf.masq([-2.5,N+1, 5.0/N],[-0.5,M+1, 1.0/M]), sf.mrng(N+1,M+1) ):
+    dctUpper[index] = (pos[0], 1, pos[1])
+    dctLower[index] = (pos[0],-1, pos[1])
+
+N, M = 10,5
+dctLeft ={}
+dctRight ={}
+for (theta, z), index in zip(sf.masq([sf.pi/2, N+1, -sf.pi/N], [-0.5, M+1, 1.0/M])
+                            ,sf.mrng(N+1,M+1) ):
+    dctRight[index] = [2.5+sf.cos(theta), sf.sin(theta),z]
+    dctLeft[index] = [-2.5-sf.cos(theta), sf.sin(theta),z]
+
+
+sf.renderFaces(dctUpper)
+sf.renderFaces(dctLower)
+sf.renderFaces(dctLeft)
+sf.renderFaces(dctRight)
+
+dctLeft ={}
+dctRight ={}
+N=40
+for (theta, z), index in zip(sf.masq([sf.pi, N+1, -2*sf.pi/N], [-0.5, M+1, 1.0/M])
+                            ,sf.mrng(N+1,M+1) ):
+    dctRight[index] = [2.5+(2-sf.cosh(z))*sf.cos(theta), (2-sf.cosh(z))*sf.sin(theta),z]
+    dctLeft[index] = [-2.5-(2-sf.cosh(z))*sf.cos(theta), (2-sf.cosh(z))*sf.sin(theta),z]
+
+sf.renderFaces(dctLeft, blMeshOnly=True, meshColor=sf.red)
+sf.renderFaces(dctRight, blMeshOnly=True, meshColor=sf.red)
+//@@@
+</span>
+</code>
+</pre>
+<p>
+By the way Emacs macro:ExecSf_Bloc() executes the PythonSf block expressions. If you are interested to it, please refer it in pysf.el file.
+<p>
+The upper PythonSf block expressions draws a 3D belt conveyer graphic.
+<br>
+<img src="./jpg/1111/block_python_sf_comveyer.jpg">
+<p>
+By the way the radius of the pulleys in the belt conveyer is bigger at the center than at the edges. It preserve the belt in center although it may oppose your intuition.
+<p>
+Adversely if you make the center of th pulley nallow, then the conveyer belt will be pulled to one of the edges of the pulley and the conveyer will be destroyed.
+<pre>
+<code>
+<span style="color: #9f009f;">
+<b>PythonSf block equations</b>
+//@@
+# 07.11.26
+# width = 5 meter, hieght = 1meer,  depth 1 meter, 
+
+#import sf
+import pysf.sfFnctns as sf
+
+N, M =20,5
+dctUpper={}
+dctLower={}
+for pos, index in zip(sf.masq([-2.5,N+1, 5.0/N],[-0.5,M+1, 1.0/M]), sf.mrng(N+1,M+1) ):
+    dctUpper[index] = (pos[0], 1, pos[1])
+    dctLower[index] = (pos[0],-1, pos[1])
+
+N, M = 10,5
+dctLeft ={}
+dctRight ={}
+for (theta, z), index in zip(sf.masq([sf.pi/2, N+1, -sf.pi/N], [-0.5, M+1, 1.0/M])
+                            ,sf.mrng(N+1,M+1) ):
+    dctRight[index] = [2.5+sf.cos(theta), sf.sin(theta),z]
+    dctLeft[index] = [-2.5-sf.cos(theta), sf.sin(theta),z]
+
+
+sf.renderFaces(dctUpper)
+sf.renderFaces(dctLower)
+sf.renderFaces(dctLeft)
+sf.renderFaces(dctRight)
+
+dctLeft ={}
+dctRight ={}
+N=40
+for (theta, z), index in zip(sf.masq([sf.pi, N+1, -2*sf.pi/N], [-0.5, M+1, 1.0/M])
+                            ,sf.mrng(N+1,M+1) ):
+    dctRight[index] = [2.5+sf.cosh(z)*sf.cos(theta), sf.cosh(z)*sf.sin(theta),z]
+    dctLeft[index] = [-2.5-sf.cosh(z)*sf.cos(theta), sf.cosh(z)*sf.sin(theta),z]
+
+sf.renderFaces(dctLeft, blMeshOnly=True, meshColor=sf.red)
+sf.renderFaces(dctRight, blMeshOnly=True, meshColor=sf.red)
+
+thetaS = 2.05117740593
+#Z0 = 0.48121182506 # real value
+Z0 = 0.35   # exagerated value
+lstRear =[(2.5+sf.cosh(0.5)*sf.cos(thetaS),1,-0.5), (2.5, sf.cosh(-Z0), -Z0)]
+lstFront =[(2.5+sf.cosh(0.5)*sf.cos(thetaS),1,0.5), (2.5, sf.cosh(Z0), Z0)]
+N=30
+for theta in sf.arSqnc(sf.pi/2, N+1, -sf.pi/N):
+    lstRear.append( (2.5+sf.cosh(Z0)*sf.cos(theta), sf.cosh(-Z0)*sf.sin(theta),-Z0) )
+    lstFront.append( (2.5+sf.cosh(Z0)*sf.cos(theta), sf.cosh(Z0)*sf.sin(theta),Z0) )
+
+sf.plotTrajectory(lstRear, blAxis=False)
+sf.plotTrajectory(lstFront, blAxis=False)
+//@@@
+</span>
+</code>
+</pre>
+<br>
+<img src="./jpg/1111/block_python_sf_concave_comveyer.jpg">
+<p>
+It is a hard work to draw up 3D graphs like upper ones using drawing software like Microsoft Word. If you are with math and science majors, you might more easily draw them with PythonSf expressions.
+
+<h4>execution of Python block codes</h4>
+<p>
+You can also execute Python codes between //@@ and //@@@, doing ctrl+; ctrl+p key operation in Emacs editor in the same manner as upper PythonSf block executions.
+<pre>
+<code>
+<span style="color: #9f009f;">
+<b>Python block execution</b>
+//@@
+#from;;http://www.daniweb.com/forums/thread113274.html
+#from TurtleWorld import *
+#TurtleWorld()
+import turtle as t
+
+def Koch(length):
+    if length&lt=2 :
+        t.forward(10*length)
+        return
+
+    Koch(length//3)
+    t.left(60)
+    Koch(length//3)
+    t.right(120)
+    Koch(length//3)
+    t.left(60)
+    Koch(length//3)
+
+t.setpos(-300,10)
+Koch(60)
+t.exitonclick()
+</span>
+</code>
+</pre>
+<p>
+<img src="./jpg/1111/block_python_kocho.jpg">
+<p>
+In addition PythonSf is upper compatible with Python, so you can execute the upper Python block codes as a block of PythonSf expression and you can also execute the upper turtle program by ;k operation It will draw the same Koch curve. It will elapse more CPU time to pre-process the codes although you will not be aware of the time difference at a commercial version of PythonSf. At a evaluation version of PythonSf, there is a 5 sec delay and you will be aware the differnece of elapsed time.
+<p>
+By the way Emacs macro:ExecPy_Bloc() executes the Python block codes. If you are interested to it, please refer it in pysf.el file.
+
+<h4>Continuous execution after block</h4>
+<p>
+You can compile,link and execute any language, continuing execution of string lines which is written just after a block. We have assigned this to ctrl+; ctrl+e key operation.
+<p>
+If you do the ctrl+; ctrl+e key operation, putting cursor in a code block between //@@ and //@@@, then pysf.vim macro:Exec_BlockCntn() will do below things.
+<ol>
+<li>to a __temp file, write block codes between &quot;//@@&quot; line and &quot;//@@&quot; line
 <li>look for the next string lines //@@@
 <li>if the head of the string line is &quot;//&quot; then execute the string line as OS command
 <li>continue the executions until it finds no &quot;//&quot;
@@ -734,7 +1180,7 @@ int main()
 <img src="./jpg/1111/block_gpp_block_continue.jpg">
 
 <p>
-You can write any string lines after &quot;//@@@&quot; at ;e key operation:continuing execution of command with a block code. If you want to execute block codes with Haskell, you might just write down as below.
+You can write any string lines after &quot;//@@@&quot; with ctrl+; ctrl+e key operation:continuing execution of command with a block code. If you want to execute block codes with Haskell, you might just write down as below.
 <pre>
 <code>
 <span style="color: #9f009f;">
@@ -769,26 +1215,21 @@ Var 11 [Iex 21,S "fd",C 'a']
 <p>
 You can execute upper Haskell program even without setting PATH environment variable becuase the upper example executes Haskell with the full path file name.
 <p>
-Continuing execution of command with a block code is convenient for execution of test program codes which are so many and small. If you wold have these small test code files by hundres, You couldn't manage them. But you can put the codes in big one file. You would leave compile/liner options too in the big file. You can rerun each of the codes any time and a number of time just moving the cursor on one of the code block and doing the key operation ;e at Vim normal mode.
+Continuing execution of commands with a block code is convenient for execution of test program codes which are so many and small. If you would have these small test code files by hundreds, You couldn't manage them. But you can put the codes in big one file. You would leave compile/liner options too in the big file. You can rerun each of the codes any time and a number of time just moving the cursor on one of the code block and doing the key operation ctrl+; ctrl+e in Emacs editor.
 <p>
 By the way there is no error handlings in Exec_BlockCntn() code. That should be fixed up. But even the current Exec_BlocnTntn() is sufficiently convenient. So we make a test exhibition of Exec_BlockCntn()
 
 <h3>Inputting kanji characters of greek letters or ∂∇□△ symbols</h3>
 <p>
-You could input kanji characters of greek letters or ∂ symbol using Windows IME. But it is bother to do on/off operations of IME in the typing actions of expressions. We have implementd vim macros:ConvertAlpbt2Greek() that help out to input the greek/symbol characters
+You could input kanji characters of greek letters or ∂∇□△ symbols using Windows IME. But it is bother to do on/off operations of IME in the typing actions of expressions. We have implemented Emacs macro:ConvertAlpbt2Greek() that help out to input the greek/symbol characters
 <ol>
-<li>You can input each of αβγδεζηθικλμνξοπρστυφχψω by ctrl+a g key operation at Vim input mode just after each of abgdezhqiklmnxoprstufcyw.
-<li>You can input each of ΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩby ctrl+a g key operation at Vim input mode just after each of ABGDEZHQIKLMNXOPRSTUFCYW.
-<li>You can input ∂:round kenji character by ctrl+a+g key operation just after r`
-<li>You can input ∇:nabla kenji character by ctrl+a+g key operation just after n`
-<li>You can input □:dalembertian kenji character by ctrl+a+g key operation just after d`
-<li>You can input △:laplacian kenji character by ctrl+a+g key operation just after l`
+<li>You can input each of αβγδεζηθικλμνξοπρστυφχψω by ctrl+, ctrl+g key operation in Emacs editro just after each of abgdezhqiklmnxoprstufcyw.
+<li>You can input each of ΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩby ctrl+, ctrl+g key operation in Emacs editor just after each of ABGDEZHQIKLMNXOPRSTUFCYW.
+<li>You can input ∂:round kenji character by ctrl+, ctrl+g key operation just after r`
+<li>You can input ∇:nabla kenji character by ctrl+, ctrl+g key operation just after n`
+<li>You can input □:dalembertian kenji character by ctrl+, ctrl+g key operation just after d`
+<li>You can input △:laplacian kenji character by ctrl+, ctrl+g key operation just after l`
 </ol>
-
-<a name="■■ PythonSf emacs operation"></a>
-<h2>■■ PythonSf emacs operation</h2>
-<p>
-There isn't a Emacs Lisp for PythonSf now. <!--Please write down it yourself. We will send a commercial PythonSf for the first programmer who implements the Emacs Lisp for PythonSf under the GPL General Public License. Please send me a e-mail to kverifierlab@yahoo.co.jp. -->
 
 
 <a name="■■ PythonSf Fast Tour"></a>
@@ -872,6 +1313,10 @@ For example, to &quot;`X&quot; we have assigned a instance of a identical functi
 (`X^2+3`X+1)(2)
 ===============================
 11
+
+x=`X; (x^2+3x+1)(3)
+===============================
+19
 </span>
 </code>
 </pre>
@@ -2932,7 +3377,7 @@ render2dRGB(dct)
 <br>
 <h3>plotTmCh(..):plotting a time chart</h3>
 <p>
-You can plot time charts of row data in a matrix by setting plotTmCh(..) the matrix parameter. Let plot a time chart of actions of the below 1 bit D/A converter.
+You can plot time charts of row data in a matrix by setting plotTmCh(..) the matrix parameter. Let plot a time chart with actions of the below 1 bit D/A converter.
 <pre>
 <code>
 ΔΣ DA converter                   in >= 2**15 --> 1
@@ -2960,10 +3405,9 @@ N=256;f=λ sg,ds,out:(λ dsAg=ds+sg-out*2^15:[sg,dsAg,1 if dsAg>0 else -1])();mt
 </code>
 <br>
 <img src="./jpg/1111/oneliner_plottmch_1bit_da.jpg">
-<h3>Implementing graph functions by users</h3>
+<h3>To Implement graph functions by users</h3>
 <p>
-It is easy to implement graph functions by users. Because there are graphic packages like as pylab in Python.
-PythonSf でのグラフ表示関数はユーザー側でも簡単に実装可能です。pylab のようなグラフ表示パッケージがあるのですから。上に述べたグラフ表示関数も全てソースを公開しています。下のワンライナーで、plotTmCh(..) 関数のソースを見れます。
+It is easy to implement graph functions by users. Because there are graphic packages like as pylab in Python. The source code of the plotTmCh(..) function is open to public. You can acces to the source code just with a below PythonSf one-liner.
 <pre>
 <code>
 <span style="color: #9f009f;">
@@ -3038,13 +3482,17 @@ None
 </code>
 </pre>
 <p>
-グラフ表示関数の実装なんて大変だと思われるかもしれません。でも VPython または Matplotlib パッケージを使っているので、PythonSf のグラフ表示関数は数十行で記述できてしまうものばかりです。これらは全てソースまで公開しています。上の np.source(..) により PythonSf ワン･ライナーでソースを見ることも可能です。必要なグラフ表示機能はユーザーによって異なります。ぜひともユーザー側でのグラフ表示関数の実装にも挑戦してみてください。それらができたら customize.py または sfCrrntIn.py ファイルに書いてやるだけで、PythonSf 式として利用できるようになります。
+You might guess that it is difficult to implement functions displaying graphs. Using VPython or Matplotlib packages, the graph function in PythonSf are small code size. You can see their codes in one screen. They are open to the public. You can see them with upper the PythonSf one-liner and modify them. There are suited graph functions for each users. Please try to implement your graph functions. You can use them in PythonSf expressions, simply declaring them in sfCrrntin.py or custormize.py file.
+
 <a name="■■ 積分:quadR(..), quadC(..), quadAn(..)"></a>
 <h2>■■ 積分:quadR(..), quadC(..), quadAn(..)</h2>
 <p>
-Python の数値積分では scipy.integrate.quad が有名です。でも、この quad(..) 関数は、積分値と、その推測誤差の tuple pair を返してくれます。計算誤差まで返してくれるのは、一見良さそうですが、グラフを描かせたりするときは積分値のみを取り出す必要があり、ワンライナーで短く書くには返って不都合です。
+scipy.integrate.quad is famous at nemerical integration. But the quad(..) function returns a tuple of an integrated value and the estimated error. On first glance it is good to return an integrated value and the error. But it is bad for one-liner expressions in many cases which process integrated values, because it is necessary to pull out the integrated value from the tuple. So we implemented quadR(..) function that simply returns an integrated value.
 <p>
-また複素数値関数や調和関数の積分も行えるようにしたいので、PythonSf では計算誤差を返さない、積分値のみを返す quadR, quadC, quadAn 関数を用意しています。
+
+Python の数値積分では scipy.integrate.quad が有名です。でも、この quad(..) 関数は、積分値と、その推測誤差の tuple pair を返してくれます。計算誤差まで返してくれるのは、一見良さそうですが、グラフを描かせたりするときは積分値のみを取り出す必要があり、ワンライナーで短く書くには返って不都合です。そのため quadR(..) 関数を実装しています。
+<p>
+また複素数値関数や調和関数の積分も行えるようにしたいので、PythonSf では計算誤差を返さない、積分値のみを返す quadC, quadAn 関数も用意しています。
 <h3>quadR </h3>
 <p>
 quadR(実数値関数, 下限、上限) と引数を与えることで数値積分を計算します。下限・上限値には無限大：sy.inf を指定することも可能です。

@@ -85,7 +85,7 @@ JB :
   comments :
     provider : disqus
     disqus :
-      short_name : kenji_kobayashi
+      short_name : lobosKobayashi
    
   # Settings for analytics helper
   # Set 'provider' to the analytics provider you want to use.
