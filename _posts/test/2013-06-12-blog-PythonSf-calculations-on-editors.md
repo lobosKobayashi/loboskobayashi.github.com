@@ -7,7 +7,7 @@ tags : [pysf, tutorial]
 {% include JB/setup %}
 
 ## 概要
-PythonSf では、petit simulation:one-liner の積み重ねによる数学・物理・工学などにおける様々の問題の検討の積み重ねを主張します。petit simulation:one-liner に拘るのは、数学や物理の問題の検討に集中するためです。そのる最中にプログラミング・デバッグ作業が入ってくると、本来の目的としていることとは異なった考察に値の回転をとられてしまうからです。
+PythonSf XX では、petit simulation:one-liner の積み重ねによる数学・物理・工学などにおける様々の問題の検討の積み重ねを主張します。petit simulation:one-liner に拘るのは、数学や物理の問題の検討に集中するためです。そのる最中にプログラミング・デバッグ作業が入ってくると、本来の目的としていることとは異なった考察に値の回転をとられてしまうからです。
 
 If then else 構文が入ってこない、数式を並べただけの one-liner 式ならば、プログラミング作業・デバッグ作業とは無縁です。数学・物理・工学などの問題の考察だけに集中し続けられます。また one-liner が一行だけで独立していることが、それまでの計算過程からの文脈から独立して計算できることも、考察の積み重ねを強く支えて切れます。
 
@@ -86,7 +86,7 @@ PythonSf は CUI プログラムです。GUI ではありません。これは�
 PythonSf ワンライナー;;http://localhost:4000/pysf/manual/one-liners.htm#kOde:%E5%B8%B8%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B%E5%BC%8F
     D=2;inV=[-0.97m`,0.243, 0.97,-0.243, 0,0, -0.466m`/s`,-0.432, -0.466,-0.432, 0.932,0.864]; N=len(inV)//(2D) ; getFV=λ v,i,k:(λ r=krry(v[D k:D (k+1)])-krry(v[D i:D (i+1)]):r/norm(r)^3 if norm(r)!=0 else ~[0,0])(); sumFc=λ v,j:sum([getFV(v,j,k) for k in range(N) if j!=k]); fnc= λ *v: np.r_[v[D N:],(~[sumFc(v,j) for j in range(N)]).r]; mt=kOde(fnc,inV, 2 s`,400); cl=ClCplxColor(); for k in range(N):plotTrajectory(mt[:,D k:D (k+1)],color=cl.GetFltColor(exp(`i 2pi k/N)))
 
-:pysf.vim スクリプト関数・機能表
+### pysf.vim スクリプト関数・機能表
 
 |関数名                          |機能
 |:-------------------------------|:------------------------------------
