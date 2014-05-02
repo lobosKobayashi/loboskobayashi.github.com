@@ -1,0 +1,330 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <link rel="pingback" href="http://www.mathjax.org/xmlrpc.php" />
+    <script type='text/javascript' src='http://www.mathjax.org/wp-content/plugins/syntax-highlighter-mt/scripts/shCore.js'></script>
+    <script type='text/javascript' src='http://www.mathjax.org/wp-content/plugins/syntax-highlighter-mt/scripts/shAutoloader.js'></script>
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: { inlineMath: [['$','$'],['\\(','\\)']] }
+      });
+    </script>
+    <script type='text/javascript' src='http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
+
+
+    <title>Blog Pythonsf Calculations On Editors</title>
+    
+    <meta name="author" content="Name Lastname">
+
+    <!-- Enable responsive viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="/assets/themes/twitter/bootstrap/css/bootstrap.2.2.2.min.css" rel="stylesheet">
+    <link href="/assets/themes/twitter/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+
+    <!-- atom & rss feed -->
+    <link href="/atom.xml" type="application/atom+xml" rel="alternate" title="Sitewide ATOM Feed">
+    <link href="/rss.xml" type="application/rss+xml" rel="alternate" title="Sitewide RSS Feed">
+
+  </head>
+
+  <body>
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="container-narrow">
+          <a class="brand" href="/">Jekyll Bootstrap</a>
+          <ul class="nav">
+            
+            
+            
+
+
+  
+    
+      
+      	
+      	<li><a href="/archive.html">Archive</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/categories.html">Categories</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/pages.html">Pages</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/tags.html">Tags</a></li>
+      	
+      
+    
+  
+
+
+
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-narrow">
+
+      <div class="content">
+        
+<div class="page-header">
+  <h1>Blog Pythonsf Calculations On Editors <small>Supporting tagline</small></h1>
+</div>
+
+<div class="row-fluid post-full">
+  <div class="span12">
+    <div class="date">
+      <span>12 June 2013</span>
+    </div>
+    <div class="content">
+      
+<h2 id="section">概要</h2>
+
+<p>PythonSf を使えば vim や emacs といったエディタを Matlab や Mathematica 以上に有用な計算ツールに変貌させられます。PythonSf と使い慣れたエディタを使って効率的に計算作業をコンピュータに行わせましょう。<a href="#test name reference">1</a></p>
+
+<h2 id="vim--pysfvim-script-">Vim での pysf.vim script 組み込み</h2>
+<p>Vim エディタで PythonSf 計算をさせるには pysf.vim script を Vim に組み込みます。その手順は簡単です。Git で配布している pysf.vim を Vim がインストールされているディレクトリの ..\vim73\plugin\に置くだけです。キー･バインドは pysf.vim にハード･コーディングされています。</p>
+
+<p><img src="/images/2013/pysfVimToPlugin.png" alt="pysf.vim を Vim73\plugin へ" title="pysf.vim のコピー" /></p>
+
+<!--
+//@@
+    Git                  Vim73\vim\plugin\
+    +------------+       +---------------+  
+    |            | copy  |               |  
+    |  pysf.vim  +---- ->|  pysf.vim     |  
+    |            |       |               |  
+    +------------+       +---------------+
+                         
+//@@@
+//java -jar \utl\ditaa0_9.jar __tmp pysfVimToPlugin.png
+-->
+
+<h2 id="emacs--pysfel-script-">Emacs での pysf.el script 組み込み</h2>
+
+<p>Emacs エディタへの pysf.el script の組み込みは</p>
+
+<p><img src="/images/2013/pysfElToElisp.png" alt="pysf.el を .emacs.d\elisp\ へ" title="pysf.el のコピー" /></p>
+
+<!--
+//@@
+    Git                  .emacs.d\elisp\
+    +------------+       +---------------+  
+    |            | copy  |               |  
+    |  pysf.el   +---- ->|  pysf.el      |  
+    |            |       |               |  
+    +------------+       +---------------+
+                         
+//@@@
+//java -jar \utl\ditaa0_9.jar __tmp pysfElToElisp.png
+-->
+
+<pre><code>; 下のキー・バインディングを .emacs.d\init.el に追加する
+(require 'pysf)
+(global-set-key (kbd "C-; C-j") 'ExecPySf_1liner)       ;PythonSf one-liner
+(global-set-key (kbd "C-; C-a") 'Exec_command)          ;shell command one-liner
+(global-set-key (kbd "C-; C-f") 'Exec_start)            ;shell command one-liner with start
+(global-set-key (kbd "C-, C-j") 'ExecPySfOp_1liner)   ;PythonSfOp one-liner
+(global-set-key (kbd "C-; C-k") 'ExecSf_Block)          ;PythonSf Block
+(global-set-key (kbd "C-; C-p") 'ExecPy_Block)          ;PythonSf Block
+(global-set-key (kbd "C-, C-k") 'ExecSfOp_Block)      ;PythonSfOp Block
+
+(global-set-key (kbd "C-, C-g") 'ConvertAlpbt2Greek)    ;Convert alpahbet to Greek
+</code></pre>
+
+<h2 id="vim-">Vim での計算例</h2>
+<p>Vim エディタで PythonSf 計算をさせるには pysf.vim script を使います。このスクリプトを組み込んだ Vim も Git での <a href="https://github.com/lobosKobayashi/PythonSfCp932">PythonSfCp932</a> の配布ファイルに入っています。Windows で Vim を使える方は、評価のためには こちらを使われると便利です。ダウンロードした git working directory で下のコマンドを実行させるだけで Python Sf 計算を始められます。</p>
+
+<pre><code>vim\gvim.exe
+</code></pre>
+
+<p>\(\pi^{0.5}\) を計算したいときの Vim エディタ操作例を見てみましょう。 Vim エディタで計算をするときは、 pi^0.5 式の文字列行を打ち込み、その行にカーソルを置いたまま Vim normal mode で  <strong>;j</strong> 操作を行います。</p>
+
+<pre><code>pi^0.5
+</code></pre>
+
+<p>すると Vim 画面最下段のコマンド・エリアに下のように計算結果が表示されます</p>
+
+<pre><code>===============================
+1.77245385091
+</code></pre>
+
+<p>この計算結果文字列は Vim の「特殊レジスタ 0 と *」にも残されています。エディット・テキストにも計算結果を残したいときは、Vim の paste コマンド <em>p</em> を実行します。するとエディット画面は下のようになり、後で計算式と計算結果を参照できるようになります。</p>
+
+<pre><code>pi^0.5
+===============================
+1.77245385091
+</code></pre>
+
+<p>「Matlab や Mathematica を超える」などと不遜なことをいうのですから、電卓計算以上のことも もちろん可能です。例えば \(\int_{-\infty}^{+\infty} e^{-x^{2}} dx\) 定積分値は下の PythonSf 式で計算できます。</p>
+
+<pre><code>quadR(exp(-`X^2), -np.inf, np.inf)
+===============================
+1.77245385091
+</code></pre>
+
+<p>[0,t] 領域の積分値として定まるエラー関数 \(\int_{0}^{t} e^{-x^{2}} dx\) のグラフを下の PythonSf 式で描かせられます。</p>
+
+<pre><code>plotGr(λ t:quadR(exp(-`X^2), 0, t), 0,5)
+</code></pre>
+
+<h3 id="what-is-jekyll">What is Jekyll?</h3>
+
+<p>Jekyll is a parsing engine bundled as a ruby gem used to build static websites from
+dynamic components such as templates, partials, liquid code, markdown, etc. Jekyll is known as “a simple, blog aware, static site generator”.</p>
+
+<h3 id="name-idtest-name-referencename-examples"><name id="test name reference"></name> Examples</h3>
+
+<p>This website is created with Jekyll. <a href="https://github.com/mojombo/jekyll/wiki/Sites">Other Jekyll websites</a>.</p>
+
+
+    </div>
+
+  
+    <ul class="tag_box inline">
+      <li><i class="icon-folder-open"></i></li>
+      
+      
+
+
+  
+     
+    	<li><a href="/categories.html#lessons-ref">
+    		lessons <span>2</span>
+    	</a></li>
+    
+  
+
+
+    </ul>
+    
+
+  
+    <ul class="tag_box inline">
+      <li><i class="icon-tags"></i></li>
+      
+      
+
+
+  
+     
+    	<li><a href="/tags.html#intro-ref">intro <span>2</span></a></li>
+     
+    	<li><a href="/tags.html#beginner-ref">beginner <span>2</span></a></li>
+     
+    	<li><a href="/tags.html#jekyll-ref">jekyll <span>2</span></a></li>
+     
+    	<li><a href="/tags.html#tutorial-ref">tutorial <span>2</span></a></li>
+    
+  
+
+
+
+    </ul>
+    
+
+    <hr>
+    <div class="pagination">
+      <ul>
+      
+        <li class="prev"><a href="/lessons/2011/12-29/jekyll-introduction" title="Jekyll Introduction">&larr; Previous</a></li>
+      
+        <li><a href="/archive.html">Archive</a></li>
+      
+        <li class="next"><a href="/pythonsf/2013/07-18/blog-PythonSf-calculations-on-Emacs" title="Blog Pythonsf Calculations On Emacs">Next &rarr;</a></li>
+      
+      </ul>
+    </div>
+    <hr>
+    
+
+
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_developer = 1;
+    var disqus_shortname = 'lobosKobayashi'; // required: replace example with your forum shortname
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+
+  </div>
+</div>
+
+
+      </div>
+      <hr>
+      <footer>
+        <p>&copy; 2013 Name Lastname
+          with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
+          and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
+        </p>
+      </footer>
+
+    </div>
+
+    
+  </body>
+</html>
+
