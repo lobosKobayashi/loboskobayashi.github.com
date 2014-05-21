@@ -10,7 +10,7 @@ tags : [pysf, wikipedia]
 numpy の pseudo inverse は昔読んだ generalized inverse とは少し異なっている。Rank の小さい行列、またゼロ行列さえも pseudo inverse が存在する。それらについての PythonSf 数値実験と検討を報告する。
 
 ## 擬似逆行列の定義と具体例
-ここの [wikipedia](http://ja.wikipedia.org/wiki/擬似逆行列) に書かれている逆行列の説明がコンパクトで過不足もないと思います。
+ここに [wikipedia](http://ja.wikipedia.org/wiki/擬似逆行列) に擬似逆行列の定義と解説が書かれてます。下に定義を再掲します。
 
 <center><b>擬似逆行列の定義</b></center>
 
@@ -24,7 +24,7 @@ numpy の pseudo inverse は昔読んだ generalized inverse とは少し異な�
         (A Apsd).d == A Apsd,
         (Apsd A).d == Apsd A.
 
-大部分の方は上の定義を見せられても半分狐に摘まれたような気分でしょう。こういう時は具体例での数値実験で式の意味を明確にしましょう。幸い np.linalg.pinv(..) 関数が擬似逆行列を生成して返してくれます。なお np.linalg.pinv(..) 関数は ufunc ではないのですが、ClTensor インスタンスを引数に与えると ClTensor インスタンスの擬似逆行列を返してくれます
+大部分の方は上の定義を見せられても半分狐に摘まれたような気分でしょう。広義可逆元なんて初めて見る方が殆どでしょう。こういう時は具体例での数値実験で式の意味を明確にしましょう。幸い np.linalg.pinv(..) 関数が擬似逆行列を生成して返してくれます。なお np.linalg.pinv(..) 関数は np.ufunc ではないのですが、ClTensor インスタンスを引数に与えると ClTensor インスタンスの擬似逆行列を返してくれます。実質的に np.ufunc です。
 
 <center><b>2x3 ランダム複素行列:A と その擬似逆行列:Apsd</b></center>
     seed(0); A=randn(3,2)+ `i randn(3,2); A
@@ -68,7 +68,7 @@ numpy の pseudo inverse は昔読んだ generalized inverse とは少し異な�
 
 3x2 行列の擬似逆行列は 2x3 行列です。
 
-「単位行列 [[1,0],[0,1]] になっていない」と言わないでください。実数のコンピュータ計算には誤差がつき物です。
+Apsd A が「単位行列 [[1,0],[0,1]] になっていない」と言わないでください。実数のコンピュータ計算には誤差がつき物です。
 
     seed(0); A=randn(3,2)+ `i randn(3,2); Apsd=np.linalg.pinv(A); pp(Apsd A);
     [[ 1, 0]
@@ -80,6 +80,7 @@ numpy の pseudo inverse は昔読んだ generalized inverse とは少し異な�
     ,[  0.31918+0.120161j,           0.703891, -0.10708-0.283986j]
     ,[ 0.230665-0.262658j, -0.10708+0.283986j,           0.688919]]
     -------- pp --
+
 ## 定義「条件 1」の確認
 上の定義の「条件 1」が成り立つことを数値実験で確認してみましょう。
 
@@ -104,10 +105,10 @@ numpy の pseudo inverse は昔読んだ generalized inverse とは少し異な�
 
 条件 1 の確認は PythonSf Open 判でも可能です。でも積演算子 * および np.dot(..) を追加し、 ~== ユーザー演算子のかわりに np.allclose(..) わねばなりません。この結果 PythonSf Open 判のコードは Python のコードと同じになってしまいました。でも可読性は悪化しています。
 
-## 定義での「条件21」の確認
-上の定義の「条件 2」が成り立つことも数値実験で確認してみましょう。
+## 定義における「条件2」の確認
+上の定義における「条件 2」が成り立つことも数値実験で確認してみましょう。
 
-<center><b>定義の「条件 2」の確認</b></center>
+<center><b>定義「条件 2」の確認</b></center>
     seed(0); A=randn(2,3)+ `i randn(2,3); Apsd=np.linalg.pinv(A); (A Apsd).d ~== (A Apsd)
     ===============================
     True
