@@ -66,10 +66,11 @@ numpy の pseudo inverse は昔読んだ generalized inverse とは少し異な�
      [  1.11022302e-16 +0.00000000e+00j   1.00000000e+00 -6.93889390e-17j]]
     ---- ClTensor ----
 
-3x2 行列の擬似逆行列は 2x3 行列です。
+3x2 行列の擬似逆行列は 2x3 行列です。Apsd A と A Apsd どちらの積演算も可能です。
 
-Apsd A が「単位行列 [[1,0],[0,1]] になっていない」と言わないでください。実数のコンピュータ計算には誤差がつき物です。
+Apsd A が「単位行列 [[1,0],[0,1]] になっていない」と言わないでください。実数のコンピュータ計算には誤差がつき物です。行列の prety print 関数 pp(..) を使えば、少し上の結果が見やすくなります。ただし六桁以下の小さな値は表示されません。また現在のところ pp(..) 関数は PythonSfOpen には移植できていません。
 
+<center><b>pp(..) による Apsd A と A Apsc</b></center>
     seed(0); A=randn(3,2)+ `i randn(3,2); Apsd=np.linalg.pinv(A); pp(Apsd A);
     [[ 1, 0]
     ,[ 0, 1]]
@@ -81,32 +82,83 @@ Apsd A が「単位行列 [[1,0],[0,1]] になっていない」と言わない�
     ,[ 0.230665-0.262658j, -0.10708+0.283986j,           0.688919]]
     -------- pp --
 
-## 定義「条件 1」の確認
-上の定義の「条件 1」が成り立つことを数値実験で確認してみましょう。
+上の計算で A Apsd が Hermite になっていることに注意を向けておいてください。A Apsd を単位行列にできなくなった代償として特殊な Hermite 行列になります。
 
-<center><b>定義の「条件 1」の確認</b></center>
-    seed(0); A=randn(2,3)+ `i randn(2,3); Apsd=np.linalg.pinv(A); (A Apsd A) ~== A
+## 定義「条件 1」の確認
+先の擬似逆行列の定義における「条件 1」が成り立つことを数値実験で確認してみましょう。
+
+<center><b>定義「条件 1」の確認</b></center>
+    seed(0); A=randn(3,2)+ `i randn(3,2); Apsd=np.linalg.pinv(A); (A Apsd A) ~== A
     ===============================
     True
 
-    seed(0); A=randn(2,3)+ `i randn(2,3); Apsd=np.linalg.pinv(A); (Apsd A Apsd) ~== Apsd
+    seed(0); A=randn(3,2)+ `i randn(3,2); Apsd=np.linalg.pinv(A); (Apsd A Apsd) ~== Apsd
     ===============================
     True
 
     # 上の二つの PythonSf Open 判コード
-    seed(0); A=randn(2,3)+ `i*randn(2,3); Apsd=np.linalg.pinv(A); np.allclose(np.dot(A, np.dot(Apsd,A)), A)
+    seed(0); A=randn(3,2)+ `i*randn(3,2); Apsd=np.linalg.pinv(A); np.allclose(np.dot(A, np.dot(Apsd,A)), A)
     ===============================
     True
-    seed(0); A=randn(2,3)+ `i*randn(2,3); Apsd=np.linalg.pinv(A); np.allclose(np.dot(Apsd, np.dot(A, Apsd)), Apsd)
+    seed(0); A=randn(3,2)+ `i*randn(3,2); Apsd=np.linalg.pinv(A); np.allclose(np.dot(Apsd, np.dot(A, Apsd)), Apsd)
     ===============================
     True
 
 ~== は PythonSf でのユーザー演算子拡張であり、customize.py の中で nearlyEq(..) 関数に割り振っています。現在のところプリプロセッサがユーザー演算子の優先順位を一律に高くしているので、丸括弧での優先順位指定が必須です。無駄に丸括弧が必要なデメリットよりも可読性を優先しています。
 
-条件 1 の確認は PythonSf Open 判でも可能です。でも積演算子 * および np.dot(..) を追加し、 ~== ユーザー演算子のかわりに np.allclose(..) わねばなりません。この結果 PythonSf Open 判のコードは Python のコードと同じになってしまいました。でも可読性は悪化しています。
+条件 1 の確認計算は PythonSf Open 判でも可能です。でも積演算子 * および np.dot(..) を追加し、 ~== ユーザー演算子のかわりに np.allclose(..) わねばなりません。この結果 PythonSf Open 判のコードは Python のコードと同じになってしまいました。でも可読性は悪化しています。
 
-## 定義における「条件2」の確認
-上の定義における「条件 2」が成り立つことも数値実験で確認してみましょう。
+A Apsd または Apsd A が単位行列であれば (A Apsd A) ~== A と (Apsd A Apsd) ~== Apsd が成り立ちます。だから この二つの条件は擬似逆行列であるための必要条件とみなして良さそうです。
+
+ちなみに擬似逆行列は行列式が 0 の逆行列が存在しない正方行列についても存在します。そのときにも (A Apsd A) ~== A と (Apsd A Apsd) ~== Apsd が成り立ちます。もちろん Apsd A, A Apsd は単位行列になりません。
+
+<center><b>行列式が 0 のときの定義「条件 1」の確認</b></center>
+
+    A =~[np.arange(3*3)].reshape(3,3); A
+    ===============================
+    [[ 0.  1.  2.]
+     [ 3.  4.  5.]
+     [ 6.  7.  8.]]
+    ---- ClTensor ----
+
+    # 行列式が 0
+    A=~[np.arange(3*3).reshape(3,3)]; A.m_dtrm
+    ===============================
+    0.0
+
+    # 擬似逆行列 Apsd
+    A=~[np.arange(3*3).reshape(3,3)]; A.m_dtrm ; Apsd=np.linalg.pinv(A); pp(Apsd)
+    [[  -0.555556, -0.166667,  0.222222]
+    ,[ -0.0555556,         0, 0.0555556]
+    ,[   0.444444,  0.166667, -0.111111]]
+    -------- pp --
+    ===============================
+    None
+
+    # Apsd A は単位行列にならない
+    A=~[np.arange(3*3).reshape(3,3)]; A.m_dtrm ; Apsd=np.linalg.pinv(A); Apsd A
+    ===============================
+    [[ 0.83333333  0.33333333 -0.16666667]
+     [ 0.33333333  0.33333333  0.33333333]
+     [-0.16666667  0.33333333  0.83333333]]
+    ---- ClTensor ----
+
+    A=~[np.arange(3*3).reshape(3,3)]; A.m_dtrm ; Apsd=np.linalg.pinv(A); (A Apsd) ~== (Apsd A)
+    ===============================
+    True
+
+    # でも  (A Apsd A) ~== A は成り立つ
+    A=~[np.arange(3*3).reshape(3,3)]; A.m_dtrm ; Apsd=np.linalg.pinv(A); (A Apsd A) ~== A
+    ===============================
+    True
+
+    # でも  (Apsd A Apsd) ~== Apsd も成り立つ
+    A=~[np.arange(3*3).reshape(3,3)]; A.m_dtrm ; Apsd=np.linalg.pinv(A); (Apsd A Apsd) ~== Apsd
+    ===============================
+    True
+
+## 定義「条件2」の確認
+先の擬似行列の定義における「条件 2」が成り立つことも数値実験で確認してみましょう。
 
 <center><b>定義「条件 2」の確認</b></center>
     seed(0); A=randn(2,3)+ `i randn(2,3); Apsd=np.linalg.pinv(A); (A Apsd).d ~== (A Apsd)
@@ -172,7 +224,13 @@ Apsd A が「単位行列 [[1,0],[0,1]] になっていない」と言わない�
      [ 1.  0.]]
     ---- ClTensor ----
 
-    # 上の二つの PythonSf Open 判コード
+    mt=kzrs(2,2); mt[0,1]=1; np.linalg.pinv(mt) mt
+    ===============================
+    [[ 0.  0.]
+     [ 0.  1.]]
+    ---- ClTensor ----
+
+    # 上の三式の PythonSf Open 判コード
     mt=np.zeros([2,2]); np.linalg.pinv(mt) 
     ===============================
     [[ 0.  0.]
