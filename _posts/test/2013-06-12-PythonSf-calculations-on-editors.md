@@ -6,15 +6,19 @@ tags : [pysf, tutorial]
 ---
 {% include JB/setup %}
 
-## 概要
+##■■ 概要
 PythonSf ではエディターのカーソル下にある一行またはコード・ブロックを PythonSf 数式とみなしてプリプロセッサ処理して Python コードに直し、そのコードを動かして計算させます。標準出力に返された結果をエディタの最下段に表示します。同時に、その文字列をエディタの・コピー・ペースト・バッファにも記録します。具体的な計算の様子を youtube [PythonSf introduction 1/3](http://www.youtube.com/watch?v=rdo-46WafyQ), [PythonSf introduction 2/3](http://www.youtube.com/watch?v=O_0gW0ti0Ek), [PythonSf introduction 3/3](http://www.youtube.com/watch?v=s4FwqLcmHWM) で確認ください。
 
 エディタに上の動作をさせるため、pysf.vim, pysf.el といったエディタ・マクロを組み込んだ状態で使います。現在のところ vim と emacs ののマクロを用意しています。
 
 このマクロは、カーソル下の一行を OS コマンドとして実行したり、カーソル下のブロック・コードを任意言語のコードとしてコンパイル・実行させることも可能です。
 
-## 数式に近い PythonSf 式
-PythonSf では、エディターで書く数式文字列を数学の教科書にある数式にできるだけ近づけています。プロプロセッサにより これを可能にしています。Python 言語の名前空間を拡張してあり、前後に逆シングル・クォート記号\:\` を付けた変数を使えます。これにより \`X,\`Y といった、短くても Python 変数と衝突しない数学変数を使うことを可能にしています。また Python 2.7 でも漢字のギリシャ文字と漢字記号∂∇□△を使えます。またカレント・ディレクトリにある sfCrrntIn.py と pysf/customize.py (オープン版では sfCrrntIniOp.py と pysfOp\customizeOp.py) の二つを from .. import * してから、プロプロセッサ処理された PythonSf 計算式を実行します。customize.py で sin などの基本関数を既に import してあり また \`X,\`Y に恒等関数を割り当ててあるので、宣言や import 文なしで sin や \`X,\`Y を使えてしまいます。
+##■■ 数式に近い PythonSf 式
+PythonSf では、エディターで書く数式文字列を数学の教科書にある数式にできるだけ近づけています。プロプロセッサにより これを可能にしています。プリプロセッサにより以下のことを行っています。
+
+- Python 言語の名前空間を拡張してあり、前後に逆シングル・クォート記号\:\` を付けた変数を使えます。これにより \`X,\`Y といった、短くても Python 変数と衝突しない数学変数を使うことを可能にしています。
+- Python 2.7 でも漢字のギリシャ文字と漢字記号∂∇□△を使えます。
+- カレント・ディレクトリにある sfCrrntIn.py と pysf/customize.py (オープン版では sfCrrntIniOp.py と pysfOp\customizeOp.py) の二つを from .. import * してから、プロプロセッサ処理された PythonSf 計算式を実行します。customize.py で sin などの基本関数を既に import してあり また \`X,\`Y に恒等関数を割り当ててあるので、宣言や import 文なしで sin や \`X,\`Y を使えてしまいます。
 
 PythonSf の基本関数　exp, sin, cos, tan, sinh, cosh, tanh, arcsin, arccos, arctan, log, log10, sqrt, absF と \`X,\`Y,\`Z,\`T 恒等関数は加減乗除べき乗算および関数合成が可能です。ですから \\(sin(\frac{1}{x}+3y)\\)の \\((\pi,\frac{\pi}{3})\\) における値は下の PythonSf 式で計算できます。
 <center><b>PythonSf ワンライナーたち</b></center>
@@ -81,13 +85,15 @@ PythonSf の基本関数　exp, sin, cos, tan, sinh, cosh, tanh, arcsin, arccos,
             [39]]), matrix([[-4. ],
             [ 4.5]]))
 
-以下 面倒なので PythonSf open 判のコードは省略します。要は「commertial 判のコードが open 判で動かないときは Python 文法の範囲で記述する」ということです。ただしバック・クォートを使った名前空間の拡張は open 判でも有効です。
+以下 面倒なので PythonSf open 判のコードは省略します。要は一部の例外を除いて Python 文法の範囲で記述する」ということです。バック・クォートを使った名前空間の拡張や漢字ギリシャ文字の使用などが、その一部の例外です。
 
 
-## PythonSf ワンライナー
-以上のように短い数式記述ができる PythonSf ではワンライナー記述を多用します。 sfCrrntIni.py ファイルを専門分野に合わせて適切に作り上げれば、日常計算の 90% 以上をワンライナー計算で済ませられるでしょう。分野を限定すれば Python コードに必要な import 文は限られます。多用する関数も限られます。それらをカレント・ディレクトリの sfCrrntIni.py に書いておけば、PythonSf ワンライナーにはエッセンスだけを書いていけます。
+##■■ PythonSf ワンライナー
+以上のように短い数式記述ができる PythonSf ではワンライナー記述を多用します。各自の専門分野に合わせて sfCrrntIni.py ファイルを適切に作り上げれば、日常計算の 90% 以上をワンライナー計算で済ませられるでしょう。
 
-線形代数など、数学者が完成してくれた数学体系での PythonSf 計算は、多くの場面で if then else 構文で場合分けすることなく、クラス・インスタンスを作りメソッドを働かせる作業の繰り返しになります。Python コードで書くならばインデントなしで数学計算処理ができてしまうことのほうが多いでしょう。インデントなしのコード・ブロックならば、それを横に並べてワンライナーにしても可読性の低下は少しで済みます。ワンライナーには少しの可読性の犠牲はありますが、それを補ってあまりある数式ハンドリングの容易さがあります。結果としてワンライナーををすることになります。
+分野を限定すれば Python コードに必要な import 文は限られます。多用する関数も限られます。それらをカレント・ディレクトリの sfCrrntIni.py に書いておけば、PythonSf ワンライナーにはエッセンスだけを書いていけます。
+
+線形代数など、数学者が完成してくれた数学体系での PythonSf 計算は、多くの場面で if then else 構文で場合分けすることなく、クラス・インスタンスを作りメソッドを働かせる作業の繰り返しになります。Python コードで書くならばインデントなしで数学計算処理ができてしまうことのほうが多いでしょう。インデントなしのコード・ブロックならば、それを横に並べてワンライナーにしても可読性の低下は少しで済みます。ワンライナーには少しの可読性の犠牲はありますが、それを補ってあまりある数式ハンドリングの容易さがあります。結果としてワンライナーを多用することになります。
 
 PythonSf でワンライナーに拘るのは、ワンライナーは その一行だけで完結するからです。前後の文脈の影響を受けないからです。任意のワンライナーを自由に別のファイルにコピー・ペーストできるからです。ワンライナーに影響を与える前提条件は sfCrrntIn.py ファイルに凝縮できるからです。
 
@@ -95,7 +101,7 @@ PythonSf でワンライナーに拘るのは、ワンライナーは その一�
 
 Mathematica, Matlab などの notebook や IPython でも検討・考察の積み重ねをファイルとして残せます。でも残されている大部分の式はゴミです。宝物の式はゴミに埋もれています。昨日の notebook ならば宝物の式の位置が頭に残っていますから、有用な notebook です。でも一年前の notebook では、宝物の式とゴミとの区別が簡単にはできません。宝物の式だけの notebook を別に作れば良いのでしょうが それは面倒な作業です。
 
-PythonSf のワンライナーならば、検討・考察の積み重ねの骨格・エッセンス・宝物だけを sfCrrntIni.py ファイルとの組合せとして自然に残せていけます。ワンライナーで完結しているので、コピー・ペーストで宝物の式だけを集めていけるからです。PythonSf のワンライナーが人間の考察の粒度に合っていることも、ワンライナーの積み重ねが重宝する理由です。人間が検討・思考を積み重ねていくブロックはワンライナーで記述できる程度の範囲です。大げさな言い方なのは承知していますが「PythonSf ワンライナーは数学が必要となる分野での思考・考察・検討ツールとして使える」と主張します。
+PythonSf のワンライナーならば、検討・考察の積み重ねの骨格・エッセンス・宝物だけを sfCrrntIni.py ファイルとの組合せとして自然に残せていけます。ワンライナーで完結しているので、コピー・ペーストで宝物の式だけを集めていけます。PythonSf のワンライナーが人間の考察の粒度に合っていることも、ワンライナーの積み重ねが重宝する理由です。人間が検討・思考を積み重ねていくブロックはワンライナーで記述できる程度の範囲です。大げさな言い方なのは承知していますが「PythonSf ワンライナーは数学が必要となる分野での思考・考察・検討ツールとして使える」と主張します。
 
 以下 幾つかの宝物ワンライナーを見てやって下さい。
 <center><b>PythonSf ワンライナーたち</b></center>
@@ -103,7 +109,7 @@ PythonSf のワンライナーならば、検討・考察の積み重ねの骨�
 を主張します。petit simulation: one-liner に拘るのは、数学や物理の問題の検討に集中するためです。そのる最中にプログラミング・デバッグ作業が入ってくると、本来の目的としていることとは異なった考察に値の回転をとられてしまうからです。
 
 <center><b>PythonSf ワンライナーたち</b></center>
-    # x^2+1 の根が無限個存在することの実験的証明
+    # x^2+1 の根が、四元数では無限個存在することの実験的証明
     seed(0); vc=normalize(randn(3)); Oc(np.r_[0,vc])
     ===============================
     Oc(0.0, 0.85771824099774296, 0.19456459875913087, 0.47588237619125601)
@@ -117,15 +123,16 @@ Python での λ:labmda 式は、コンピュータ・サイエンスでの λ�
 
 
 PythonSf ワンライナーたち
-    # Charch 数 2;;http://ja.wikipedia.org/wiki/%E8%87%AA%E7%84%B6%E6%95%B0
-Z='1';S =λ s:s+'1';(λ s:λ z:s(s(z)))(S)(Z)
-===============================
-111
+    # Church 数 2;;http://en.wikipedia.org/wiki/Church_encoding
 
-    # Charch 数での 2 + 3
-Z='1';S =λ s:s+'1';(λ s:λ z:s(s(  s(s(s(z))) )))(S)(Z)
-===============================
-111111
+    Z='1';S =λ s:s+'1';(λ s:λ z:s(s(z)))(S)(Z)
+    ===============================
+    111
+
+    # Church 数での 2 + 3
+    Z='1';S =λ s:s+'1';(λ s:λ z:s(s(  s(s(s(z))) )))(S)(Z)
+    ===============================
+    111111
 Z:始めの数、任意の数に対する Successor を返す S だけから加算を実行する様子を具体的に示せています。
 0→1, 1→11, 2→111, 3→1111, 4→11111, 5→111111 ... と対応させる一進方を使っています。
 
@@ -137,12 +144,15 @@ inV=[-0.97m`,0.243m`, 0.97m`,-0.243m`, 0m`,0m`, -0.466m`/s`,-0.432m`/s`, -0.466m
     # ８の字軌跡で初期配置を z 軸方向に 0.1 だけずらした軌跡
 D=3;inV=[-0.97m`,0.243,0, 0.97,-0.243,0, 0,0,0.1,  -0.466m`/s`,-0.432,0, -0.466,-0.432,0, 0.932,0.864,0]; N=len(inV)//(2D) ; getFV=λ v,i,k:(λ r=krry(v[D k:D (k+1)])-krry(v[D i:D (i+1)]):r/norm(r)^3 if norm(r)!=0 else ~[0,0])(); sumFc=λ v,j:sum([getFV(v,j,k) for k in range(N) if j!=k]); fnc= λ *v: np.r_[v[D N:],(~[sumFc(v,j) for j in range(N)]).r]; mt=kOde(fnc,inV, 20s`,400); cl=ClCplxColor(); for k in range(N):plotTrajectory(mt[:,D k:D (k+1)],color=cl.GetFltColor(exp(`i 2pi k/N)))
 
-    # ウラムの螺旋;;http://ja.wikipedia.org/wiki/%E3%82%A6%E3%83%A9%E3%83%A0%E3%81%AE%E8%9E%BA%E6%97%8B
+    # ウラムの螺旋;;http://ja.wikipedia.org/wiki/ウラムの螺旋
     N=10000; ts(); lsV=[~[1,0],~[0,1],~[-1,0],~[0,-1]]; Bf(last=~[0,0], len=1, nLen=0, n4=0, first=True); f=λ k:(Bf.last, Bf(last=Bf.last+lsV[Bf.n4], nLen=Bf.nLen+1), Bf(n4=Bf.n4) if Bf.nLen<Bf.len else [Bf(n4=(Bf.n4+1)%4, nLen=0), Bf(first=False) if Bf.first == True else Bf(first=True, len=Bf.len+1)])[0]; lsPt=tn.imap(f, tn.count())[:N]; mlb(); import pylab as pb; pb.scatter( *zip( *[pos for k,pos in enumerate(lsPt) if ts.isprime(k)])); pb.show();
     ↑1,3,5,7,9 奇数の線が出ている? やってみる
 
     N=10000; ts(); lsV=[~[1,0],~[0,1],~[-1,0],~[0,-1]]; Bf(last=~[0,0], len=1, nLen=0, n4=0, first=True); f=λ k:(Bf.last, Bf(last=Bf.last+lsV[Bf.n4], nLen=Bf.nLen+1), Bf(n4=Bf.n4) if Bf.nLen<Bf.len else [Bf(n4=(Bf.n4+1)%4, nLen=0), Bf(first=False) if Bf.first == True else Bf(first=True, len=Bf.len+1)])[0]; lsPt=tn.imap(f, tn.count())[:N]; plotPt([pos for k,pos in enumerate(lsPt) if k%10 in [1,3,7,9] ])
-If then else 構文が入ってこない、数式を並べただけの one-liner 式ならば、プログラミング作業・デバッグ作業とは無縁です。数学・物理・工学などの問題の考察だけに集中し続けられます。また one-liner が一行だけで独立していることが、それまでの計算過程からの文脈から独立して計算できることも、考察の積み重ねを強く支えて切れます。
+
+If then else 構文が入ってこない、数式を並べただけの one-liner 式ならば、プログラミング作業・デバッグ作業とは無縁です。実際、これらの PythonSf one-liner 式を作り上げていく途中では幾つもの誤りと その訂正が入っています。しかし、そのためにデバッガを立ち上げることは殆んどありません。大部分の場合、途中の数式の値を打ち出すだけでエラー原因を特定できます。PythonSf one-liner 式を書いていく作業は、手でメモ数式を書き下していく作業と殆んど同じです。
+
+ですから、PythonSf one-liner 式での計算過程は実際に計算可能な PythonSf 式の羅列による数値実験だと言えます。だと、数学・物理・工学などの問題の考察に集中し続けられます。定理や公式に相当する関数やクラスは sfCrrntIni.py ファイルに書き込んでいきます。それらは自動的に PythonSf のグローバル名前空間に入り込んでくるので、宣言済みとして PythonSf 式中に使えます。One-liner が一行だけで独立していることが、それまでの計算過程からの文脈から独立して計算できることも、考察の積み重ねを強く支えて切れます。
 
 
 PythonSf を使えば vim や emacs といったエディタを Matlab や Mathematica 以上に有用な計算ツールに変貌させられます。
@@ -206,7 +216,7 @@ PythonSf は数式記述のためにプリプロセッサを使っています�
             [ 1.5, -0.5]])
     ===============================
     None
-## Python 環境としての PythonSf
+##■■ Python 環境としての PythonSf
 <center><b>PythonSf ワンライナーたち</b></center>
     # 数値の加減乗除べき乗算
     (1-2*3/4)^5
@@ -295,7 +305,7 @@ PythonSf ワンライナー;;http://localhost:4000/pysf/manual/one-liners.htm#kO
 |StartGoogleSearchUnderCursor()  |Google 検索開始
 
 
-## Vim での pysf.vim script 組み込み
+##■■ Vim での pysf.vim script 組み込み
 Vim エディタで PythonSf 計算をさせるには pysf.vim script を Vim に組み込みます。その手順は簡単です。Git で配布している pysf.vim を Vim がインストールされているディレクトリの ..\vim73\plugin\に置くだけです。キー･バインドは pysf.vim にハード･コーディングされています。
 
 ![pysf.vim を Vim73\plugin へ](/images/2013/pysfVimToPlugin.png "pysf.vim のコピー")
@@ -313,7 +323,7 @@ Vim エディタで PythonSf 計算をさせるには pysf.vim script を Vim �
 //java -jar \utl\ditaa0_9.jar __tmp pysfVimToPlugin.png
 -->
 
-## Vim での計算例
+##■■ Vim での計算例
 Vim エディタで PythonSf 計算をさせるには pysf.vim script を使います。このスクリプトを組み込んだ Vim も Git での [PythonSfCp932](https://github.com/lobosKobayashi/PythonSfCp932) の配布ファイルに入っています。Windows で Vim を使える方は、評価のためには こちらを使われると便利です。ダウンロードした git working directory で下のコマンドを実行させるだけで Python Sf 計算を始められます。
 
     vim\gvim.exe
@@ -345,7 +355,7 @@ Vim エディタで PythonSf 計算をさせるには pysf.vim script を使い�
 
 ![エラー関数グラフ](/images/2013/pysfErrFnctn.png "エラー関数グラフ")
 
-## C++/Boost プログラムのコンパイルと実行
+##■■ C++/Boost プログラムのコンパイルと実行
 pysf.vim マクロは PythonSf の計算以外でも活用できます。";e" で //@@ ... //@@@ ブロックのファイル化に続けてコマンドを連続実行します。 ";a" 操作でカーソル下の一行を OS コマンドとみなして実行します。 この二つの操作を活用することで、Vim エディタ上で任意のプログラムのテスト・コンパイルと実行が可能です。
 
 何時でも再実行可能な形でノートに残せます。どのようにリンクして、どんな引数で実行するかまで残っています。
