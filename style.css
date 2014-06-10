@@ -1,0 +1,113 @@
+BODY {
+    COLOR: black; FONT-FAMILY: "ÇlÇr ÉSÉVÉbÉN"; BACKGROUND-COLOR: #fefefe; 
+    padding:0.5em 1.5em 0.5em 1.5em
+}
+
+H1{
+    FONT-WEIGHT: bold; FONT-SIZE: 230%; text-align: center;
+}
+
+H1 {
+    PADDING-RIGHT: 0.6em; PADDING-LEFT: 0.6em; BACKGROUND: #ccc; PADDING-BOTTOM: 0.2em; MARGIN: 0.4em 0px; FONT: bold 200% Georgia, Times, serif; PADDING-TOP: 0.2em; TEXT-ALIGN: center
+}
+
+p{
+    line-height:1.6em;
+    text-indent: 1em;
+}
+
+div.next{
+    line-height:1.6em;
+}
+
+H2 {
+    BORDER-RIGHT: #000080 0px solid; PADDING-RIGHT: 5px; BORDER-TOP: #000080 2px solid; PADDING-LEFT: 10px; FONT-WEIGHT: bold; FONT-SIZE: 150%; PADDING-BOTTOM: 1px; BORDER-LEFT: #000080 0px solid; COLOR: #400080; MARGIN-RIGHT: 0px; PADDING-TOP: 3px; BORDER-BOTTOM: #000080 2px solid; BACKGROUND-COLOR: #ececec; TEXT-ALIGN: left
+}
+
+H2.appendix {
+    BORDER-RIGHT: #800000 0px solid; PADDING-RIGHT: 5px; BORDER-TOP: #800000 3px solid; PADDING-LEFT: 10px; FONT-WEIGHT: bold; FONT-SIZE: 150%; PADDING-BOTTOM: 1px; BORDER-LEFT: #000080 0px solid; COLOR: #800080; MARGIN-RIGHT: 0px; PADDING-TOP: 3px; BORDER-BOTTOM: #800000 3px solid; BACKGROUND-COLOR: #ececec; TEXT-ALIGN: left
+}
+
+H3 {
+    BORDER-RIGHT: #008080 0px solid; PADDING-RIGHT: 0em; BORDER-TOP: #008080 1px solid; PADDING-LEFT: 0.7em; FONT-WEIGHT: bold; FONT-SIZE: 110%; PADDING-BOTTOM: 0.25em; BORDER-LEFT: #008080 10px solid; COLOR: #004040; MARGIN-RIGHT: 0em; PADDING-TOP: 0.25em; BORDER-BOTTOM: #008080 0px solid; BACKGROUND-COLOR: #ececec; TEXT-ALIGN: left
+}
+H4 {
+    BORDER-RIGHT: #800080 0px solid; PADDING-RIGHT: 0em; BORDER-TOP: #800080 1px solid; PADDING-LEFT: 0.7em; FONT-WEIGHT: bold; FONT-SIZE: 100%; PADDING-BOTTOM: 0.25em; BORDER-LEFT: #800080 5px solid; COLOR: #800080; MARGIN-RIGHT: 0em; PADDING-TOP: 0.25em; BORDER-BOTTOM: #800080 0px solid; BACKGROUND-COLOR: #ececec; TEXT-ALIGN: left
+}
+H4.normal {
+    BORDER-TOP-WIDTH: 0em; PADDING-RIGHT: 0em; PADDING-LEFT: 0em; BORDER-LEFT-WIDTH: 0em; BORDER-BOTTOM-WIDTH: 0em; PADDING-BOTTOM: 0em; PADDING-TOP: 0em; BORDER-RIGHT-WIDTH: 0em
+}
+
+H5 {
+    BORDER-RIGHT: #000000 0px solid; PADDING-RIGHT: 0em; BORDER-TOP: #000000 1px solid; PADDING-LEFT: 0.7em; FONT-WEIGHT: bold; FONT-SIZE: 100%; PADDING-BOTTOM: 0.25em; BORDER-LEFT: #000000 2px solid; COLOR: #000000; MARGIN-RIGHT: 0em; PADDING-TOP: 0.25em; BORDER-BOTTOM: #800000 0px solid; BACKGROUND-COLOR: #ececec; TEXT-ALIGN: left
+}
+
+H5.normal {
+    BORDER-RIGHT: #000000 0px solid; PADDING-RIGHT: 0em; BORDER-TOP: #000000 1px solid; PADDING-LEFT: 0em; FONT-SIZE: 100%; PADDING-BOTTOM: 0em; BORDER-LEFT: #000000 0px solid; MARGIN-RIGHT: 0em; PADDING-TOP: 0em; BORDER-BOTTOM: #000000 0px solid
+}
+
+H6 {
+     FONT-SIZE: 100%; PADDING-TOP: 0.25em; PADDING-LEFT: 0.25em; PADDING-BOTTOM: 0.25em; MARGIN-RIGHT: 0.5em;  BACKGROUND-COLOR: #ececec; TEXT-ALIGN: left
+}
+
+pre.box{
+     BORDER-RIGHT: thin outset;PADDING-RIGHT: 1em; BORDER-TOP: thin outset; PADDING-LEFT: 1em; FONT-SIZE:medium; PADDING-BOTTOM: 1em; MARGIN: 10px 20px 15px; BORDER-LEFT: thin outset; LINE-HEIGHT: 140%; PADDING-TOP: 1.5em; BORDER-BOTTOM: thin outset; FONT-FAMILY: monospace; WHITE-SPACE: pre; TEXT-ALIGN: left;
+     BACKGROUND: #eee;
+}
+
+pre.expression {
+     BORDER-RIGHT: thin outset;PADDING-RIGHT: 1em; BORDER-TOP: thin outset; PADDING-LEFT: 1em; FONT-SIZE:medium; PADDING-BOTTOM: 1em; MARGIN: 10px 20px 15px; BORDER-LEFT: thin outset; LINE-HEIGHT: 140%; PADDING-TOP: 1.5em; BORDER-BOTTOM: thin outset; FONT-FAMILY: monospace; WHITE-SPACE: pre; TEXT-ALIGN: left;
+     BACKGROUND: url(expression.gif) #eee no-repeat left top;
+}
+
+pre.sf {
+     BORDER-RIGHT: thin outset;PADDING-RIGHT: 1em; BORDER-TOP: thin outset; PADDING-LEFT: 1em; FONT-SIZE:medium; PADDING-BOTTOM: 1em; MARGIN: 10px 20px 15px; BORDER-LEFT: thin outset; LINE-HEIGHT: 140%; PADDING-TOP: 1.5em; BORDER-BOTTOM: thin outset; FONT-FAMILY: monospace; WHITE-SPACE: pre; TEXT-ALIGN: left;
+     BACKGROUND: url(sf.gif) #eee no-repeat left top;
+}
+
+pre.sfBlock {
+     BORDER-RIGHT: thin outset;PADDING-RIGHT: 1em; BORDER-TOP: thin outset; PADDING-LEFT: 1em; FONT-SIZE:medium; PADDING-BOTTOM: 1em; MARGIN: 10px 20px 15px; BORDER-LEFT: thin outset; LINE-HEIGHT: 140%; PADDING-TOP: 1.5em; BORDER-BOTTOM: thin outset; FONT-FAMILY: monospace; WHITE-SPACE: pre; TEXT-ALIGN: left;
+     BACKGROUND: url(sfBlock.gif) #eee no-repeat left top;
+}
+
+pre.code {
+     BORDER-RIGHT: thin outset;PADDING-RIGHT: 1em; BORDER-TOP: thin outset; PADDING-LEFT: 1em; FONT-SIZE:medium; PADDING-BOTTOM: 1em; MARGIN: 10px 20px 15px; BORDER-LEFT: thin outset; LINE-HEIGHT: 140%; PADDING-TOP: 1.5em; BORDER-BOTTOM: thin outset; FONT-FAMILY: monospace; WHITE-SPACE: pre; TEXT-ALIGN: left;
+     BACKGROUND: url(sampleCode.gif) #eee no-repeat left top;
+}
+
+pre.c_code {
+     BORDER-RIGHT: thin outset;PADDING-RIGHT: 1em; BORDER-TOP: thin outset; PADDING-LEFT: 1em; FONT-SIZE:medium; PADDING-BOTTOM: 1em; MARGIN: 10px 20px 15px; BORDER-LEFT: thin outset; LINE-HEIGHT: 140%; PADDING-TOP: 1.5em; BORDER-BOTTOM: thin outset; FONT-FAMILY: monospace; WHITE-SPACE: pre; TEXT-ALIGN: left;
+     BACKGROUND: url(c_code.gif) #eee no-repeat left top;
+}
+
+pre.python_code {
+     BORDER-RIGHT: thin outset;PADDING-RIGHT: 1em; BORDER-TOP: thin outset; PADDING-LEFT: 1em; FONT-SIZE:medium; PADDING-BOTTOM: 1em; MARGIN: 10px 20px 15px; BORDER-LEFT: thin outset; LINE-HEIGHT: 140%; PADDING-TOP: 1.5em; BORDER-BOTTOM: thin outset; FONT-FAMILY: monospace; WHITE-SPACE: pre; TEXT-ALIGN: left;
+     BACKGROUND: url(python_code.gif) #eee no-repeat left top;
+}
+
+pre.dos {
+     BORDER-RIGHT: thin outset;PADDING-RIGHT: 1em; BORDER-TOP: thin outset; PADDING-LEFT: 1em; FONT-SIZE:medium; PADDING-BOTTOM: 1em; MARGIN: 10px 20px 15px; BORDER-LEFT: thin outset; LINE-HEIGHT: 140%; PADDING-TOP: 1.5em; BORDER-BOTTOM: thin outset; FONT-FAMILY: monospace; WHITE-SPACE: pre; TEXT-ALIGN: left;
+     BACKGROUND: url(dos.gif) #eee no-repeat left top;
+}
+
+blockquote
+{
+    position: relative;
+    padding-right: 0.5em;
+    padding-left: 0.5em;
+    padding-bottom: 0.5em;
+    border: 1px dotted #399;
+    color:#333;
+}
+
+blockquote div.qtitle{
+    display: block;
+    position: absolute;
+    top: -0.5em;
+    left: 1em;
+    z-index: 1;
+    padding: 0 0.5em;
+    background-color: #FFF;
+    color:#333;
+    font-weight:bolder;
+}
