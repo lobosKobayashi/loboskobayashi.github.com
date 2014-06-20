@@ -3,6 +3,7 @@ layout: post
 category : lessons
 tagline: "Supporting tagline"
 tags : [pysf, matplotlib]
+title: matplotlib の contour(..) 関数について
 ---
 {% include JB/setup %}
 
@@ -294,12 +295,20 @@ Matlab 流儀に mesh grid 引数を使って等高線を表示させること�
     # PythonSf Open で mesh grid を使って等高線表示値シーケンスを指定する
     kl=np.linspace(-3,3); MX,MY=np.meshgrid(kl,kl); mt=[[(1/(`X^2+2*`Y^2))(x,y) for y in kl] for x in kl]; import matplotlib.pyplot as plt; plt.contour(MX, MY, mt, [10,5,2,1, .5, .1, .01]); plt.show()
 
-SciPy では Matlab の影響が強く、頻繁に mesh grid が使われます。SciPy 三次元表示関数の多くで mesh grid 引数が必須だったりします。Web ページでも mesh grid を使った contour(..) 関数の説明が大部分です。でも多くの場合 mesh grid の使用は冗長に感じます。大部分の場合は一様格子だけで考えているので、 contour(..) 関数で mesh grid 引数を渡すのは無駄です。グラフの X,Y 軸の値が正しく表示されるメリットがあります。でも、自分自身だけがみる等高線表示を描くときには、正しい X,Y 軸の値なんて殆ど意味ありません。コードを書いた自分は X,Y 軸の範囲なんて十分に承知しているのですから。そのことを十分に分かっている contour(..) 関数の作者は contor(Z) でも働くようにプログラムを作ってくれました。
+![](/images/2014/05/contour_ellipse_1_r_50line_with_sq_mesh_grid.png)
 
-Mesh grid を使わずに等高線を表示させる機能を実装してくれた contour(..) 関数の開発者に感謝します。
+Mesh grid を使うことで、等高線表示グラフの X軸 Y軸のラベル値が X,Y 変数の変化範囲を表示するように、少し改善されました。また行列 Z が一様格子上の点以外でも許されるようになりました。
+
+<center><b>contour(..) 関数の開発者に感謝</b></center>
+>SciPy では Matlab の影響が強く、頻繁に mesh grid が使われます。SciPy 三次元表示関数の多くで mesh grid 引数が必須だったりします。すなわち contour(Z) のような単純な記述が使えません。Web ページでも mesh grid を使った contour(..) 関数の説明が大部分です。でも多くの場合 mesh grid の使用は冗長に感じます。大部分の場合は一様格子だけで考えているので、 contour(..) 関数で mesh grid 引数を渡すのは無駄です。グラフの X,Y 軸の値が正しく表示されるメリットがあります。でも、自分自身だけが見る等高線表示を描くときには、正しい X,Y 軸の値なんて殆ど意味ありません。コードを書いた自分は X,Y 軸の範囲なんて十分に承知しているのですから。そのことを十分に分かっている contour(..) 関数の作者は contor(Z) でも働くようにプログラムを作ってくれました。
+>
+><br>
+>Mesh grid を使わずに等高線を表示させる機能を実装してくれた contour(..) 関数の開発者に感謝します。
 
 ## 参考資料
-pylab_examples example code: contour_demo.py        ;;http://matplotlib.org/examples/pylab_examples/contour_demo.html
+[pylab_examples example code: contour_demo.py        ;;http://matplotlib.org/examples/pylab_examples/contour_demo.html
+](http://matplotlib.org/examples/pylab_examples/contour_demo.html)
+
 
 
 

@@ -3,22 +3,38 @@ layout: post
 category : editor
 tagline: "Vim  E513"
 tags : [vim]
+---
+{% include JB/setup %}
+
 # Vim エディタ E513 エラー原因と対策 
 
 ## 概要
 
 ## エラー発生までの経過
-- othersMemoV.txt という私の日常メモ・ファイルに追加エディットの最中に突然書き込みできなくなり "E513: write error, conversion failed (make 'fenc' empty to overwride)" の赤い注意書きが出るようになった。":ec &fenc" を実行すると、確かに何も返してくれない。":set fenc=utf-8" を行えは ":ec &fenc" は utf-8 を返すようになるが、":w" で E513 write error を返すのに変わりはない。 ":w!" でも書き込めない。
+ある日突然に　othersMemoV.txt という私の日常メモ・ファイルに追加エディットの最中に突然書き込みできなくなり "E513: write error, conversion failed (make 'fenc' empty to overwride)" の赤い注意書きが出るようになりました。
 
-- othersMemoV.txt ファイル自体は utf-8 で書かれており、修正前の古いファイルを開きなおすと ":ec &fenc" で "utf-8" を返してくれる。
-
+- ":ec &fenc" を実行すると、確かに何も返してくれない。":set fenc=utf-8" を行えは ":ec &fenc" は utf-8 を返すようになるが、":w" で E513 write error を返すのに変わりはない。 ":w!" でも書き込めない。
+- othersMemoV.txt ファイル自体は utf-8 で書かれており、Vim が自動的にバックアップしてくれていた修正前の古いファイルを開きなおすと ":ec &fenc" で "utf-8" を返してくれる。
 - 日常ノートとして作業内容を残していっている schld05.txt を見直してみると "git merge --squash" を行った結果を othersMemoV.txt に貼り付けたときから "E513 write error" が出るようになっている。
 
-もともと git 操作は日常ノート上に git コマンドを書き、";a" 操作でエディタに git コマンドを実行させています。git コマンド結果はエディタの status 行に表示させると同時に、@* レジスタにも記録されるので、残しておきたい結果については "p" Vim 操作で その結果文字列を貼り付けている [pysf.vim マクロ]() の賜物です。それが今回の原因追及を可能にしてくれました。
+私は、日常のコンピュータ操作はキーボードから行います。殆どマウスを使いません。手をマウスに持ち替えることが うざい からです。ブラウザは FireFox に Vimperator plug in を入れており、マウス要らずにしています。Exel などのマウス操作を強制するソフトを一日中使わされると本当に胃が痛くなってきます。
+
+OS コマンドの実行の大部分は [pysf.vim マクロ](files::/pysf/manual/one-liners.htm#%E2%96%A0%E2%96%A0%20PythonSf%20vim%20operation) を使い Vim 上で行っています。OS コマンドでの操作結果はエディタの status 行に表示されると同時に、@* レジスタにも記録されるので、残しておきたい結果については "p" Vim 操作で OS コマンドが返した文字列を貼り付けています。ですから日常ノートには予定や連絡メモなどのほかに、日常行っている作業も自動的に残されていきます。
+
+私の場合多くの日常作業の多くが
+
+- OS コマンドによるコンピュータ操作
+- PythonSf による計算
+- エディタ上での考察
+
+であり、
+結果でコンピュータ上で行われるのでそれが今回の原因追及を簡単にしてくれました。
+
+ですから Git repository の操作は、日常ノート上に git コマンドを書き、";a" 操作で Vim エディタから git コマンドを実行させています。[pysf.vim マクロ](files::/pysf/manual/one-liners.htm#%E2%96%A0%E2%96%A0%20PythonSf%20vim%20operation) の賜物です。
 
 ## 原因の特定
 
-古い othersMemoV.txt に schdl05.txt 目もノートの git merge --squash 部分を結果文字列と一緒に貼り付けてみると、":ec &fenc" は空白に変わってしまい ":w" で "E513 write error" も再現します。
+古い othersMemoV.txt に schdl05.txt 日常ノートの git merge --squash 部分を結果文字列と一緒に貼り付けてみると、":ec &fenc" は空白に変わってしまい ":w" で "E513 write error" も再現します。
 
 ならば git merge --squash 部分を結果文字列を少なくしていってエラーが再現する文字列を小さくしていってみると下のようになりました。
 

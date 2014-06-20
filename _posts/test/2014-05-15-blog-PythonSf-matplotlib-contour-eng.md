@@ -294,9 +294,19 @@ You can render cntours with X,Y position parameters:mesh grid matrix values and 
     # PythonSf Open で mesh grid を使って等高線表示値シーケンスを指定する
     kl=np.linspace(-3,3); MX,MY=np.meshgrid(kl,kl); mt=[[(1/(`X^2+2*`Y^2))(x,y) for y in kl] for x in kl]; import matplotlib.pyplot as plt; plt.contour(MX, MY, mt, [10,5,2,1, .5, .1, .01]); plt.show()
 
-Matlab influences SciPy very strongly, so it frequently uses mesh grid. Many 3-d rendering function must require mesh grid parameters. And explanations of contour(..) function in web pages uses the mesh grid parameters. But it is redundant in many cases to use mesh grid parameters, because you would render contours on a uniform lattice mostly. Mesh grid parameters might display X,Y axes scales appropriately. But you don't need the appropriate X,Y scales. Because you know them well. Because you have written the one-liner youself. You need to write it in short hand.
+![](/images/2014/05/contour_ellipse_1_r_50line_with_sq_mesh_grid.png)
 
-Definitely you should render right X,Y axes scales in public papers. Then you should render contours with efforts to get many information across in a glance.
+The graph is improved to show right range for X and Y axes. 
 
-I thanks the contour(..) function author who implemented the contour(..) program which works well just only with Z matrix values as contour(Z).
+<center><b>thanks to the developer of contour(..) function</b></center>
+>Matlab influences SciPy very strongly, so it frequently uses mesh grid. Many 3-d rendering function must require mesh grid parameters. In other words, you can't use simple expressions:contour(Z). And explanations of contour(..) function in web pages uses the mesh grid parameters. But it is redundant in many cases to use mesh grid parameters, because you would render contours on a uniform lattice mostly. Mesh grid parameters might display X,Y axes scales appropriately. But you don't need the appropriate X,Y scales. Because you know them well. Because you have written the one-liner youself. You need to write it in short hand.
+>
+>br
+>Definitely you should render right X,Y axes scales in public papers. Then you should render contours with efforts to get many information across in a glance. But 
+>
+>br
+>I thanks the contour(..) function author who implemented the contour(..) program which works well just only with Z matrix values as contour(Z).
 
+## a reference
+[pylab_examples example code: contour_demo.py        ;;http://matplotlib.org/examples/pylab_examples/contour_demo.html
+](http://matplotlib.org/examples/pylab_examples/contour_demo.html)
