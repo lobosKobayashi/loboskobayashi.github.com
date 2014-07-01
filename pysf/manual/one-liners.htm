@@ -11,7 +11,7 @@
 <H1 class=title>■■ PythonSf one-liners and short codes ■■</H1>
 <h2>■■ 目次  </h2>
 <a href="#■■ はじめに">■■ はじめに</a><br>
-<a href="#■■ Portable PythonSf">■■ Portable PythonSf</a><br>
+<a href="#■■ Portable PythonSf">■■ Git と Portable PythonSf</a><br>
 <a href="#■■ PythonSf vim operation">■■ PythonSf Vim operations</a><br>
 <a href="#■■ PythonSf emacs operation">■■ PythonSf Emacs operations</a><br>
 <a href="#■■ PythonSf Open">■■ PythonSf Open Software</a><br>
@@ -162,6 +162,8 @@ plotGr( sin(1/`X), 0.2, pi )
 特殊記号の漢字∂∇□△ およびギリシャ文字漢字を使えるようにすることでメモ書き数式を数学教科書での記述に近いものにできています。∂x(...) による微分表記の可読性の高さを、漢字文化圏の方には理解してもらえるはずです。
 <p>
 ~[...] 表記により行列やベクトルを表記します。グラフ描画は plotGr(..) に関数と表示領域パラメータを与えるだけです。どちらも最小の手間で行列計算処理すること、グラフを描くことを狙っています。
+<p>
+この計算を実際に行う動画解説を、<a href="https://www.youtube.com/watch?v=rdo-46WafyQ">ここの youtube</a>　に置いてあります。参照ください。
 
 <h3>PythonSf ワンライナー</h3>
 <p>
@@ -368,9 +370,20 @@ Python で数学を使うことに関しては、多くの場面で SAGE より 
 SAGE を使っている職業数学者の方でも、SAGE の notebook で計算させるより、Vim/Emacs など日常使っているエディタから計算させるほうが便利だと思う方が多数派でしょう。そのような方は是非とも PythonSf も試してください。御自分の定理や公式を Python で実装してあるならば、それを PythonSf でも動かして見てください。それを PythonSf のワン・ライナー式で動かすようにカスタマイズしてみてください。その学習コストもカスタマイズも一日程度のはずです。
 
 <a name="■■ Portable PythonSf"></a>
-<h2>■■ Portable PythonSf</h2>
+<h2>■■ Git と Portable PythonSf</h2>
+<h3>Git 配布とインストール</h3>
 <p>
-評価版の portable な PythonSf を配布します。Python2.7 向けです。インストーラーはz使いません。このほうがユーザ環境の変更招しないので喜ばれると考えます。コンピュータにインストールするにしても、portable PythonSf のなかから、いくつかのディレクトリと py ファイルを python lib path にコピーするだけです。
+ここの <a href="https://github.com/lobosKobayashi">Git</a> で最新版の PythonSf をソースと共に公開しています。<a href="https://github.com/lobosKobayashi/PythonSfCp932">PythonSfCp932</a> が shift-jis 漢字コードを前提に動く PythonSf です。<a href="https://github.com/lobosKobayashi/PythonSfUtf8">PythonSfUtf8</a> が utj-8 漢字コードを前提に動く PythonSf です。インストールのためには、それぞれの場所で "Download ZIP" ボタンを押してダウンロードし、御自分の望むディレクトリに解凍してください。解凍すだけで、そのディレクトリで PythonSf は動き出します。ただし そのディレクトリにある pysf.vim または pysf.el を 使用中の Vim/Emacs に組み込んでください。なお Python には scipy と vpython パッケージが組み込まれていることが必要です。
+
+PythonSf を他のディレクトリでも使いたいときは下の三つを行ってください。それだけで他のディレクトリでも PythonSf が動きます。
+<ol>
+<li>解凍ディレクトリ中にある sfPP.py sfPPOp.py を Python27\Lib\ の下にコピーしてください
+<li>解凍ディレクトリ中にある pysf ディレクトリ以下の全部を Python27\Lib\site-packges\ の下にコピーしてください
+<li>解凍ディレクトリ中にある sfCrrntIni.py,sfCrrntIni.py,Vc7VrfyMDdRt10D.zip を その他のディレクトリの下にコピーしてください(Vc7VrfyMDdRt10D.zip は PythonSf のキーファイルになっています。このファイルがカレント・ディレクトリにないと PythonSf が動きません)
+</ol>
+
+<p>
+その他に portable な PythonSf も配布しています。Python2.7 向けです。インストーラーはz使いません。このほうがユーザ環境の変更招しないので喜ばれると考えます。コンピュータにインストールするにしても、portable PythonSf の中から、いくつかのディレクトリと py ファイルを python lib path にコピーするだけです。
 
 また この配布には、Vim editor 上で PythonSf 式の計算を可能にするエディタ・マクロを組み込んだ Vim も一緒に配布します。
 <h3>Small PythonSf</h3>
@@ -409,7 +422,7 @@ igIncludingPython_v096_win7_64 を使っているときは簡単です。この�
 <p>
 smallWithoutPython_v096_win7_64 を使っているときは、既に Python がインストールされているので、そこにディレクトリ pysf とファイル sfPP.py をコピーします。python\\Lib\site-packages\ ディレクトリの下に pysf ディレクトリは コピーします。python\\Lib\ の下に sfPP.py をコピーします。
 <p>
-Vc7VrfyMDdRt10D.zip ファイルは評価版の PythonSf を動かすためのキーファイルになっています。これがないと評価版の PytonSf が動作しません。コマーシャル版にアップ・グレードしたあとは必要ありません。コピーしておく必要があります。
+Vc7VrfyMDdRt10D.zip ファイルは評価版の PythonSf を動かすためのキーファイルになっています。これがないと評価版の PytonSf が動作しません。カレント・ディレクトリにコピーしておく必要があります。コマーシャル版にアップ・グレードしたあとは必要ありません。
 
 <h3>評価版とコマーシャル版の違い</h3>
 <p>
@@ -1363,7 +1376,7 @@ PythonSf Open のプリプロセッサが大幅に簡易化されているとい
 というものです。非常に弱い但し書き条件です。
 <h3>PythonSf Open と PythonSf Commercial の違い</h3>
 <p>
-PythonSf Open が Commercial 版より大きく劣るのは積演算子の省略が使えないことです。また ClTensor クラスではなく np.ndarray を使うため、行列の積、ベクトルの内積に np.dot(..) 関数を使わねばなりません。以下のような具合です  
+PythonSf Open が Commercial 版より大きく劣るのは積演算子の省略が使えないことです。また ClTensor クラスではなく np.ndarray を使うため、行列の積やベクトルの内積に np.dot(..) 関数を使わねばなりません。以下のような具合です  
 
 <pre>
 <code>
@@ -1846,7 +1859,7 @@ np.ndarray インスタンスのベクトル・行列の式
 </code>
 </pre>
 <h3>ギリシャ文字と特殊記号</h3>
-数学では変数や関数を表すのにギリシャ文字が しばしば使われます。PythonSf では Python 2.x てあっても変数名にギリシャ文字の漢字を使えるようにしています。(2011 年 10 月現在では使える漢字コードは shift-jis のみです。要望が多ければ utf8 なども考えます。)下のような具合です。
+数学では変数や関数を表すのにギリシャ文字が しばしば使われます。PythonSf では Python 2.x てあっても変数名にギリシャ文字の漢字を使えるようにしています。(漢字コードは shift-jis と utf-8 それぞれ向けに分けて開発・配布しています。)下のような具合です。
 <pre>
 <code>
 <span style="color: #9f009f;">

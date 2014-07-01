@@ -11,7 +11,7 @@
 <H1 class=title>Å°Å° PythonSf one-liners and short codes Å°Å°</H1>
 <h2>Å°Å° Table Of Contents  </h2>
 <a href="#Å°Å° ÇÕÇ∂ÇﬂÇ…">Å°Å° introduction</a><br>
-<a href="#Å°Å° Portable PythonSf">Å°Å° Portable PythonSf</a><br>
+<a href="#Å°Å° Portable PythonSf">Å°Å° Git and Portable PythonSf</a><br>
 <a href="#Å°Å° PythonSf vim operation">Å°Å° PythonSf Vim operations</a><br>
 <a href="#Å°Å° PythonSf emacs operation">Å°Å° PythonSf Emacs operations</a><br>
 <a href="#Å°Å° PythonSf Fast Tour">Å°Å° PythonSf Fast Tour</a><br>
@@ -132,6 +132,8 @@ Furthermore PythonSf approximates to mathematical expressions in textbooks using
 <p>
 ~[...] describes a vector or matrix. It plots a graph to call plotGr(..) with a function name and the area parametersÅBBoth aims to use the least number of characters for calculating matrices or drawing graphs.
 
+<p>
+We uploaded <a href="https://www.youtube.com/watch?v=yDR0dTPu6M4">here</a> video discriptions. Please watch them.
 <h3>PythonSf one-liners</h3>
 <p>
 You will use many one-liners using PythonSf. If you use a number of Python expressions or statements, you must insert a semicolon between them. All upper examples are written in one-liners.
@@ -236,7 +238,7 @@ We use one-liners heavily, calculating in an editor, customizing PythonSf for yo
 
 <h3>You can solve a lot of problems using natural PythonSf one-liners</h3>
 <p>
-You you might solve 90 percent or more of your daily mathematical problems with PythonSf one-liners customizing PythonSf for you. You can change your mathematical thinking. You might copy out difficult abstruct mathematical reading textbooks as in group theory, category theory, special/general relativity. But you can go through them calculating illustrative examples, using PythonSf one-liners. This gives you to learn about them over a short time.
+You you might solve 90 percent or more of your daily mathematical problems with PythonSf one-liners customizing PythonSf for you. You can change your mathematical thinking. You might copy out difficult abstract mathematical reading textbooks as in group theory, category theory, special/general relativity. But you can go through them calculating illustrative examples, using PythonSf one-liners. This gives you to learn about them over a short time.
 <p>
 Here &quot;natural&quot; means no to include if-then-else syntax. You can use natural one-liners in calculating process much more times than usual program codings. Mathematics organizes theory perfectly and it is no use of if-then-else syntax in many cases. I there is no if-then-else syntax, then the codes lines without indents. If a program is made of codes without lines, then the program is readable though you align them horizontally and make a one-liner.
 <p>
@@ -335,9 +337,25 @@ As for using mathematics PythonSf is more convenient than SAGE in many situation
 Many of SAGE users might want to use them in a editor. If you are such one, please try PythonSf. If you implemented your theorems/formulas in Python, please customize them to use them in PythonSf. The learning cost might be one day or so.
 
 <a name="Å°Å° Portable PythonSf"></a>
-<h2>Å°Å° Portable PythonSf</h2>
+<h2>Å°Å° Git and Portable PythonSf</h2>
+<h3>Git distribution and install</h3>
 <p>
-We distribute Portable PythonSf for Python 2.7. All you need to do is to unzip and use it. We don't use installer. Users might cheer up this because it dosen't change computer settings. 
+We are exposing the last PythonSf with source codes <a href="https://www.youtube.com/watch?v=yDR0dTPu6M4">at Git</a>. You can get <a href="https://github.com/lobosKobayashi/PythonSfCp932">PythonSfCp932</a> that works with shift-jis Kanji code. You can also get <a href="https://github.com/lobosKobayashi/PythonSfUtf8">PythonSfUtf8</a> that works with utf-8 Kanji code. Please push "Download ZIP" button in each Web page and uncompress it in any directory where you want. Then you can calculate with PythonSf in the directory. Note below.
+<ol>
+<li>You should embedd pysf.vim or pysf.el in Vim or Emacs.
+<li>Install SciPy package and Visual package if your Python don't have them
+</ol>
+
+<p>
+If you want use PythonSf in other directories, you should work below three operations.
+<ol>
+<li>copy sfPP.py sfPPOp.py in the upcompressed directory to Python27\Lib\ directory.
+<li>copy all files uner pysf director in the uncompressed directory to Python27\Lib\site-packges\ directory.
+<li>copy sfCrrntIni.py,sfCrrntIni.py and Vc7VrfyMDdRt10D.zip in other directory.(Vc7VrfyMDdRt10D.zip is a key file of PythonSf. PythonSf dosen't work if Vc7VrfyMDdRt10D isn't in current directory)
+</ol>
+
+<p>
+In addition we distribute Portable PythonSf for Python 2.7. All you need to do is to unzip and use it. We don't use installer. Users might cheer up this because it dosen't change computer settings. 
 <p>
 In this distribution, we include Vim which can calculate PythonSf strings under the cursor using vim macros.
 
@@ -1515,7 +1533,7 @@ returned value
 </code>
 </pre>
 <h3>Greek letters and special symbols</h3>
-You might frequently use Greek characters in mathematical expressions. PythonSf pre-processor enables us to Greek characters even in Python 2.x version.( At the moment of 2011 year 10 month. PythonSf use shift JIS kanji characters. If there is a lot of requirements to use utf8, we will implemnt it). You can use Greek characters as below.
+You might frequently use Greek characters in mathematical expressions. PythonSf pre-processor enables us to Greek characters even in Python 2.x version.(We are developint PythonSf for shift-jis and utf-8 Kanji codes). You can use Greek characters as below.
 <pre>
 <code>
 <span style="color: #9f009f;">
