@@ -3,18 +3,249 @@ layout: post
 category : lessons
 tagline: "Supporting tagline"
 tags : [pysf, tutorial]
+title : PythonSf による多項式・Galois 基本定理の検討
 ---
 {% include JB/setup %}
 
 ##■■ 概要
+PythonSf は計算に特化した scripting language です。最小の手間で望む計算ができるように作ってあります。大部分の計算が one-liner でできてしまいます。一行だけで完結している one-liner は、結論までの数学的な思考・検討の積み重ねの筋道を整理しなおすとき、その具体例の羅列として並べ直せます。その one-liner 群の計算は何時でも再現できます。この意味で PythonSf の one-liners は数学的な考察・検討ツールとも言えます。
+
+このような PythonSf one-liners を有限体での Galois 基本定理の検討に適用してみます。二次式の根の公式が有限体でも成り立つか検討し、五次までの既約多項式を検討し、\\({\rm GF}(2^8)\\) での \\(x^4+x^3+1\\) 多項式での有限体ベクトル空間と自己同型群の間での Glois 基本定理を検討します。この過程を通して、PythonSf one-liner が考察・検討ツールとして働く具体例を示します。
+
+なお以下の計算は PythonSf version 0.91b 以降で動作確認しています。
+
+##■■ PythonSf での計算
+"最小の手間で望む計算"　と言いましたが、数学での数式記号記述自体が最小の手間での記述と可読性を両立させるように工夫されて出来上がっています。ですから、数学での記述のままに計算できることが望まれます。PythonSf 式は数学での記号記述に近づけるように作っています。同時に Python 式、文と upper compatible であるように妥協させています。
+
+例えば \\(sin(x^2+2x+3)\\) 関数の \\(\pi/4\\) での値は下のように計算させられます。
+
+    x=`X; sin(x^2+2x+3)(pi/4)
+    ===============================
+    -0.889174871907
+
+    x=`X; sin(x^2+2*x+3)(pi/4)
+    ===============================
+    -0.889174871907
+
+PythonSf は Vim, Emacs などのエディタに組み込んで使います。上の計算は、エディタで "x=`X; sin(x^2+2x+3)(pi/4)" の一行を入力し、 ;j などと pysf.vim/pysf.el エディタ・マクロ機能を呼び出すことで行います。
+
+###■ PythonSf 計算の仕掛け
+上の PythonSf 式
+
+    
+
+##■■ もっとコンピュータ・パワーを活用しましょう →　エディタへの組み込み
+現在のパソコンは 10 年前のスーパーコンピュータの計算パワーを持っていると言われます。でも その計算パワーを殆ど活用しきっていないのが現実です。
+
+電卓を叩きながらシミュレーション・ソフトを開発している方たちを、よく見かけます。コンピュータのキーボードの上に手を乗せているのに、低機能な電卓に持ち替えて計算するなんておかしいでしょう。
+
+でもコンピュータを使いながら、同時に電卓を叩く方たちの気持ちも理解できます。Exel や Matlab などの数学ソフトを立ち上げる手間をかけるぐらいならば、電卓を叩いたほうがましです。
+
+電卓よりも手軽にコンピュータで計算させる方法として PythonSf をエディタに組み込んで、カーソル下の計算式を ;j, ,j などの操作で計算させることを提案します。
+//@@
+                                       +---------------------------+  
+   +--------------------+              | display calculated result |
+   |Your Editor         |    ;j   +--->| at the bottom of editor   |
+   |                    +---------+    +---------------------------+  
+   |# Put the carsor    | or ,j   |
+   |# on a expression   |         |    +---------------------------+  
+   |x=`X; sin(2x+1)(3)  |         +--->| copy calculated result    | 
+   +--------------------+              | to the yank register      |
+                                       +---------------------------+  
+//@@@                          
+//java -jar \utl\ditaa0_9.jar __tmp __tmp.png
+PythonSf を使えば、関数電卓よりも手軽に そしてずっと高度な計算までできてしまいます。
+
+標準配布の 
+PythonSf に与える計算式文字列はエディタから与え、計算結果はエディタに表示することを想定しています。
+
 エディタのカーソル下の文字列をは計算式と看做して実行できると便利です。
 PythonSf は、そのような計算に特化した script language です。
 
-## もっとコンピュータ・パワーを活用しましょう
+##■■ 検討・考察の積み重ね
+通常理系の問題で考察・検討を積み重ねていくとき、実際に積み重ねるて記録として残していくのは数式です。文章は補足に過ぎません。頭の中では多くの文章が飛び交っていても、それを全て書き下しても無意味に近いからです。
 
-電卓を叩きながらシミュレーション・ソフトを開発している方たちを、よく見かけます。
+数学を思考ツールとして検討を積み重ねていく理系の分野で、PythonSf の one-liners も思考ツールにまで昇格します。それぞれの one-liner は一行で完結するので、複数の one-liners を積み上げていけるからです。
 
+Machine computable な PythonSf one-liners には、意味の曖昧さが一切ない。自然言語での説明でのように、複数の解釈のどれかに迷うことがない。
+
+\\(Z_3\\)Z_3
+
+\\(f(x,Z)\\)
+
+##■■ カスタマイズと sfCrrntIni.py
+
+PythonSf での計算をするとき sfCrrntIni.py(Open 判では sfCrrntInOp.py) を全部取り込んだ状態、すなわち "from sfCrrntIni import *"　を実行した後で、実際の計算を行います。ここで宣言した変数・関数はすべて global 変数として参照できます。ですから、自分が頻度高く使う機能を sfCrrntIni.py に書いておけば、短い PythonSf 式での記述が可能になります。sfCrrntIni.py(Open判では sfCrrntIniOp.py) をユーザーが自分に合わせて編集することで、PythonSf をユーザー向けにカスタマイズできます。
+
+標準配布の sfCrrntIni.py には整数の剰余体・環 \\({\rm Z}\_2,{\rm Z}\_3,{\rm Z}\_4,{\rm Z}\_5,{\rm Z}\_6,{\rm Z}\_7,{\rm Z}\_{257}\\) を Z2,Z3,Z4,Z5,Z6,Z7,Z257 で定義してあります。
+
+    # x^2 + 1 の根を Z2,Z3,Z5,Z7 で探す
+    [x for x in range(7) if oc.Pl(1,0,1,Z7)(x)==0]
+    ===============================
+    []
+
+    [x for x in ~[range(7),Z7] if (XX^2+1)(x)==0]
+    ===============================
+    []
+
+    [x for x in ~[range(5),Z5] if (XX^2+1)(x)==0]
+    ===============================
+    [2, 3]
+
+    [x for x in ~[range(3),Z3] if (XX^2+1)(x)==0]
+    ===============================
+    []
+
+    [x for x in ~[range(2),Z2] if (XX^2+1)(x)==0]
+    ===============================
+    [1]
+
+
+圏論の functor などの具体例を one-liner で作るために Z2 ... Z7, Z257 剰余環および、その八元数 O2,O3, .... ,O7 を扱えるよう 標準配布の sfCrrntIni.py をカスタマイズしてあります。また oc モジュール空間の下に、汎用可換体多項式 oc.Pl を実装してあります。また それらを要素とする行列を扱えます。
+
+    Z5(3)+Z5(4)
+    ===============================
+    Z5(2)
+
+    # Z3 体係数多項式
+    x=oc.Pl(1,0,Z3); (x^2+Z3(2)x+Z3(1))^2
+    ===============================
+    Z3(1)x^4+Z3(1)x^3+Z3(1)x+Z3(1)
+
+    # Z3 体係数多項式の割り算 -- 商と剰余を返します
+    x=oc.Pl(1,0,Z3); (x^2+Z3(2)x+Z3(1))^2 / (x^2+1)
+    ===============================
+    (Pl(Z3(1)x^2+Z3(1)x+Z3(2)), Pl(Z3(2)))
+
+    #
+O2,O3 ... O7 八元数は複素数や四元数も含みます。実際にも八元数より結合律の成り立つ複素数や四元数を使うことのほうが多いと思います。
+
+    O3(0,1,2)+ O3(3,1)
+    ===============================
+    O3(0, 2, 2, 0)
+
+    O3(0,1,2)  O3(3,1)
+    ===============================
+    O3(2, 0, 0, 1)
+
+    1+O3(0,1)^2
+    ===============================
+    O3(Z3(0))
+##■■ 圏論のための sfCrrntIni.py　カスタマイズ
+
+PythonSf では八元数を oc.Oc(..) で扱えるのですが、sfCrrntiIni.py に "Oc = oc.Oc" を書いておくことで Oc だけで済ませられるようにしてあります。
+   from sfCrrntIni import * 
+↑　重い・時間のかかる処理を \\((A_{1}\\ A\_{2}\\ )\\) 記述しない
+
+思考の前提を sfCrrntIni.py 部分に記述する
+
+\\({\mathscr S}ets({\rm Z}\_3,{\rm Z}\_4)\\)
+
+\\[
+\begin{flushleft}
+{\mathscr S}ets\left({\rm Z}_3,{\rm Z}\_4\right)
+\end{flushleft}
+\\]
+
+\\({\rm Z}_3\\)
+
+\\({\rm HOM}_{\mathscr C}(X,Y)\\)
+
+\\({\mathscr S}ets\\)
+
+~% ユーザー演算子による関数合成
+f=`X+1; plotGr(cos ~% f, -pi,pi)
+f=`X+1; plotGr(f ~% cos, -pi,pi)
+
+plotGr(cos ~% `X, -pi,pi)
+plotGr(`X ~% cos, -pi,pi)
+##■■ 
 ##■■ theme
+Calculations on a editor が、コンピュータ計算可能な数式の積み上げが、数式思考・検討の積み重ねでもある実例を提示する
+
+Zn 整数剰余類
+
+Zp(2),Zp(3), ... Zp(7) 代数系を Z2,Z3, ... , Z7 として、標準配布の sfCrrntIni.py に定義済みです
+
+行列
+
+kryO([1,2],Z3)
+===============================
+[Z3(1) Z3(2)]
+
+多項式 oc.Pl, XX
+(XX^2+1)(oc.Pl([1,2, Z3(1)]))
+(XX^2+1)(oc.Pl(1,2, Z3(1)))
+x=oc.Pl(1,0,Z3); (x^2+1)(oc.Pl(1,2, Z3(1)))
+x=oc.Pl(1,0,Z3); ((x^2+1)^3)(oc.Pl(1,2, Z3(1)))
+x=oc.Pl(1,0,Z3); ((x^2+1)^4)(oc.Pl(1,2, Z3(1)))
+(XX^2+1)(oc.Pl(1,2, 1,Z3))
+===============================
+Z3(1)x^4+Z3(1)x^3+Z3(1)x+Z3(2)
+↑要素全部の足し算の結果から type を決めている
+
+##　八元数は monoid か
+推移律が成り立たない
+### O3 八元数は推移律が成り立たないが Category Theory における monoid とみなせる
+
+#### 推移律が成り立たない例
+seed(0); N=5; [ (a,b,c) for a,b,c in randint(3, size=[N,3,8]) if (O3(a) O3(b)) O3(c) != O3(a) (O3(b) O3(c))]
+===============================
+[(ClTensor([0, 1, 0, 1, 1, 2, 0, 2]), dtype=int), ClTensor([0, 0, 0, 2, 1, 2, 2, 0]), dtype=int), ClTensor([1, 1, 1, 1, 0, 1, 0, 0]), dtype=int)),
+ (ClTensor([1, 2, 0, 2, 0, 1, 1, 2]), dtype=int), ClTensor([0, 1, 1, 1, 0, 2, 0, 2]), dtype=int), ClTensor([2, 0, 2, 0, 0, 0, 1, 1]), dtype=int)),
+ (ClTensor([2, 0, 0, 1, 0, 1, 2, 2]), dtype=int), ClTensor([0, 1, 1, 1, 1, 2, 2, 2]), dtype=int), ClTensor([0, 2, 1, 0, 1, 2, 0, 0]), dtype=int)),
+ (ClTensor([2, 0, 0, 0, 0, 0, 0, 2]), dtype=int), ClTensor([0, 2, 1, 1, 1, 0, 1, 1]), dtype=int), ClTensor([1, 0, 1, 2, 0, 1, 2, 0]), dtype=int)),
+ (ClTensor([2, 0, 1, 2, 2, 1, 0, 1]), dtype=int), ClTensor([1, 0, 2, 2, 2, 2, 1, 2]), dtype=int), ClTensor([2, 2, 2, 2, 0, 1, 2, 2]), dtype=int))]
+↓↑cf.
+seed(0); N=5; [ (a,b,c) for a,b,c in randint(3, size=[N,3,4]) if (O3(a) O3(b)) O3(c) != O3(a) (O3(b) O3(c))]
+===============================
+[]
+
+
+f=f2CT(O3); a,b,c=O3(0,1,0,1,1,2,0,2),O3(0,0,0,2,1,2,2,0),O3(1,1,1,1,0,1,0,0); [(f.fst(a)~%f.fst(b))(x)==f.fst(a b)(x) for x in ~[0,1,2,Z3]]
+Traceback (most recent call last):
+  File "C:\Python27\lib\runpy.py", line 162, in _run_module_as_main
+    "__main__", fname, loader, pkg_name)
+  File "C:\Python27\lib\runpy.py", line 72, in _run_code
+    exec code in run_globals
+  File "D:\my\vc7\mtCm\sfPP.py", line 30, in <module>
+    pysf.sfPPrcssr.start()
+  File "D:\my\vc7\mtCm\bkup\20130630\pysf\sfPPrcssr.py", line 3033, in start
+  File "D:\my\vc7\mtCm\bkup\20130630\pysf\sfPPrcssr.py", line 2476, in __execLine
+  File "<string>", line 10, in <module>
+  File "sfCrrntIni.py", line 351, in cmps
+    assert f.dom == g.cod
+AssertionError
+f=f2CT(O3); a,b,c=O3(0,1,0,1,1,2,0,2),O3(0,0,0,2,1,2,2,0),O3(1,1,1,1,0,1,0,0); [f.fst(a)~%f.fst(b)(x)==f.fst(a b)(x) for x in ~[0,1,2,Z3]]
+_tmC.py
+Traceback (most recent call last):
+  File "D:\my\vc7\mtCm\_tmC.py", line 10, in <module>
+    rightSideValueGlb__= [k__tilda__UsOp_mod____(f.fst(a),f.fst(b)(x))==f.fst(a * b)(x) for x in krry__(*[0,1,2,Z3])]
+  File "D:\my\vc7\mtCm\sfCrrntIni.py", line 345, in cmps
+    assert hasattr(g, 'func_code') and g.func_code.co_argcount == 1
+AssertionError
+
+### f.fst 全部が定まれば f.lst も定まる？
+単純化のために Z3 の世界だけで考える
+八元数は PythonSf open でも可能
+f=f2CT(λ x,y: x y, Z3); [f.fst(Z3(0))(x) for x in ~[0,1,2,Z3]]
+===============================
+[0, 0, 0]
+f=f2CT(λ x,y: x y, Z3); [f.fst(Z3(1))(x) for x in ~[0,1,2,Z3]]
+===============================
+[0, 1, 2]
+f=f2CT(λ x,y: x y, Z3); [f.fst(Z3(2))(x) for x in ~[0,1,2,Z3]]
+===============================
+[0, 2, 1]
+↑ f.lst(x)(y) ==fst　f.fst(x)(y)
+f=f2CT(λ x,y: x y, Z3); [f.lst(x)(y) ==f.fst(x)(y) for x,y in mitr(*[~[0,1,2,Z3]]*2)]
+===============================
+[True, True, True, True, True, True, True, True, True]
+
+Z3 四元数の群
+
+Z2, ... Z7 を要素とする八元数も可能
+
 エディタのカーソル下の文字列を OS コマンド または計算式と看做して実行できると便利です。
 PythonSf は、そのような計算に特化した script language です。標準配布状態で大学の学部数学程度までの計算が可能です。
 
@@ -40,6 +271,7 @@ PythonSf 式中に self が出てくることはない
 決まりきった import numpy 文は省略すべきです。
 ↑思考を妨げてはならない。
     一秒でも早く次の段階に移りたい
+
 ↑ 自分自身がみるためのグラフ作成に飾り立てるためのパラメータを渡すべきではない
 ↑ Mouse を使うなど論外
     微分・積分記号を入力するのにマウスを使っていられません
