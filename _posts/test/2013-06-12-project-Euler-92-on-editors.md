@@ -3,14 +3,14 @@ layout: post
 category : lessons
 tagline: "Supporting tagline"
 tags : [pysf, tutorial]
-title : PythonSf を使って project Euler 92, 204 問題を解く
+title : PythonSf を使って project Euler 92 問題を解く
 ---
 {% include JB/setup %}
 
 ##■■ 概要
-PythonSf は計算に特化した scripting language です。最小の手間で望む計算できるように作ってあります。大部分の計算が one-liner でできてしまいます。
+PythonSf は計算に特化した scripting language です。最小の手間で計算できるように作ってあります。多くの計算が one-liner で実行できてしまいます。
 
-One-liner は一行だけで完結しています。このような one-liner は、抽象的な数学的思考・検討の積み重ねを、具体例で強力にバックアップしてくれます。誤った筋道に入り込むことを、具体例での確認がにより防げます。一行の copy and past で動いてしまう one-liner は、似た考えを繰り返す試行錯誤の過程を強力に支えてくれます。この意味で PythonSf の one-liners は数学的な考察・検討を補助するツールとも言えます。
+One-liner は一行だけで完結しています。このような one-liner は、抽象的な数学的思考・検討の積み重ねを強力にバックアップします。誤った筋道に入り込むことを、具体例での確認で防ぎます。一行の copy and past で動いてしまう one-liner は、似た考えを繰り返す試行錯誤の過程を強力に支えてくれます。この意味で PythonSf の one-liners は数学的な考察・検討を補助するツールとも言えます。
 
 このような PythonSf one-liners を Project Euler 92 に適用してみます。この過程で PythonSf one-liner が考察・検討の補助ツールとして働く様子を見てください。
 
@@ -21,7 +21,7 @@ One-liner は一行だけで完結しています。このような one-liner �
 
 PythonSf は最小の手間で計算し、またグラフを描かせるためのソフトウェア・ツールです。数学のための scripting language とも言えます。
 
-計算させる・グラフを描かせる元になる式を「PythonSf 式」と呼んでいます。PythonSf 式は Python 文法に upper compatible にしておくことで、既存の膨大な Python package 群の利用を保障しています。同時に、エディタで書ける数式メモに近い記述も可能にしています。エディタで書ける数式メモが最小の手間で数式を入力する方法だからです。例えば数式で頻出するギリシャ文字:α,β,γ, ... , ω, Α,Β,Γ, ... , Ω を、 PythonSf 式では漢字で記述できるようにしています。また Python の名前空間を拡張して、変数名の前後に backquote を追加できるようにして名前空間を広げています。これにより短いけれど既存の Python 変数と衝突しない数学向けの PythonSf 変数を使えるようにしています。あと numpy パッケージは頻繁に利用されるので、import 済みにしてあり np の名前を割り当ててあります。
+計算させる・グラフを描かせる元になる式を「PythonSf 式」と呼んでいます。PythonSf 式は Python 文法に upper compatible であり、既存の膨大な Python package 群を利用できます。同時に、エディタで書ける数式メモに近い PythonSf 式記述もできます。エディタで書ける数式メモが最小の手間で数式を入力する方法だからです。例えば数式で頻出するギリシャ文字:α,β,γ, ... , ω, Α,Β,Γ, ... , Ω を、 PythonSf 式では漢字で記述できるようにしています。また Python の名前空間を拡張して、変数名の前後に backquote を追加できるようにして名前空間を広げています。これにより短いけれど既存の Python 変数と衝突しない数学向けの PythonSf 変数を使えるようにしています。あと numpy パッケージは頻繁に利用されるので、import 済みにしてあり np の名前を割り当ててあります。
 
 例えば \\(arccosh(\pi/2)\\) の値は下のように計算させられます。
 数学では円周率 \\(\pi\\):np.pi 変数の使用頻度は高いので global 変数空間に pi の別名を与えています。
@@ -49,7 +49,7 @@ PythonSf 自体は CUI:コマンド・ライン・ツールですが、エディ
     -0.889174871907
 
 
-以下、このような PythonSf を Project Euler の問題 92, 問題 204 に適用してみます。そこでの PythonSf one-liner の思考ツールとしての働きを見てやってください。
+以下、このような PythonSf を Project Euler の問題 92 に適用してみます。そこでの PythonSf one-liner の思考ツールとしての働きを見てやってください。
 
 ##■■ PythonSf を Project Euler 92 問題で試す
 
