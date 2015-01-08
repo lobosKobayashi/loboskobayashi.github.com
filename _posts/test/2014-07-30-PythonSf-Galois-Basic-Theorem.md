@@ -7,7 +7,8 @@ title : PythonSf による多項式・Galois 基本定理の検討
 ---
 {% include JB/setup %}
 
-##■■ 概要
+:call vxfold#SetFold_OrgBolCount('#')
+##■■ 工事中 概要
 PythonSf は計算に特化した scripting language です。最小の手間で望む計算ができるように作ってあります。大部分の計算が one-liner でできてしまいます。一行だけで完結している one-liner は、結論までの数学的な思考・検討の積み重ねの筋道を整理しなおすとき、その具体例の羅列として並べ直せます。その one-liner 群の計算は何時でも再現できます。この意味で PythonSf の one-liners は数学的な考察・検討ツールとも言えます。
 
 このような PythonSf one-liners を有限体での Galois 基本定理の検討に適用してみます。二次式の根の公式が有限体でも成り立つか検討し、五次までの既約多項式を検討し、\\({\rm GF}(2^8)\\) での \\(x^4+x^3+1\\) 多項式での有限体ベクトル空間と自己同型群の間での Glois 基本定理を検討します。この過程を通して、PythonSf one-liner が考察・検討ツールとして働く具体例を示します。
@@ -135,16 +136,18 @@ O2,O3 ... O7 八元数は複素数や四元数も含みます。実際にも八�
 ##■■ 圏論のための sfCrrntIni.py　カスタマイズ
 
 PythonSf では八元数を oc.Oc(..) で扱えるのですが、sfCrrntiIni.py に "Oc = oc.Oc" を書いておくことで Oc だけで済ませられるようにしてあります。
-   from sfCrrntIni import * 
-↑　重い・時間のかかる処理を \\((A_{1}\\ A\_{2}\\ )\\) 記述しない
+   from sfCrrntIni import * \\(\forall x\forall y\exists A\forall t(t\in A\leftrightarrow (t = x\vee t = y))\\)
+↑　重い・時間のかかる処理を \\((A_{1}\\ A\_{2}\\ )\\)   記述しない
 
 思考の前提を sfCrrntIni.py 部分に記述する
 
-\\({\mathscr S}ets({\rm Z}\_3,{\rm Z}\_4)\\)
+$$ {\mathscr S}ets({\rm Z}\_3,{\rm Z}\_4)$$ 
 
-\\( V = \int_{-r}^r \pi a^2 dx \\)
+$$
+    V = \int_{-r}^r \pi a^2 dx \\
 
-\\(  = \int_{-r}^r \pi \left(\sqrt{r^2 - x^2}\right)^2 dx \\)
+     = \int_{-r}^r \pi \left(\sqrt{r^2 - x^2}\right)^2 dx \\
+$$
 
 \\(  = \pi \int_{-r}^r (r^2 - x^2) dx \\)
 
