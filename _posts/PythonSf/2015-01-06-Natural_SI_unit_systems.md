@@ -3,7 +3,7 @@ layout: post
 category : PythonSf
 tagline: "unit_systems"
 tags : [PythonSf, unit_systems]
-title : 自然単位系からの SI 単位系の考察--jpn
+title : ε0,μ0の秘密: 自然単位系からの SI 単位系の考察--jpn
 ---
 {% include JB/setup %}
 <!--
@@ -48,6 +48,7 @@ title : 自然単位系からの SI 単位系の考察--jpn
     #### 単位系の変更は物理量全体の変更:induce を伴う。力:dyne, エネルギー:erg, 
 
     ### なぜ SI unit 規格書は理由を書かないのか
+XX
 -->
 
 ## 始めに
@@ -636,7 +637,7 @@ SI 単位系は歴史的な経緯に妥協したことで定まっている単�
 - ※3 実用単位系:単位電流・単位電圧を 10^8abvolt/10^-1abampere と定めた。ここで 単位電圧:10^9abvolt 単位電流:1abvolt と決めていれば μ0を 1 にできた。Pt-Ag 合金を使って emu 単位抵抗の10^9 倍 ≡ 1 ohm の practical な意味の標準抵抗を定め配布た。
 - ※4 FICE:First International Congress of Electricians
 - ※5 五つの単位: volt, ohm, ampere, coulomb, farad 
-- ※6 international ohm: 重さが 14.4521gram で、長さが 106.3cmの水銀の 0 度C における抵抗を定めた。
+- ※6 international ohm: 重さが 14.4521gram で、長さが 106.3cmの水銀の 0 度C における抵抗 1Ω を定めた。
 - ※7 international volt: (15度C で Clark セルが 1.434`volt) を定めた。
 - ※8 [ε0,μ0　真空の誘電率・透磁率　電気定数・磁気定数](#e0_u0)
 
