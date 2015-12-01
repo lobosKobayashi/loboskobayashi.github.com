@@ -1983,7 +1983,7 @@ False
 </pre>
 <h3>グローバル変数名前空間</h3>
 <p>
-PythonSf プリプロセッサが PythonSf 式を実行する前に from pysf.sfFnctns import * を行っています。これにより基本数値関数 exp, sin, cos, tan, sinh, cosh, tanh, arcsin, arccos, arctan, log10, sqrt など多くの基本的な数学要素をグローバル名前空間に導入済みにしています。これにより import math などを行わずに計算処理が可能です。通常の関数電卓で行う計算の殆どを PythonSf では import なしで可能です。
+PythonSf プリプロセッサが PythonSf 式を実行する前に from pysf.sfFnctns import * を行っています。これにより基本数値関数 exp, sin, cos, tan, sinh, cosh, tanh, arcsin, arccos, arctan, log, log10, sqrt など多くの基本的な数学要素をグローバル名前空間に導入済みにしています。これにより import math などを行わずに計算処理が可能です。通常の関数電卓で行う計算の殆どを PythonSf では import なしで可能です。
 <pre>
 <code>
 <span style="color: #9f009f;">
@@ -2383,7 +2383,7 @@ P,X=:Px64, X64; H=P^2+10 X^2; vc=kzrs(64); vc[16]=1; renderMtCplx( ~[ expm(`i H 
 <br>
 <h3>基本数値関数の加減乗除べき乗算と関数合成</h3>
 <p>
-PythonSf では、 基本数値関数 exp, sin, cos, tan, sinh, cosh, tanh, arcsin, arccos, arctan, log10, sqrt, absF は、グローバル変数に入れてあり、import 無しで直ぐに使えます。同時に、これらは加減乗除と整数べき乗算および関数合成を可能にしてあります。
+PythonSf では、 基本数値関数 exp, sin, cos, tan, sinh, cosh, tanh, arcsin, arccos, arctan, log, log10, sqrt, absF は、グローバル変数に入れてあり、import 無しで直ぐに使えます。同時に、これらは加減乗除と整数べき乗算および関数合成を可能にしてあります。
 <pre>
 <code>
 <span style="color: #9f009f;">
