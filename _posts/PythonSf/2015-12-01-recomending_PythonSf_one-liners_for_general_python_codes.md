@@ -31,6 +31,8 @@ emacs の eshell のようなソフトはありますが、shell:console であ�
 できるだけ小さな code snipett で動くものを作ること。
 ↑それを元に少しだけ変形したコードを動かすこと
 
+<pre class="box">
+<code>
 (1,2,3)==[1,2,3]
 list((1,2,3))==[1,2,3]
 {1,2,3}==[1,2,3]
@@ -75,6 +77,8 @@ f1,f2=λ:`print(id('abc')), λ:`print(id('abcd')); f1();f2();
 5163704
 88125536
 f1,f2=λ:`print(id('abc')), λ:`print(id('abc')); f1();f2(); (2,id('abc'))
+</code>
+</pre>
 
 ブロック・コードでも確認できるが、縦に長くなって、比較の意味での可読性が悪くなる
 //@@
@@ -227,6 +231,13 @@ https://www.youtube.com/watch?v=rdo-46WafyQ
 PythonSf と名づけたエディタに組み込んで使う計算ソフトを開発しています。vim,emacs に pysf.vim, pysf.el といった小さな script を組み込んで使います。その PythonSf では one-liners での計算を多用します。通常の使用では 99% 以上が one-liners になると思います。を組み込んで計算させます。
 [こんな具合に](https://www.youtube.com/watch?v=rdo-46WafyQ) カーソル下の計算式文字列を実行させます。
 
+下の URL より PythonSf utf-8 版と shift-jis 版を入手できます。
+
+1. [cps932版 PythonSf;;https://github.com/lobosKobayashi/PythonSfCp932](https://github.com/lobosKobayashi/PythonSfCp932)
+1. [utf-8版 PythonSf;;https://github.com/lobosKobayashi/PythonSfUtf8](https://github.com/lobosKobayashi/PythonSfUtf8)
+
+Windows 限定ですが、[ここから](https://drive.google.com/drive/folders/0BwB_czqjpb6XaXF6TEluWWg1Ulk) vim と Python も含んだポータブル版 zip ファイルを入手することもできます。bigCpPysf32_version97B.zip が cp932版であり、 bigUtPysf32_version97B.zip が utf-8 版です。Windows ではギリシャ漢字文字を含んだファイル変数を使うために cp932版を使うことを進めます。
+
 この PythonSf one-liner 実行方法は計算以外にも使えます。PythonSf は Python に対して upper compatible です。ですから、カーソル下の one-liner python code も計算式と同様に実行できてしまいます。これは vim/emacs エディタを Python の RITE tool： rapid iterative test and evaluation tools にできてしまうことを意味します。
 
 さらに嬉しいことに、Python 文法の範囲で使うだけならば、無償のオープン版 PythonSf でも十分です。当然全てのソースも公開されています。以下に述べることは PythonSf オープン版でも全て成立ちます。
@@ -234,6 +245,8 @@ PythonSf と名づけたエディタに組み込んで使う計算ソフトを�
 
 まずは単純な例から見てみましょう。皆様は下の Python 式各行の返す値を全て正しく答えられますでしょうか。Python を何年も使ってきた方でも、全てを正しく答えられる方は少ないと思います。
 
+<pre class="box">
+<code>
     (1,2,3)==[1,2,3]
     list((1,2,3))==[1,2,3]
     {1,2,3}==[1,2,3]
@@ -243,6 +256,8 @@ PythonSf と名づけたエディタに組み込んで使う計算ソフトを�
     a,b,c,d=1,1,2,1; a!=b!=d, a!=b!=c, a==b!=c!=d
     id((1,2,3)) == id((1,2,3))
     id('abc') == id('abc')
+</code>
+</pre>
 
 PythonSf 環境ならば各行にカーソルを持っていき、;j または ,j 操作をするだけで各式の値が得られます。print 命令なぞ入りません。
 
@@ -377,7 +392,11 @@ np.source 関数はモジュール・クラス・関数のソースを表示し�
     None
 
 
+## print 命令を挿入しない one-liner print debug
 
+git も vim/emacs エディタの日報月報テキスト上で実行できます。
+
+これは print debug を行ったプログラムに git で戻してやることで、one-liner print debug を再現できることを意味します。
 
 
 一方で Python は全世界のユーザーによって膨大な規模のモジュールが存在します。これらを利用すれば、コンピュータにできる操作の大部分を vim/emacs エディタ上で実行できてしまいます。

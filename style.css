@@ -50,6 +50,14 @@ H6 {
      FONT-SIZE: 100%; PADDING-TOP: 0.25em; PADDING-LEFT: 0.25em; PADDING-BOTTOM: 0.25em; MARGIN-RIGHT: 0.5em;  BACKGROUND-COLOR: #ececec; TEXT-ALIGN: left
 }
 
+pre{
+     BORDER-RIGHT: thin outset;PADDING-RIGHT: 1em; BORDER-TOP: thin outset; PADDING-LEFT: 1em; FONT-SIZE:medium; PADDING-BOTTOM: 0.5em; MARGIN: 4px 4px 4px; BORDER-LEFT: thin outset; LINE-HEIGHT: 140%; PADDING-TOP: 0.5em; BORDER-BOTTOM: thin outset; FONT-FAMILY: monospace; WHITE-SPACE: pre; TEXT-ALIGN: left;
+     BACKGROUND: #eee;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    overflow: auto;
+}
+
 pre.box{
      BORDER-RIGHT: thin outset;PADDING-RIGHT: 1em; BORDER-TOP: thin outset; PADDING-LEFT: 1em; FONT-SIZE:medium; PADDING-BOTTOM: 1em; MARGIN: 10px 20px 15px; BORDER-LEFT: thin outset; LINE-HEIGHT: 140%; PADDING-TOP: 1.5em; BORDER-BOTTOM: thin outset; FONT-FAMILY: monospace; WHITE-SPACE: pre; TEXT-ALIGN: left;
      BACKGROUND: #eee;
