@@ -1,45 +1,44 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3c.org/TR/1999/REC-html401-19991224/loose.dtd">
-<HTML>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <HEAD>
-<TITLE>python sf</TITLE>
-<META HTTP-EQUIV="Content-Type" CONTENT="text/html; CHARSET=Shift_JIS"> 
+<TITLE>one-liners</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; CHARSET=UTF-8"> 
 <LINK href="./style.css" type="text/css" rel="stylesheet">
 <STYLE>
 </STYLE>
 </HEAD>
 <BODY>
 
-<h1>���� python sf �}�j���A�� ����</h1>
-<h2>���� �ڎ�  </h2>
-<a href="#initial">���� ���߂�</a><br>
-<a href="#installOfPythonSf">���� python sf �̃C���X�g�[��</a><br>
-<a href="#overViewOfPythonSf">���� Python sf �̊T�ρE���s</a><br>
-<a href="#littleAdvancedOverview">���� Python sf �ɂ�鏭�����x�Ȍv�Z</a><br>
+<h1>■■ python sf マニュアル ■■</h1>
+<h2>■■ 目次  </h2>
+<a href="#initial">■■ 初めに</a><br>
+<a href="#installOfPythonSf">■■ python sf のインストール</a><br>
+<a href="#overViewOfPythonSf">■■ Python sf の概観・実行</a><br>
+<a href="#littleAdvancedOverview">■■ Python sf による少し高度な計算</a><br>
 
 <dd>
-<a href="#littleAdvanced_matrixCalculationByOneLiner">�� �������C�i�[�ł̍s��v�Z</a>
+<a href="#littleAdvanced_matrixCalculationByOneLiner">■ ワンライナーでの行列計算</a>
 <dd>
-<a href="#littleAdvanced_hierarchcalNameSpace">�� �K�w�\�������������O���</a>
+<a href="#littleAdvanced_hierarchcalNameSpace">■ 階層構造を持った名前空間</a>
 <dd>
-<a href="#littleAdvanced_bsicModules">�� sfFnctns.py, basicFnctns, kNumeric.py, vsGrapy.py, raional.py</a>
+<a href="#littleAdvanced_bsicModules">■ sfFnctns.py, basicFnctns, kNumeric.py, vsGrapy.py, raional.py</a>
 <dd>
-<a href="#littleAdvanced_calculationWithUnits">�� �P�ʕt���̌v�Z</a>
+<a href="#littleAdvanced_calculationWithUnits">■ 単位付きの計算</a>
 <dd>
-<a href="#littleAdvanced_octn">�� octn:oc</a>
+<a href="#littleAdvanced_octn">■ octn:oc</a>
 <dd>
-<a href="#littleAdvanced_tlRcGn">�� tlRcGn:tn</a>
+<a href="#littleAdvanced_tlRcGn">■ tlRcGn:tn</a>
 <dd>
-<a href="#littleAdvanced_sfBasicFnctns_">�� Python sf ��{���l�֐�</a>
+<a href="#littleAdvanced_sfBasicFnctns_">■ Python sf 基本数値関数</a>
 <dd>
-<a href="#littleAdvanced_matrixOperations2">�� �s�񑀍� II</a>
+<a href="#littleAdvanced_matrixOperations2">■ 行列操作 II</a>
 <dd>
-<a href="#littleAdvanced_ClFldTnd">�� ClFldTns ��ʑ̂�v�f�Ƃ���s��</a>
+<a href="#littleAdvanced_ClFldTnd">■ ClFldTns 一般体を要素とする行列</a>
 <dd>
-<a href="#littleAdvanced_derivativ">�� ����</a>
+<a href="#littleAdvanced_derivativ">■ 微分</a>
 <dd>
-<a href="#bitAdvanced_integral">�� �ϕ�</a>
+<a href="#bitAdvanced_integral">■ 積分</a>
 <dd>
-<a href="#littleAdvanced_fileExecuting">�� Python sf�t�@�C�����s</a>
+<a href="#littleAdvanced_fileExecuting">■ Python sfファイル実行</a>
 <!--
 <dd>
 <a href="#"></a>
@@ -53,13 +52,13 @@
 <a name=""></a>
 -->
 <a name="initial"></a>
-<h2>���� ���߂�  </h2>
+<h2>■■ 初めに  </h2>
 <p>
-Python sf �͌v�Z�ɓ��������\�t�g�ł��B���i�����������Ă��鐔�����A���̂܂܎��s�ł��邱�Ƃ𗝑z�Ƃ��Ă��܂��BPython sf �� �v�Z�\�t�g�� L.L.(Light weight Language) �ł��B�啔���̃G���W�j�A�E�����҂��s���Ă������v�Z�̋㊄�ȏ�� Python sf �̃������C�i�[�����ň�����ł��傤�B
+Python sf は計算に特化したソフトです。普段メモ書きしている数式を、そのまま実行できることを理想としています。Python sf は 計算ソフトの L.L.(Light weight Language) です。大部分のエンジニア・研究者が行っている日常計算の九割以上を Python sf のワンライナー数式で扱える・扱えるようにカスタマイズできるでしょう。
 <p>
-Python sf �ł́A�����̏ꍇ�f�o�b�O�Ȃ��ŃG���W�j�A�E�����҂��m�肽���v�Z���ʂ̒l�𓾂��܂��B�m�肽���O���t�\�����ʂ𓾂��܂��B�G���W�j�A�⌤���҂��R���s���[�^�Ɍv�Z�����邽�߂ɁA�v���O�����E�R�[�h�������A���̃R�[�h�̃f�o�b�O�����Ă����̂ł͉�蓹�����܂��B�����ł��B����������������Ă��鐔���̂܂܁A�R���s���[�^�Ɍv�Z������̂Ȃ�΃f�o�b�O���Ȃ��܂��B�����E���C�i�[�� Python sf �������������ŁA�R���s���[�^�Ɍv�Z�������܂��BPython sf �������C�i�[�ɂ� if then else �������܂���B������������ׂ邾���ł��B�ł�����f�o�b�O����悤�ȃ~�X�͖w�Ǔ��肱�݂܂���B
+Python sf では、多くの場合デバッグなしでエンジニア・研究者が知りたい計算結果の値を得られます。知りたいグラフ表示結果を得られます。エンジニアや研究者がコンピュータに計算させるために、プログラム・コードを書き、そのコードのデバッグをしていたのでは回り道すぎます。そうです。常日頃メモ書きしている数式のまま、コンピュータに計算させるのならばデバッグを省けます。ワン・ライナーの Python sf 式を書くだけで、コンピュータに計算させられます。Python sf ワンライナーには if then else 文を入れません。逐次処理を並べるだけです。ですからデバッグするようなミスは殆ど入りこみません。
 <p>
-�Ⴆ�΁A���_�ɂ���d�ׂ����A(1,2,3) �ʒu�̓d��x�N�g���l������ Python sf ���Ōv�Z�ł��܂��B
+例えば、原点にある電荷が作る、(1,2,3) 位置の電場ベクトル値を次の Python sf 式で計算できます。
 <pre class=sf>
 ( (~[`X,`Y,`Z])/norm(~[`X,`Y,`Z]) )(1,2,3)
 ===============================
@@ -67,99 +66,99 @@ Python sf �ł́A�����̏ꍇ�f�o�b�O�Ȃ��ŃG���W�j�A�E�����҂��m�肽���v�Z���ʂ̒l
 ---- ClTensor ----
 </pre>
 <p>
-���� r=[1,0,0] �ɂ���d�ׂ����A(1,2,3) �ʒu�̓d��x�N�g���l�ł��B
+下は r=[1,0,0] にある電荷が作る、(1,2,3) 位置の電場ベクトル値です。
 <pre class=sf>
 r=[1,0,0];( (~[`X,`Y,`Z]-r)/norm(~[`X,`Y,`Z]-r) )(1,2,3)
 ===============================
 [ 0.          0.5547002   0.83205029]
 ---- ClTensor ----
 </pre>
-����ɔ��W�����A[-1,0,0],[1,0,0]�̈ʒu�ɓd�ׂ����o�Ɏq�����d��x�N�g���� div �l,rot �l ����� 3D ���z������ Python sf ���ŃR���s���[�^�Ōv�Z���A�܂��`�������܂��B
+さらに発展させ、[-1,0,0],[1,0,0]の位置に電荷を持つ双極子が作る電場ベクトルの div 値,rot 値 および 3D 分布を下の Python sf 式でコンピュータで計算し、また描かせられます。
 <pre class=sf>
 # divergence value at (0,0,0)
-f=�� r:(~[`X,`Y,`Z] - r)/norm(~[`X,`Y,`Z] - r)^3; `div(f([1,0,0])-f([-1,0,0]) )(0,0,0)
+f=λ r:(~[`X,`Y,`Z] - r)/norm(~[`X,`Y,`Z] - r)^3; `div(f([1,0,0])-f([-1,0,0]) )(0,0,0)
 ===============================
 0.0
 
 # rotation value at (0,0,0)
-f=�� r:(~[`X,`Y,`Z] - r)/norm(~[`X,`Y,`Z] - r)^3; `rot(f([1,0,0])-f([-1,0,0]) )(0,0,0)
+f=λ r:(~[`X,`Y,`Z] - r)/norm(~[`X,`Y,`Z] - r)^3; `rot(f([1,0,0])-f([-1,0,0]) )(0,0,0)
 ===============================
 [[ 0.  0.  0.]
  [ 0.  0.  0.]
  [ 0.  0.  0.]]
 ---- ClTensor ----
-#  rot �̓x�N�g���ł͂Ȃ����Ώ̍s��ŕ\���܂�
-#  ��ʂ� N �����x�N�g���֐��ł� rot ���v�Z�����邽�߂ł�
+#  rot はベクトルではなく反対称行列で表します
+#  一般の N 次元ベクトル関数でも rot を計算させるためです
 
-# dipole �d�ꕪ�z�� 3D �\��
-v=klsp(-2,2,8);f=�� r:(~[`X,`Y,`Z] - r)/norm(~[`X,`Y,`Z] - r)^3;kqvr3d( list(mitr(v,v,v)),f([1,0,0])-f([-1,0,0]) );kmshw()
+# dipole 電場分布の 3D 表示
+v=klsp(-2,2,8);f=λ r:(~[`X,`Y,`Z] - r)/norm(~[`X,`Y,`Z] - r)^3;kqvr3d( list(mitr(v,v,v)),f([1,0,0])-f([-1,0,0]) );kmshw()
 </pre>
 <p>
 <IMG SRC="./kqvr_dipole_3d.jpg"> <br>
 <div class=next>
-�uf=�� r:(~[`X,`Y,`Z] - r)/norm(~[`X,`Y,`Z] - r)^3�v �̃Ɏ��ŁA�u�ʒu r �ɑ��݂���d�ׂ��A(x,y,z) �ʒu�ɍ��d��x�N�g����Ԃ��֐��v������Ă��܂��B�uf([1,0,0])-f([-1,0,0]�v�́A�u(1,0,0) �� (-1,0,0) �ɂ���d�ׂ����d�ˍ��킹�d��x�N�g����Ԃ��v�x�N�g���֐����Ӗ����܂��B�uv=klsp(-2,2,8)�v��[-2,2] ������������x�N�g���� v �ɐݒ肵�܂��B�ulist(mrng(v,v,v))�v�� [-2,2]x[-2,2]x[-2,2]�̎O������Ԓ��� 8x8x8 �i�q�_�̃��X�g�𐶐����܂��B���̊i�q�_�̃��X�g�A���̈ʒu�ł̓d��x�N�g�����v�Z����֐��� kqvr3d(..) 3d �x�N�g���\���֐��ɗ^���邱�ƂŁA�d��x�N�g���̋�ԕ��z��\�������Ă��܂��B
+「f=λ r:(~[`X,`Y,`Z] - r)/norm(~[`X,`Y,`Z] - r)^3」 のλ式で、「位置 r に存在する電荷が、(x,y,z) 位置に作る電場ベクトルを返す関数」を作っています。「f([1,0,0])-f([-1,0,0]」は、「(1,0,0) と (-1,0,0) にある電荷が作る重ね合わせ電場ベクトルを返す」ベクトル関数を意味します。「v=klsp(-2,2,8)」で[-2,2] を七等分するベクトルを v に設定します。「list(mrng(v,v,v))」で [-2,2]x[-2,2]x[-2,2]の三次元空間中の 8x8x8 格子点のリストを生成します。その格子点のリスト、その位置での電場ベクトルを計算する関数を kqvr3d(..) 3d ベクトル表示関数に与えることで、電場ベクトルの空間分布を表示させています。
 </div>
 <p>
-�����ōs���Ă��邱�Ƃ́A�u�s�񂯃x�N�g�������F~[...]�v�A�u�����^�v������ 0 �Ԗڂ̒l�����o���֐��F`X�v... �Ȃǂ� Python sf �v�f����בg�ݍ��킹�Ē������������Ă��邾���ł��B���`�㐔�Ȃǂ̐��w���_�̌n�� if then else �����ł̋L�q���\�ɂ��܂��B�ux &gt; 0�v�Ƃ������ꍇ���������ł̋L�q���\�ɂ��Ă���܂��B�����̒�����������ׂ邾���̃R�[�h�ɂ̓o�O�����荞�މ\���͖w�ǂ���܂���B���������e����ł��鐔���F�R�[�h�𒀎����ׂ邾���ŁA�f�o�b�O�Ȃ��ŃG���W�j�A�E�����҂��m�肽���l���v�Z���A������ 3D �O���t��\�������Ă��܂��B
+ここで行っていることは、「行列けベクトル生成：~[...]」、「引数タプルから 0 番目の値を取り出す関数：`X」... などの Python sf 要素を並べ組み合わせて逐次処理させているだけです。線形代数などの数学理論体系が if then else 無しでの記述を可能にします。「x &gt; 0」といった場合分け無しでの記述を可能にしてくれます。これらの逐次処理を並べるだけのコードにはバグが入り込む可能性は殆どありません。常日頃慣れ親しんでいる数式：コードを逐次並べるだけで、デバッグなしでエンジニア・研究者が知りたい値を計算し、見たい 3D グラフを表示させています。
 <p>
-�����ōs���Ă���x�N�g�������� Python sf �̊�{�v�f�ōs���Ă���_�ɒ��ڂ��Ă��������B�x�N�g����̓p�b�P�[�W�̂悤�Ȑ�p�̂��̂𓱓�����̂ł͂Ȃ��A�V���{�����������Ă���̂ł��Ȃ��APython �̐��l�֐��ƍs�񉉎Z�Ɛ��l������g�ݍ��킹�čs���Ă��邱�Ƃɒ��ڂ��������BPython, Python sf �̋L�q���̍����ɒ��ڂ��������B
+ここで行っているベクトル処理が Python sf の基本要素で行えている点に注目してください。ベクトル解析パッケージのような専用のものを導入するのではなく、シンボル処理をしているのでもなく、Python の数値関数と行列演算と数値微分を組み合わせて行っていることに注目ください。Python, Python sf の記述性の高さに注目ください。
 <p>
-Python sf �͊��ɂ��� Python ���C�u�����E�p�b�P�[�W�̒~�ς����p���邱�ƂŁAMatlab, Mathematica �Ɠ����ȏ�̋@�\�������܂��Bscipy, sympy, vpython �̎O�̃p�b�P�[�W�́APython sf �𓮂������߂ɕK�{�ł��Bscipy �̍s��𒆐S�Ƃ��鐔�l�v�p�b�P�[�W�g�� Matlab �ɋ߂��@�\�������܂��Bsympy �p�b�P�[�W�́A�V���{���b�N�Ȑ����������\�ɂ��܂��Bvpython �́A������ 3D �O���t�\���̂��߂Ɏg���Ă��܂��B
+Python sf は既にある Python ライブラリ・パッケージの蓄積を活用することで、Matlab, Mathematica と同等以上の機能を持ちます。scipy, sympy, vpython の三つのパッケージは、Python sf を動かすために必須です。scipy の行列を中心とする数値計パッケージトは Matlab に近い機能を持ちます。sympy パッケージは、シンボリックな数式処理を可能にします。vpython は、高速な 3D グラフ表示のために使っています。
 <p>
-���̎O�̃��C�u�����E�p�b�P�[�W���g���APython �v�Z�v���O�����E�R�[�h�������f�o�b�O���Ă��邾���ł͐��l�v�Z�\�t�g�� L.L �Ƃ͌����܂���BPython sf �ł� 10000 �s�𒴂��郉�b�p��킹�Ă��܂��B����ɂ�� Python �̃A�b�p�[�E�R���p�`�ł���Ȃ���A�v�Z����Z���L�q�ł���A�v�Z�\�t�g�� L.L. �Ɏd�グ���܂����B
+この三つのライブラリ・パッケージを使い、Python 計算プログラム・コードを書きデバッグしているだけでは数値計算ソフトの L.L とは言えません。Python sf では 10000 行を超えるラッパを被せています。これにより Python のアッパー・コンパチでありながら、計算式を短く記述できる、計算ソフトの L.L. に仕上げられました。
 <!-- <IMG SRC="./PythonSfRelation.jpg"> <br> -->
 <pre class=box>
-������������������������������������                                              
-��  Python sf                     ��                                              
-��    sfPPrcssr  �ꖜ�s�ȏ��     ��  ��������������������������������������������
-��               Pre - processor  ��  ��scipy:  Matlab �����̐��l�v�Z�p�b�P�[�W ��
-��                                ��  ��sympy:  �V���{���b�N���������p�b�P�[�W  ��
-��    sfFnctns:.�s��̊g��        ��  ��vpython:3D �\��                         ��
-��        basicFnctns             ��  ��mlb:mayavi 2d/3d �\���p�b�P�[�W         ��
-��        kNumeric �����E�ϕ��g�� ��  ��������������������������������������������
-��        vsGraph �ȕւȃO���t�\����  ��������������������������������������������
-��        rational  �L����        ��  �������́[�U�[���ŗp�ӂ��� python���C�u�� ��
-��    customize.py                ��  �����E�p�b�P�[�W                          ��
-��    sfCrrntIni.py               ��  ��������������������������������������������
-��        ���[�U�[�E�J�X�^�}�C�Y  ��  ��������������������������������������������
-��    octn.py                     ��  �����[�U�[���ŊJ������ python             ��
-��        ������                  ��  �����W���[���E�p�b�P�[�W                  ��
-��        Bool ��                 ��  ��������������������������������������������
-��        GF(2^8) Galois ��       ��                                              
-��        Zp, Sn                  ��                                              
-��                                ��                                              
-��    tlRcGn                      ��                                              
-��        ��������                ��                                              
-��        �����ċA                ��                                              
-��                                ��                                              
-��    kre ���K�\��                ��                                              
-��                                ��                                              
-��    kv  kVerifier test library  ��                                              
-��                                ��                                              
-������������������������������������                                              
+┌────────────────┐                                              
+│  Python sf                     │                                              
+│    sfPPrcssr  一万行以上の     │  ┌────────────────────┐
+│               Pre - processor  │  │scipy:  Matlab 相当の数値計算パッケージ │
+│                                │  │sympy:  シンボリック数式処理パッケージ  │
+│    sfFnctns:.行列の拡張        │  │vpython:3D 表示                         │
+│        basicFnctns             │  │mlb:mayavi 2d/3d 表示パッケージ         │
+│        kNumeric 微分・積分拡張 │  └────────────────────┘
+│        vsGraph 簡便なグラフ表示│  ┌────────────────────┐
+│        rational  有理式        │  │既存のーザー側で用意する pythonライブラ │
+│    customize.py                │  │リ・パッケージ                          │
+│    sfCrrntIni.py               │  └────────────────────┘
+│        ユーザー・カスタマイズ  │  ┌────────────────────┐
+│    octn.py                     │  │ユーザー側で開発する python             │
+│        八元数                  │  │モジュール・パッケージ                  │
+│        Bool 体                 │  └────────────────────┘
+│        GF(2^8) Galois 体       │                                              
+│        Zp, Sn                  │                                              
+│                                │                                              
+│    tlRcGn                      │                                              
+│        無限数列                │                                              
+│        末尾再帰                │                                              
+│                                │                                              
+│    kre 正規表現                │                                              
+│                                │                                              
+│    kv  kVerifier test library  │                                              
+│                                │                                              
+└────────────────┘                                              
 </pre>
 <p>
-~[...] �ōs���x�N�g���𐶐�������A���� :�� ���g���� Python lamba �\����\���ł���̂� pre-processor �̂������ł��B����ɂ��APython �̖��O��ԂƂ͓Ɨ��������[�U�[�E�J�X�^�}�C�Y�\�ȕϐ��E�֐��E���Z�q���g����悤�ɂ��܂����B���w�ő��p����M���V�����������L�����g����悤�ɂ��܂����B���[�U�[�̈�������ɃJ�X�^�}�C�Y�����ϐ��E�֐��E���Z�q�L����������悤�ɂ��܂����B�s���x�N�g�����L�q����L���𓱓��ł��܂����B�����L�q�ł̐ω��Z�q * �̏ȗ����\�ɂ��܂����B
+~[...] で行列やベクトルを生成したり、漢字 :λ を使って Python lamba 構文を表現できるのは pre-processor のおかげです。これにより、Python の名前空間とは独立したユーザー・カスタマイズ可能な変数・関数・演算子を使えるようにしました。数学で多用するギリシャ文字や特殊記号を使えるようにしました。ユーザーの扱う分野にカスタマイズした変数・関数・演算子記号を扱えるようにしました。行列やベクトルを記述する記号を導入できました。数式記述での積演算子 * の省略を可能にしました。
 <p>
-scipy �͑f���炵�����l���Z�p�b�P�[�W�ł����A���ۂɎg����ł͑����̕s�����o�Ă��܂��B�x�N�g���E�s��v�Z�𕁒i�����������鐔���܂łɂ͊ȗ����ł��܂���BBool �̂Ȃǂ̈�ʑ̂�v�f�Ƃ���s��������܂���B�����⑽�����Ȃǂ̈����ɂ��s�����o�Ă��܂��B�v�Z���ʂ̃O���t�\�����A�ł��邾���ȕւɍs�킹�����Ȃ�܂��B�����̕s�����v���v���Z�b�T�� sfFnctns.py �Ȃǂ̒ǉ����W���[����݂��ĉ������܂����B
+scipy は素晴らしい数値演算パッケージですが、実際に使う上では多くの不満が出てきます。ベクトル・行列計算を普段メモ書きする数式までには簡略化できません。Bool 体などの一般体を要素とする行列も扱えません。微分や多項式などの扱いにも不満が出てきます。計算結果のグラフ表示も、できるだけ簡便に行わせたくなります。これらの不満をプリプロセッサと sfFnctns.py などの追加モジュールを設けて解消しました。
 <p>
-���w�\�t�g�̓��[�U�[���ƂɃJ�X�^�}�C�Y���Ďg���\�t�g�ł��B���[�U�[�ɂ���ĕK�v�Ƃ����֐��A�ϐ��E�萔�� ���̈Ӗ��E�L�q���@�͑傫���قȂ�܂��B���_�����w�҂Ɠd�C��H�Z�p�҂ł́A���������揜�Z�L�����g���܂����A���̌v�Z���e�͑S���̕ʕ��ł��B�K�v�����v�Z�@�\�����ʕ������قȂ镔���̂ق��������ł��傤�B���̈Ⴂ�̖��́A�v���v���Z�b�T��O��Ƃ���J�X�^�}�C�Y��p�t�@�C���Fcustomize.py ��݂��邱�Ƃŉ������Ă��܂��B
+数学ソフトはユーザーごとにカスタマイズして使うソフトです。ユーザーによって必要とされる関数、変数・定数や その意味・記述方法は大きく異なります。理論物理学者と電気回路技術者では、同じ加減乗除算記号を使いますが、その計算内容は全くの別物です。必要される計算機能も共通部分より異なる部分のほうが多いでしょう。この違いの問題は、プリプロセッサを前提とするカスタマイズ専用ファイル：customize.py を設けることで解決しています。
 <p>
-�܂��s����g�����āA�����E�����E���f���ȊO�̈�ʂ̑́E�̗v�f����Ȃ�s���������悤�ɂ��܂����B�L��������Ȃ�C���s�[�_���X�s��EBool �̑������Ȃǂ�������悤�ɂ��܂����B�֐���v�f�Ƃ���x�N�g����s�񂳂���������悤�ɂ��܂����B
+また行列を拡張して、整数・実数・複素数以外の一般の体・環の要素からなる行列も扱えるようにしました。有理式からなるインピーダンス行列・Bool 体多項式なども扱えるようにしました。関数を要素とするベクトルや行列さえも扱えるようにしました。
 <p>
-Python sf �͊J���ꂽ�\�t�g�ł��BPython �ň�����@�\�̑S�Ă� Python sf �ł������܂��BPytho sf �̔z�z�\�t�g�����ł͕s�����Ă��鐔�w�@�\������Ƃ��́APython sf �Ƃ͖��֌W�ɑS���E�ŊJ������Ă���l�X�� Python ���C�u�����E�p�b�P�[�W�����[�U�[���ŃC���X�g�[�����Ďg���Ă��������BPython sf �̓A�b�p�[�E�R���p�`�ł���A�����Ɩ������邱�ƂȂ��g���܂��B
+Python sf は開かれたソフトです。Python で扱える機能の全てを Python sf でも扱えます。Pytho sf の配布ソフトだけでは不足している数学機能があるときは、Python sf とは無関係に全世界で開発されている様々の Python ライブラリ・パッケージをユーザー側でインストールして使ってください。Python sf はアッパー・コンパチであり、それらと矛盾することなく使えます。
 <p>
-�܂� python ���̂����[�U�[���ŗe�Ղɋ@�\��ǉ��ł��錾��ł�����܂��B�Ⴆ�� Python sf �����J���Ă��� octn.py �\�[�X�E�t�@�C���ɂ��� Bool �̃N���X BF�A�L�������� Zp �N���X�� 100 �s�A150 �s�ŏ�����Ă��܂��B�ʂ̑̂��K�v�ȂƂ��́A���[�U�[���ō���Ă��������Boctn.py �ɂ��� BF �N���X�ł̗l�ɁA__add__, __mul__ �Ȃǂ̎l�����Z�֐����`���Ă�邾���ŁAPython sf ���ŗp�ӂ��Ă��鑽������s�������A���[�U�[������̃N���X�̃C���X�^���X�𑀍�ł��܂��B
+また python 自体がユーザー側で容易に機能を追加できる言語でもあります。例えば Python sf が公開している octn.py ソース・ファイルにある Bool 体クラス BF、有限整数体 Zp クラスは 100 行、150 行で書かれています。別の体が必要なときは、ユーザー側で作ってください。octn.py にある BF クラスでの様に、__add__, __mul__ などの四則演算関数を定義してやるだけで、Python sf 側で用意している多項式や行列を勝手、ユーザー作った体クラスのインスタンスを操作できます。
 <p>
-���@�\�ł���Ȃ��烆�[�U�[�E�J�X�^�}�C�Y�\�ȊJ���ꂽ L.L. �v�Z�\�t�g Python sf �𐥔�Ƃ������Ă݂Ă��������B
+高機能でありながらユーザー・カスタマイズ可能な開かれた L.L. 計算ソフト Python sf を是非とも試してみてください。
 
-<h4>python �ōs��E���l�v�Z�Ȃ�Ēx����ł���H &lt== �\�񕪂ɑ�����I</h4>
+<h4>python で行列・数値計算なんて遅いんでしょ？ &lt== 十二分に早いよ！</h4>
 <p>
-�C���^�v���^�ł��� python �ɂ�鐔�l�v�Z�Ȃ�Ēx���Ďg�����ɂȂ�Ȃ��Ǝv����������邩���m��܂���B�ł� ����͌��ł��B�f�l�� C �����ɂ��v�Z�v���O�����ł� python nympy �̌v�Z�X�s�[�h�ɏ��ĂȂ����Ƃ̂ق��������ł��傤�B
+インタプリタである python による数値計算なんて遅くて使い物にならないと思われる方がいるかも知れません。でも それは誤りです。素人の C 実装による計算プログラムでは python nympy の計算スピードに勝てないことのほうが多いでしょう。
 <p>
-Python numpy �̍s��v�Z�ł� linpack ���C�u�������g���܂��B�J���J���Ƀ`���[�j���O���ꂽ C �̍s��v�Z���C�u�����[�ł��B���̍s��v�Z���x�́A�w�� C �ŏ����� linpack �̑��x�ɕC�G���܂��BPython numpy �̍s��v�Z�œ����Ă���̂́A�C���^�[�t�F�[�X���������� Python �ɍ��킹�� C �ŏ����ꂽ�R�[�h������ł��B
+Python numpy の行列計算では linpack ライブラリが使われます。カリカリにチューニングされた C の行列計算ライブラリーです。その行列計算速度は、殆ど C で書いた linpack の速度に匹敵します。Python numpy の行列計算で動いているのは、インターフェース部分だけを Python に合わせた C で書かれたコードだからです。
 <p>
-�_���؋��I �v�Z���Ԃ��������Ă݂܂��傤�B
+論より証拠！ 計算時間を実測してみましょう。
 <pre class=python_code>
 //@@
 import numpy as sc
@@ -183,7 +182,7 @@ print "time to multiply %d x %d with the inversed matrx:"%(N,N),time.time() - st
 print mt2
 //@@@
 
-�����l: using MSI net book U115
+実測値: using MSI net book U115
 python temp.py
 time to make 300 x 300 random value matrx : 0.0160000324249
 time to calculate 300 x 300 matrx invers: 0.266000032425
@@ -203,12 +202,12 @@ time to multiply 300 x 300 with the inversed matrx: 0.140000104904
    -4.44089210e-15   1.00000000e+00]]
 </pre>
 <div class=next>
-��ɁA�v�Z���x�̎����l�������Ă��܂��B�x���l�b�g�u�b�N�FN280 �ł� 300x300 �s��̋t�s��� 266ms �Ōv�Z���Ă��܂��B
+上に、計算速度の実測値を示しています。遅いネットブック：N280 でも 300x300 行列の逆行列を 266ms で計算しています。
 </div>
 <p>
-�f�X�N�g�b�v�E�p�\�R�� CPU:E7500 ���Ǝ��̂悤�Ȍv�Z���Ԃł��B�u���ځv�̓p�\�R�������グ����ł̎��s���Ԃł��B���ڂ� CPU �L���b�V���� Python sf �Ŏg���R�[�h���������܂ꂽ��̎��s���Ԃł��B
+デスクトップ・パソコン CPU:E7500 だと次のような計算時間です。「一回目」はパソコン立ち上げ直後での実行時間です。二回目は CPU キャッシュに Python sf で使うコードが書き込まれた後の実行時間です。
 <pre class = sf>
-# E7500 ����
+# E7500 一回目
 
 python temp.py
 time to make 300 x 300 random value matrx : 0.0160000324249
@@ -229,9 +228,9 @@ time to multiply 300 x 300 with the inversed matrx: 0.0150001049042
     1.82076576e-14   1.00000000e+00]]
 
 copy c:\#####.### temp.py /y
-        1 �̃t�@�C�����R�s�[���܂����B
+        1 個のファイルをコピーしました。
 
-# E7500 ����
+# E7500 二回目
 python temp.py
 time to make 300 x 300 random value matrx : 0.0
 time to calculate 300 x 300 matrx invers: 0.0309998989105
@@ -251,100 +250,100 @@ time to multiply 300 x 300 with the inversed matrx: 0.0
    -2.84217094e-14   1.00000000e+00]]
 </pre>
 <div class=next>
-E7500 �̓��ڈȍ~�ł� 300x300 �s��̋t�s��̌v�Z���Ԃ� 31ms �ł��B�s��ƃx�N�g���̐Ђɓ����Ă� ms �P�ʂŌv���ł��Ȃ��Ȃ�܂����B����Ȃ瑁���Ƃ�����Ǝv���܂��B�@���ł��傤���B
+E7500 の二回目以降では 300x300 行列の逆行列の計算時間が 31ms です。行列とベクトルの籍に到っては ms 単位で計測できなくなりました。これなら早いといえると思います。如何でしょうか。
 </div>
 <a name="installOfPythonSf"></a>
 
-<h2>���� python sf �̃C���X�g�[���Fpython(x,y) Distribution</h2>w
-<p>Python sf �̃C���X�g�[���́A���� scipy, sympy, vpython, mayavi package ���C���X�g�[������Ă�����ɂ���̂Ȃ�Δ��ɊȒP�ł��B
+<h2>■■ python sf のインストール：python(x,y) Distribution</h2>w
+<p>Python sf のインストールは、既に scipy, sympy, vpython, mayavi package がインストールされている環境にあるのならば非常に簡単です。
 <p>
 <ul>
-<li> Python sf ���z�z���Ă��� pysf �f�B���N�g�����J�����g�E�f�B���N�g���܂��� python �� Lib\site-packages �f�B���N�g����
-<li> sfPP.py ���J�����g�E�f�B���N�g���ɒu��
+<li> Python sf が配布している pysf ディレクトリをカレント・ディレクトリまたは python の Lib\site-packages ディレクトリに
+<li> sfPP.py をカレント・ディレクトリに置く
 </ul>
-�����ł��B���W�X�g������ϐ�������������K�v������܂���B
+だけです。レジストリや環境変数を書き換える必要もありません。
 <p>
-Python sf �]���łł́A���̑��� Vc7VrfyMDdRt10D.zip �L�[�E�t�@�C�����J�����g�E�f�B���N�g���ɒu���K�v������܂��B
+Python sf 評価版では、その他に Vc7VrfyMDdRt10D.zip キー・ファイルをカレント・ディレクトリに置く必要があります。
 <p>
-<p>scipy, sympy, vpython, mayavi package ���C���X�g�[������Ă�����ɂ�����ނ��ɁAPython sf �|�[�^�u���̔z�z��<a href="http://www.adrive.com/public/0e1af4b7fa8c1bf41f693f5e9d286fb1f784b166c1e536e87881b0a11e7e6b85.html
-">����:psff_095c.zip:5.5MB</a>�ɒu���Ă���܂��B���� zip �t�@�C���̒��� sf_v095c �ȉ��̃t�@�C���S�������[�U�[�̔C�ӂ̃f�B���N�g���ɒu���΁A���ꂾ���� Python sf �͓����܂��Bsf_v095c �f�B���N�g�����͎��R�ɕύX�\�ł���A�܂� USB ��������ɒu�����Ƃ��\�ł��B
+<p>scipy, sympy, vpython, mayavi package がインストールされている環境にある方むけに、Python sf ポータブルの配布を<a href="http://www.adrive.com/public/0e1af4b7fa8c1bf41f693f5e9d286fb1f784b166c1e536e87881b0a11e7e6b85.html
+">ここ:psff_095c.zip:5.5MB</a>に置いてあります。この zip ファイルの中の sf_v095c 以下のファイル全部をユーザーの任意のディレクトリに置けば、それだけで Python sf は動きます。sf_v095c ディレクトリ名は自由に変更可能であり、また USB メモリ上に置くことも可能です。
 <p>
-Python ���̂��C���X�g�[�����Ă��Ȃ����A�܂��� scipy, sympy, vpython, mayavi package ���C���X�g�[���������Ȃ��������ɁA������S�Ċ܂� Python sf �̃|�[�^�u���ł�<a href="http://www.adrive.com/public/9ce82e7f7b85c7fc600d4f59d251481d5773bf4340229c40f8eb2b349f9fc291.html">����:pysf_095cAll.zip:131MB</a>�ɒu���Ă���܂��B
+Python 自体をインストールしていない方、または scipy, sympy, vpython, mayavi package をインストールしたくない方向けに、これらを全て含んだ Python sf のポータブル版も<a href="http://www.adrive.com/public/9ce82e7f7b85c7fc600d4f59d251481d5773bf4340229c40f8eb2b349f9fc291.html">ここ:pysf_095cAll.zip:131MB</a>に置いてあります。
 <p>
-���̋@��� scipy, sympy, vpython, mayavi package ���܂߂� Python ���C���X�g�[�����Ă݂悤�Ƃ������ɂ́A<a href="http://www.pythonxy.com/">python(x,y) Distribution</a> ��E�߂܂��B��̂̎l�� package ���܂܂�Ă��邩��ł��B
+この機会に scipy, sympy, vpython, mayavi package も含めて Python をインストールしてみようとされる方には、<a href="http://www.pythonxy.com/">python(x,y) Distribution</a> を薦めます。先のの四の package が含まれているからです。
 
 <p>
-�Ȃ��Amayavi package ���g���̂� �x�N�g�����z�\���Ȃǌ����Ă��܂��B�O���t�\���Ȃǂ� pylab �� vpython �Ȃǂŕ\���ł���啔���̏ꍇ�� mayavi �Ȃ��ōς݂܂��B
-<h2>���� python sf �̃C���X�g�[���FEnthought Distribution</h2>
+なお、mayavi package を使うのは ベクトル分布表示など限られています。グラフ表示などの pylab や vpython などで表示できる大部分の場合は mayavi なしで済みます。
+<h2>■■ python sf のインストール：Enthought Distribution</h2>
 <p>
-Windows Python 2.6/2.5 ��O��ɁA�e�X�g���Ă��܂��BPython 2.4 �ł́A�ꕔ��肪�ł܂��B�c�O�ł����A2010.04.10 ���݂̕]���łł� Linux �����̔z�z�𖢂��s���Ă��܂���B
-<h3>�� �C���X�g�[�����@</h3>
+Windows Python 2.6/2.5 を前提に、テストしています。Python 2.4 では、一部問題がでます。残念ですが、2010.04.10 現在の評価版では Linux 向けの配布を未だ行っていません。
+<h3>■ インストール方法</h3>
 <p>
-Python sf �ł̓C���X�g�[����݂��Ă��܂���BpythonSf095?.zip ���𓀂��āA�ł����f�B���N�g�� mtCm ���J�����g�E�f�B���N�g���Ƃ���Γ��삷�邩��ł��BmtCm �̖��O�����[�U�[�̖]�ޖ��O�ɕύX���Ă���肠��܂���B
+Python sf ではインストーラを設けていません。pythonSf095?.zip を解凍して、できたディレクトリ mtCm をカレント・ディレクトリとすれば動作するからです。mtCm の名前をユーザーの望む名前に変更しても問題ありません。
 <p>
-���W�X�g������ϐ��𑀍삷�邱�Ƃ�����܂���B�A���C���X�g�[���� mtCm �f�B���N�g�����������邾���ł��B�C�y�Ɏ����Ă��������B
+レジストリや環境変数を操作することもありません。アンインストールは mtCm ディレクトリを消去するだけです。気軽に試してください。
 <p>
-�������A���� scipy, sympy, vpython �̎O�� python package ���C���X�g�[������Ă��邱�Ƃ�O��Ƃ��܂��B���݂� Ehthought �� Python distribution �ɂ� sympy ���܂܂�Ă���̂ŁApython ���C���X�g�[�����Ă��Ȃ����́A���̓���C���X�g�[�����邱�Ƃ� Python sf �𓮂�������悤�ɂȂ�܂��B
+ただし、下の scipy, sympy, vpython の三つ python package がインストールされていることを前提とします。現在の Ehthought の Python distribution には sympy が含まれているので、python をインストールしていない方は、下の二つをインストールすることで Python sf を動かさせるようになります。
 <ol>
     <li><a href="http://www.enthought.com/products/epd.php">EPD for Python2.6</a>;;http://www.enthought.com/products/epd.php
     <li><a href="http://vpython.org/win_download25.html">Visual5</a>       ;;http://vpython.org/index.html
 </ol>
 <p>
-�ʂ� Enthought �� �f�B�X�g���r���[�V�����ł͂Ȃ��A�ʂ� python2.6(2.5 �ł���), scipy, vpython ���C���X�g�[������Γ����܂��B
+別に Enthought の ディストリビューションではなく、別の python2.6(2.5 でも可), scipy, vpython をインストールすれば動きます。
 <br>
 <p>
-������ Enthought2.6 packge �̃C���X�g�[����� vpython ���C���X�g�[������Ƃ� numpy ���C���X�g�[�������Ȃ��悤�ɒ��ӂ��Ă��������BEnthought �̕����V�����o�[�W������ numpy ���g���Ă��܂��Bvpython �� numpy ���C���X�g�[������� Enthought Python �� numpy/scipy ����̈ꕔ�����������Ȃ�܂��B
+ただし Enthought2.6 packge のインストール後に vpython をインストールするとき numpy をインストールさせないように注意してください。Enthought の方が新しいバージョンの numpy を使っています。vpython の numpy をインストールすると Enthought Python の numpy/scipy 動作の一部がおかしくなります。
 <IMG SRC="./vpython26install.jpg"> <br>
 <p>
 
-<h3>�� �C���X�g�[����̃e�X�g</h3>
+<h3>■ インストール後のテスト</h3>
 <p>
-pythonSf095?.zip ���𓀂��A�܂� scipy, sympy, vpython �����삷���ԂɂȂ�����A�𓀐�̃f�B���N�g���Ɉڂ�  vfPP.bat �����s����ƁA���݂܂łɒ~�ς��ꂽ�e�X�g�����s����܂��B
+pythonSf095?.zip を解凍し、また scipy, sympy, vpython が動作する状態になったら、解凍先のディレクトリに移り  vfPP.bat を実行すると、現在までに蓄積されたテストが実行されます。
 <p>
-�𓀐�� kv �f�B���N�g���� kVerifeir �e�X�g�E���C�u������ Python sf ��p�ɂ������̂������Ă��܂��B
+解凍先の kv ディレクトリに kVerifeir テスト・ライブラリの Python sf 専用にしたものが入っています。
 
-<h3>�� Python sf �]���ł̐���</h3>
+<h3>■ Python sf 評価版の制限</h3>
 <p>
-Python sf �̕]���łł����Ă��@�\�̐����͈�؂���܂���B
+Python sf の評価版であっても機能の制限は一切ありません。
 <p>
-�������]���łł͓���J�n���ɖ������� 5�b�x�炳��A�R�s�[���C�g�\������܂��B
+ただし評価版では動作開始時に無条件に 5秒遅らされ、コピーライト表示されます。
 <p>
-�܂��J�����g�E�f�B���N�g����<a href="http://www.nasuinfo.or.jp/FreeSpace/kenji/Vc7VrfyMDdRt10D.zip">Vc7VrfyMDdRt10D.zip </a>�t�@�C�����L�[�t�@�C���Ƃ��Ēu���Ă����K�v������܂��B���̃t�@�C�����Ȃ��� Python sf �������܂���B
+またカレント・ディレクトリに<a href="http://www.nasuinfo.or.jp/FreeSpace/kenji/Vc7VrfyMDdRt10D.zip">Vc7VrfyMDdRt10D.zip </a>ファイルをキーファイルとして置いておく必要があります。このファイルがないと Python sf が動きません。
 
-<h3>�� Enthought ���C�Z���X�� python sf</h3>
+<h3>■ Enthought ライセンスと python sf</h3>
 <p>
-Python sf �́A�r�W�l�X�E���[�X�����e���Ă��� scipy, sympy, vpython �̃��W���[���̑��݂�O�񂵂Ă��邾���ł���A�c��� Enthought �z�z�\�t�g��K�v�Ƃ��܂���B����� Ehthought �z�z�𗘗p����ƃC���X�g�[������ԊȒP�ɂȂ邽�߂ɁA Enthought �z�z��O��Ƃ��������������Ă��邾���ł��B
+Python sf は、ビジネス・ユースを許容している scipy, sympy, vpython のモジュールの存在を前提しているだけであり、膨大な Enthought 配布ソフトを必要としません。たんに Ehthought 配布を利用するとインストールが一番簡単になるために、 Enthought 配布を前提とした説明を書いているだけです。
 <p>
-Python sf ���r�W�l�X�p�r�ň����ɔz�z�������Ƃ��́A������ Python(x,y) �f�B�X�g���r���[�V�������g�����Ƃ����߂܂��B
+Python sf をビジネス用途で安価に配布したいときは、無償の Python(x,y) ディストリビューションを使うことを勧めます。
 <p>
-�Ȃ��AEnthought �̃f�B�X�g���r���[�V�����̓A�J�f�~�b�N�E���[�X�ȊO�͗L���̂悤�Ɍ����Ă��܂���������܂��񂪁A<a href="http://dr0.enthought.com/products/epdfaq.php">������</a>���̂悤�ɏ�����Ă��܂��B�uThe real intent of the license is to provide a service for those firms who plan on using our bundle of software (EPD) in their commercial operation. Academic and hobbyist use is, and will remain, free.�v�����ɂ��Ȃ��̂Ȃ�΃A�J�f�~�b�N�E�o�[�W�������g���Ă����Ɖ��߂ł���Ǝv���܂��B
+なお、Enthought のディストリビューションはアカデミック・ユース以外は有償のように見えてしまうかもしれませんが、<a href="http://dr0.enthought.com/products/epdfaq.php">ここに</a>次のように書かれています。「The real intent of the license is to provide a service for those firms who plan on using our bundle of software (EPD) in their commercial operation. Academic and hobbyist use is, and will remain, free.」商売にしないのならばアカデミック・バージョンを使っていいと解釈できると思います。
 <p>
-�ނ���AEnthought distribution �𑽂��̐l�����ɕ]�����Ă��炢�AEnthought.chaco/traits �Ȃ� Engthought ���J�������\�t�g��ϋɓI�Ɋ��p�����r�W�l�X�̋@������o���AEnthougt �Ƀ��C�Z���X���𕥂��Ă��炤���Ƃ�ڎw���Ă���̂��Ǝv���܂��B���� ���̂悤�ȋ@������邱�Ɗ���Ă��܂��B
+むしろ、Enthought distribution を多くの人たちに評価してもらい、Enthought.chaco/traits など Engthought が開発したソフトを積極的に活用したビジネスの機会を作り出し、Enthougt にライセンス料を払ってもらうことを目指しているのだと思います。私も そのような機会が増えること願っています。
 
 <a name="overViewOfPythonSf"></a>
-<h2>���� Python sf �̊T�ρE���s</h2>
+<h2>■■ Python sf の概観・実行</h2>
 <p>
-Python sf �̓R�}���h�E���C���œ������\�t�g�ł��B���[�U�[������g���Ă���G�f�B�^�̃R���\�[���E���[�h�ɑg�ݍ���Ŏg���ƕ֗��ł��B�}�E�X���g���̂� 3D �O���t�\�����ʂ����_��ς��Ă݂�Ƃ��ȂǂɌ����܂��B
+Python sf はコマンド・ラインで動かすソフトです。ユーザーが日常使っているエディタのコンソール・モードに組み込んで使うと便利です。マウスを使うのは 3D グラフ表示結果を視点を変えてみるときなどに限られます。
 <p>
-�}�E�X����ɂȂꂽ���ɂ͈�a�������낤���Ƃ��v���܂��B���̋@��ɃR�}���h�E���C������Ɋ���邱�Ƃ����߂܂��B�v�Z�����̂��߂̃R���s���[�^����̉ߒ��Ń}�E�X���삪�L���Ȍ��͏��Ȃ�����ł��B�L�[�{�[�h��̎w�摀��ŁA�R���s���[�^�� Python sf ����^����̂� IDE �͕K�v����܂���BIDE �������ꂽ�G�f�B�^���g���邱�Ƃ̕����d�v�ł��B
-<h3>�� �]���łł̋@�\����</h3>
+マウス操作になれた方には違和感があろうかとも思います。この機会にコマンド・ライン操作に慣れることを勧めます。計算処理のためのコンピュータ操作の過程でマウス操作が有利な個所は少ないからです。キーボード上の指先操作で、コンピュータに Python sf 式を与えるのに IDE は必要ありません。IDE よりも手馴れたエディタを使えることの方が重要です。
+<h3>■ 評価版での機能制限</h3>
 <p>
-pythonSf095?.zip �Ŕz�z���Ă��� Python sf �]���ł̋@�\�͐��i�łƑS�������ł��B�@�\�̐����ł͂Ȃ��A�����x�������Ă��܂��B�S�Ă̌v�Z�ŁA�l�b�̃f�B���[��}�����Ă��܂��B�l�b�̃f�B���[�����Ȃ���� Python sf ���g����Ƃ̕]�������������܂�����A�L���ł� Python sf �ɐ؂�ւ��Ă��������B
-<h3>�� �������C�i�[�ł̎��s</h3>
+pythonSf095?.zip で配布している Python sf 評価版の機能は製品版と全く同じです。機能の制限ではなく、動作を遅くさせています。全ての計算で、四秒のディレーを挿入しています。四秒のディレーさえなければ Python sf を使えるとの評価をいただけましたら、有償版の Python sf に切り替えてください。
+<h3>■ ワンライナーでの実行</h3>
 <p>
-Python sf �́A�e�L�X�g�E�G�f�B�^�Ń����������Ă���܂܂Ōv�Z�����邱�Ƃ𗝑z�Ƃ��Ă��܂��B�ł��邾���������C�i�[�̌v�Z���Ŏ��s�ł���悤�ɍ���Ă���܂��B���`�㐔���l����Ε������Ă��炦��Ǝv���܂����A�����E�������ꂽ���w�͌v�Z������Ƃ��ɏꍇ�������邱�Ƃ����Ȃ��Ȃ�悤�ɏo���オ���Ă��܂��B�����E�݌v�ŏo�Ă��鑽���̐��w�v�Z�́Aif then else ��K�v�Ƃ��܂���B�����̕��ɂƂ��āA�命���̌v�Z���������C�i�[�ōς�ł��܂��Ǝv���܂��B�Ƃ������A��������C�i�[�łł�����x�̕��G���̌v�Z��ςݏd�˂Ŏv�l��g�ݗ��ĂĂ������Ƃ����ł��Ȃ��̂ł���A���̂悤�Ɍ�����֐�������Ă����͂��ł��B
+Python sf は、テキスト・エディタでメモ書きしているままで計算させることを理想としています。できるだけワンライナーの計算式で実行できるように作ってあります。線形代数を考えれば分かってもらえると思いますが、整理・完成された数学は計算させるときに場合分けすることが少なくなるように出来上がっています。研究・設計で出てくる多くの数学計算は、if then else を必要としません。多くの方にとって、大多数の計算がワンライナーで済んでしまうと思います。というより、ワン･ライナーでできる程度の複雑さの計算を積み重ねで思考を組み立てていくことしかできないのであり、そのように公式や関数を作っていくはずです。
 <p>
-�������C�i�[�Ōv�Z�������邱�ƂɍS�闝�R�́A�v�Z�̂��߂Ƀv���O������f�o�b�O�����Ȃ����߂ł��B������݌v�̂��߂ɁA�v�Z�\�t�g�����s������̂ł���A���̂��߂ɕK�v�Ȑ��������������Ōv�Z��������������ł��B�݌v�E�����̂��߂Ɍv�Z���Ă���Œ��Ƀv���O������f�o�b�O�������邱�Ƃ́A�݌v�E�����̑Ώۂւ̏W�����킮���ƂɂȂ邩��ł��B�������C�i�[���̓G�f�B�^�ł̃R�s�[�E�C���E��r���y������ł��B
+ワンライナーで計算させられることに拘る理由は、計算のためにプログラムやデバッグをしないためです。研究や設計のために、計算ソフトを実行させるのであり、そのために必要な数式を書くだけで計算をさせたいからです。設計・研究のために計算している最中にプログラムやデバッグをさせることは、設計・研究の対象への集中を削ぐことになるからです。ワンライナー式はエディタでのコピー・修正・比較が楽だからです。
 <p>
-������񖳗����Ƀ������C�i�[�ŋL�q���邱�Ƃ͔�����ׂ��ł��B�������C�i�[�Ōv�Z�����郁���b�g���Ȃ������̕��G���̌v�Z���s���Ƃ��́A�S�O���邱�ƂȂ���ɏq�ׂ�t�@�C�����s�ɐ؂�ւ��Ă��������B
-<h4>�������C�i�[���s�̋�̗�</h4>
+もちろん無理やりにワンライナーで記述することは避けるべきです。ワンライナーで計算させるメリットがないだけの複雑さの計算を行うときは、躊躇することなく後に述べるファイル実行に切り替えてください。
+<h4>ワンライナー実行の具体例</h4>
 <p>
-���̂悤�Ɍv�Z�������� Python sf �������p���ň͂�ŁA���̑O�� �upython -u sfPP.py�v��}��������������R�}���h���C���Ŏ��s�����܂��B
+次のように計算させたい Python sf 式を引用符で囲んで、その前に 「python -u sfPP.py」を挿入した文字列をコマンドラインで実行させます。
 <br>
 <IMG SRC="./commandLine.jpg"> <br>
 
 <p>
-�ȉ��� Python sf ���ł́A���܂肫�����upython sfPP "....."�v �� �usfPP.py "...."�v���ȗ����āA���p���̓��� .... �̕��������������Ă����܂��B���̂悤�ɍ���Ɂusf expression�v�Ə����Ă��郏�����C�i�[�� Python sf ���́A���̈Ӗ��ɉ��߂��������B
+以下の Python sf 式では、決まりきった「python sfPP "....."」 や 「sfPP.py "...."」を省略して、引用符の内側 .... の部分だけを書いていきます。下のように左上に「sf expression」と書いてあるワンライナーの Python sf 式は、この意味に解釈ください。
 <p>
 <pre class=sf>
 3+4
@@ -352,53 +351,53 @@ Python sf �́A�e�L�X�g�E�G�f�B�^�Ń����������Ă���܂܂Ōv�Z�����邱�Ƃ𗝑z�Ƃ�
 Z7
 </pre>
 <blockquote>
-<div class="qtitle">�R�}���h���s</div>
-<p>�{�e�ł́APython sf �������C�i�[���u���׍\���萔;;`eQ^2/(h`` c` 4 `�� ��0`)�v�̂悤�ɏ����Ă����܂��B����́u;;�v�ȍ~�̕���������o���Ĉ��p���ň͂݁A�upython sfPP.py &quot Q^2/(h`` c` 4 `�� ��0`)&quot�v�ƃR�}���h�E���C���Ŏ��s�����邱�Ƃ��Ӗ����Ă��܂��B�R�����g�����u���׍\���萔;;�v�Ȃ��� Python sf �������ł��g���܂��B�����g�́A<a href="http://www.nasuinfo.or.jp/FreeSpace/kenji/other/kShell/kShell.htm">���̂悤�� WZ �G�f�B�^�̃}�N��</a>��g��ŁActrl + O + C ����ŁA���p���̒ǉ��ȂǁA�������s�������񏈗����G�f�B�^�E�}�N���Ŏ��s�����Ă��܂��B�ł��܂�����A���g���̃G�f�B�^�̃R���\�[���E���[�h�ɂ��̂悤�ȃ}�N����g�ݍ���� Python sf ���g���Ă��������B
+<div class="qtitle">コマンド実行</div>
+<p>本稿では、Python sf ワンライナーを「微細構造定数;;`eQ^2/(h`` c` 4 `π ε0`)」のように書いていきます。これは「;;」以降の文字列を取り出して引用符で囲み、「python sfPP.py &quot Q^2/(h`` c` 4 `π ε0`)&quot」とコマンド・ラインで実行させることを意味しています。コメント部分「微細構造定数;;」なしの Python sf 式だけでも使います。私自身は、<a href="http://www.nasuinfo.or.jp/FreeSpace/kenji/other/kShell/kShell.htm">そのような WZ エディタのマクロ</a>を組んで、ctrl + O + C 操作で、引用符の追加など、何時も行う文字列処理をエディタ・マクロで実行させています。できましたら、お使いのエディタのコンソール・モードにそのようなマクロを組み込んで Python sf を使ってください。
 <p>
-�G�f�B�^�̃R���\�[���E���[�h���g�킸�ɁA���}���R�[�h���e�X�g���s���������Ƃ��ɂ�Python sf ���A���Ȃ킿�u;;�v�ȍ~�̕������ &quot ... &quot �ƈ��p���ň͂݁A���̑O�Ɂupython sfPP.py �v�������ǉ�������������G�f�B�^�ō��Ados �̃R�}���h�E���C���� copy and paste �������Ď��s�����Ă��������B�N���b�v�E�{�[�h�ɂ���R�s�[���ꂽ������́Ados ��ʂŁualt + space �� e �� p �v���삾���� dos ��ʂɓ\��t�����܂��B
+エディタのコンソール・モードを使わずに、取り急ぎコードをテスト実行させたいときにはPython sf 式、すなわち「;;」以降の文字列を &quot ... &quot と引用符で囲み、その前に「python sfPP.py 」文字列を追加した文字列をエディタで作り、dos のコマンド・ラインに copy and paste し直して実行させてください。クリップ・ボードにあるコピーされた文字列は、dos 画面で「alt + space → e → p 」操作だけで dos 画面に貼り付けられます。
 </blockquote>
 
 <h5>vim script</h5>
 <p>
-��ŏq�ׂ� python sf ���̕����񂩂���������C�i�[���s������ vim script�������<a href="http://loboskobayashi.wordpress.com/category/sf-editor/">������</a>�Ɍ��J���Ă���܂��BVimmer �̕��͂�������䎎�����������B
+上で述べた python sf 式の文字列からをワンライナー実行させる vim scriptを作って<a href="http://loboskobayashi.wordpress.com/category/sf-editor/">こちら</a>に公開してあります。Vimmer の方はこちらを御試しください。
 <h5>kidlelib</h5>
 <p>
-��ŏq�ׂ� python sf ���̕����񂩂���������C�i�[���s������ python �v���O����������Ă���܂��BPython �̍�� Guido ������� idle library ���C���������āA�R���\�[����ʂ�ǉ��������̂����܂����BpythonSf095?.zip �̒��� kidlelib �f�B���N�g���ȉ��� python source ������܂��B��������s������ kidle.py �� mtCm �J�����g�E�f�B���N�g���ɂ���܂��BmtCm �J�����g�E�f�B���N�g���� DOS �����牺�̗l�ɗ����グ�܂��B
+上で述べた python sf 式の文字列からをワンライナー実行させる python プログラムを作ってあります。Python の作者 Guido が作った idle library を修正を加えて、コンソール画面を追加したものを作りました。pythonSf095?.zip の中に kidlelib ディレクトリ以下に python source があります。これを実行させる kidle.py は mtCm カレント・ディレクトリにあります。mtCm カレント・ディレクトリの DOS 窓から下の様に立ち上げます。
 <pre class=dos>
 start python kidle.py
 </pre>
 <div class=next>
-����ƁA���̂悤�ȁuUntitled �G�f�B�^��ʁv�Ɓucosole ��ʁv��\������ kidle �v���O�����������n�߂܂��B
+すると、下のような「Untitled エディタ画面」と「cosole 画面」を表示して kidle プログラムが動き始めます。
 </div>
 <p>
 <IMG SRC="./kidleStart.jpg"> <br>
 <p>
-�����ŁuUntitled �G�f�B�^��ʁv��ʏ�Ƀ����������Ă����܂��BPython sf �����������s�ɃJ�[�\����u���Ă����A�ualt + p --&gt;C�v���������ƁA���̃J�[�\���s�ɂ��镶����� python sf ���Ƃ݂Ȃ��āupython -u sfPP.py &quot;...&quot;�v�ň͂݁u�R���\�[���E�E�B���h�E�v���ɓ\��t���Ď��s�����܂��B
+ここで「Untitled エディタ画面」画面上にメモを書いていきます。Python sf 式を書いた行にカーソルを置いておき、「alt + p --&gt;C」操作をすると、そのカーソル行にある文字列を python sf 式とみなして「python -u sfPP.py &quot;...&quot;」で囲み「コンソール・ウィンドウ」側に貼り付けて実行させます。
 <p>
 <IMG SRC="./kidleComputeWithPysf.jpg"> <br>
 <p>
-���̎��s���ʂ͎��̂悤�ɂȂ�܂��B
+その実行結果は次のようになります。
 <p>
 <IMG SRC="./kidleComputeWithPysf2.jpg"> <br>
 
-<h3>�� Python sf �ɂ��Ȍ��Ȍv�Z</h3>
+<h3>■ Python sf による簡潔な計算</h3>
 <p>
-Python sf �v���v���Z�b�T������ƂŁA�v�Z�����ȕւɁE����g���ĂĂ郁�������̐����Ɩw�Ǔ����`���ŏ����܂��B
+Python sf プリプロセッサを介すことで、計算式を簡便に・日常使っててるメモ書きの数式と殆ど同じ形式で書けます。
 <ol>
-<li>���w�ł̐ρF*���Z�q�̏ȗ͂��\�ɂ��܂�
-<li>���w�ő��p�����M���V���������g����悤�ɂ��܂��B
-<LI>�L���ށ��݁����g����悤�ɂ��܂��B
-<LI>�u`�v������ϐ����̑O��ɒǉ��ł���悤�ɂ��āA���O������Ɏg����͈͂��g�����܂��B
-<li>Python �� lambda �\���� �� �������g����悤�ɂ��܂�
+<li>数学での積：*演算子の省力を可能にします
+<li>数学で多用されるギリシャ文字を使えるようにします。
+<LI>記号∇□∂△を使えるようにします。
+<LI>「`」文字を変数名の前後に追加できるようにして、名前文字列に使える範囲を拡張します。
+<li>Python の lambda 構文で λ 文字を使えるようにします
 
-<li>�u~�v�����Z�q�L���̑O�ɒǉ��ł���悤�ɂ��āA���Z�q���g�����܂�
-<li>=:, := �ɂ��t�@�C���ϐ��̓ǂݏ������s���܂�
+<li>「~」を演算子記号の前に追加できるようにして、演算子を拡張します
+<li>=:, := によりファイル変数の読み書きを行います
 
 </ol>
 <p>
-Python �̓v���O������ʂ��L�q���邽�߂̌���ł��B���̂��� Python �ŋL�q�����v�Z���͏璷�ɂȂ��Ă��܂��܂��B
+Python はプログラム一般を記述するための言語です。そのため Python で記述した計算式は冗長になってしまいます。
 <p>
-�Ⴆ�� 12Hz ���f�U���̎��� 0.1sec �ɂ����镡�f�U���́A���� Python code ���g���Čv�Z�ł��܂��B
+例えば 12Hz 複素振動の時刻 0.1sec における複素振幅は、下の Python code を使って計算できます。
 <pre class=python_code>
 //@@
 import numpy as sc
@@ -409,137 +408,137 @@ print sc.exp(1j* 2 * sc.pi * f * t)
 (0.309016994375+0.951056516295j)
 </pre>
 <p>
-���� python �R�[�h�͎��̓_�ŏ璷�ł��B
+この python コードは次の点で冗長です。
 <ol>
-<li>exp(..) �֐��̂悤�Ɋ�{�I�Ȋ֐��́uimport numpy as sc�v�̂悤�ȃ��W���[����荞�ݕ������Ŏg���邱�Ƃ��]�܂����B��{���l�֐��͏��߂���g�ݍ��܂�Ă���ׂ��B
-<li>pi �̂悤�Ȍv�Z�ŕp�ɂɏo�Ă���萔���A�uimport numpy as sc�v�̂悤�ȃ��W���[����荞�ݕ������Ŏg���邱�Ƃ��]�܂����B�g�ݍ��ݒ萔�Ƃ��ׂ��B
-<li>�u# second, # Hz�v�̃R�����g������X�����̂��ʓ|�����A������Ȃ��ƁA�R�[�h�̃h�L�������g���������Ȃ��Ă��܂��B�R�����g�̖����R�[�h��������ł́A�����v�Z�����Ă���̂����ɒ[�ɓǂݎ��ɂ����Ȃ�B�P�ʌn���v�Z�\�t�g�ɑg�ݍ��܂�Ă���΁A�R�[�h���̂ŃR�����g��t�����Ƃ��Ɠ����x�̃h�L�������g��������������B
-<li>����ł̐����̏������̂悤�ɁA�ς� * ���Z�q�͏ȗ��\�ɂ������B
-<li>�����L�� 1j �́A�ł��邱�ƂȂ琔�w�Ŏg�� i ���g�������B
-<li>�l�ԂɌv�Z���ʂ�m�点��ɂ� print ���͕K�{���B�ł��t�ɏȂ��Ȃ��̂Ȃ�΁A�K�� print �������݂���B�Ȃ�΃f�t�H���g�� print �������݂���悤�Ɍv�Z�@�����U�����ׂ��B
+<li>exp(..) 関数のように基本的な関数は「import numpy as sc」のようなモジュール取り込み文無しで使えることが望ましい。基本数値関数は初めから組み込まれているべき。
+<li>pi のような計算で頻繁に出てくる定数も、「import numpy as sc」のようなモジュール取り込み文無しで使えることが望ましい。組み込み定数とすべき。
+<li>「# second, # Hz」のコメント文を一々書くのも面倒だが、これを省くと、コードのドキュメント性が悪くなってしまう。コメントの無いコードだけからでは、何を計算させているのかが極端に読み取りにくくなる。単位系も計算ソフトに組み込まれていれば、コード自体でコメントを付けたときと同程度のドキュメント製を持たせられる。
+<li>日常での数式の書き方のように、積の * 演算子は省略可能にしたい。
+<li>虚数記号 1j は、できることなら数学で使う i を使いたい。
+<li>人間に計算結果を知らせるには print 文は必須だ。でも逆に省けないのならば、必ず print 文が存在する。ならばデフォルトで print 文が存在するように計算機側が振舞うべき。
 </ol>
 <p>
-Python code �ɂ́A��̂悤�ȏ璷��������Ƃ��Ă��APython �ŋL�q�������́A��̉��P���ׂ����ɑΏ�������@�͂���܂���B
+Python code には、上のような冗長性があるとしても、Python で記述する限りは、上の改善すべき問題に対処する方法はありません。
 <p>
-Python sf �Ȃ�΁A�����̏璷��������������̂悤�ȊȌ��ȃ������C�i�[�̌v�Z���œ������Ƃ��s�킹���܂��B
+Python sf ならば、これらの冗長さを回避した次のような簡潔なワンライナーの計算式で同じことを行わせられます。
 <pre class=sf>
 t,f=0.1,12; exp(`i 2 pi f t)
 ===============================
 (0.309016994375+0.951056516295j)
 </pre>
 <div class=next>
-��� Python sf ���ł� print ���߂������Ă��܂���B�ł��Ō�̎��̒l�� �o�͂���悤�ɁApython sf �� print ���߂�����I�ɑ}�����Ă��܂��B���[�U�[���m�肽���͍̂ŏI���̒l�ł��邱�Ƃ��啔���ł�����B
+上の Python sf 式では print 命令を書いていません。でも最後の式の値を 出力するように、python sf が print 命令を内部的に挿入しています。ユーザーが知りたいのは最終式の値であることが大部分ですから。
 <p>
-�܂���̎��ł� �ς� * ���Z�q���ȗ����Ă��܂��Bsc.pi �ł� sc ���O��Ԃł͂Ȃ��A�O���[�o�����O��Ԃ� pi �萔��u���Ă��܂��B���f���� 1j �ł͂Ȃ� `i �ŕ\�L�����Ă��܂��B
+また上の式では 積の * 演算子を省略しています。sc.pi での sc 名前空間ではなく、グローバル名前空間に pi 定数を置いています。複素数を 1j ではなく `i で表記させています。
 <blockquote>
-<div class="qtitle">---- ���d��� ---- </div>
+<div class="qtitle">---- 多重代入 ---- </div>
 <p>
-Python �ł� �ut,f = 0,1, 12�v�̂悤�Ɉ�̑�����ŕ����̒l��ݒ�ł��܂��B�֐��̖߂�l�ł��A�����̒l��Ԃ��܂��B���̓��g�ݍ��킹�� �ut,f=functionRetuningPairVal(..)�v�̂悤�ȏ��������\�ł��B���̋@�\�͌��\�֗��ł��B���d���[�v����� for ���ŏ�����悤�g���ł����肵�܂��B
+Python では 「t,f = 0,1, 12」のように一つの代入文で複数の値を設定できます。関数の戻り値でも、複数の値を返せます。この二つを組み合わせて 「t,f=functionRetuningPairVal(..)」のような書き方も可能です。この機能は結構便利です。多重ループを一つの for 文で書けるよう拡張できたりします。
 </blockquote>
 <p>
-`pi �̑���ɃM���V�������� `�� ���g���āA����I�ɏ����Ă��鐔���� ���߂Â����܂��B
+`pi の代わりにギリシャ文字の `π を使って、日常的に書いている数式に より近づけられます。
 <pre class=sf>
-t,f=0.1,12; exp(2 `�� `i f t)
+t,f=0.1,12; exp(2 `π `i f t)
 ===============================
 (0.309016994375+0.951056516295j)
 </pre>
 <p>
-�v�Z�\�t�g�ł̓M���V���������g�����ƂŁA�h�L�������g����啝�ɍ��߂��܂��B�����������̎҂́A�M���V�������̃t�H���g���ȒP�ɓǂݏ����ł���̂ł�����A��������p���Ȃ���͂Ȃ��ł��傤�B�A���t�@�x�b�g���������ŕ��Ă��郈�[���b�p�������̎҂ɂ́A���̔��z�͖����Ȃ悤�ł��B�M���V�������̑��ɓ���̌v�Z�Ŏg�����Ƃ̑����u�ށ��݁��v�L����������悤�ɂ��Ă��܂��B
+計算ソフトではギリシャ文字を使うことで、ドキュメント性を大幅に高められます。漢字文化圏の者は、ギリシャ文字のフォントが簡単に読み書きできるのですから、それを活用しない手はないでしょう。アルファベット文字だけで閉じているヨーロッパ文化圏の者には、この発想は無理なようです。ギリシャ文字の他に日常の計算で使うことの多い「∇□∂△」記号も扱えるようにしています。
 <p>
-Python sf �ł́A�P�ʌn�t���ł̌v�Z���\�ł��B���̂悤�ȋ�ł��B
+Python sf では、単位系付きでの計算が可能です。次のような具合です。
 <pre class=sf>
 t,f=0.1s`,12Hz`;exp(`i 2 pi f t)
 ===============================
 (0.309016994375+0.951056516295j)
 </pre>
 <div class=next>
-�����܂ł���΁A��̎l�s�̃R�����g������܂ŕt���� python �R�[�h�����A�������C�i�[�� Python sf ���̕����h�L�������g���ł������Ă��܂��B���n�̕��Ȃ�΁A��� Python sf �������ŁA�ǂ�ȈӖ��̌v�Z�������Ă���̂��𗝉��ł��܂��B
+ここまでくれば、先の四行のコメント文字列まで付いた python コードよりも、ワンライナーの Python sf 式の方がドキュメント性でも勝ってきます。理系の方ならば、上の Python sf 式だけで、どんな意味の計算をさせているのかを理解できます。
 </div>
 <p>
-Python sf �ł� ts() ���Ăяo���� sympy package ���g����悤�ɂȂ�A�V���{���b�N�ȏ������\�ȂȂ�܂��B�P�ʌn�t�����Z���V���{���b�N�ȒP�ʕt�ɂȂ�܂��B
+Python sf では ts() を呼び出すと sympy package を使えるようになり、シンボリックな処理が可能ななります。単位系付き演算もシンボリックな単位付になります。
 <pre class=sf>
-ts(); C,R=4.7uF`,1k` ��`; R C
+ts(); C,R=4.7uF`,1k` Ω`; R C
 ===============================
 0.0047*s`
 </pre>
 
 <p>
-����� exp(..) �̈��������������������Ƃ��A���̒P�ʂ��ł����������Ă��Ȃ���΂Ȃ�܂���B�����P�ʂ��c�����܂܂̒l�͌v�Z�ł��܂���B���̂悤�ȒP�ʂ��ł������������v�Z�łȂ��ƕ����I�ȈӖ��������܂���B
+一方で exp(..) の引き数が物理次元を持つとき、その単位が打ち消しあっていなければなりません。物理単位が残ったままの値は計算できません。下のような単位が打ち消しあった計算でないと物理的な意味を持ちません。
 <pre class=sf>
-ts(); C,R,t=1.0uF`,1k` ��`, 1.3ms`; exp(`i 2 pi t/(R C) )
+ts(); C,R,t=1.0uF`,1k` Ω`, 1.3ms`; exp(`i 2 pi t/(R C) )
 ===============================
 (-0.309016994375+0.951056516295j)
 </pre>
 <p>
-�V���{���b�N�ȒP�ʕt�Ōv�Z���Ă��ƁA����ĕ����I�ɖ��Ӗ��Ȍv�Z�����Ă��܂����Ƃ�h���܂��B���̂悤�ȋ�ł��B
+シンボリックな単位付で計算してやると、誤って物理的に無意味な計算をしてしまうことを防げます。下のような具合です。
 <pre class=sf>
-ts(); C,R=1uF`,1k` ��`; exp(`i 2 pi/(R C) )
+ts(); C,R=1uF`,1k` Ω`; exp(`i 2 pi/(R C) )
 Symbolic value, can't compute at excecuting:exp(k__bq_i___ * 2 * pi/(R * C) )
 </pre>
 
 <p>
 <blockquote>
-<div class="qtitle">---- �ɁFlambda �� ---- </div>
+<div class="qtitle">---- λ：lambda 式 ---- </div>
 <p>
-Python �� lambda ���������܂��B�֐��v���O���~���O�Ɋ��ꂽ���łȂ��ƁA�ŏ��͖ʐH�炤�̂ł����A�����ƕ֗��ł��BPython sf �́A���� lambda �����M���V������ �� �ŕ\���ł��܂��B���̂悤�ȋ�ł��B
+Python は lambda 式を書けます。関数プログラミングに慣れた方でないと、最初は面食らうのですが、慣れると便利です。Python sf は、この lambda 式をギリシャ文字 λ で表現できます。下のような具合です。
 <pre class=sf>
 (lambda x:-x^2)(3)
 ===============================
 -9
 
-(�� x:-x^2)(3)
+(λ x:-x^2)(3)
 ===============================
 -9
 </pre>
 <p>
-���ꂾ���ł� �Ɏ��̌��p���悭����Ȃ������v���܂��B�uexp(-x^2) �� [-3,3] �͈͂̃O���t�����̂悤�ɏ����܂��v�Ƃ�������A������ �� ���̗L�p���𕪂��Ă��炦��Ǝv���܂��B
+これだけでは λ式の効用がよく分らない方も思います。「exp(-x^2) の [-3,3] 範囲のグラフを下のように書けます」といったら、少しは λ 式の有用性を分ってもらえると思います。
 <pre class=sf>
-plotGr(�� x:exp(-x^2), -3,3)
+plotGr(λ x:exp(-x^2), -3,3)
 </pre>
 <p>
 <IMG SRC="./exp_x2.jpg"> <br>
 <p>
-���̎O�̎��͓����Ӗ��ł��蓯������ɂȂ�܂��B�ł���̂悤�ɏ������ق����Ȍ��ł��� python ���̈Ӗ�������₷���Ȃ�܂��B
+下の三つの式は同じ意味であり同じ動作になります。でも上のように書いたほうが簡潔であり python 式の意味が分りやすくなります。
 <pre class=sf>
 plotGr(lambda x:exp(-x^2), -3,3)
 f = labmda x: exp(-x^2); plotGr(f, -3,3)
 def f(x):return exp(-x^2); plotGr(f, -3,3)
 </pre>
 <div class=next>
-������ �� �̓A���t�@�x�b�g�� lambda ���ڗ��̂ŁA�� �����g���Ă��邱�ƁA�Ɏ��͈̔͂������\������܂��B�����̌��p�ł��B
+漢字の λ はアルファベットの lambda より目立つので、λ 式を使っていること、λ式の範囲が強く表現されます。漢字の効用です。
 </div>
 <p>
-���͎O�p�֐��� exp �Ƃ�������{���l�֐��͉����揜�ׂ���Z�Ɗ֐��������\�� Python sf �֐��Ƃ��Ď������Ă��܂��B����ɍP���֐� `X �� Python sf �֐��ł��B�ł����� exp(x^2) �֐��̃O���t��`������ɂ́A���� Python sf ���ōς܂����܂��B
+実は三角関数や exp といった基本数値関数は加減乗除べき乗算と関数合成が可能な Python sf 関数として実装しています。さらに恒等関数 `X も Python sf 関数です。ですから exp(x^2) 関数のグラフを描かせるには、下の Python sf 式で済ませられます。
 <pre class=sf>
 plotGr(exp(-`X^2),-3,3)
 </pre>
 <div class=next>
-�ł��A����֐��Ȃ� Python sf ��{���l�֐��ȊO�̊֐��̑g�ݍ��킹���K�v�ɂȂ����Ƃ��̓Ɏ������􂵂܂��B
+でも、特殊関数など Python sf 基本数値関数以外の関数の組み合わせが必要になったときはλ式が活躍します。
 </div>
 <p>
-�R���s���[�^�E�T�C�G���X�̋��ȏ��� �� ���̗��Ƃ��ĕp�o����`���[�`���̌v�Z�� Python sf �ŁA���ۂɉ��̂悤�Ɍv�Z�ł���̂����Ă��������Alambda �� �� �ŏ����邱�Ƃ̐��܂����܂ł̗L�����𕪂��Ă��炦��Ǝv���܂��B�@���ł��傤���H
+コンピュータ・サイエンスの教科書で λ 式の例題として頻出するチャーチ数の計算が Python sf で、実際に下のように計算できるのを見てもらったら、lambda を λ で書けることの凄まじいまでの有利さを分ってもらえると思います。如何でしょうか？
 <pre class=sf>
-Z='1';S =�� s:s+'1';(�� s:�� z:s(s(z)))(S)(Z)
+Z='1';S =λ s:s+'1';(λ s:λ z:s(s(z)))(S)(Z)
 ===============================
 111
 
-Z='1';S =�� s:s+'1';(�� s:�� z:s(s(  s(s(s(z))) )))(S)(Z)
+Z='1';S =λ s:s+'1';(λ s:λ z:s(s(  s(s(s(z))) )))(S)(Z)
 ===============================
 111111
 </pre>
 <p>
-Python sf �� Python ����Œ~�ς���Ă��鑽����̃��C�u�������Ȍ��ȃ������C�i�[�ŗ��p�ł��邱�Ƃɂ��ڂ������Ă��������BPython sf �̗��p�͐��l�E�����v�Z�����Ɍ��肳��܂���B
+Python sf は Python 言語で蓄積されている多分野のライブラリを簡潔なワンライナーで利用できることにも目を向けてください。Python sf の利用は数値・数式計算だけに限定されません。
 
 </blockquote>
 
-<h4>�o�b�N�E�N�H�[�g�F` �L���ɂ��ϐ��E�֐����̊g��</h4>
+<h4>バック・クォート：` 記号による変数・関数名の拡張</h4>
 <p>
-���Ԃ�啔���̕��́u s`, `�� �� `i �Ȃǂƕϐ����̑O�ɂ��Ă���t�N�H�[�g�F` �L���͉��Ȃ񂾁v�Ǝv����Ǝv���܂��B���ꂪ Python sf �̈�Ԏ����ł�������ł��BPython �Ɍ���Ǝg����ϐ��E�֐����̓A���_�[�X�R�A�ƃA���t�@�[�j���[�����b�N�ŋL�q�������̂Ɍ��肳��܂��B���͈̔͂����Ōv�Z�\�t�g�ɕK�v�ȕϐ��E�֐������� �܂��Ȃ����Ƃ���ƁA������ python �ϐ��E�֐����ƂԂ���܂��B�ϐ��̑O��Ɂu`�v�L�����������̂��ϐ����Ƃ��ċ������ƂŁAPython �̕ϐ����ƌv�Z�\�t�g�ɕK�v�ȕϐ����𖵏����������������܂��B�P���Ȃ��Ƃł����A�v�Z���� Python ���@�Ɩ������邱�ƂȂ��Ȍ��Ƀh�L�������g�������L�q����̂ɁA���Ɍ��ʂ�����܂��B
+たぶん大部分の方は「 s`, `π や `i などと変数名の前についている逆クォート：` 記号は何なんだ」と思われると思います。これが Python sf の一番自慢できる特徴です。Python に限ると使える変数・関数名はアンダースコアとアルファーニューメリックで記述されるものに限定されます。この範囲だけで計算ソフトに必要な変数・関数名をも まかなおうとすると、既存の python 変数・関数名とぶつかります。変数の前後に「`」記号をつけたものも変数名として許すことで、Python の変数名と計算ソフトに必要な変数名を矛盾無く共存させられます。単純なことですが、計算式を Python 文法と矛盾することなく簡潔にドキュメント性高く記述するのに、非常に効果があります。
 <p>
-�Ⴆ�� SI �P�ʌn�ł͕b�̒P�ʂ� s �ŕ\�����邱�ƂɌ��܂��Ă��܂��B�ł��v���O�����E�R�[�h�ɂ́A����Ȍ��܂育�Ƃ��������߂܂���B���H�w����ł� 12s �Ə����ꂽ���l�� 12 �b���Ӗ����邱�Ƃ������ł��傤�B12m/s �Ƃ����ꂽ��A���x���Ӗ����Ă��邱�Ƃ��啔���ł��傤�B
-�ł��v���O���~���O����ł� s �͕b�̈Ӗ���\���Ƃ̋��ʔF���͂���܂���B�X�e�b�v�����Ӗ����Ă��邩������܂���B�\�ʐς̈Ӗ���������܂���B�ł����� SI �P�ʌn�ŕb�� s ���ƌ��܂��Ă��Ă��A�b�̒P�ʂ� s ������U��܂���B�ł��u`�v����둤�ɒǉ����� s` ��b�Ɋ���U��̂Ȃ�΁APython program �ł̕ϐ����ƕb�̒P�ʂ� s` ���������邱�ƂȂ��A�v�Z���̕����I�ȈӖ��𖾊m�ɂ��Ȃ���A�Ȍ��ɋL�q�ł��܂��BPython sf �ł͕ϐ����̌�둤�Ɂu`�v��ǉ��������̂ɒP�ʌn�ƕ����萔�̖��O�����蓖�ĂĂ��܂��B
+例えば SI 単位系では秒の単位は s で表現することに決まっています。でもプログラム・コードには、そんな決まりごとを持ち込めません。理工学分野での 12s と書かれた数値は 12 秒を意味することが多いでしょう。12m/s とかかれたら、速度を意味していることが大部分でしょう。
+でもプログラミング言語では s は秒の意味を表すとの共通認識はありません。ステップ数を意味しているかもしれません。表面積の意味かもしれません。ですから SI 単位系で秒が s だと決まっていても、秒の単位に s を割り振れません。でも「`」を後ろ側に追加した s` を秒に割り振るのならば、Python program での変数名と秒の単位の s` が矛盾することなく、計算式の物理的な意味を明確にしながら、簡潔に記述できます。Python sf では変数名の後ろ側に「`」を追加したものに単位系と物理定数の名前を割り当てています。
 <p>
-�t�ɖ��O�̑O���Ɂu`�v��ǉ��������O�́A�����P�ʂ��Ӗ��������Ȃ��萔�E�֐��Ɋ��蓖�ĂĂ��܂��B��̗�Ŏg�����P�ʋ��� `i, �~���� `pi,`�΁A�ȊO�� BOOL�̕ϐ� `1,`0, BOOL �̑�����`Z�APauli �s�� `��x,`��y,`��z, �O���� Levi Civita �e���\�� `��L �Ȃǂ��f�t�H���g�Œ�`���Ă��܂��B�ȉ��̂悤�Ȍv�Z���ł��܂��B
+逆に名前の前側に「`」を追加した名前は、物理単位が意味を持たない定数・関数に割り当てています。上の例で使った単位虚数 `i, 円周率 `pi,`π、以外に BOOL体変数 `1,`0, BOOL 体多項式`Z、Pauli 行列 `σx,`σy,`σz, 三次元 Levi Civita テンソル `εL などをデフォルトで定義しています。以下のような計算ができます。
 <p>
 <pre class=sf>
 # BOOL field calculation<BR>
@@ -574,50 +573,50 @@ Python sf �� Python ����Œ~�ς���Ă��鑽����̃��C�u�������Ȍ��ȃ������C�i�[��
 <pre class=sf>
 # Pauli matrix calculation
 
-`��x
+`σx
 ===============================
 [[ 0.  1.]
  [ 1.  0.]]
 ---- ClTensor ----
 
-`��y
+`σy
 ===============================
 [[ 0.+0.j  0.-1.j]
  [ 0.+1.j  0.+0.j]]
 ---- ClTensor ----
 
-`��x `��x - `��y `��x
+`σx `σx - `σy `σx
 ===============================
 [[ 1.+1.j  0.+0.j]
  [ 0.+0.j  1.-1.j]]
 ---- ClTensor ----
 
-1/(`��x `��x - `��y `��x)   # inverse by 1/...
+1/(`σx `σx - `σy `σx)   # inverse by 1/...
 ===============================
 [[ 0.5-0.5j  0.0+0.j ]
  [ 0.0+0.j   0.5+0.5j]]
 ---- ClTensor ----
 
-`��z/(`��x `��x - `��y `��x)
+`σz/(`σx `σx - `σy `σx)
 ===============================
 [[ 0.5-0.5j  0.0+0.j ]
  [ 0.0+0.j  -0.5-0.5j]]
 ---- ClTensor ----
 
-`��z (`��x `��x - `��y `��x)^-1
+`σz (`σx `σx - `σy `σx)^-1
 ===============================
 [[ 0.5-0.5j  0.0+0.j ]
  [ 0.0+0.j  -0.5-0.5j]]
 ---- ClTensor ----
 
 # Matrix * vector
-`��x [2,3]
+`σx [2,3]
 ===============================
 [ 3.  2.]
 ---- ClTensor ----
 
 # vector * Matrix
-[2,3] `��x
+[2,3] `σx
 ===============================
 [ 3.  2.]
 ---- ClTensor ----
@@ -626,7 +625,7 @@ Python sf �� Python ����Œ~�ς���Ă��鑽����̃��C�u�������Ȍ��ȃ������C�i�[��
 <pre class=sf>
 # Levi Civita tensor  calculation
 
-`��L
+`εL
 ===============================
 [[[ 0.  0.  0.]
   [ 0.  0.  1.]
@@ -642,7 +641,7 @@ Python sf �� Python ����Œ~�ς���Ă��鑽����̃��C�u�������Ȍ��ȃ������C�i�[��
 ---- ClTensor ----
 
 # Tensor * vector
-`��L [1,2,3]
+`εL [1,2,3]
 ===============================
 [[ 0.  3. -2.]
  [-3.  0.  1.]
@@ -651,21 +650,21 @@ Python sf �� Python ����Œ~�ς���Ă��鑽����̃��C�u�������Ȍ��ȃ������C�i�[��
 
 # vector * Tensor * vector
 
-a,b=[1,2,3],[4,5,6];a `��L b
+a,b=[1,2,3],[4,5,6];a `εL b
 ===============================
 [ 3. -6.  3.]
 ---- ClTensor ----
 
-# ���Ȃ݂ɁA��̌v�Z�̓x�N�g���O�ςɃ}�C�i�X������t�������̂ɂȂ�܂��B
+# ちなみに、上の計算はベクトル外積にマイナス符号を付けたものになります。
 a,b=[1,2,3],[4,5,6]; sc.cross(a,b)
 ===============================
 [-3  6 -3]
 
 </pre>
 
-<h4>�`���_�F~ �L���ɂ�鉉�Z�q�̊g��</h4>
+<h4>チルダ：~ 記号による演算子の拡張</h4>
 <p>
-Python sf �́u~�v�L�����g���ĉ��Z�q���\�Ɋg�����܂��B�s��� ~[...] �ŕ\�L�ł���̂����ɕ֗��ł��BPython �̃��X�g����\�L�̍ŏ��ɁA�`���_�L���F~ ��ǉ����邾���Ńx�N�g����s��𐶐��ł���̂��֗��ł��B
+Python sf は「~」記号を使って演算子を可能に拡張します。行列を ~[...] で表記できるのが特に便利です。Python のリスト内包表記の最初に、チルダ記号：~ を追加するだけでベクトルや行列を生成できるのも便利です。
 <pre class=sf>
 #vector
 ~[1,2,3]
@@ -680,7 +679,7 @@ Python sf �́u~�v�L�����g���ĉ��Z�q���\�Ɋg�����܂��B�s��� ~[...] �ŕ\�L�ł��
 ---- ClTensor ----
 
 
-# vector * vector:���ρFinner product<BR>
+# vector * vector:内積：inner product<BR>
 ~[1,2,3] ~[4,5,6]
 ===============================
 32.0
@@ -727,7 +726,7 @@ vc, mt = ~[1,2], ~[[1,2],[3,4]]; mt vc
 
 </pre>
 <div class=next>
-��̍Ō�̗�Ŏg���� range(..) �֐��� Python ���̂��ŏ����������g�ݍ��݊֐��ł��Brange(5) �� 0 ���� 5 �͈̔͂ō��ݕ��� 1 �̃��X�g��Ԃ����܂��B���ۂ� range(5) ������P�ƂŎ��s������΁A���̂悤�ɂȂ�܂��B
+上の最後の例で使った range(..) 関数は Python 自体が最初から備える組み込み関数です。range(5) は 0 から 5 の範囲で刻み幅が 1 のリストを返すします。実際に range(5) だけを単独で実行させれば、次のようになります。
 </div>
 <pre class=sf>
 range(5)
@@ -736,9 +735,9 @@ range(5)
 </pre>
 
 <blockquote>
-<div class="qtitle">---- introspection_1�Fhelp ---- �ɂ���</div>
+<div class="qtitle">---- introspection_1：help ---- について</div>
 <p>
-Python �ɂ́Aintrospection �@�\�F�h�L�������g��`�����ދ@�\��������Ă��܂��Bhelp(..) �֐��̈����Ɋ֐����܂��̓��W���[������^���Ă��΁A���̊֐��⃂�W���[���ɏ�����Ă�������R�����g����������o���܂��B���̂悤�ȋ�ł��B
+Python には、introspection 機能：ドキュメントを覗き込む機能が備わっています。help(..) 関数の引数に関数名またはモジュール名を与えてやれば、その関数やモジュールに書かれている説明コメント文字列を取り出せます。下のような具合です。
 <pre class=sf>
 help(range)
 
@@ -755,21 +754,21 @@ range(...)
 None
 </pre>
 <div class=nex>
-�ȉ��A��̕����֐��⃂�W���[�����o�Ă����Ƃ��� help(..) �Ƃ���Ă݂Ă��������B
+以下、訳の分らん関数やモジュールが出てきたときは help(..) とやってみてください。
 </div>
 <p>
-�����Ă������̎�� Python sf ���� range(..) �Ȃǂ̓�����m�F����R�[�h�������Ď��s���Ă݂Ă��������B���̊֐��̓���� �悭�����ł���͂��ł��BPython sf �Ȃ�΁A�������������� ���̎��̒l���R���\�[���ɑł��o���܂��Bprint ���߂����������ɍς܂����܂��B���̂悤�ȋ�� range(..) �֐��𓮍삳���Ă݂�΁A��̕���ɂ����p��̕��͂����S�ɗ����ł���Ǝv���܂��B
+そしてご自分の手で Python sf 式を range(..) などの動作を確認するコードを書いて実行してみてください。その関数の動作を よく理解できるはずです。Python sf ならば、式を書くだけで その式の値をコンソールに打ち出します。print 命令さえ書かずに済ませられます。下のような具合に range(..) 関数を動作させてみれば、上の分りにくい英語の文章を完全に理解できると思います。
 <pre class=sf>
 range(3,10,2)
 ===============================
 [3, 5, 7, 9]
 </pre>
 <p>
-�啔���� Python sf ���͈�s�ł��B�e�X�g�̎�ԂȂ� �������m��Ă��܂�
+大部分の Python sf 式は一行です。テストの手間など たかが知れています
 </blockquote>
-<h4>Python sf �̊�{���l�֐�</h4>
+<h4>Python sf の基本数値関数</h4>
 <p>
-��� Python sf �ł́Aexp �֐����f�t�H���g�őg�ݍ��܂�Ă���Aexp �֐����������Ă��� numpy ���W���[���� import �Ȃ��Ŏg���邱�Ƃ������܂����B���̑��̃f�t�H���g�g�ݍ��݊֐��ɂ� absF, sin, cos, tan, sinh, cosh, tanh, arcsin, arccos, arctan, log, log10, sqrt ������܂��B�����͑S�ĕ��f�����l�ł��v�Z�ł��܂��B
+先に Python sf では、exp 関数がデフォルトで組み込まれており、exp 関数を実装してある numpy モジュールの import なしで使えることを示しました。その他のデフォルト組み込み関数には absF, sin, cos, tan, sinh, cosh, tanh, arcsin, arccos, arctan, log, log10, sqrt があります。これらは全て複素引数値でも計算できます。
 <pre class=sf>
 cos(pi/3)
 ===============================
@@ -792,8 +791,8 @@ arcsin(1)
 1.57079632679
 </pre>
 <p>
-�x�N�g���l�������ɂƂ� �t�@�[�X�g�E�t�[���G�ϊ�
-fft, �t�ϊ� ifft ���l�֐����p�ӂ��Ă���܂��B�p�ɂɎg������ł��B�����̃x�N�g�����͔C�ӂ̂��̂�^�����܂��B 2 �ׂ̂���Ɍ���܂���B
+ベクトル値を引数にとる ファースト・フーリエ変換
+fft, 逆変換 ifft 数値関数も用意してあります。頻繁に使うからです。引数のベクトル長は任意のものを与えられます。 2 のべき乗に限りません。
 <pre class=sf>
 fft([1,2,3,4,5])
 ===============================
@@ -807,7 +806,7 @@ ifft( fft([1,2,3,4,5]) )
 ---- ClTensor ----
 </pre>
 <p>
-�����s��������l�ɂƂ� expm, logm ����{���l�֐��ɉ����Ă���܂��B
+正方行列を引数値にとる expm, logm も基本数値関数に加えてあります。
 <pre class=sf>
 expm(~[[1,2,],[3,4]])
 ===============================
@@ -815,13 +814,13 @@ expm(~[[1,2,],[3,4]])
  [ 112.10484685  164.07380305]]
 ---- ClTensor ----
 
-expm(`��x)
+expm(`σx)
 ===============================
 [[ 1.54308063  1.17520119]
  [ 1.17520119  1.54308063]]
 ---- ClTensor ----
 
-t=2.7; expm(`i t `��x)
+t=2.7; expm(`i t `σx)
 ===============================
 [[-0.90407214+0.j          0.00000000+0.42737988j]
  [ 0.00000000+0.42737988j -0.90407214+0.j        ]]
@@ -830,11 +829,11 @@ t=2.7; expm(`i t `��x)
 <h4>tuple,list, array, ClTensor</h4>
 
 <p>
-Python �ɂ́Atuple,list �Ƃ����V�[�P���X�E�f�[�^�������R���e�i���\���Ƃ��Ĕ�����Ă��܂��Bnumpy ���W���[���ɂ� array(..) �s��E�x�N�^��������Ă��܂��BPython sf �� numpy ���p������ ClTensor ��V���ɐ݂��āA�s��E�x�N�^�������₷�����Ă��܂��B�V���� Python sf ���g���Ƃ��A�����̈Ⴂ�̗������ŏ��֖̊�ł��B�����ɕ��@����������Ă���Ɖ��\�y�[�W���K�v�ł��B�ł��A�ŏ��̂����́u�K����芵���v�ōs���Ă��܂��܂��B
+Python には、tuple,list というシーケンス・データを扱うコンテナが予約語として備わっています。numpy モジュールには array(..) 行列・ベクタが備わっています。Python sf は numpy を継承した ClTensor を新たに設けて、行列・ベクタを扱いやすくしています。新たに Python sf を使うとき、これらの違いの理解が最初の関門です。厳密に文法から説明していると何十ページも必要です。でも、最初のうちは「習うより慣れろ」で行けてしまいます。
 <p>
-�ł��A�ȉ��̑傫�ȓ����E�Ⴂ�͗������Ă����ׂ��ł��B
+でも、以下の大きな特徴・違いは理解しておくべきです。
 <p>
-tuple �͕ύX�ł��Ȃ��V�[�P���X�E�f�[�^�ł��B�ۊ��ʂň͂�ŕ\�����܂��B
+tuple は変更できないシーケンス・データです。丸括弧で囲んで表現します。
 <pre class=sf>
 tpl=(1,2,3)
 ===============================
@@ -855,18 +854,18 @@ help(tuple)
 class tuple(object)
  |  tuple() -> an empty tuple
  |  tuple(sequence) -> tuple initialized from sequence's items
-    �E
-    �E
+    ・
+    ・
  |  index(...)
  |      T.index(value, [start, [stop]]) -> integer -- return first index of value.
  |      Raises ValueError if the value is not present.
 
 </pre>
 <div class=next>
-������̗v�f����Ȃ�^�v���́A(100,) �̂悤�ɁA�E�ۊ��ʂ̒��O�Ɂu,�v��u�����ƂŁA���Z�̗D�揇�ʂ�\���\���̊ۊ��ʂ̈Ӗ��Ƌ�ʂ��܂��B
+一つだけの要素からなるタプルは、(100,) のように、右丸括弧の直前に「,」を置くことで、演算の優先順位を表す構文の丸括弧の意味と区別します。
 </div>
 <p>
-list �͕ύX�ł���V�[�P���X�E�f�[�^�ł��B�p���ʂň͂�ŕ\�����܂��B
+list は変更できるシーケンス・データです。角括弧で囲んで表現します。
 <pre class=sf>
 lst=[1,2,3]
 ===============================
@@ -884,7 +883,7 @@ lst=[1,2,3]; lst.append(100);lst
 ===============================
 ([100, 1, 2, 3], [1, 2, 3, 1, 2, 3])
 </pre>
-��̍Ō�̎��Łu[100]+[1,2,3],  [1,2,3]*2�v�̂悤�ɓ�̎����u,�v�ŋ�؂��ĕ��ׂ�ƁAPython �ł� tuple �ɂȂ�܂��B
+上の最後の式で「[100]+[1,2,3],  [1,2,3]*2」のように二つの式を「,」で区切って並べると、Python では tuple になります。
 <pre class=sf>
 a= [100]+[1,2,3],  [1,2,3]*2; type(a)
 ===============================
@@ -892,7 +891,7 @@ a= [100]+[1,2,3],  [1,2,3]*2; type(a)
 </pre>
 
 <p>
-numpy �� sc.array(..) �ɂ��s���x�N�g�������܂��Bsc.array(..) �̈����� tuple �܂��� list �f�[�^��^����� numpy �̍s���x�N�g�����A���Ă��܂��B�N���X�E�C���X�^���X��v�f�Ƃ���s��E�x�N�^�����܂����A�ŏ��̂����͐��l�݂̂̍s��E�x�N�^�ɂ��Ă����܂��傤�B
+numpy の sc.array(..) により行列やベクトルを作れます。sc.array(..) の引数に tuple または list データを与えると numpy の行列やベクトルが帰ってきます。クラス・インスタンスを要素とする行列・ベクタも作れますが、最初のうちは数値のみの行列・ベクタにしておきましょう。
 
 <pre class=sf>
 vct=sc.array([1,2,3]);vct   # integer vector
@@ -935,12 +934,12 @@ mt=sc.array([[1,2],[3,4]]);mt mt   # matrix * matrix
  [ 9 16]]
 </pre>
 <div class=next>
-numpy �̍s��E�x�N�^�� python �� list �ǂ�����A�p���ʂň͂񂾕�����ŕ\���܂��B���҂̈Ⴂ�́A�f���~�^���u�󔒂����ł��܂��v���A�u, ���g���v���Ŕ��f���������B
+numpy の行列・ベクタと python の list どちらも、角括弧で囲んだ文字列で表します。両者の違いは、デリミタを「空白だけですます」か、「, も使う」かで判断ください。
 
-�uvector+integer�v���Z�ɂ͖ʐH�炤���Ƃ��v���܂��B�x�N�g���ɋ��ʂ̃I�t�Z�b�g��^������Ƃ������Ă����Ă��������B
+「vector+integer」演算には面食らうかとも思います。ベクトルに共通のオフセットを与えられるとおもっておいてください。
 </div>
 <p>
-�x�N�^��s��̐ς́A�v�f���Ƃ̐ω��Z�������̂ɂȂ�܂��B���w�ł̃x�N�^��s��̐ς��v�Z������Ƃ��ɂ� numpy �� sc.dot(..) �֐����g���܂��B
+ベクタや行列の積は、要素ごとの積演算したものになります。数学でのベクタや行列の積を計算させるときには numpy の sc.dot(..) 関数を使います。
 <pre class=sf>
 vct1,vct2=sc.array([1,2,3]),sc.array([4,5,6]); sc.dot(vct1,vct2) # inner product
 ===============================
@@ -957,7 +956,7 @@ mt=sc.array([[1,2],[3,4]]);sc.dot(mt, mt)   # matrix * matrix
 </pre>
 <BR>
 <p>
-~[..] �ɂ�� ClTensor �s���x�N�g�������܂��B
+~[..] により ClTensor 行列やベクトルを作れます。
 <pre class=sf>
 vct=~[1,2,3];vct   # default float vector
 ===============================
@@ -1030,7 +1029,7 @@ mt=~[[1,2],[3,4]];mt^-1 [100,200]   # inverse matrix * list
 ---- ClTensor ----
 </pre>
 <p>
-ClTensor �s��E�x�N�g���̓f�t�H���g�� float �v�f�ɂ��܂��Bnumpy �ł̂悤�� integer �ł͂���܂���BInteger �s��̗v�f�� float �l���������Ƃ��A�����_�ȉ����؂�̂Ă��Ă��܂���肪���邩��ł��B
+ClTensor 行列・ベクトルはデフォルトで float 要素にします。numpy でのように integer ではありません。Integer 行列の要素に float 値を代入したとき、小数点以下が切り捨てられてしまう問題があるからです。
 <pre class=sf>
 vct=sc.array([1,2,3]);vct[1]=7.777; vct
 ===============================
@@ -1042,21 +1041,21 @@ vct=~[1,2,3];vct[1]=7.777; vct
 ---- ClTensor ----
 </pre>
 <div class=next>
-���H�w�n�̌v�Z�����Ă���Ƃ��Ainteger �s��E�x�N�^�v�f�� float �l�����Ă��܂����Ƃ́A�ǂ�Ȃɒ��ӂ��Ă��Ă� ����Ă��܂��܂��B���̃~�X�̓G���[��Ԃ��Ȃ������ɁA�v�Z���ʂ��\�z�l�ɋ߂��̂ŁA�Ȃ��Ȃ��C�t���܂���B���H�n�̌v�Z�\�t�g�Ƃ��Ă̓f�t�H���g�� float �l�̍s��E�x�N�g���ɂ��ׂ��ł��B
+理工学系の計算をしているとき、integer 行列・ベクタ要素に float 値を入れてしまうことは、どんなに注意していても やってしまいます。このミスはエラーを返さないうえに、計算結果も予想値に近いので、なかなか気付けません。理工系の計算ソフトとしてはデフォルトで float 値の行列・ベクトルにすべきです。
 </div>
 <p>
-ClTensor �̍s��E�x�N�g���̐ω��Z���ʂ́A���w�ł̐ω��Z�Ɠ����ł��B�ʏ�� numpy �ł͂Ȃ� ClTensor �̍s��E�x�N�g�����g���Ă������ق����A����̐����\�L�Ɏ������܂��B
+ClTensor の行列・ベクトルの積演算結果は、数学での積演算と同じです。通常は numpy ではなく ClTensor の行列・ベクトルを使っておいたほうが、日常の数式表記に似せられます。
 
-<h4>Python sf �ł̌J��Ԃ��\���ƃC�^���[�^</h4>
+<h4>Python sf での繰り返し構文とイタレータ</h4>
 <p>
-python �̃��[�v�\���́ufor �v�f in �C�^���[�^�v�̎��ɃC���f���g���ꂽ���A�܂��͕��𑱂��邱�ƂŋL�q����܂��B
+python のループ構文は「for 要素 in イタレータ」の次にインデントされた式、または文を続けることで記述されます。
 <pre class=box>
     for index in iteraor:
-        index ���܂񂾎� or ��
-        index ���܂񂾎� or ��
-            �E
-            �E
-        index ���܂񂾎� or ��
+        index を含んだ式 or 文
+        index を含んだ式 or 文
+            ・
+            ・
+        index を含んだ式 or 文
 
 </pre>
 <pre class=python_code>
@@ -1073,11 +1072,11 @@ for k in range(5):
 64
 </pre>
 <p>
-�C�^���[�^�����ɂ́A���X�g�A�W�F�l���[�^�֐��A�s��ȂǁA������ Python �ŕ����̃f�[�^�������v�f�������Ă���܂��B
-���[�U�[��������W�F�l���[�^�֐��� ���̃C�^���[�^�����Ɏ����Ă���΁A���[�v�̓��������L���͈͂Ŏw��ł��܂��B
-���̂��Ƃ����p����΁A�������C�i�[�ł����Ă��ǐ���ۂ����܂܁A���[�v�\���������܂��B�������C�i�[�ŁA�񎟌��A�O�������z�f�[�^���v�Z�����A�\�������邱�Ƃ܂ŉ\�ɂȂ�܂��B
+イタレータ部分には、リスト、ジェネレータ関数、行列など、多くの Python で複数のデータを扱う要素を持ってこれます。
+ユーザーが作ったジェネレータ関数を このイタレータ部分に持ってくれば、ループの働き方を広い範囲で指定できます。
+このことを活用すれば、ワンライナーであっても可読性を保ったまま、ループ構文を扱えます。ワンライナーで、二次元、三次元分布データを計算させ、表示させることまで可能になります。
 <p>
-�������C�i�[�͊Ȍ��ɂ����邱�ƂɈӖ�������܂��B�������C�i�[�� if �����l�ߍ��ނׂ��ł͗L��܂���B�ǐ������Ȃ��܂��B���[�v�Ŏ��s���镶�⎮��������Ȃ�΁A�ǐ������Ȃ��܂���B���̂悤�ȃ��[�v�\���Ȃ�� Python sf �������C�i�[�ł������܂��B��� for loop python cods �Ɠ������Ƃ� Python sf �������C�i�[�Ŏ��̂悤�ɋL�q�ł��܂�
+ワンライナーは簡潔にかけることに意味があります。ワンライナーに if 文を詰め込むべきでは有りません。可読性が損なわれます。ループで実行する文や式が一つだけならば、可読性も損なわれません。そのようなループ構文ならば Python sf ワンライナーでも扱えます。上の for loop python cods と同じことを Python sf ワンライナーで次のように記述できます
 
 <pre class=sf>
 for k in range(5):print (2k)^2
@@ -1090,10 +1089,10 @@ for k in range(5):print (2k)^2
 None
 </pre>
 <p>
-�v�Z�\�t�g�ł͓��������K�v�Ƃ��邱�Ƃ������L��܂��B�ł� range(..) �֐��ł͐����������܂���Bsc.arange(..) �ł����f�����܂񂾐���͖����ł��B�Ȃ̂ŁAPython sf �ł�  arsq(..) �֐���p�ӂ��Ă��܂��B
+計算ソフトでは等差数列を必要とすることが多く有ります。でも range(..) 関数では整数しか作れません。sc.arange(..) でも複素数を含んだ数列は無理です。なので、Python sf では  arsq(..) 関数を用意しています。
 <pre class=sf>
 help(arsq)
-    ��������^�v���� start, size, stride �����Ő������ĕԂ�
+    等差数列タプルを start, size, stride 引数で生成して返す
        return arithmetic sequence generated with argument start, size, stride
     e.g.
       N=10;arsq(1,N, 3)
@@ -1105,7 +1104,7 @@ N=5; arsq(1+`i,N, (2+4`i)/N)
 ((1+1j), (1.3999999999999999+1.8j), (1.8+2.6000000000000001j), 
  (2.2000000000000002+3.4000000000000004j), (2.6000000000000001+4.2000000000000002j))
 </pre>
-arsq �͕֗��ł��Blog �֐��� [1, 1+5i] ��Ԃ̕ω��̗l�q�͎��� Python sf �������C�i�[�ŕ\���������܂��B
+arsq は便利です。log 関数の [1, 1+5i] 区間の変化の様子は次の Python sf ワンライナーで表示させられます。
 <pre class=sf>
 N=50;lst=arsq(1,N,(1+5`i)/N);plotGr([log(x).real for x in lst]);plotGr([log(x).imag for x in lst],color=orange)
 </pre>
@@ -1113,10 +1112,10 @@ N=50;lst=arsq(1,N,(1+5`i)/N);plotGr([log(x).real for x in lst]);plotGr([log(x).i
 <IMG SRC="./log1_1_5.jpg"> 
 <p>
 <div class=next>
-�����ł́A���[�v�\���̑���� Python �̃��X�g����\�L:list comprehension ���g���܂����B[ ��(x) for x in iterator] �����Ŏ����^�тł���V�[�P���X�E�f�[�^������ Python �̑f���炵���𗝉����Ă��炦��ł��傤���B
+ここでは、ループ構文の代わりに Python のリスト内包表記:list comprehension を使いました。[ 式(x) for x in iterator] だけで持ち運びできるシーケンス・データを作れる Python の素晴らしさを理解してもらえるでしょうか。
 </div>
 <p>
-��������ł͂Ȃ��A�͈͂� N �������Ăł���V�[�P���X�E�f�[�^���~�������Ƃ�������܂��B���̂��߂� klsp(..) �֐���p�ӂ��Ă��܂��B�����ɂ� klsp(..) �� (N-1) �������ė��[���܂񂾃��X�g��Ԃ��܂��Barsq(�͉E�[��Ԃ��܂���B
+等差数列ではなく、範囲を N 等分してできるシーケンス・データが欲しいいときもあります。そのために klsp(..) 関数を用意しています。厳密には klsp(..) は (N-1) 等分して両端を含んだリストを返します。arsq(は右端を返しません。
 <pre class=sf>
 N=6;arsq(-1,N,2/N)
 ===============================
@@ -1128,9 +1127,9 @@ N=6;klsp(-1,1,N)
 ---- ClTensor ----
 </pre>
 <p>
-klsp(..) �͕������������ɂ��Ă����΁A�̈�̒��S���ׂ��������Ԃ��܂��B�ʒu 0 �ȂǂŔ��U����֐�����������Ƃ��֗��ł��B���̂悤�� [-2,2] �͈̔͂ł� log �֐��� 0 �ł̔��U������Ȃ���O���t�\���������܂��B
+klsp(..) は分割数を偶数にしておけば、領域の中心を跨いだ数列を返します。位置 0 などで発散する関数を検討するとき便利です。次のように [-2,2] の範囲での log 関数を 0 での発散を避けながらグラフ表示させられます。
 <p>
-klsp(..) �͕������̈������w�肵�Ȃ��Ƃ��́A�f�t�H���g�� 50 �ɂȂ�܂��B�命���̃O���t�\���ɂ͓s���̂悢�������ł��B
+klsp(..) は分割数の引数を指定しないときは、デフォルトの 50 になります。大多数のグラフ表示には都合のよい分割数です。
 <pre class=sf>
 len(klsp(-1,1))
 ===============================
@@ -1139,7 +1138,7 @@ len(klsp(-1,1))
 lst=klsp(-2,2);plotGr([log(x).real for x in lst]);plotGr([log(x).imag for x in lst],color=orange)
 </pre>
 <p>
-�v�Z�\�t�g�ł͑��d���[�v�̌v�Z���p�o���܂��B��������d���[�v��p�̃C�^���[�^ mrng,masq,mitr ��p�ӂ��邱�Ƃ� Python sf �������C�i�[�ŋL�q�ł���悤�Ȃ�܂��B
+計算ソフトでは多重ループの計算が頻出します。これも多重ループ専用のイタレータ mrng,masq,mitr を用意することで Python sf ワンライナーで記述できるようなります。
 <pre class=sf>
 list(mrng(3,4))
 ===============================
@@ -1153,7 +1152,7 @@ list(mrng([1,6,2],[2,6]))
 ===============================
 [(1, 2), (1, 3), (1, 4), (1, 5), (3, 2), (3, 3), (3, 4), (3, 5), (5, 2), (5, 3), (5, 4), (5, 5)]
 </pre>
-mrng(..) ���g���΁A��ϐ��������Ƃ��� sin( (x+y)/||(x,y)||) �̎O�����O���t�����̂悤�Ƀ������C�i�[�ŏ����܂��B
+mrng(..) を使えば、二変数を引数とする sin( (x+y)/||(x,y)||) の三次元グラフを下のようにワンライナーで書けます。
 <pre class=sf>
 N,dct=50,{};for x,y in mrng(N,N):dct[x,y]=sin(((x-(N+1)/2)+(y-(N+1)/2))/sqrt((x-(N+1)/2)^2+(y-(N+1)/2)^2));renderMtrx(dct)
 
@@ -1163,9 +1162,9 @@ N,dct=50,{};for x,y in mrng(N,N):dct[x,y]=sin(((x-(N+1)/2)+(y-(N+1)/2))/sqrt((x-
 <p>
 
 <blockquote>
-<div class="qtitle">---- ����:dict ---- �ɂ���</div>
+<div class="qtitle">---- 辞書:dict ---- について</div>
 <p>
-Python �ɂ̓L�[�ƒl�̑g�ŕ\����鎫��:dict �R���e�i���p�ӂ���Ă��܂��B{key:value, ...} �ŕ\�����܂��Bdict[key] �Œl�����o���܂��B���̂悤�ȋ�ł��B
+Python にはキーと値の組で表される辞書:dict コンテナも用意されています。{key:value, ...} で表現します。dict[key] で値を取り出せます。次のような具合です。
 <pre class=sf>
 dct = {0:'a', 1:'b'};dct
 ===============================
@@ -1176,7 +1175,7 @@ dct = {0:'a', 1:'b'};dct[1]
 b
 </pre>
 <p>
-�����̃L�[�ɐ��� tuple ���w�肷��ƁA�����v�f�𐮐��C���f�b�N�X�Ŏ��o���܂��B�s��Ɏ��Ă��܂��B
+辞書のキーに整数 tuple を指定すると、辞書要素を整数インデックスで取り出せます。行列に似ています。
 <pre class=sf>
 dct = {(0.0):1, (0,1):2, (1,0):3, (1,1):4};dct
 ===============================
@@ -1187,12 +1186,12 @@ dct = {(0.0):1, (0,1):2, (1,0):3, (1,1):4};dct[1,1]
 4
 </pre>
 <p>
-renderMtrx(..) �O�����O���t�\���֐��́Adict �ŕ\�����s��f�[�^���󂯕t����悤�ɍ���Ă���܂��B��������񗘗p���܂����B
+renderMtrx(..) 三次元グラフ表示関数は、dict で表される行列データも受け付けるように作ってあります。それを今回利用しました。
 </blockquote>
 <blockquote>
-<div class="qtitle">---- sc.source �ɂ��\�[�X�E�R�[�h�\�� ---- �ɂ���</div>
+<div class="qtitle">---- sc.source によるソース・コード表示 ---- について</div>
 <p>
-sc.source(...) �ɂ��A�֐���O���t�� Python �\�[�X�E�R�[�h�����o���܂��BPython sf �ł́A�啔���̃\�[�X�E�R�[�h�����J���Ă���A�Q�ƁE�C���\�ł��B�Ⴆ�΁Amrng(..) �̃\�[�X�E�R�[�h�͎��̂悤�ɂȂ��Ă��܂��B
+sc.source(...) により、関数やグラフの Python ソース・コードを取り出せます。Python sf では、大部分のソース・コードを公開しており、参照・修正可能です。例えば、mrng(..) のソース・コードは次のようになっています。
 <pre class=sf>
 sc.source(mrng)
 
@@ -1239,14 +1238,14 @@ def mrng(*args):
 None
 </pre>
 <p>
-���X 15 �s�� Python �R�[�h�ł����A�ċA�v���O�����ɂȂ��Ă���A�C�ӂ̑��d���[�v��������悤�ɂȂ��Ă��܂��BPython �R�[�h��ǂ߂���Ȃ�΁A����Ȑ��������A���� Python �R�[�h�̕�������₷���Ǝv���܂��Bhelp(..) �ł̐����ł͗����ł��Ȃ��Ƃ��� sc.source(...) �������Ă��������B
+高々 15 行の Python コードですが、再帰プログラムになっており、任意の多重ループを扱えるようになっています。Python コードを読める方ならば、下手な説明文より、この Python コードの方が分りやすいと思います。help(..) での説明では理解できないときは sc.source(...) も試してください。
 <p>
-Python �ł� *args �������g�����ƂŁA�C�ӌ��̈����������܂��Bmrng(..) �֐��̃R�[�h�́A�����w�Ǌ֐��v���O���~���O�̃R�[�h�ɂȂ��Ă��܂��B���̂悤�ȏ��������ł��邱�Ƃ����[�����O�E���X�g�ŋ����Ă��炢�A���ꂩ�� Python ����̃t�@���ɂȂ�܂����BPython ��{�i�I�ɕ׋����邩�����Ă�����́A��̃R�[�h���f�o�b�K pdb �Œǂ��Ă݂Ă��������BPython �K���Ɏ��Ԃ��������l�����邱�Ƃ𕪂��Ă��炦�Ǝv���܂��B�����̃n�b�J�[�� Python ���D�ޗ��R���������Ă��炦��Ǝv���܂��B
+Python では *args 引数を使うことで、任意個数の引数を扱えます。mrng(..) 関数のコードは、もう殆ど関数プログラミングのコードになっています。このような書き方ができることをメーリング・リストで教えてもらい、それから Python 言語のファンになりました。Python を本格的に勉強するか迷っている方は、上のコードをデバッガ pdb で追ってみてください。Python 習得に時間を割く価値があることを分ってもらえと思います。多くのハッカーが Python を好む理由を共感してもらえると思います。
 <p>
-Python sf �ł́A���̂悤�ȃR�[�h�����[�U�[���Ŏ��R�ɊJ���E�ǉ��ł��܂��B�\���s�̃R�[�h�őf���炵���@�\��ǉ��ł��邱�ƕ����Ă��炦�܂��ł��傤���B
+Python sf では、このようなコードをユーザー側で自由に開発・追加できます。十数行のコードで素晴らしい機能を追加できること分ってもらえますでしょうか。
 </blockquote>
 <p>
-masq(..)�^mitr(..) �� mrng �̍l�����𓙍�����^�C�^���[�^�ɓK�p�������̂ł��B���̃R�[�h������Ă��炦�΁A���̓������킩��Ǝv���܂��B����ł͕����Ƃ��́A����Ƃ� �����ŋ�̗������Ď����Ă��������B�����ɕ���Ǝv���܂��B
+masq(..)／mitr(..) は mrng の考え方を等差数列／イタレータに適用したものです。次のコード例を見てもらえば、その働きがわかると思います。これでは分り難いときは、是非とも 自分で具体例を作って試してください。直ぐに分ると思います。
 <pre class=sf>
 N=4;list(masq([-1,N,2/N], [0,N,1/N]))
 ===============================
@@ -1262,7 +1261,7 @@ list( mitr(range(3),arange(0,1,1/3)) )
  (2, 0.0), (2, 0.33333333333333331), (2, 0.66666666666666663)]
 </pre>
 <p>
-enmasq(..),enmitr(..) �� masq(..), mitr(..) �����l��Ԃ��̂ɁA���̃C���f�b�N�X���t��������悤�ɂ������̂ł��B
+enmasq(..),enmitr(..) は masq(..), mitr(..) が数値を返すのに、そのインデックスも付け加えるようにしたものです。
 <pre class=sf>
 N=4;list(enmasq([-1,N,2/N], [0,N,1/N]))
 ===============================
@@ -1278,22 +1277,22 @@ list( enmitr(range(3),arange(0,1,1/3)) )
  ((2, 0), (2, 0.0)), ((2, 1), (2, 0.33333333333333331)), ((2, 2), (2, 0.66666666666666663))]
 </pre>
 <p>
-enmasq(..),enmitr(..) ���g���ƁA�C���f�b�N�X���g����̂ōs��̈������e�ՂɂȂ�܂��B��� sin( (x+y)/||(x,y)||) �̃O���t�͎��̂悤�ɂ������܂��B������Ȃ�΁A�����s�ŋL�q�����Ƃ��ɋ߂��h�L�������g��������܂��B
+enmasq(..),enmitr(..) を使うと、インデックスを使えるので行列の扱いが容易になります。先の sin( (x+y)/||(x,y)||) のグラフは次のようにも書けます。こちらならば、複数行で記述したときに近いドキュメント性もあります。
 <pre class=sf>
 N,dct=50,{};lst=klsp(-1,1,N);for idx,(x,y) in enmitr(lst,lst):dct[idx]=sin((x+y)/norm([x,y]));renderMtrx(dct)
 </pre>
 <p>
-�Ȃ� arsq, mrng,arsq,mitr,klsp, enmasq, enmitr �̃\�[�X�E�R�[�h�͌��J����Ă��܂��Bpysf\basicFnctns.py �̒��ɂ���܂��B�����̋@�\�ɕs��������Ƃ��́A���ǔł��䎩���ŃR�[�f�B���O���Ă��������BPython sf �v���v���Z�b�T�͔C�ӂ� Python �R�[�h��ΏۂƂ��܂��B
-<h4>2D,3D �O���t�\��</h4>
+なお arsq, mrng,arsq,mitr,klsp, enmasq, enmitr のソース・コードは公開されています。pysf\basicFnctns.py の中にあります。これらの機能に不満があるときは、改良版を御自分でコーディングしてください。Python sf プリプロセッサは任意の Python コードを対象とします。
+<h4>2D,3D グラフ表示</h4>
 <p>
-Python �ɂ� pylab ���W���[���Ƃ��� matlab �ɂ悭�����A�܂��c��ȃO���t�\�����C�u���������ɑ��݂��܂��B�܂� mayavi ���W���[�������x�� 3D �O���t�\�����\�ɂ��܂��B
+Python には pylab モジュールという matlab によく似た、また膨大なグラフ表示ライブラリが既に存在します。また mayavi モジュールも高度な 3D グラフ表示を可能にします。
 <p>
-�ł��A�����̃��W���[�����g���ăO���t��\��������ɂ͏\���s�� Python �R�[�h�������˂΂Ȃ�܂���BPython sf �́A�ŏ��̎�ԂŃO���t�\�����s���܂��B�啔���̓���v�Z�ł͕`������O���t�͎�������������O���t�ł��B���̃O���t�ɖ}��ȂǕK�v����܂���B�K�v�ŏ����̃p�����[�^�ݒ�ɂ���΁A�������C�i�[�ł��֐��̃O���t��`���܂��B
+でも、これらのモジュールを使ってグラフを表示させるには十数行の Python コードを書かねばなりません。Python sf は、最小の手間でグラフ表示を行います。大部分の日常計算では描かせるグラフは自分だけが見るグラフです。そのグラフに凡例など必要ありません。必要最小限のパラメータ設定にすれば、ワンライナーでも関数のグラフを描けます。
 <p>
-�ł� �悭�g�� ��ϐ������̊֐��� plotGr(..) �ŕ\�������܂��BplotGr(..) �͈����Ɂu�֐���^���邱�Ɓv�^�u�V�[�P���X�E�f�[�^��^���邱�Ɓv�ǂ��炩�̕��@�ŃO���t��\�������܂��B
-<h5>plotGr(..) �O���t�\��</h5>
+最も よく使う 一変数引数の関数は plotGr(..) で表示させます。plotGr(..) は引数に「関数を与えること」／「シーケンス・データを与えること」どちらかの方法でグラフを表示させます。
+<h5>plotGr(..) グラフ表示</h5>
 <p>
-��ԕ��ʂɎg���̂��uplotGr(func, start=0, end=+1)�v�Ɗ֐��ƊJ�n�ʒu�A�I���ʒu�̃p�����[�^��^����O���t�\�����@�ł��傤�B
+一番普通に使うのが「plotGr(func, start=0, end=+1)」と関数と開始位置、終了位置のパラメータを与えるグラフ表示方法でしょう。
 <p>
 <pre class=sf>
 plotGr(sin,-3,5)
@@ -1301,36 +1300,36 @@ plotGr(sin,-3,5)
 <p>
 <IMG SRC="./sin_m1_p5.jpg"> 
 <p>
-��̃O���t�ł̓f�t�H���g�́A�\���̈�� 50 �_�̒l�𒼐��Ōq���ŕ\�����Ă��܂��B�O���t�\���̃f�[�^�_���𖾎��I�Ɏw�肷�邱�Ƃ��ł��܂��B���̗�ł� [-3,5] �̗̈悩�� 8 �_�̈ʒu�̊֐��l���v�Z���A�����𒼐��Ōq�����O���t��\�����Ă��܂��B
+上のグラフではデフォルトの、表示領域の 50 点の値を直線で繋いで表示しています。グラフ表示のデータ点数を明示的に指定することもできます。下の例では [-3,5] の領域から 8 点の位置の関数値を計算し、それらを直線で繋いだグラフを表示しています。
 <pre class=sf>
 plotGr(sin,-3, 5, 8)
 </pre>
 <p>
 <IMG SRC="./sin_m1_p5_8.jpg"> 
 <p>
-��̃O���t�\���ł́A���[���܂� 8 �_�̃f�[�^�ŃO���t��`�����Ă��܂��B1/x �̂悤�ɖ�����̓_���܂�ł��Ă����������������ƁA������̓_������邱�Ƃ��������Ƃ��o���Ă����ƕ֗��ł��B
+上のグラフ表示では、両端も含む 8 点のデータでグラフを描かせています。1/x のように無限大の点を含んでいても分割数が偶数だと、無限大の点を避けることが多いことを覚えておくと便利です。
 <pre class=sf>
-plotGr(�� x:1/x,-1,1)
+plotGr(λ x:1/x,-1,1)
 </pre>
 <p>
 <IMG SRC="./1_x_m1_p1.jpg"> 
 <p>
-�J�n�ʒu�A�I���ʒu�̃p�����[�^��^���Ȃ��Ƃ��́A�f�t�H���g�̕\���͈͂Ƃ��� 0 �� 1 ���g���܂�
+開始位置、終了位置のパラメータを与えないときは、デフォルトの表示範囲として 0 と 1 を使います
 <pre class=sf>
 plotGr(sin)
 </pre>
 <p>
 <IMG SRC="./sin_0_1.jpg"> 
 <p>
-�V�[�P���X�E�f�[�^��^���邱�Ƃł��A�O���t��\���ł��܂��B���̂Ƃ��̉����l�̓V�[�P���X�E�f�[�^�̃C���f�b�N�X�����l�ɂȂ�܂��B
+シーケンス・データを与えることでも、グラフを表示できます。このときの横軸値はシーケンス・データのインデックス整数値になります。
 <pre class=sf>
 N=16;plotGr([sin(x) for x in arsq(-3,N,8/N)])
 </pre>
 <div class=next>
-�֐���100 �����Ȃ�̑傫�ȃT�C�Y�̃x�N�g���Ƃ��ď������邱�Ƃ������Ǝv���܂��B�s��E�x�N�g���̖L�x�ȏ������g���邩��ł��B���̂悤�Ȍv�Z���ʂ������������Ƃ��A��̃V�[�P���X�E�f�[�^�� plotGr(..) �\���͏d�󂵂܂��B
+関数を100 次元なりの大きなサイズのベクトルとして処理することも多いと思います。行列・ベクトルの豊富な処理を使えるからです。このような計算結果を可視化したいとき、上のシーケンス・データの plotGr(..) 表示は重宝します。
 </div>
 <p>
-plotGr(..) �𕡐�����s����ƁA�O���t���d�ˏ������܂��Bcolor �������w�肷�邱�ƂŃO���t�̐F���w��ł��܂��B
+plotGr(..) を複数回実行すると、グラフを重ね書きします。color 引数を指定することでグラフの色を指定できます。
 <pre class=sf>
 lst=klsp(0,2pi);plotGr(sin, lst); plotGr(cos,lst, color=orange)
 </pre>
@@ -1338,7 +1337,7 @@ lst=klsp(0,2pi);plotGr(sin, lst); plotGr(cos,lst, color=orange)
 <IMG SRC="./sin_cos.jpg"> 
 <p>
 <div class=next>
-�O���t�̊ȕւȐF�w��̂��߂ɁA���̐F�f�[�^�𖼑O�ň�����悤�ɂ��Ă��܂��BRGB �̒l�� 0 -- 1 �̕��������_�l�Ŏw�肵�� tuple �f�[�^���g���΁A�C�ӂɐF�w��ł��܂��B
+グラフの簡便な色指定のために、下の色データを名前で扱えるようにしています。RGB の値を 0 -- 1 の浮動小数点値で指定した tuple データを使えば、任意に色指定できます。
 </div>
 <pre class=box>
 red =     (1, 0, 0)
@@ -1354,9 +1353,9 @@ orange =  (1, 0.6, 0)
 green =   (0, 1, 0)
 </pre>
 
-<h5>�O�����O���t�\�� plot3dGr(..)</h5>
+<h5>三次元グラフ表示 plot3dGr(..)</h5>
 <p>
-�j�ϐ��֐��̎O�����O���t�\����������̂� plot3dGr(..) �֐����֗��ł��B�uplot3dGr(fun(x,y), x range, y range)�v�Łu [x range] x [y range] �v�����`��`��ł̊֐� fun(x,y) �l�̕��z��\�L���܂��B
+ニ変数関数の三次元グラフ表示をさせるのに plot3dGr(..) 関数が便利です。「plot3dGr(fun(x,y), x range, y range)」で「 [x range] x [y range] 」長方形定義域での関数 fun(x,y) 値の分布を表記します。
 <pre class=sf>
 help(plot3dGr)
 
@@ -1365,7 +1364,7 @@ plot3dGr(sin(norm(~[`X,`Y])), [-pi,pi])
 </pre>
 <IMG SRC="./plot3d_sin_normXY.jpg"> 
 <div class=next>
-y range �̈�̈������ȗ������ x range �̈�͈̔͂ő�p���܂��B�����`�̈�̒l���z��\�����܂��B
+y range 領域の引数を省略すると x range 領域の範囲で代用します。正方形領域の値分布を表示します。
 </div>
 
 <pre class=sf>
@@ -1373,81 +1372,81 @@ plot3dGr(cos(norm(~[`X,`Y])), [-pi,pi],[-2pi,2pi])
 </pre>
 <IMG SRC="./plot3d_cos_normXY_pi_2pi.jpg"> 
 <div class=next>
-�����`�̈��I�����Ă����ۂɕ\�������̂� x,y,z �����ׂ� 1 �ɋK�i�����ꂽ�O���t�̌`�ł��B
+長方形領域を選択しても実際に表示されるのは x,y,z 軸すべて 1 に規格化されたグラフの形です。
 </div>
 <p>
-���f�̈���w�肷��ƁA�ʑ���]�� RGB �̍������ł���킵��Βl�� z ���̒l�Ƃ��� kkRGB �\�����s���܂��B
+複素領域を指定すると、位相回転を RGB の混ざり具合であらわし絶対値を z 軸の値とした kkRGB 表示を行います。
 <pre class=sf>
 plot3dGr(`X^2 + `X + 1, [-1,1],[-`i,`i], )
 </pre>
 <IMG SRC="./plot3d_x2_x_1.jpg"> 
 
-<h5>�O�����s��f�[�^�\�� renderMtrx(..)/plot3dRowCol(..) �� plot3d(..) </h5>
+<h5>三次元行列データ表示 renderMtrx(..)/plot3dRowCol(..) と plot3d(..) </h5>
 <p>
-���ɉ��񂩎g���܂����� renderMtrx(..) �֐��̈����ɍs��f�[�^��^���邱�ƂŁA�s��̃C���f�b�N�X�� (x,y) �ʒu�Ƃ��A�s��̗v�f�l�� z �ʒu�Ƃ��� 3D �O���t�\�����\�ł��B
+既に何回か使いましたが renderMtrx(..) 関数の引数に行列データを与えることで、行列のインデックスを (x,y) 位置とし、行列の要素値を z 位置とする 3D グラフ表示が可能です。
 <p>
 <pre class=sf>
-kl=klsp(0,1); renderMtrx([[(�� x,y:(x^2+y))(x,y) for x in kl] for y in kl]);
+kl=klsp(0,1); renderMtrx([[(λ x,y:(x^2+y))(x,y) for x in kl] for y in kl]);
 
 </pre>
 <p>
 <IMG SRC="./renderMtrx_xp2_y.jpg"> 
 <p>
 <div class=next>
-�R���\�[���ɂ� �����s��l�̍ŏ��ƍő�̒l�ƁA���̃C���f�b�N�X���ł��o����܂��B�ő�l�̉ӏ��ɐԊۂ��ł���܂��B�ŏ��l�̉ӏ��ɗΊۂ��ł���܂��B��̐}�ł͉E��ƍ����̈ʒu�ł��B
+コンソールには 引数行列値の最小と最大の値と、そのインデックスが打ち出されます。最大値の箇所に赤丸が打たれます。最小値の箇所に緑丸が打たれます。上の図では右上と左下の位置です。
 </div>
 <pre class=dos>
-python -u sfPP.py "kl=klsp(0,1); renderMtrx([[(�� x,y:(x^2+y))(x,y) for x in kl] for y in kl]);"
+python -u sfPP.py "kl=klsp(0,1); renderMtrx([[(λ x,y:(x^2+y))(x,y) for x in kl] for y in kl]);"
 index:(49, 49)  max:     2
 index:(0, 0)  min:     0
 </pre>
 <div class=next>
-���� renderMtrx(..) �֐��� plot3dRowCol(..) �֐��͑S���������̂ł��B���� sf ���ł��A��ƑS������ 3D �O���t��\�����܂��B
+実は renderMtrx(..) 関数と plot3dRowCol(..) 関数は全く同じものです。下の sf 式でも、上と全く同じ 3D グラフを表示します。
 </div>
 <pre class=sf>
-kl=klsp(0,1); plot3dRowCol([[(�� x,y:(x^2+y))(x,y) for x in kl] for y in kl]);
+kl=klsp(0,1); plot3dRowCol([[(λ x,y:(x^2+y))(x,y) for x in kl] for y in kl]);
 </pre>
 <p>
-�Ȃ��A�S���������O�̊֐������݂��邩�Ƃ����ƁA�s��f�[�^�̕\���ɂ� x,y �z�u�� 90 �ŕς��� y,x �z�u�ɂ����Ƃ��̎҂��K�v�ɂȂ邩��ł��Bplot3d(..) ���A���̂悤�Ȋ֐��ł��B�����̎O�̊֐���K�X�g�������Ă��������B
+なぜ、全く同じ名前の関数が存在するかというと、行列データの表示には x,y 配置を 90 で変えて y,x 配置にしたときの者も必要になるからです。plot3d(..) が、そのような関数です。これらの三つの関数を適宜使い分けてください。
 <pre class=sf>
-kl=klsp(0,1); plot3d([[(�� x,y:(x^2+y))(x,y) for x in kl] for y in kl]);
+kl=klsp(0,1); plot3d([[(λ x,y:(x^2+y))(x,y) for x in kl] for y in kl]);
 </pre>
 <p>
 <IMG SRC="./plot3d_xp2_y.jpg"> 
 <p>
-plotGr(..) �̂Ƃ��Ɠ��l�� renderMtrx(..)/plot3d(..)�𕡐�����s����ƁA������ 3D �O���t���d�˂ĕ\�����܂��B
+plotGr(..) のときと同様に renderMtrx(..)/plot3d(..)を複数回実行すると、複数の 3D グラフを重ねて表示します。
 <pre class=sf>
-kl=klsp(0,1, 16); mtF=�� f:[[f(x,y) for x in kl] for y in kl]; renderMtrx(mtF(�� x,y:x^2+y));renderMtrx(mtF(�� x,y:0.5x^2+2y-0.5), color=orange)
+kl=klsp(0,1, 16); mtF=λ f:[[f(x,y) for x in kl] for y in kl]; renderMtrx(mtF(λ x,y:x^2+y));renderMtrx(mtF(λ x,y:0.5x^2+2y-0.5), color=orange)
 </pre>
 <p>
 <IMG SRC="./renderMtrx_xp2_y_05xp2_2y.jpg"> 
 <p>
 
-<h5>2D/3D�O�Օ\�� plotTrajectory(..)</h5>
+<h5>2D/3D軌跡表示 plotTrajectory(..)</h5>
 <p>
-plotTrajectory(..) �֐��Ƀy�A�E�f�[�^��v�f�Ƃ���V�[�P���X�E�f�[�^������^���邱�Ƃ� 2d �O�Ղ�`���܂��B
+plotTrajectory(..) 関数にペア・データを要素とするシーケンス・データ引数を与えることで 2d 軌跡を描けます。
 <pre class=sf>
-plotTrajectory([(cos(��),2 sin(��)) for �� in klsp(0,4/3 pi)])
+plotTrajectory([(cos(θ),2 sin(θ)) for θ in klsp(0,4/3 pi)])
 </pre>
 <p>
 <IMG SRC="./plotTrajector_cos_sin.jpg"> 
 <div class=next>
-�c����͎����I�� 1:1 �ɕ␳����܂��B���̔��ύX�������Ƃ��́A�\���g���}�E�X�Ńh���b�O���Ă��������B
+縦横比は自動的に 1:1 に補正されます。この比を変更したいときは、表示枠をマウスでドラッグしてください。
 </div>
 <p>
-plotTrajectory(..) �֐��ɎO�̑g�̃f�[�^��v�f�Ƃ���V�[�P���X�E�f�[�^������^���邱�Ƃ� 3d �O�Ղ�`���܂��B
+plotTrajectory(..) 関数に三つの組のデータを要素とするシーケンス・データ引数を与えることで 3d 軌跡を描けます。
 <pre class=sf>
-plotTrajectory([(cos(��),sin(��),��/20) for �� in klsp(0,6 pi)])
+plotTrajectory([(cos(θ),sin(θ),θ/20) for θ in klsp(0,6 pi)])
 </pre>
 <p>
 <IMG SRC="./plotTrajector_cos_sin_theta.jpg"> 
 <div class=next>
-3D �O�Ղ̂Ƃ��� x,y,z �����̔䗦�␳���s���܂���B�␳���K�v�ȂƂ��́AplotTrajectory(..) �ɗ^����f�[�^���ŕ␳�肢�܂��B
+3D 軌跡のときは x,y,z 方向の比率補正を行いません。補正が必要なときは、plotTrajectory(..) に与えるデータ側で補正願います。
 </div>
 
-<h4>�������C�i�[�̍Ō�̎��̒l���R���\�[���Ɏ����I�ɏo��</h4>
+<h4>ワンライナーの最後の式の値をコンソールに自動的に出力</h4>
 <p>
-Python sf �ł́A�������C�i�[�̎��ɂ� print �����Ȃ��Ă��A���̍ŏI���̒l���R���\�[���ɑł��o���܂��B������ӊO�ƕ֗��ł��B
+Python sf では、ワンライナーの式には print 文がなくても、その最終式の値をコンソールに打ち出します。これも意外と便利です。
 
 <pre class = sf>
 a=3;b=4;a+b
@@ -1456,7 +1455,7 @@ a=3;b=4;a+b
 </pre>
 
 <p>
-�uprint ���� Python sf ���̒��ɂ���v�A�u�Ō�̎��̒l�� 100 x 100 �s��ő傫������v�ȂǁA�Ō�̎��̒l�������o�͂��������Ȃ��Ƃ��́APython sf �̍Ō�� ; �ɂ��܂��B
+「print 文が Python sf 式の中にある」、「最後の式の値が 100 x 100 行列で大きすぎる」など、最後の式の値を自動出力させたくないときは、Python sf の最後を ; にします。
 
 <pre class = sf>
 for i in range(4):print 2 i
@@ -1468,9 +1467,9 @@ for i in range(4):print 2 i
 None
 </pre>
 
-<h4>�������C�i�[�̍Ō�̎��̒l�� _dt.pvl �ɂ��o��</h4>
+<h4>ワンライナーの最後の式の値を _dt.pvl にも出力</h4>
 <p>
-Python sf �́A�������C�i�[�̍ŏI���̒l���R���\�[���ɑł��o���Ɠ����ɁA���̒l���t�@�C���ϐ��Ƃ��Ĉ�����`���� _dt.pvl �ɂ��o�͂��܂��B
+Python sf は、ワンライナーの最終式の値をコンソールに打ち出すと同時に、その値をファイル変数として扱える形式で _dt.pvl にも出力します。
 <pre class = sf>
 3+4
 ===============================
@@ -1482,7 +1481,7 @@ type _dt.pvl
 7
 </pre>
 <p>
-�t�@�C���ϐ��Ƃ́APython sf ���J�����g�E�f�B���N�g���ɍ��t�@�C���ł���A�܂� Python sf �̕ϐ��Ƃ��ēǂݏo����t�@�C���ł��B���̂悤�� �u=:�v�L���ŁAPython sf ���ɖ߂����Ƃ��ł��܂��B
+ファイル変数とは、Python sf がカレント・ディレクトリに作るファイルであり、また Python sf の変数として読み出せるファイルです。下のように 「=:」記号で、Python sf 式に戻すことができます。
 <pre class = sf>
 =:_dt;_dt * 5
 ===============================
@@ -1490,7 +1489,7 @@ type _dt.pvl
 </pre>
 
 <p>
-�t�@�C���ϐ��Ƃ́A�t�@�C���ł���A�ʏ�� OS �� command ���g���܂��B_dt.pvl �̕ϐ������A�D�݂̕ϐ����� OS command �ŕύX�ł��܂��B�������g���q�� pvl �ɂ��Ă������Ȃ��ƁAPython sf �ň����܂���B
+ファイル変数とは、ファイルであり、通常の OS の command が使えます。_dt.pvl の変数名を、好みの変数名に OS command で変更できます。ただし拡張子は pvl にしておかいないと、Python sf で扱えません。
 
 <pre class = dos>
 copy _dt.pvl temp.pvl /y
@@ -1501,15 +1500,15 @@ a =:temp;2 a
 70
 </pre>
 <p>
-��ŁA�ua =:temp�v�́A�t�@�C���ϐ��� a �̃��x���ɕt���ւ��Ă��܂��B�t�@�C���ϐ��� _dt.pvl �Ƃ͈قȂ�APython sf ���̎��s�ŏ���ɏ����������Ȃ��̂ňȑO�ɐݒ肳�ꂽ�l��ۂ��܂��B�����ł��ė��p�\�ł��B
+上で、「a =:temp」は、ファイル変数を a のラベルに付け替えています。ファイル変数は _dt.pvl とは異なり、Python sf 式の実行で勝手に書き換えられないので以前に設定された値を保ちます。何時でも再利用可能です。
 <pre class = sf>
 =:temp;2 temp
 ===============================
 70
 </pre>
-<h5>_dt �ȊO�̃t�@�C���ϐ������w��ł��܂�</h5>
+<h5>_dt 以外のファイル変数名を指定できます</h5>
 <p>
-Python sf �́A�������C�i�[�̍ŏI���̒l���o�͐�̃t�@�C���ϐ������A�ŏI���̍��l�Ɂu�ϐ� := ���v�Ə������ƂŎw��ł��܂��B
+Python sf は、ワンライナーの最終式の値を出力先のファイル変数名を、最終文の左値に「変数 := 式」と書くことで指定できます。
 <pre class = sf>
 test:=3+4
 ===============================
@@ -1520,35 +1519,35 @@ test:=3+4
 35
 </pre>
 <p>
-��ŉ��x���g���t�@�C���ϐ���݂������Ƃ��� := �L�����g���āA�����I�Ƀt�@�C���ϐ������w�肷��킯�ł��B_dt �t�@�C���ϐ��́A���O�� Python sf �������C�i�[�̌��ʂ��c���Ă��邾���ł���A���x���g�������t�@�C���ϐ��� _dt �̖��O�ɂł��܂���B
+後で何度も使うファイル変数を設けたいときに := 記号を使って、明示的にファイル変数名を指定するわけです。_dt ファイル変数は、直前の Python sf ワンライナーの結果が残っているだけであり、何度も使いたいファイル変数は _dt の名前にできません。
 <p>
-�Ȃ��A�u:=�v�̋L���̎g�p�́APython sf �������C�i�[�̓r���̕��ł��g���܂��B�ŏI���Ɍ����Ă��܂���B
-<h4>�������C�i�[�̍Ō�̎��̒l�� _dt.pvl �ɏo�͂ł��Ȃ��Ƃ�������܂��B</h4>
+なお、「:=」の記号の使用は、Python sf ワンライナーの途中の文でも使えます。最終文に限っていません。
+<h4>ワンライナーの最後の式の値を _dt.pvl に出力できないときもあります。</h4>
 <p>
-�c�O�Ȃ��� Python sf �̍ŏI���̒l�ɂ���ẮA�t�@�C���ϐ�������Ȃ����Ƃ�����܂��BPython sf ���t�@�C���ϐ��������@�Ƃ��� python �� pickle ���W���[���𗘗p���Ă��邩��ł��Bpython �� pickle �ł��Ȃ��l�̓t�@�C���ϐ��ɂł��܂���B
+残念ながら Python sf の最終式の値によっては、ファイル変数が作られないことがあります。Python sf がファイル変数を作る方法として python の pickle モジュールを利用しているからです。python が pickle できない値はファイル変数にできません。
 <pre class = sf>
-�� x:2 x
+λ x:2 x
 ===============================
 &lt;function &lt;lambda&gt; at 0x0207AC30&gt;   
 unpicklable
 </pre>
 <p>
-Python �ł́A�֐����̂� pickel �ł��Ȃ��̂ŁA�ŏI���̒l���֐����̂̂Ƃ��� _dt.pvl �͋�t�@�C���ɂȂ�܂��B
+Python では、関数自体は pickel できないので、最終式の値が関数自体のときは _dt.pvl は空ファイルになります。
 <p>
-�ȏ�̂��Ƃ�m���Ă���΁APython sf ��d��I�Ȍv�Z�Ɏg���n�߂��Ǝv���܂��BMathematica �� Matlab �Ȃǂ̌v�Z�\�t�g���C���X�g�[�����Ă��Ȃ��� ���̉��œd��v�Z�����Ă���悤�Ȃ��Ƃ͂Ȃ��Ȃ�Ǝv���܂��B
+以上のことを知っていれば、Python sf を電卓的な計算に使い始めらると思います。Mathematica ゃ Matlab などの計算ソフトをインストールしていながら その横で電卓計算をしているようなことはなくなると思います。
 <p>
-�ł� Python sf �̗��p�́A���̂悤�ȒP���Ȓi�K�ɗ��߂�ׂ��ł͂���܂���B���́APython sf �炵���A��荂�x�Ȏg�����ɒ��킵�Ă݂܂��傤�B
+でも Python sf の利用は、そのような単純な段階に留めるべきではありません。次は、Python sf らしい、より高度な使い方に挑戦してみましょう。
 <a name="littleAdvancedOverview"></a>
-<h2>���� Python sf �ɂ�鏭�����x�Ȍv�Z</h2>
+<h2>■■ Python sf による少し高度な計算</h2>
 <p>
-Python sf �͒P�Ȃ�d��\�t�g�ł͂���܂���B�\���ɂ�����قǂɍ��x�E���G�Ȍv�Z���Ώۂɂł��܂��B�������ŏ��̎�ԂŌv�Z���邱�Ƃ�ǋy���Ă��܂��B�ȉ��ł͓d��𒴂����A�������� Python sf �̎g���������Ă����܂��B
+Python sf は単なる電卓ソフトではありません。十分にすぎるほどに高度・複雑な計算も対象にできます。それらを最小の手間で計算することを追及しています。以下では電卓を超えた、もう少し Python sf の使い方を見ていきます。
 
 <a name="littleAdvanced_matrixCalculationByOneLiner"></a>
-<h3>�� �������C�i�[�ł̍s��v�Z</h3
+<h3>■ ワンライナーでの行列計算</h3
 <p>
-�܂��͍L�����p�����s��ɂ��āA���������ڂ������Ă����܂��傤�B
+まずは広く活用される行列について、もう少し詳しく見ていきましょう。
 <p>
-Python sf �ł́A�x�N�g����s��̐����� ~[...] �̊ȕւȋL�q�ŉ\�ɂ��Ă��܂��BPython �ł̃��X�g�L�q�̍ŏ��� ~ �L����t���邾���ł��BPython �v���v���Z�b�T���A�ȕւ� ~[....] Python sf ���L�q�� Python �֐��ɕϊ����APython �ɏ��������܂��B�f�t�H���g�� float/complex �^�̒l��v�f�Ƃ���x�N�g����s��ɂȂ�܂��B����ȊO�́A�Ⴆ��int:�����^���ʑ̂̃x�N�g���^�s��Ȃǂ𐶐������邽�߂ɂ́A�^���w�肷��K�v������܂��B
+Python sf では、ベクトルや行列の生成を ~[...] の簡便な記述で可能にしています。Python でのリスト記述の最初に ~ 記号を付けるだけです。Python プリプロセッサが、簡便な ~[....] Python sf 式記述を Python 関数に変換し、Python に処理させます。デフォルトで float/complex 型の値を要素とするベクトルや行列になります。それ以外の、例えばint:整数型や一般体のベクトル／行列などを生成させるためには、型を指定する必要があります。
 <pre class = sf>
 ~[1,2,3]    # float vector
 ===============================
@@ -1579,7 +1578,7 @@ Python sf �ł́A�x�N�g����s��̐����� ~[...] �̊ȕւȋL�q�ŉ\�ɂ��Ă��܂��BPy
  [ 12.  15.  18.]]
 ---- ClTensor ----
 
-`��x ^ `��y             # extention of diadic product:
+`σx ^ `σy             # extention of diadic product:
 ===============================
 [[[[ 0.+0.j  0.+0.j]
    [ 0.+0.j  0.+0.j]]
@@ -1595,20 +1594,20 @@ Python sf �ł́A�x�N�g����s��̐����� ~[...] �̊ȕւȋL�q�ŉ\�ɂ��Ă��܂��BPy
    [ 0.+0.j  0.+0.j]]]]
 ---- ClTensor ----
 
-# �s��ǂ����� ^ ���Z�ɂ��āA��v�f�ɂ��Ċm�F
-i,j,k,l=0,1,1,0; (`��x ^ `��y)[i,j,k,l] == `��x[i,j] `��y[k,l]
+# 行列どうしの ^ 演算について、一要素について確認
+i,j,k,l=0,1,1,0; (`σx ^ `σy)[i,j,k,l] == `σx[i,j] `σy[k,l]
 ===============================
 True
 
-# �s��ǂ����� ^ ���Z�ɂ��āA�S�Ă̗v�f�ɂ��Ċm�F
-lst=(0,1);all([(`��x ^ `��y)[i,j,k,l] == `��x[i,j] `��y[k,l] for i,j,k,l in mitr(lst,lst,lst,lst)])
+# 行列どうしの ^ 演算について、全ての要素について確認
+lst=(0,1);all([(`σx ^ `σy)[i,j,k,l] == `σx[i,j] `σy[k,l] for i,j,k,l in mitr(lst,lst,lst,lst)])
 ===============================
 True
-# ��̎��̈Ӗ��𗝉����Ă��炦��΁A�s��ǂ����� ^ ���Z�̈Ӗ��𗝉����Ă��炦��ł��傤�B
-# ^ ���Z�q�͈�ʑ��Θ_�ł̃e���\���v�Z�Ŋ��􂵂܂��B
+# 上の式の意味を理解してもらえれば、行列どうしの ^ 演算の意味を理解してもらえるでしょう。
+# ^ 演算子は一般相対論でのテンソル計算で活躍します。
 </pre>
 <p>
-�s��E�x�N�g���E�W���̂̑g�ݍ��킹�ɑ΂��āA���`�㐔�Œ�`����Ă�������揜�Z���s���܂��B��Z���Z�q:* �́A�ʏ�̐����̎��̂悤�ɏȗ��\�ł��B
+行列・ベクトル・係数体の組み合わせに対して、線形代数で定義されている加減乗除算が行えます。乗算演算子:* は、通常の数式の時のように省略可能です。
 <p>
 <pre class = sf>
 ~[1,2,3]+~[4,5,6]   # add vectors
@@ -1632,7 +1631,7 @@ mt=~[[1,2],[3,4]]; mt mt    # matrix * matrix
  [ 15.  22.]]
 ---- ClTensor ----
 </pre>
-Python sf �ł̃x�N�g�����m�̐ς͓��ς̈Ӗ��ɂȂ�܂��B
+Python sf でのベクトル同士の積は内積の意味になります。
 <pre class = sf>
 a =~[1,2,3];b=~[4,5,6];a b      # &lt;a | b&gt;
 ===============================
@@ -1643,7 +1642,7 @@ a =~[1,2,3];b=~[4,5,6];(a + b) b    # &lt;a+b | b&gt;
 109.0
 </pre>
 <p>
-�s��ƃx�N�g���̊|���Z���ω��Z�q�ŕ\������A���̐ω��Z�q���ȗ��\�ł��B
+行列とベクトルの掛け算も積演算子で表現され、その積演算子を省略可能です。
 <pre class = sf>
 mt=~[[1,2],[3,4]]; v=~[1,2];mt v
 ===============================
@@ -1656,7 +1655,7 @@ mt=~[[1,2],[3,4]]; v=~[1,2];2 mt*v
 ---- ClTensor ----
 </pre>
 <p>
-�������APython sf �ł͏c�x�N�g���^���x�N�g���̋�ʂ�����܂���B�u�x�N�g��*�s��v�̐ς��T�C�Y���������Όv�Z�ł��܂��B
+ただし、Python sf では縦ベクトル／横ベクトルの区別がありません。「ベクトル*行列」の積もサイズさえ合えば計算できます。
 <pre class = sf>
 mt=~[[1,2],[3,4]]; v=~[1,2];2 v mt
 ===============================
@@ -1669,7 +1668,7 @@ mt=~[[1,2],[3,4]]; v=~[1,2];2 v mt + v
 ---- ClTensor ----
 </pre>
 <p>
-�ł�����A�f�B���b�N�\�L &lt;v|mt|v&gt �̂悤�Ȍv�Z���ł��Ă��܂��܂��B
+ですから、ディラック表記 &lt;v|mt|v&gt のような計算もできてしまいます。
 
 <pre class = sf>
 mt=~[[1,2],[3,4]]; v=~[1,2];2 v mt v    # this means &lt;v|mt|v&gt;
@@ -1677,7 +1676,7 @@ mt=~[[1,2],[3,4]]; v=~[1,2];2 v mt v    # this means &lt;v|mt|v&gt;
 54.0
 </pre>
 <p>
-���������f�x�N�g���ł� &lt;v|v&gt, &lt;v|mt|v&gt �v�Z�ŁA�����I�ɋ����x�N�g���ɕϊ����邱�Ƃ͂���܂���B���[�U�[�� .d ���x�N�g���̌�ɕt���āA�����I�ɋ����x�N�g���ɕϊ����Ȃ���΂Ȃ�܂���B
+ただし複素ベクトルでの &lt;v|v&gt, &lt;v|mt|v&gt 計算で、自動的に共役ベクトルに変換することはありません。ユーザーが .d をベクトルの後に付けて、明示的に共役ベクトルに変換しなければなりません。
 <pre class = sf>
 ~[1+2`i, 3+4`i] ~[0+1`i, 2+3`i]
 ===============================
@@ -1702,7 +1701,7 @@ mt=~[[1,2],[3,4]]; v=~[1+2j,2];2 v   mt v    # this dose not means &lt;v|mt|v&gt
 </pre>
 
 <p>
-�ׂ��扉�Z�q�́u^�v�Ɓu**�v�̗������g���܂��BPython �ł́u**�v���ׂ���Łu^�v�� bit xor �Ȃ̂ł����APython sf �ł́u^�v���ׂ���ɂ��Ă��܂��B���w�ł́u^�v���ׂ���ɂ��邱�Ƃ���������ł��B���̏����̓v���v���Z�b�T�ɍs�킹�Ă��܂��B�v���v���Z�b�T���g��Ȃ��Ƃ��́A�ׂ���ɂ� ** ���Z�q�����g���܂���B
+べき乗演算子は「^」と「**」の両方が使えます。Python では「**」がべき乗で「^」は bit xor なのですが、Python sf では「^」もべき乗にしています。数学では「^」をべき乗にすることが多いからです。この処理はプリプロセッサに行わせています。プリプロセッサを使わないときは、べき乗には ** 演算子しか使えません。
 <p>
 
 <pre class = sf>
@@ -1724,7 +1723,7 @@ mt=~[[1,2],[3,4]]; mt^8
  [ 362355.  528106.]]
 ---- ClTensor ----
 </pre>
-�t�s��� /,**,^ ���Z�q���g���ĕ\�L�ł��܂��B
+逆行列は /,**,^ 演算子を使って表記できます。
 <pre class = sf>
 mt=~[[1,2],[3,4]]; mt^-1
 ===============================
@@ -1773,7 +1772,7 @@ mt=~[[1,2],[3,4]]; v=~[1,2];v/mt
 ---- ClTensor ----
 </pre>
 <p>
-���X�g����\�L�̊p���ʂ̐擪�� ~ �L����t�������̂� Python sf �s��ɂȂ�܂��B����͌��\�֗��ł��B���X�g����\�L�̊Ȍ��ȋL�q�ƃh�L�������g���̍������A�s��E�x�N�g���\�L�ɂ��K�p�ł��邩��ł��B
+リスト内包表記の角括弧の先頭に ~ 記号を付けたものも Python sf 行列になります。これは結構便利です。リスト内包表記の簡潔な記述とドキュメント性の高さが、行列・ベクトル表記にも適用できるからです。
 <pre class=sf>
 ~[k^2 for k in range(5)]
 ===============================
@@ -1787,9 +1786,9 @@ mt=~[[1,2],[3,4]]; v=~[1,2];v/mt
  [  2.   3.   6.  11.  18.]]
 ---- ClTensor ----
 </pre>
-<h4>numpy �s�� �x�N�g��</h4>
+<h4>numpy 行列 ベクトル</h4>
 <p>
-scipy,numpy �ŗp�ӂ��Ă��� array �s��E�x�N�g�����g�������Ƃ��� sc.array(...) �ōs��E�x�N�g�����g���܂��B�usc.�v�̃��x����O�ɕt���邱�Ƃ� s numpy �̖��O��Ԃɂ���@�\�S�Ă������܂��B
+scipy,numpy で用意している array 行列・ベクトルを使いたいときは sc.array(...) で行列・ベクトルを使います。「sc.」のラベルを前に付けることで s numpy の名前空間にある機能全てを扱えます。
 <pre class = sf>
 vct = sc.array([1,2,3])
 ===============================
@@ -1800,9 +1799,9 @@ vct = sc.array([1,2,3]); 2 vct
 [2 4 6]
 </pre>
 <p>
-������ sc.array �� ClTensor �̉��Z�ł͔����ȈႢ������܂��Bscipy,numpy �ɏڂ����Ȃ������� sc.array(..) �̎g�p���T���邱�Ƃ����߂܂��B
+ただし sc.array と ClTensor の演算では微妙な違いがあります。scipy,numpy に詳しくないうちは sc.array(..) の使用を控えることを勧めます。
 <p>
-�Ⴆ�� sc.array(..) �ł̃x�N�g���ǂ����� * ���Z�͗v�f���Ƃ̐ς��Ƃ����x�N�g���ɂȂ�܂��B���ς��v�Z������ɂ� sc.dot(..) �֐����g���܂��B
+例えば sc.array(..) でのベクトルどうしの * 演算は要素ごとの積をとったベクトルになります。内積を計算させるには sc.dot(..) 関数を使います。
 <pre class = sf>
 vct=sc.array([1,2,3]); vct * vct
 ===============================
@@ -1818,78 +1817,78 @@ vct=sc.array([1,2,3]); sc.dot(vct, vct)
 
 </pre>
 <blockquote>
-<div class="qtitle">---- ClTensor ---- �ɂ���</div>
+<div class="qtitle">---- ClTensor ---- について</div>
 <p>
-Python sf �ł̃x�N�g���E�s��̃R���\�[���o�͂Łu---- ClTensor ----�v���o�Ă���̂́A��ŏo�Ă��� scipy �� array, ��ʑ̌����� ClFldTns �Ƌ�ʂ��邽�߂ł��B��K�܂ł̃x�N�g���E�s��ɂ��Ă� matrix ��x�N�g���̐����������܂��B�O�K�ȏ�� ClTensor �ɂ��Ă͋t�s�񂪒�`�ł��܂��񂪁A������Z����`�ł��܂��B�e���\���Ƃ��Ẳ��Z���\�ł��B
+Python sf でのベクトル・行列のコンソール出力で「---- ClTensor ----」が出てくるのは、後で出てくる scipy の array, 一般体向けの ClFldTns と区別するためです。二階までのベクトル・行列については matrix やベクトルの性質を持ちます。三階以上の ClTensor については逆行列が定義できませんが、加減乗算が定義できます。テンソルとしての演算が可能です。
 <p>
-ClTensor �̖��O�ɂ����̂́A��ʑ��Θ_�ł� Christoffel �ڑ��W���� Rieman �e���\���������������Ƃ�����̂ł����A���� Numpy �ɂ��� Matrix �N���X�ƍ������������Ȃ����Ƃ�����܂����B
+ClTensor の名前にしたのは、一般相対論での Christoffel 接続係数や Rieman テンソルを扱いたいこともあるのですが、既に Numpy にある Matrix クラスと混同させたくないこともありました。
 <p>
-�s�K�v�ȐS�z�������������m��܂��񂪁A���������������B
+不必要な心配をさせたかも知れませんが、ご理解ください。
 </blockquote>
 
-<h4>Pauli �s�� �^ Levi Civita �e���\��</h4>
+<h4>Pauli 行列 ／ Levi Civita テンソル</h4>
 <p>
-customize.py �ɂ̓��[�U�[���p�ɂɎg���ϐ��⊮�����`�ł��܂��BPython sf �����s�J�n����Ƃ��� customize.py �ɒ�`���Ă���ϐ������`�ς݂̖��O�Ƃ��Ď�荞�݂܂��B
+customize.py にはユーザーが頻繁に使う変数や完遂を定義できます。Python sf を実行開始するときに customize.py に定義してある変数名を定義済みの名前として取り込みます。
 <p>
-��X�s��A�e���\���v�Z�̐����ɕ֗��Ȃ̂ŁA�����ŁAcustomize.py �ɒ�`���Ă��� Pauli �s��Ƃ��̌v�Z��������Ă����܂��Bcustomize.py �̒��ŁA Pauli �s��Ƃ��� `��x, `��y, `��x �̕ϐ����ŉ��̂悤�ȍs���Ή������Ă���܂��B����� Python sf �̒�`�ςݕϐ��Ƃ��ĉ��̂悤�Ɉ����܂��B�uimport customize�v�̓v���v���Z�b�T���������I�ɍs���܂��B�܂��v���v���Z�b�T����邱�Ƃ� Python 2.5/2.6 �ł����Ă��M���V�������̊������g���܂��B(�܂� Python 3000 �ł� Python sf �����͍s���Ă��܂���)
+後々行列、テンソル計算の説明に便利なので、ここで、customize.py に定義してある Pauli 行列とその計算例を示しておきます。customize.py の中で、 Pauli 行列として `σx, `σy, `σx の変数名で下のような行列を対応させてあります。これを Python sf の定義済み変数として下のように扱えます。「import customize」はプリプロセッサ側が自動的に行います。またプリプロセッサを介することで Python 2.5/2.6 であってもギリシャ文字の漢字を使えます。(まだ Python 3000 での Python sf 実装は行っていません)
 <pre class = sf>
-`��x
+`σx
 ===============================
 [[ 0.  1.]
  [ 1.  0.]]
 ---- ClTensor ----
 
-`��y
+`σy
 ===============================
 [[ 0.+0.j  0.-1.j]
  [ 0.+1.j  0.+0.j]]
 ---- ClTensor ----
 
-`��z
+`σz
 ===============================
 [[ 1.  0.]
  [ 0. -1.]]
 ---- ClTensor ----
 </pre>
 <p>
-��� Python sf ���� backquote:�u`�v�� Python �̖��O��Ԃ��L���邽�߂Ƀv���v���Z�b�T���ŏ������Ă��܂��B�ϐ����̑O��ɕ����� ` ��ǉ��ł���悤�ɂ��Ă��܂��B
+上の Python sf 式で backquote:「`」は Python の名前空間を広げるためにプリプロセッサ側で処理しています。変数名の前後に複数の ` を追加できるようにしています。
 <p>
-Python sf �������s���钼�O�ɁA�v���v���Z�b�T�� coustomize.py �� import ����̂ŁA��`�ς݂� Pauli �s���g�ݍ��킹�������揜�ׂ���Z���\�ł��B
+Python sf 式を実行する直前に、プリプロセッサは coustomize.py を import するので、定義済みの Pauli 行列を組み合わせた加減乗除べき乗算が可能です。
 <pre class = sf>
-`��x + 2 `��y + `��y^2 `��z + 10 `��z
+`σx + 2 `σy + `σy^2 `σz + 10 `σz
 ===============================
 [[ 11.+0.j   1.-2.j]
  [  1.+2.j -11.+0.j]]
 ---- ClTensor ----
 </pre>
 <p>
-Hamilnonian �s�� `��x+`��y+`��z �̎��� t = 0.1 �̂Ƃ��� exp ���A��̂悤�Ɍv�Z�������܂��B`i �� 1j �� Python ���ɏ����Ă������̂ł��� `i �̕������w�ł̏������\�L�ɋ߂��̂� customize.py �̒��Ń��[�U�[�ϐ��Ƃ��Ē�`���܂����B
+Hamilnonian 行列 `σx+`σy+`σz の時刻 t = 0.1 のときの exp を、上のように計算させられます。`i は 1j と Python 流に書いても言いのですが `i の方が数学での純虚数表記に近いので customize.py の中でユーザー変数として定義しました。
 <pre class = sf>
-H = `��x + `��y + `��z; t=0.1;logm(`i t H)
+H = `σx + `σy + `σz; t=0.1;logm(`i t H)
 ===============================
 [[-1.75327895+0.90689968j  0.90689968+0.90689968j]
  [-0.90689968+0.90689968j -1.75327895-0.90689968j]]
 ---- ClTensor ----
 
-H = `��x + `��y + `��z; t=0.1;expm(`i t H)
+H = `σx + `σy + `σz; t=0.1;expm(`i t H)
 ===============================
 [[ 0.98503746+0.09950075j  0.09950075+0.09950075j]
  [-0.09950075+0.09950075j  0.98503746-0.09950075j]]
 ---- ClTensor ----
 <!--
-������ sl.expm(ClTensor) �̌v�Z���ʂ� sc.ndarray �ł��邱�Ƃ�������Ă��������邾���B����Ȃ��Ƃ�����Ӗ��������B
-sy();H = `��x + `��y + `��z; t=0.1;sl.expm(`i t H)
+ここで sl.expm(ClTensor) の計算結果が sc.ndarray であることを説明しても混乱するだけ。そんなことをする意味が無い。
+sy();H = `σx + `σy + `σz; t=0.1;sl.expm(`i t H)
 ===============================
 [[ 0.98503746+0.09950075j  0.09950075+0.09950075j]
  [-0.09950075+0.09950075j  0.98503746-0.09950075j]]
 -->
 </pre>
 <p>
-i ���������̋L���Ƃ��Ďg����΂悢�̂ł����A���� i �̓C���f�b�N�X�Ȃ� Python �̃R�[�h�ŕʂ̈Ӗ��Ɏg���邱�Ƃ�����A�ϐ��̏Փ˂���������̂ŒZ�� i �ꕶ���ɏ����������蓖�Ă��܂���B�ł� backquote:` �� i �̑O�ɒǉ������ϐ��Ȃ�� Python �R�[�h�̃C���f�b�N�X i �ƏՓ˂��邱�Ƃ͂���܂���B�u`i�v �Ȃ�ΐ����̒��ŏ������̈Ӗ��ł��邱�Ƃ��ǐ��ǂ��\�L�ł��܂��B
+i を純虚数の記号として使えればよいのですが、文字 i はインデックスなど Python のコードで別の意味に使われることがあり、変数の衝突が発生するので短い i 一文字に純虚数を割り当てられません。でも backquote:` を i の前に追加した変数ならば Python コードのインデックス i と衝突することはありません。「`i」 ならば数式の中で純虚数の意味であることも可読性良く表記できます。
 
-<h4>�[���s��A�P�ʍs��</h4>
+<h4>ゼロ行列、単位行列</h4>
 <p>
-kzrs(shape����,type) �ɂ�� 0 �s��𐶐����܂��B�x�N�g���𐶐�����Ƃ��� kzrs �� shape �����Ɉ�����̃x�N�g���T�C�Y�������w�肵�܂��B�f�t�H���g�̃^�C�v�͎����ł��B
+kzrs(shape引数,type) により 0 行列を生成します。ベクトルを生成するときは kzrs の shape 引数に一つだけのベクトルサイズ整数を指定します。デフォルトのタイプは実数です。
 <pre class=sf>
 kzrs(3,4)
 ===============================
@@ -1928,7 +1927,7 @@ kzrs(3,4, complex)
 ---- ClTensor ----
 </pre>
 <p>
-int �s��v�f�Ɏ����l��������ƁA�����_�ȉ����؂�̂Ă��܂��B�䒍�ӂ��������B
+int 行列要素に実数値を代入すると、小数点以下が切り捨てられます。御注意ください。
 <pre class=sf>
 vc=kzrs(3,int);vc[0]=3.142;vc
 ===============================
@@ -1942,7 +1941,7 @@ vc=kzrs(3);vc[0]=3.142;vc
 </pre>
 
 <p>
-�P�ʍs��𐶐�����ɂ́A���� 0 �s��𐶐����A����� 0 �ׂ�����v�Z�����܂��B
+単位行列を生成するには、正方 0 行列を生成し、それの 0 べき乗を計算させます。
 <pre class=sf>
 kzrs(3,3)^0
 ===============================
@@ -1958,9 +1957,9 @@ kzrs(3,3,int)^0
  [0 0 1]]
 ---- ClTensor ----
 </pre>
-<h4>�s���x�N�g���̃X���C�X</h4>
+<h4>行列やベクトルのスライス</h4>
 <p>
-�s��^�x�N�g���̕����s��^�����x�N�g���� �܂Ƃ߂ăA�N�Z�X����̂� : �L�����g���܂��Bvector[startIndex:endIndex] �̂悤�Ɏg���܂��B�x�N�^�̂Ƃ��̓��X�g�Ɠ����ł��BstartIdex ���ȗ������Ƃ��� 0 �ɂȂ�܂��BendIndex ���ȗ������Ƃ��͍Ō�܂ł��Ӗ����܂��B�}�C�i�X�̃C���f�b�N�X�͍Ōォ�琔�����C���f�b�N�X���Ӗ����܂��B
+行列／ベクトルの部分行列／部分ベクトルを まとめてアクセスするのに : 記号を使います。vector[startIndex:endIndex] のように使います。ベクタのときはリストと同じです。startIdex を省略したときは 0 になります。endIndex を省略したときは最後までを意味します。マイナスのインデックスは最後から数えたインデックスを意味します。
 
 <pre class=sf>
 # list
@@ -2033,8 +2032,8 @@ mt=~[range(4*4)].reshape(4,4);mt[1:3,:]
 
 </pre>
 <p>
-[startIndex:stopIndex:stepIdex] �̃C���f�b�N�X�̎w��̂������ŁA step ��������΂������o�������ł��܂��B
-���ʋL�@�Ȃ̂ł����u::-1] �̃C���f�b�N�X�̏�����������Ɣ��]�����邱�Ƃ��Ӗ����܂��B
+[startIndex:stopIndex:stepIdex] のインデックスの指定のしかたで、 step 分だけ飛ばした取り出し方もできます。
+特別記法なのですが「::-1] のインデックスの書き方をすると反転させることを意味します。
 <pre class=sf>
 range(10)[2:8:3]
 ===============================
@@ -2055,7 +2054,7 @@ vc=~[range(10)];vc[::-1]
 
 </pre>
 <p>
-[startIndex:stopIndex:stepIndex] �ł̗v�f�A�N�Z�X�́A�s��v�f�ւ̑���ɂ��g���܂�
+[startIndex:stopIndex:stepIndex] での要素アクセスは、行列要素への代入にも使えます
 <pre class=sf>
 vc=~[range(10)];vc[2:8:3]=[10,20]; vc
 ===============================
@@ -2072,7 +2071,7 @@ mt=~[range(4*4)].reshape(4,4);mt[1:3,2:4]=[[10,20],[30,40]]; mt
 </pre>
 <p>
 
-�X���C�X����ɂ��s���x�N�g���̐؂�o���́A���̃f�[�^�̃R�s�[�ł͂Ȃ��A���f�[�^�̎Q�Ƃ�؂�o���Ă��邱�Ƃ�m���Ă����ׂ��ł��B
+スライス操作による行列やベクトルの切り出しは、元のデータのコピーではなく、元データの参照を切り出していることを知っておくべきです。
 <pre class=sf>
 mt=~[range(4*4)].reshape(4,4);mtSub=mt[1:3,2:4];mtSub[:,:]=[[100,200],[300,400]];mt
 ===============================
@@ -2083,10 +2082,10 @@ mt=~[range(4*4)].reshape(4,4);mtSub=mt[1:3,2:4];mtSub[:,:]=[[100,200],[300,400]]
 ---- ClTensor ----
 </pre>
 <div class=next>
-��̂悤�ɎQ�ƕ����̍s�� mtSub �ɒl��������ƁA���̍s�� mt �ɂ��l���������Ă��܂��܂��B
+上のように参照部分の行列 mtSub に値を代入すると、元の行列 mt にも値が代入されてしまいます。
 </div>
 <p>
-�V�[�P���X�E�f�[�^�� ::-1 �X���C�X�ɂ��A�f�[�^�̕��т𔽓]�ł��܂������A������s���x�N�g���ɂ��K�p�ł��܂��B
+シーケンス・データの ::-1 スライスにより、データの並びを反転できましたが、それを行列やベクトルにも適用できます。
 <pre class=sf>
 range(5)
 ===============================
@@ -2141,77 +2140,77 @@ mt=~[range(4*5)].reshape(4,5); mt[:, ::-1]
 ---- ClTensor ----
 </pre>
 <p>
-������g���΁A�x�N�g���� convolution ���Z�Ȃǂ��ȒP�ɂł��܂��B
+これを使えば、ベクトルの convolution 演算などが簡単にできます。
 <pre class=sf>
 vcL, vcR = ~[range(8)], ~[range(0,80,10)];~[vcL[:k][::-1] vcR[:k] for k in range(1,8+1)]
 ===============================
 [   0.    0.   10.   40.  100.  200.  350.  560.]
 ---- ClTensor ----
 
-# �ʂ̏�ݍ��݌v�Z
+# 別の畳み込み計算
 vcL, vcR = ~[range(8)], ~[range(0,80,10)];sc.convolve(vcL, vcR)
 ===============================
 [    0.     0.    10.    40.   100.   200.   350.   560.   840.  1040.
   1150.  1160.  1060.   840.   490.]
 </pre>
 <a name="littleAdvanced_hierarchcalNameSpace"></a>
-<h3>�� �K�w�\�������������O���</h3>
+<h3>■ 階層構造を持った名前空間</h3>
 <p>
-�f�t�H���g�� Python sf �̓O���[�o�����O��ԂƁA���̐ԂŎ������T�u�̖��O��Ԃ���Ȃ閼�O��Ԃ̊K�w�\���������܂��B���̖��O��Ԃ̍\���̓��[�U�[�J�X�^�}�C�Y�\�ł��B�ł� Python sf �̍��x�Ȋ��p�̂��߂ɂ́A�f�t�H���g�̖��O��Ԃ̍\���A���Ȃ킿�O���[�o�����O��Ԃɑ�����N���X�E�֐��Q�A�e�T�u��������Ԃɑ�����N���X�E�֐��Q���C���[�W�ł���悤�ɂȂ邱�Ƃ��K�{�ł��B
+デフォルトの Python sf はグローバル名前空間と、下の赤で示されるサブの名前空間からなる名前空間の階層構造を持ちます。この名前空間の構造はユーザーカスタマイズ可能です。でも Python sf の高度な活用のためには、デフォルトの名前空間の構造、すなわちグローバル名前空間に属するクラス・関数群、各サブ名舞う空間に属するクラス・関数群をイメージできるようになることが必須です。
 <pre class=box>
-����������������������������������������                                              
-��  Python sf                         ������������������������������������������������
-��    sfPPrcssr  �ꖜ�s�ȏ� ��        ����<font color="red">sc</font>:numpy: �s��v�Z�p�b�P�[�W              ��
-��               Pre - processor      ����<font color="red">sy</font>:scipy: Matlab �����̐��l�v�Z�p�b�P�[�W ��
-��                                    ����<font color="red">ts</font>:sympy:  �V���{���b�N���������p�b�P�[�W ��
-��    <font color="red">Global</font>:sfFnctns:.�s��̊g��     ����<font color="red">vs</font>:vpython:2D/3D �\���p�b�P�[�W           ��
-��        basicFnctns                 ����<font color="red">mlb</font>:maysvi 2d/3d �\���p�b�P�[�W           ��
-��        kNumeric �����E�ϕ��g��     ������������������������������������������������
-��        vsGraph �ȕւȃO���t�\��    ����������������������������������������������
-��        rational  �L����            ���������́[�U�[���ŗp�ӂ��� python���C�u�� ��
-��    <font color="red">Global</font>:customize.py             �������E�p�b�P�[�W                          ��
-��    <font color="red">Global</font>:sfCrrntIni.py            ����������������������������������������������
-��        ���[�U�[�E�J�X�^�}�C�Y      ����������������������������������������������
-��    <font color="red">oc</font>:octn.py                      �������[�U�[���ŊJ������ python             ��
-��        ������                      �������W���[���E�p�b�P�[�W                  ��
-��        Bool ��                     ����������������������������������������������
-��        GF(2^8) Galois ��           ��                                            
-��        Zp, Sn                      ��                                            
-��                                    ��                                            
-��    <font color="red">tc</font>:tlRcGn                       ��                                            
-��        ��������                    ��                                            
-��        �����ċA                    ��                                            
-��                                    ��                                            
-��    <font color="red">kre</font>:kre ���K�\��                ��                                            
-��                                                                                
-��    <font color="red">kv</font>:kv  kVerifier test library   ��
-��                                    ��                                            
-����������������������������������������                                            
+┌──────────────────┐                                              
+│  Python sf                         │┌─────────────────────┐
+│    sfPPrcssr  一万行以上 の        ││<font color="red">sc</font>:numpy: 行列計算パッケージ              │
+│               Pre - processor      ││<font color="red">sy</font>:scipy: Matlab 相当の数値計算パッケージ │
+│                                    ││<font color="red">ts</font>:sympy:  シンボリック数式処理パッケージ │
+│    <font color="red">Global</font>:sfFnctns:.行列の拡張     ││<font color="red">vs</font>:vpython:2D/3D 表示パッケージ           │
+│        basicFnctns                 ││<font color="red">mlb</font>:maysvi 2d/3d 表示パッケージ           │
+│        kNumeric 微分・積分拡張     │└─────────────────────┘
+│        vsGraph 簡便なグラフ表示    │┌────────────────────┐
+│        rational  有理式            ││既存のーザー側で用意する pythonライブラ │
+│    <font color="red">Global</font>:customize.py             ││リ・パッケージ                          │
+│    <font color="red">Global</font>:sfCrrntIni.py            │└────────────────────┘
+│        ユーザー・カスタマイズ      │┌────────────────────┐
+│    <font color="red">oc</font>:octn.py                      ││ユーザー側で開発する python             │
+│        八元数                      ││モジュール・パッケージ                  │
+│        Bool 体                     │└────────────────────┘
+│        GF(2^8) Galois 体           │                                            
+│        Zp, Sn                      │                                            
+│                                    │                                            
+│    <font color="red">tc</font>:tlRcGn                       │                                            
+│        無限数列                    │                                            
+│        末尾再帰                    │                                            
+│                                    │                                            
+│    <font color="red">kre</font>:kre 正規表現                │                                            
+│                                                                                
+│    <font color="red">kv</font>:kv  kVerifier test library   │
+│                                    │                                            
+└──────────────────┘                                            
 
 </pre>
-<h4>�O���[�o�����O���</h4>
+<h4>グローバル名前空間</h4>
 <p>
-Python sf �̓O���[�o�����O��Ԃ� sin.cos �Ȃǂ̊�{���l�֐��� plotGr(..) �ȂǂƂ������v�Z�ɕK�{�̊֐��𐔑����ݒ肵�Ă��܂��B
+Python sf はグローバル名前空間に sin.cos などの基本数値関数や plotGr(..) などといった計算に必須の関数を数多く設定しています。
 <p>
- Python sf �v���v���Z�b�T�́A�^����ꂽ�v�Z�������s����O�ɁA���̃��W���[�����O���[�o�����O��ԂɎ�荞��ł��܂��B���̂������� mrng, sin, cos, plotGr �Ȃǂ̊m�񂷂�֐��Q�� Python sf �Œ��ɌĂяo���Ă��܂��Bts �Ȃǂ̃T�u���O��Ԃ̎w�薳���ŌĂяo���Ă��܂��B
+ Python sf プリプロセッサは、与えられた計算式を実行する前に、下のモジュールをグローバル名前空間に取り込んでいます。このおかげで mrng, sin, cos, plotGr などの確約する関数群を Python sf で直に呼び出せています。ts などのサブ名前空間の指定無しで呼び出せています。
 <ol>
-<li>sfFnctns.pyc --- ClTensor:�����E�����E���f���s��, ClFldTns:��ʑ̍s��, ...
-<li>basicFnctns.py --- Python sf ����̂��߂̊�{�I�Ȋ֐� arsq(..),mrng(..),mitr(..), ...
-<li>kNumeric.py --- ���l�v�Z sin(..), cos(..), 
-<li>vsGraph.py --- �O���t�\�� plotGr(..), plot3dGr(..), renderMtrx(..) ...
-<li>rational.py --- ���`�V�X�e���̂��߂̗L���֐� ClRtnl
+<li>sfFnctns.pyc --- ClTensor:整数・実数・複素数行列, ClFldTns:一般体行列, ...
+<li>basicFnctns.py --- Python sf 制御のための基本的な関数 arsq(..),mrng(..),mitr(..), ...
+<li>kNumeric.py --- 数値計算 sin(..), cos(..), 
+<li>vsGraph.py --- グラフ表示 plotGr(..), plot3dGr(..), renderMtrx(..) ...
+<li>rational.py --- 線形システムのための有理関数 ClRtnl
 </ol>
 <div class=next>
-sfFnctns.pyc �̓\�[�X�����J���Ă��܂���B�R���p�C���ς݂̃t�@�C���݂̂ł��B���̑��� basicFnctns.py, kNumeric.py, vsGraph.py, rational.py �̓\�[�X�� Python sf �̔z�z���Ƃ��Č��J�E�Y�t���Ă��܂��B
-�i���̑��̃t�@�C���ɂ��Ă��v���v���Z�b�T�FsfPPrcssr �������āA�S�ă\�[�X�����J���Ă��܂��B�j
+sfFnctns.pyc はソースを公開していません。コンパイル済みのファイルのみです。その他の basicFnctns.py, kNumeric.py, vsGraph.py, rational.py はソースも Python sf の配布物として公開・添付しています。
+（その他のファイルについてもプリプロセッサ：sfPPrcssr を除いて、全てソースを公開しています。）
 </div>
-<h4>�T�u���O��� sc</h4>
+<h4>サブ名前空間 sc</h4>
 <p>
-�ł��A�S�Ă��O���[�o�����O��ԂɎ�荞�݁A���ڌĂяo���Ηǂ����̂ł͂���܂���B�l�Ԃ̋L���͂ɂ͌��肪����܂��B�ł��L��������Ȃ�����Ƃ����āA�֐�����ϐ����̏Փ˂ɂ��\�z�O�̓��삪���ꍞ�ނȂǘ_�O�ł��B���̂��ߖ��O��ԂɊK�w�\�������A�T�u�̖��O��Ԃ���A�N�Z�X���邱�Ƃ��K�v�ƂȂ�܂��B
+でも、全てをグローバル名前空間に取り込み、直接呼び出せば良いものではありません。人間の記憶力には限りがあります。でも記憶しきれないからといって、関数名や変数名の衝突により予想外の動作が紛れ込むなど論外です。そのため名前空間に階層構造を入れ、サブの名前空間からアクセスすることが必要となります。
 <p>
-�Ⴆ�� numpy package �̉��ɂ���֐���N���X�Q�� sc �T�u���O��Ԃ̉��ŃA�N�Z�X���܂��B���̂悤�ȋ�ł��B
+例えば numpy package の下にある関数やクラス群は sc サブ名前空間の下でアクセスします。下のような具合です。
 <pre class=sf>
-# numpy �z��̐���
+# numpy 配列の生成
 sc.arange(10)
 ===============================
 [0 1 2 3 4 5 6 7 8 9]
@@ -2223,12 +2222,12 @@ sc.arange(4*5).reshape(4,5)
  [10 11 12 13 14]
  [15 16 17 18 19]]
 
-# numpy �s��ƃ��X�g�̐�
+# numpy 行列とリストの積
 sc.dot(sc.arange(4*5).reshape(4,5), [0,1,2,3,4])
 ===============================
 [ 30  80 130 180]
 
-# numpy 0 �s��̐���
+# numpy 0 行列の生成
 sc.zeros([3,5])
 ===============================
 [[ 0.  0.  0.  0.  0.]
@@ -2236,7 +2235,7 @@ sc.zeros([3,5])
  [ 0.  0.  0.  0.  0.]]
 </pre>
 <div class next>
-�����̏ꍇ�APython sf ���p�ӂ��Ă��� �����ăO���[�o�����O��Ԃɂ��� ClTensor �ň������ق����A�s��E�x�N�g���v�Z��Z���E����v�Z�ɋ߂��E�h�L�������g���悭�L�q�ł��܂��B
+多くの場合、Python sf が用意している そしてグローバル名前空間にある ClTensor で扱ったほうが、行列・ベクトル計算を短く・日常計算に近く・ドキュメント性よく記述できます。
 <pre class=sf>
 ~[range(4*5)].reshape(4,5)
 ===============================
@@ -2253,25 +2252,25 @@ sc.zeros([3,5])
 </pre>
 </div>
 <p>
-�ł� numpy �s��E�x�N�g�����g�����ق����ǂ��Ƃ����������܂��B�Ⴆ�΁A�x�N�g���ƃx�N�g���̐ς���ςł͂Ȃ��A�v�f�ǂ����̐ς���Ȃ�x�N�g���ɂ��������Ƃ�����܂��BClTensor, ClFldTns �ł̃x�N�g���̐ς͓��ς̈Ӗ��ɂȂ��Ă��܂��B�����ł͗v�f�ǂ����̐ς���Ȃ�x�N�g�������̂́A�����ʓ|�ł��B
+でも numpy 行列・ベクトルを使ったほうが良いときも発生します。例えば、ベクトルとベクトルの積を内積ではなく、要素どおしの積からなるベクトルにしたいことがあります。ClTensor, ClFldTns でのベクトルの積は内積の意味になっています。これらでは要素どおしの積からなるベクトルを作るのは、少し面倒です。
 <p>
-���̂Ƃ��́usc.�v �̃T�u���O��Ԃ̉��� numpy �̖��O��Ԃ����܂��Ă���ƊŘ􂵂� numpy �̊֐���N���X���Ăяo���Ă��������B�usc.�v�̎O������擪�ɕt���邾���Ȃ�A��Ԃ��w�ǂ�����܂���B
+そのときは「sc.」 のサブ名前空間の下に numpy の名前空間が収まっていると看做して numpy の関数やクラスを呼び出してください。「sc.」の三文字を先頭に付けるだけなら、手間も殆どかかりません。
 <pre class=sf>
 vcA,vcB=sc.arange(3), sc.arange(1,4);vcA, vcB
 ===============================
 (array([0, 1, 2]), array([1, 2, 3]))
 
-#�v�f�ǂ����̐ς���Ȃ�x�N�g���̌v�Z
+#要素どおしの積からなるベクトルの計算
 vcA,vcB=sc.arange(3), sc.arange(1,4);vcA vcB
 ===============================
 [0 2 6]
 
-# ClTensor �ł̃x�N�g���̐ς̌v�Z�͓��ςɂȂ�
+# ClTensor でのベクトルの積の計算は内積になる
 vcA,vcB=~[range(3)], ~[range(1,4)];vcA vcB
 ===============================
 8.0
 
-# ClTensor �ł͏����ʓ|�ȁA�v�f�ǂ����̐ς���Ȃ�x�N�g���̌v�Z
+# ClTensor では少し面倒な、要素どおしの積からなるベクトルの計算
 vcA,vcB=~[range(3)], ~[range(1,4)];~[vcA[k] vcB[k] for k in range(3)]
 ===============================
 [ 0.  2.  6.]
@@ -2282,35 +2281,35 @@ vcA,vcB=~[range(3)], ~[range(1,4)];sc.array(vcA) sc.array(vcB)
 [ 0.  2.  6.]
 </pre>
 
-<h4>���̑��̃f�t�H���g�őg�ݍ��܂��T�u���O���</h4>
+<h4>その他のデフォルトで組み込まれるサブ名前空間</h4>
 <p>
-Python sf �� oc, tn �̃T�u���O��Ԃ̖��O�� octn, tlRcGn ���W���[������荞��ł��܂��B
+Python sf は oc, tn のサブ名前空間の名前で octn, tlRcGn モジュールを取り込んでいます。
 <ol>
-<li>oc  �㐔�n�̃N���X�Q:octn.py    �u�[���㐔��:BF, �������FClOctonion, Zp(N) �����L����:Zp(..), ...
-<li>tn  tlRcGn.py �����J��Ԃ������̃N���X�A�W�F�l���[�^�Q:counter(..), repeat(..), ...
-<li>kre kre.py ���K�\���N���X
+<li>oc  代数系のクラス群:octn.py    ブール代数体:BF, 八元数：ClOctonion, Zp(N) 整数有限体:Zp(..), ...
+<li>tn  tlRcGn.py 無限繰り返し処理のクラス、ジェネレータ群:counter(..), repeat(..), ...
+<li>kre kre.py 正規表現クラス
 </ol>
-<h4>�_�C�i�~�b�N�� package �T�u���O��Ԃ̎�荞��</h4>
+<h4>ダイナミックな package サブ名前空間の取り込み</h4>
 <p>
-�T�u���O��Ԃɕʂ� package ����蓖�Ă邱�Ƃ��ł��܂����A�傫�� package �̂Ƃ��́A���� import �����ŉ�����������b�ȏ�̎��Ԃ��|�����Ă��܂��܂��B�g��Ȃ� package �𖳏����� import �����Ă��ẮAPython sf ���̌v�Z���Ԃ̉��{���A������ import �̂��߂Ɏ��Ԃ��Ƃ��Ă��܂��܂��B���������ƕb�̃I�[�_�[�� import �����Ɏ��Ԃ��Ƃ��܂��Bscipy, sympy, visual, mayavi.mlab �̂悤�ȁA�v�Z�\�t�g�ɂ͗L�p����import �Ɏ��Ԃ̊|���� package �́A���̐�p�֐���p�ӂ��� ���[�U�[���K�v�ƂȂ邽�тɖ����I�ɌĂяo���悤�ɂ��Ă��܂��B
+サブ名前空間に別の package をわり当てることもできますが、大きな package のときは、その import だけで下手をしたら一秒以上の時間が掛かってしまいます。使わない package を無条件に import させていては、Python sf 式の計算時間の何倍も、これらの import のために時間をとられてしまいます。下手をすると秒のオーダーで import だけに時間をとられます。scipy, sympy, visual, mayavi.mlab のような、計算ソフトには有用だがimport に時間の掛かる package は、下の専用関数を用意して ユーザーが必要となるたびに明示的に呼び出すようにしています。
 <ol>
-<li>sy() --- �T�u���O��� sy: scipy package
-<li>ts() --- �T�u���O��� ts: sympy package
-<li>vs() --- �T�u���O��� vs: visual package
-<li>mlb() --- �T�u���O��� mlb: mayavi.mlab package
+<li>sy() --- サブ名前空間 sy: scipy package
+<li>ts() --- サブ名前空間 ts: sympy package
+<li>vs() --- サブ名前空間 vs: visual package
+<li>mlb() --- サブ名前空間 mlb: mayavi.mlab package
 </ol>
 <div class=next>
-���̑΍�ɂ�� netbook:N280 �̂悤�Ȕ�͂ȃp�\�R���ł� Python sf ���g����悤�ɂ��Ă��܂��BN280 �ł� sin(pi/3) ����b�Ōv�Z�ł���悤�ɂ��Ă��܂��B
+この対策により netbook:N280 のような非力なパソコンでも Python sf を使えるようにしています。N280 でも sin(pi/3) を一秒で計算できるようにしています。
 </div>
-<h4>���[�U�[�ɂ�郂�W���[���E�C���|�[�g</h4>
+<h4>ユーザーによるモジュール・インポート</h4>
 <p>
-Python �ɂ́A�L�p�ȃ��W���[�������ɑ�ʂɒ~�ς���Ă��܂��B�S���E�� Python ���D���ȃn�b�J�[�������g���؂�Ȃ��L�p�ȃ��W���[�����t���[�Ŏg����悤�ɂ��Ă���Ă��܂��B������ python sf �ł����R�ɗ��p�ł��܂��B
+Python には、有用なモジュールが既に大量に蓄積されています。全世界の Python を好きなハッカーたちが使い切れない有用なモジュールをフリーで使えるようにしてくれています。それらを python sf でも自由に利用できます。
 <p>
-�Ⴆ�ΕW���� python �� calendar.py ���W���[���������Ă��܂��B������g���ΔC�ӂ̔N�̗j���Ɠ��t������܂��Bcalender.py �̋@�\�́uimport calender�v���s�������ŗ��p�ł���悤�ɂȂ�܂��Bcalender �ɂ͈ȉ��̋@�\��������Ă��܂��B
+例えば標準の python に calendar.py モジュールが入っています。これを使えば任意の年の曜日と日付が分ります。calender.py の機能は「import calender」を行うだけで利用できるようになります。calender には以下の機能が備わっています。
 <pre class=sf>
 import calendar as cl;help(cl)
-    �E
-    �E
+    ・
+    ・
 FUNCTIONS
     calendar = formatyear(self, theyear, w=2, l=1, c=6, m=3) method of TextCalendar instance
         Returns a year's calendar as a multi-line string.
@@ -2352,7 +2351,7 @@ FUNCTIONS
 
 </pre>
 <p>
-���� calender.py ���W���[���𖾎��I�� import ���邱�ƂŁA�w��̌��̗j�������̂悤�ȃ������C�i�[�ŕ\���������܂��B
+この calender.py モジュールを明示的に import することで、指定の月の曜日を次のようなワンライナーで表示させられます。
 <pre class=sf>
 import calendar as cl;cl.prmonth(2010,5)
       May 2010
@@ -2367,7 +2366,7 @@ Mo Tu We Th Fr Sa Su
 None
 </pre>
 <p>
-�ufrom moduleOrPackageName import *�v�Ƃ��邱�ƂŁAmoduleOrPackageName �ɂ���֐���ϐ����O���[�o�����O��ԂɎ�荞�݂܂��B��������ƃ��W���[�������w�肷�邱�ƂȂ��uvariable�v�ȂǂƗ��p�ł���悤�ɂȂ�܂��B�g�p�p�x�̍����֐���ϐ������O���[�o�����O��Ԃɒu���܂��Bcalender module �̏ꍇ�͉��̂悤�ɂȂ�܂��B
+「from moduleOrPackageName import *」とすることで、moduleOrPackageName にある関数や変数をグローバル名前空間に取り込みます。こうするとモジュール名を指定することなく「variable」などと利用できるようになります。使用頻度の高い関数や変数名をグローバル名前空間に置きます。calender module の場合は下のようになります。
 <pre class=sf>
 from calendar import *; prmonth(2010,5)
       May 2010
@@ -2383,9 +2382,9 @@ None
 </pre>
 
 <p>
-�ŏ��̕W���� python �ł����A�g���؂�Ȃ��ʔ����@�\���l�܂��Ă��܂��B�܂��� Enthought �̂悤�ȁA�����̋@�\���񂹏W�߂��p�b�P�[�W�ł́A���̈ꊄ�̋@�\�����g�����Ȃ����Ƃ�������ɑ����̃��W���[�����l�ߍ��܂�Ă��܂��B������T���Ďg�������ő����̂��Ƃ� Python sf �������C�i�[�ŏ����܂��B
+最小の標準の python でさえ、使い切れない面白い機能が詰まっています。まして Enthought のような、多くの機能を寄せ集めたパッケージでは、その一割の機能さえ使いこなすことが難しい程に多くのモジュールが詰め込まれています。それらを探して使うだけで多くのことが Python sf ワンライナーで書けます。
 <p>
-�Ⴆ�Ύl�������������������Ƃ��܂��傤�B����������Ă��� python �\�[�X�̒��ɂ� quaternion �̕����������Ă���͂��ł��B����ȃt�@�C���� Python �f�B���N�g���̒��ɂ��邱�Ƃ� Windows �ł� findstr �R�}���h�Œ��ׂ��܂��B
+例えば四元数を扱いたかったとしましょう。それを扱っている python ソースの中には quaternion の文字が入っているはずです。そんなファイルが Python ディレクトリの中にあることを Windows では findstr コマンドで調べられます。
 <pre class=dos>
 findstr /n /i /s /c:"quaternion" \lng\python26\*.py
 
@@ -2403,51 +2402,51 @@ findstr /n /i /s /c:"quaternion" \lng\python26\*.py
 \lng\python26\Lib\site-packages\pysf\octn.py:51:        declaration of quaternion
 </pre>
 <div class=next>
-�����~�����@�\���������Ƃ��́A�܂��͌䎩���� Python �̃f�B���N�g���̒��� grep �܂��� findstr �Œ��ׂĂ݂�ׂ��ł��B
+何か欲しい機能があったときは、まずは御自分の Python のディレクトリの中を grep または findstr で調べてみるべきです。
 </div>
 <p>
-Enthought Python Distribution �̒��Ɋ܂܂�� module,package �� Enthougt ���L�p���Ɣ��f�����A�܂��z�z���� python �̃o�[�W�����ł̓�����m�F�������̂������Ă��܂��B�g�ݍ��킹������܂߂Đ���ɓ��������Ƃ��̂��A�܂Ƃ߂��Ă��܂��B
+Enthought Python Distribution の中に含まれる module,package は Enthougt が有用だと判断した、また配布する python のバージョンでの動作を確認したものが入っています。組み合わせ動作も含めて正常に動作をするとものが、まとめられています。
 <p>
-�W�� Python �̔z�z���œZ�߂Ă��� <a href="http://pypi.python.org/pypi?%3Aaction=index">Package Index</a> �ɂ��������̑��l�ȕ���� python �v���O�������W�߂��Ă��܂��B�����̃��W���[�����g���Ƃ��ɂ̓o�[�W�����ɒ��ӂ���K�v���L��܂����A�T�˓����Ǝv���܂��BPython �� upper compatible �ȃo�[�W�����A�b�v�����Ă��Ă��邩��ł��B�����ɏW�߂�ꂽ Python �v���O�����́A���ɑ����̃��[�U�[�Ɏg��ꂽ���т̂�����̂ł���A�s�K�v�ȃo�O�ɔY�܂���邱�Ƃ͏��Ȃ��ł��傤�B
+標準 Python の配布元で纏めている <a href="http://pypi.python.org/pypi?%3Aaction=index">Package Index</a> にも数多くの多様な分野の python プログラムが集められています。これらのモジュールを使うときにはバージョンに注意する必要が有りますが、概ね動くと思われます。Python は upper compatible なバージョンアップをしてきているからです。ここに集められた Python プログラムは、既に多くのユーザーに使われた実績のあるものであり、不必要なバグに悩まされることは少ないでしょう。
 <p>
-����� google �Ō�����������΁A�����Ƒ����̃R�[�h��������܂��B�����ȃv���O�����Ȃ�΃o�O�������Ă������őΏ��ł��܂��B�X�N���b�`����R�[�h���������́A�����Ɗy�ł��B�����Ă��� Python �̃R�[�h���AC �̃R�[�h�̉��{���ǂ݂₷���Ȃ��Ă��܂��B�����C���f���g�ƁA�h�L�������g���ƃR�[�h�̃R���p�N�g���𗼗������Ă��� Python ����̑f���炵���ł��B�����̑����� 100 �s�ȉ��ł���A���̂܂܎g���Ȃ��Ă��A�\�[�X�E�R�[�h�Ɏ��������Ύ����̖]�ނ悤�ɂł��邱�Ƃ��������̂ł��B
+さらに google で検索をかければ、もっと多くのコードが見つかります。小さなプログラムならばバグがあっても自分で対処できます。スクラッチからコードを書くよりは、ずっと楽です。たいていの Python のコードが、C のコードの何倍も読みやすくなっています。強制インデントと、ドキュメント性とコードのコンパクト性を両立させている Python 言語の素晴らしさです。これらの多くが 100 行以下であり、そのまま使えなくても、ソース・コードに手を加えれば自分の望むようにできることが多いものです。
 
-<h4>Python sf �̃J�X�^�}�C�Y</h4>
+<h4>Python sf のカスタマイズ</h4>
 <p>
-�K�v�Ȍv�Z�@�\�̓��[�U�[���ƂɈقȂ�܂��B�����ă������C�i�[�ŁA�R���p�N�g�� ��������̌v�Z�����L�q����ɂ́A���[�U�[���ƂɃJ�X�^�}�C�Y���邱�Ƃ��K�{�ƂȂ�܂��B
+必要な計算機能はユーザーごとに異なります。そしてワンライナーで、コンパクトに かつ多分野の計算式を記述するには、ユーザーごとにカスタマイズすることが必須となります。
 <p>
-Python sf �̃v���v���Z�b�T�́APython sf �������s����O�� pysf �f�B���N�g���ɂ��� costomize.py ���W���[�����O���[�o�����O��ԂɎ�荞�݂܂��B���̎��ɃJ�����g�E�f�B���N�g���� sfCrrntIni.py �t�@�C��������΁A������O���[�o�����O��ԂɎ�荞�݂܂��B���̓�̃��W���[���̒��Ƀ��[�U�[���K�v�Ȋ֐���N���X��ϐ����`����΁A������ Python sf �̃O���[�o�����O��ԂɂƂ肱�܂�܂��BPython sf ���Œ��ɌĂяo����悤�ɂȂ�܂��B
+Python sf のプリプロセッサは、Python sf 式を実行する前に pysf ディレクトリにある costomize.py モジュールをグローバル名前空間に取り込みます。その次にカレント・ディレクトリに sfCrrntIni.py ファイルがあれば、それをグローバル名前空間に取り込みます。この二つのモジュールの中にユーザーが必要な関数やクラスや変数を定義すれば、それらは Python sf のグローバル名前空間にとりこまれます。Python sf 式で直に呼び出せるようになります。
 <p>
-customize.py,sfCrrntIni.py �̒��Łuimport moduleOrPackage as mp�v���s�킹��� mp ���O��Ԃ̉��� moduleOrPackage ���z�u����܂��B���[�U�[�̖]�� module/package �� mp �̖��O�̉��ň�����悤�ɂȂ�܂��B
-<h5>customize.py �ɂ��J�X�^�}�C�Y</h5>
+customize.py,sfCrrntIni.py の中で「import moduleOrPackage as mp」を行わせれば mp 名前空間の下に moduleOrPackage が配置されます。ユーザーの望む module/package が mp の名前の下で扱えるようになります。
+<h5>customize.py によるカスタマイズ</h5>
 <p>
-customize.py �ɂ́APython sf �S�ʂɋ��ʂ���J�X�^�}�C�Y���邽�߂̃R�[�h���L�q���܂��BPython sf �v���v���Z�b�T�́ufrom customize import *�v�����s���Ă��� Python sf ���F�������C�i�[���Ăяo���܂��B����ɂ�� Python sf ���F�������C�i�[�́Acustomize.py �ɒ�`���Ă���ϐ������`�ς݂Ƃ��Ĉ����܂��B
+customize.py には、Python sf 全般に共通するカスタマイズするためのコードを記述します。Python sf プロプロセッサは「from customize import *」を実行してから Python sf 式：ワンライナーを呼び出します。これにより Python sf 式：ワンライナーは、customize.py に定義してある変数名を定義済みとして扱えます。
 <p>
-�Ⴆ�Ώ������� Python sf �L���Ɂu`i�v���g����͉̂��� Python ���� customize.py �̒��ɏ����Ă��邩��ł��B
+例えば純虚数の Python sf 記号に「`i」を使えるのは下の Python 式が customize.py の中に書いてあるからです。
 <pre class=sf>
 k__bq_i___ = 1j             # `i: imaginary unit
 </pre>
 <div class=next>
-Python sf �̃v���v���Z�b�T�́u`i�v���A�uk__bq_�v�Ɓu___�v�Łui}�����񂾕�����ɕϊ����܂��B�v���E�v���Z�X���ꂽ������� Python ���R���p�C������Ƃ��́uk__bq_i___�v���u1j�v�Ƃ��Ĉ�����킯�ł��B
+Python sf のプリプロセッサは「`i」を、「k__bq_」と「___」で「i}を挟んだ文字列に変換します。プリ・プロセスされた文字列を Python がコンパイルするときは「k__bq_i___」が「1j」として扱われるわけです。
 </div>
 <p>
-Python sf �Łu`1,`0�v���u�[���㐔�� 0,1 �ɂł���̂́Acustomize.py �̒��ŉ��̂悤�ɏ�����Ă��邩��ł��B
+Python sf で「`1,`0」をブール代数の 0,1 にできるのは、customize.py の中で下のように書かれているからです。
 <pre class=sf>
 k__bq_0___ = oc.BF(0)       # Bool 0
 k__bq_1___ = oc.BF(1)       # Bool 1
 </pre>
 <p>
-�uk__bq_�v�Ɓu___�v�̊ԂɃ��[�U�[�̖]�ޕ����� ���Ƃ��� userName ������ python ����������΁A`userName �ɖ]�݂� Python ���̒l��ݒ�ł��܂��B
+「k__bq_」と「___」の間にユーザーの望む文字列 たとえば userName を入れて python 代入文を作れば、`userName に望みの Python 式の値を設定できます。
 <p>
-������� back quote ��t�����ɁuuserName = ���v�Ƃ��邱�Ƃ��\�ł��B������ ���̂Ƃ��́A�����̕ϐ��Ƃ̏Փ˂���\�������܂邱�Ƃ��o�債�Ă����˂΂Ȃ�܂���B
+もちろん back quote を付けずに「userName = 式」とすることも可能です。ただし そのときは、既存の変数との衝突する可能性が高まることを覚悟しておかねばなりません。
 
-<h5>sfCrrntIni.py �ɂ��J�X�^�}�C�Y</h5>
+<h5>sfCrrntIni.py によるカスタマイズ</h5>
 <p>
-sfCrrntIni.py �́A���삲�ƂɎg���J�X�^�}�C�Y�E���W���[���ł��B���[�U�[�̃J�����g�E�f�B���N�g�����Ƃɐ݂��܂��B
+sfCrrntIni.py は、分野ごとに使うカスタマイズ・モジュールです。ユーザーのカレント・ディレクトリごとに設けます。
 <p>
-Python sf �v���v���Z�b�T�́A�J�����g�f�B���N�g���� sfCrrntIni.py �t�@�C�������݂���Ɓufrom sfCrrntIni import *�v�����s���Ă��� Python sf ���F�������C�i�[���Ăяo���܂��B����ɂ�� Python sf ���F�������C�i�[�́AsfCrrnitIni.py �ɒ�`���Ă���ϐ������`�ς݂Ƃ��Ĉ����܂��B
+Python sf プロプロセッサは、カレントディレクトリに sfCrrntIni.py ファイルが存在すると「from sfCrrntIni import *」を実行してから Python sf 式：ワンライナーを呼び出します。これにより Python sf 式：ワンライナーは、sfCrrnitIni.py に定義してある変数名を定義済みとして扱えます。
 <p>
-�Ⴆ�ΌQ�_���������Ă���f�B���N�g���ɉ��� sfCrrntIn.py �t�@�C��������Ă����� Sn(3), Sn(4), Sn(5) �ɂ�����Q�_�̑����̐������������C�i�[�Œ��ׂ���悤�ɂȂ�܂��B
+例えば群論を検討しているディレクトリに下の sfCrrntIn.py ファイルを作っておけば Sn(3), Sn(4), Sn(5) における群論の多くの性質をワンライナーで調べられるようになります。
 <pre class=dos>
 type sfCrrntIni.py
 
@@ -2480,21 +2479,21 @@ dctP4 = { 'e':S4(0,1,2,3)
 dctP4I = dict(zip(dctP4.values(), dctP4.keys()))
 </pre>
 <p>
-���� sfCrrntIn.py ���J�����g�E�f�B���N�g���ɂ���΁ASn(4) �ɂ����� S={S4(3, 2, 1, 0), S4(2, 3, 0, 1)} �W���� ���K���Q�̏W�������̃������C�i�[�ŋ��߂��܂��B
+この sfCrrntIn.py がカレント・ディレクトリにあれば、Sn(4) における S={S4(3, 2, 1, 0), S4(2, 3, 0, 1)} 集合の 正規化群の集合を次のワンライナーで求められます。
 <pre class=sf>
 S={S4(3, 2, 1, 0), S4(2, 3, 0, 1)};set([ g for g in SS4 if set([g s g^-1 for s in S]) == S])
 ===============================
 set([Sn(4)(1, 0, 3, 2), Sn(4)(2, 3, 0, 1), Sn(4)(1, 0, 2, 3), Sn(4)(3, 2, 1, 0), Sn(4)(0, 1, 2, 3), Sn(4)(3, 2, 0, 1), Sn(4)(0, 1, 3, 2), Sn(4)(2, 3, 1, 0)])
 </pre>
 <p>
-���̐��K���Q�̏W�����Q���Z�Ŏ��ۂɕ��Ă��邱�Ƃ��A���̂悤�Ƀ������C�i�[�Ŋm�F�ł��܂��B
+この正規化群の集合が群演算で実際に閉じていることを、下のようにワンライナーで確認できます。
 <pre class=sf>
 S={S4(3, 2, 1, 0), S4(2, 3, 0, 1)};SS=set([ g for g in SS4 if set([g s g^-1 for s in S]) == S]);set([ x y for x,y in mitr(SS,SS)]) == SS
 ===============================
 True
 </pre>
 <p>
-�u��̂悤�ȒP���ȌQ�_�ȂǁA�Ƃ����̐̂ɑ��Ƃ����v�Ƃ�����������ł��悤�B����ȕ��ɂ� nzmath �͔@���ł��傤���B<a href="http://tnt.math.se.tmu.ac.jp/nzmath/index_j.html"> �������� </a> nzmath package ���_�E�����[�h���ăJ�����g�f�B���N�g���ɒu���Ă����΁APython sf �ŉ��̂悤�Ȍv�Z���\�ɂȂ�܂��Bnzmath package �Œ�`���ꂽ�S�Ă̕ϐ��E�֐��E�N���X�� Python sf ���ň�����悤�Ȃ�܂��B
+「上のような単純な群論など、とっくの昔に卒業した」という方もいるでしよう。そんな方には nzmath は如何でしょうか。<a href="http://tnt.math.se.tmu.ac.jp/nzmath/index_j.html"> ここから </a> nzmath package をダウンロードしてカレントディレクトリに置いておけば、Python sf で下のような計算が可能になります。nzmath package で定義された全ての変数・関数・クラスが Python sf 式で扱えるようなります。
 <pre class=sf>
 # find cubic roots of 1 with mod 13 
 from nzmath import *;cubic_root.c_root_p(1,13)
@@ -2502,15 +2501,15 @@ from nzmath import *;cubic_root.c_root_p(1,13)
 [1, 3, 9]
 </pre>
 <div class=next>
-�ufrom nzmath import *�v�̈�s���A�J�����g�E�f�B���N�g���� sfCrrntIni.py �ɏ����Ă����΁APython sf ���ł́ufrom nzmath import *�v�͏ȗ��ł���悤�ɂȂ�܂��B
+「from nzmath import *」の一行を、カレント・ディレクトリの sfCrrntIni.py に書いておけば、Python sf 式での「from nzmath import *」は省略できるようになります。
 </div>
 
 <a name="littleAdvanced_bsicModules"></a>
-<h3>�� sfFnctns.py, basicFnctns, kNumeric.py, vsGrapy.py, raional.py</h3>
+<h3>■ sfFnctns.py, basicFnctns, kNumeric.py, vsGrapy.py, raional.py</h3>
 <p>
-�AsfFnctns.py, basicFnctns, kNumeric.py, vsGrapy.py, raional.py �̃t�@�C���ɏ�����Ă��閼�O�̓O���[�o�����O��ԂɎ�荞�܂�܂��BPython sf �ł̌v�Z�ɂƂ��Ċ�{�I�Ȋ֐���N���X������ł��B
+、sfFnctns.py, basicFnctns, kNumeric.py, vsGrapy.py, raional.py のファイルに書かれている名前はグローバル名前空間に取り込まれます。Python sf での計算にとって基本的な関数やクラスだからです。
 <p>
-basicFnctns, kNumeric, vsGrapy, raional �̃��W���[�������O���[�o�����O��ԂɎ�荞�܂�Ă��܂��B�ł�����A�Ⴆ�� help(basicFnctns) �� basicFnctns �ɒ�`����Ă���N���X�E�֐��E�萔���o�͂������܂��B
+basicFnctns, kNumeric, vsGrapy, raional のモジュール名もグローバル名前空間に取り込まれています。ですから、例えば help(basicFnctns) で basicFnctns に定義されているクラス・関数・定数を出力させられます。
 
 <pre class=sf>
 help(basicFnctns)
@@ -2525,8 +2524,8 @@ FILE
 DESCRIPTION
     Designed by kVqrifierLab Kenji Kobayashi
         http://www.nasuinfo.or.jp/FreeSpace/kenji/index.htm
-        �E
-        �E
+        ・
+        ・
     aTrue(sqBlAg)
         '  make scipy.alltrue short
         
@@ -2540,19 +2539,19 @@ DESCRIPTION
         '
     
     arSqnc(startOrSizeAg, sizeAg=None, strideAg=1)
-        ��������^�v���� start, size, stride �����Ő������ĕԂ�
+        等差数列タプルを start, size, stride 引数で生成して返す
            return arithmetic sequence generated with argument start, size, stride
-        �E
-        �E
+        ・
+        ・
 </pre>
 <p>
-khlp ���g���΁A���K�\�� help �������\�ł��B khlp('..', basicFnctns) �̂悤�Ɍ������܂��B
+khlp を使えば、正規表現 help 検索も可能です。 khlp('..', basicFnctns) のように検索します。
 <pre class=sf>
 khlp('^en', basicFnctns)
 python -u sfPP.py "khlp('^en', basicFnctns)"
 ===============================
     enmasq(*args, **kwarg)
-        �񋓃C���f�b�N�X�t���̑�������������
+        列挙インデックス付きの多次元等差数列
                 enumerate index and multiple dimentional arithmetic sequence
             e.g.
         N=4;mt=kzrs(N,N);for idx,val in enmasq([0,N,0.1],[1,N,0.1]):mt[idx]=sum(val);mt
@@ -2565,7 +2564,7 @@ python -u sfPP.py "khlp('^en', basicFnctns)"
             '
 
     enmitr(*args, **kwarg)
-        �񋓃C���f�b�N�X�t���̑������J��Ԃ��C�^���[�^
+        列挙インデックス付きの多次元繰り返しイタレータ
             multiple dimentional iterator with enumerate index
         e.g.
         s=set(['a','b']);list(enmitr(s,s))
@@ -2580,77 +2579,77 @@ python -u sfPP.py "khlp('^en', basicFnctns)"
         '
 </pre>
 <div class=sf>
-Python sf �Ɋ���Ă��āA�e���W���[���ɏ�����Ă���֐���N���X�̖��O��B���Ȃ�����L�����͂��߂��i�K�� khlp �͕֗��ł��B
+Python sf に慣れてきて、各モジュールに書かれている関数やクラスの名前を曖昧ながらも記憶しはじめた段階で khlp は便利です。
 </div>
 <h4> sfFnctns.py</h4>
 <p>
-Python sf �v���v���Z�b�T:sfPPrcssr.pyc �� �ŏ��� sfFnctns.pyc �� import ���Ă��� customize, sfCrrntIni ���W���[���� import ���āA���̌�ɗ^����ꂽ�������C�i�[������̃v���v���Z�X���s���܂��B���� sfPPrcssr.py �� sfFnctns.py ����������J�ł��B���̂ق��̑S�Ẵ\�[�X�����J���Ă��܂��B
+Python sf プリプロセッサ:sfPPrcssr.pyc は 最初に sfFnctns.pyc を import してから customize, sfCrrntIni モジュールを import して、その後に与えられたランライナー文字列のプリプロセスを行います。この sfPPrcssr.py と sfFnctns.py だけが非公開です。そのほかの全てのソースを公開しています。
 <p>
-sfFnctns.py �̂Ȃ��� basicFnctns kNumeric, vsGrapy raional ���W���[���� �ufrom moduleName import *�v���Ă��܂��B���̈Ӗ��� sfFnctns.py �� Python sf �̑匳�ł���AbasicFnctns kNumeric, vsGrapy raional �ɂ́A���̎��ɏd�v�Ȋ֐��ƃN���X��������Ă��܂��B�����̃��W���[���̒��ɂ���֐���N���X�����̓O���[�o�����O��ԂɎ�荞�܂�Ă��܂��B
+sfFnctns.py のなかで basicFnctns kNumeric, vsGrapy raional モジュールを 「from moduleName import *」しています。この意味で sfFnctns.py は Python sf の大元であり、basicFnctns kNumeric, vsGrapy raional には、その次に重要な関数とクラスが書かれています。これらのモジュールの中にある関数やクラスたちはグローバル名前空間に取り込まれています。
 <p>
-sfFnctns.py �̏d�v�Ȗ����Ƃ��āAbasicFnctns kNumeric, vsGrapy raional ���W���[������荞�ވȊO�ɁA���l�s��A��ʑ̍s����`���邱�Ƃ�����܂��B
-sfFnctns.py �̒��ł� ClTensor ���l�s��E�x�N�g���N���X����`����Ă��܂��BClTensor �N���X�� numpy �s��N���X sc.ndarray ���p�����Ă��܂��Bsc.ndarray �� sc.dot(..) �ŕ\���Ă��鉉�Z�� ClTensor �ł� * ���Z�A���Ȃ킿 __mul__(..) �֐��Ɋ��蓖�ĂĂ��邱�Ƃ� sc.ndarray �Ƃ̈�ԑ傫�ȈႢ�ł��B����ɂ��A�s���x�N�g���̉����揜�ׂ���Z������v�Z�ɂ��߂����̂ɂȂ�܂��B
+sfFnctns.py の重要な役割として、basicFnctns kNumeric, vsGrapy raional モジュールを取り込む以外に、数値行列、一般体行列を定義することがあります。
+sfFnctns.py の中では ClTensor 数値行列・ベクトルクラスが定義されています。ClTensor クラスは numpy 行列クラス sc.ndarray を継承しています。sc.ndarray が sc.dot(..) で表している演算を ClTensor では * 演算、すなわち __mul__(..) 関数に割り当てていることが sc.ndarray との一番大きな違いです。これにより、行列やベクトルの加減乗除べき乗算が日常計算により近いものになります。
 <pre class=sf>
-#����
+#内積
 vcA,vcB = ClTensor([1,2]), ClTensor([3,4]); vcA vcB
 ===============================
 11.0
 
-`��x
+`σx
 ===============================
 [[ 0.  1.]
  [ 1.  0.]]
 ---- ClTensor ----
 
-# �s��ƃx�N�g���̐�
-`��x ~[1,2]
+# 行列とベクトルの積
+`σx ~[1,2]
 ===============================
 [ 2.  1.]
 ---- ClTensor ----
 
-# �s��� list, tuple �Ƃ̐ς��\�ł�
-`��x [1,2]
+# 行列と list, tuple との積も可能です
+`σx [1,2]
 ===============================
 [ 2.  1.]
 ---- ClTensor ----
 
-`��x (1,2)
+`σx (1,2)
 ===============================
 [ 2.  1.]
 ---- ClTensor ----
 
-#�s��̐�
-`��x `��y
+#行列の積
+`σx `σy
 ===============================
 [[ 0.+1.j  0.+0.j]
  [ 0.+0.j  0.-1.j]]
 ---- ClTensor ----
 
-# numpy �s��ł͓��ρA�s��*�x�N�g���A�s��*�s��� sc.dot(,) ���g���܂��B
+# numpy 行列では内積、行列*ベクトル、行列*行列に sc.dot(,) を使います。
 vcA,vcB = sc.array([1,2]), sc.array([3,4]); sc.dot(vcA, vcB)
 ===============================
 11
 
-mt=sc.array(`��x); sc.dot(mt, [1,2])
+mt=sc.array(`σx); sc.dot(mt, [1,2])
 ===============================
 [ 2.  1.]
 
-mtX,mtY=sc.array(`��x),sc.array(`��y); sc.dot(mtX, mtY)
+mtX,mtY=sc.array(`σx),sc.array(`σy); sc.dot(mtX, mtY)
 ===============================
 [[ 0.+1.j  0.+0.j]
  [ 0.+0.j  0.-1.j]]
 
-# numpy �s���x�N�g���̊|���Z�́A�v�f���Ƃ��|���Z�����s���x�N�g���ɂȂ�܂��B
+# numpy 行列やベクトルの掛け算は、要素ごとを掛け算した行列やベクトルになります。
 vcA, vcB =sc.array([1,2]), sc.array([3,4]); vcA vcB
 ===============================
 [3 8]
 
-mtX,mtY=sc.array(`��x),sc.array(`��y);        mtX  mtY
+mtX,mtY=sc.array(`σx),sc.array(`σy);        mtX  mtY
 ===============================
 [[ 0.+0.j  0.-1.j]
  [ 0.+1.j  0.+0.j]]
 
-mt=sc.array(`��x);        mt  [1,2] 
+mt=sc.array(`σx);        mt  [1,2] 
 ===============================
 [[ 0.  2.]
  [ 1.  0.]]
@@ -2659,12 +2658,12 @@ mt=sc.array(`��x);        mt  [1,2]
 
 </pre>
 <p>
-Python sf �͈�ʂ̑̂��v�f�Ƃ���s��x�N�g���������܂��B���̂Ƃ��� ClFldTns �N���X���g���܂��B
+Python sf は一般の体や環を要素とする行列ベクトルも扱えます。このときは ClFldTns クラスを使います。
 <pre class=sf>
-# Bool Field �C���X�^���X��v�f�Ƃ���s��̐���
+# Bool Field インスタンスを要素とする行列の生成
 ClFldTns([[`1,`1],[`0,`1]],ftype=oc.BF)
 
-# Bool Field �s��ƃx�N�g���̐�
+# Bool Field 行列とベクトルの積
 mt=ClFldTns([[`1,`1],[`0,`1]],ftype=oc.BF);mt ~[`1,`0]
 ===============================
 [1 0]
@@ -2697,10 +2696,10 @@ mt=ClFldTns([[`1,`1],[`0,`1]],ftype=oc.BF);~[`1,`0]/mt
 ---- ClFldTns:<class 'pysf.octn.BF'> ----
 </pre>
 <div class=next>
-ClFldTns ���g���čs��𐶐�����Ƃ��́AClFldTns(..., ftype = ..) �̂悤�ɖ����I�ɗv�f�̃^�C�v���w�肹�˂΂Ȃ�܂���B�����ӂ��������B
+ClFldTns を使って行列を生成するときは、ClFldTns(..., ftype = ..) のように明示的に要素のタイプを指定せねばなりません。ご注意ください。
 </div>
 <p>
-��قǓ���ȏꍇ�������� Python sf �ɂ����čs��̐����� ClTensor, ClFldTns �N���X���g���̂ł͂Ȃ� ~[....] �����AsfFnctns �ɒ�`����Ă��� krry(..) �֐����g���ׂ��ł��Bbool, int, float, complex �̂Ƃ��� ClTensor �ɁA����ȊO�̂Ƃ��� ClFldTns �Ɏ����I�� krry(..) �֐��̓����Ő؂蕪���邩��ł��BClFldTns �ŕK�{�������v�f�^�������ȗ��ł��邩��ł��B
+よほど特殊な場合を除いて Python sf において行列の生成は ClTensor, ClFldTns クラスを使うのではなく ~[....] 式か、sfFnctns に定義されている krry(..) 関数を使うべきです。bool, int, float, complex のときは ClTensor に、それ以外のときは ClFldTns に自動的に krry(..) 関数の内部で切り分けるからです。ClFldTns で必須だった要素型引数を省略できるからです。
 <pre class=sf>
 krry([1,2,3])
 ===============================
@@ -2766,7 +2765,7 @@ krry([sin, cos, `X]) + krry([1, `X, `X^2])
 unpicklable
 </pre>
 <p>
-ClTensor �̓f�t�H���g�����������_�̒l��v�f�Ƃ��邱�Ƃɂ������ӂ��������Bsc.array(..) �̓f�t�H���g�� int �ł��B������ int �^�C�v�̍s��v�f�ɕ��������_�l��������ƁA����ɏ����_�ȉ�����菜����Ă��܂��܂��B����������Ă��܂��܂��B
+ClTensor はデフォルトが浮動小数点の値を要素とすることにもご注意ください。sc.array(..) はデフォルトが int です。そして int タイプの行列要素に浮動小数点値を代入すると、勝手に小数点以下が取り除かれてしまいます。整数化されてしまいます。
 <pre class=sf>
 ~[1,2]
 ===============================
@@ -2783,9 +2782,9 @@ vc=sc.array([1,2]);vc[1]=sqrt(2);vc
 </pre>
 <h4> basicFnctns</h4>
 <p>
-�Ȃ� arsq, mrng,arsq,mitr,klsp, enmasq, enmitr �̃C�^���[�^���A���̃��W���[���Œ�`���Ă��܂��B���̑��� �ρFproduct,�t�֐��FinvF,����E�g�ݍ��킹�Fpermutate�Ecombinate, �V�[�P���X�̃V�t�g�E��]�FshftSq�ErttSq �Ƃ�������{�I�ȉ\���������Ă��܂��B
+なお arsq, mrng,arsq,mitr,klsp, enmasq, enmitr のイタレータを、このモジュールで定義しています。その他に 積：product,逆関数：invF,順列・組み合わせ：permutate・combinate, シーケンスのシフト・回転：shftSq・rttSq といった基本的な可能を実装しています。
 <p>
-product �̓V�[�P���X�E�f�[�^�̗v�f�𑫂����킹�����̂�Ԃ��܂��Bsum(..) �� + �̑���� * �ɂ������������܂��B
+product はシーケンス・データの要素を足し合わせたものを返します。sum(..) の + の代わりに * にした働きをします。
 <pre class=sf>
 product( (1,2,3) )
 ===============================
@@ -2804,7 +2803,7 @@ product(sc.arange(1,10))
 362880
 </pre>
 <p>
-invF(�֐��A��`�揉�߁A��`��I���) �͊֐������̋t�֐���Ԃ��܂��B��`��͈̔͂ňꉿ�֐��łȂ���΂Ȃ�܂���B���Ȃ킿�P���łȂ���΂Ȃ�܂���B
+invF(関数、定義域初め、定義域終わり) は関数引数の逆関数を返します。定義域の範囲で一価関数でなければなりません。すなわち単調でなければなりません。
 <pre class=sf>
 sin([ -pi/4, pi/4])
 
@@ -2817,8 +2816,8 @@ plotGr(invF(sin, -pi/2, pi/2), -1, 1)
 <p>
 <IMG SRC="./plotInvSin.jpg"> 
 <p>
-combinate(..) �� n �̑g�ݍ��킹��Ԃ��W�F�l���[�^�ł��B
-������������ interte �l��Ԃ��܂��B
+combinate(..) は n 個の組み合わせを返すジェネレータです。
+辞書式順序で interte 値を返します。
 <pre class = sf>
 list(combinate(list('abcd'),3))
 ===============================
@@ -2828,7 +2827,7 @@ list(combinate([0,1,2,3],2))
 ===============================
 [(0, 1), (0, 2), (0, 3), (1, 2), (1, 3), (2, 3)]
 </pre>
-permutate �̓V�[�P���X�����ɑ΂��鏇��������Ԃ��Ă����C�^���[�^�𐶐����܂��B����̓���ւ��ɑΉ����� sign:-1 or 1 ���Ԃ��܂��B
+permutate はシーケンス引数に対する順列を順次返していくイタレータを生成します。順列の入れ替えに対応する sign:-1 or 1 も返します。
 <pre class = sf>
 tuple(sf.permutate([2,1,0]))
 ===============================
@@ -2842,7 +2841,7 @@ tuple(sf.permutate([0,1,2]))
 </pre>
 
 <p>
-shftSq(..) �̓V�[�P���X�f�[�^�̃V�t�g�����l��Ԃ��܂��BrttSq(..) �̓V�[�P���X�f�[�^����]�����l��Ԃ��܂��B
+shftSq(..) はシーケンスデータのシフトした値を返します。rttSq(..) はシーケンスデータを回転した値を返します。
 <pre class=sf>
 shftSq(range(2,10))
 ===============================
@@ -2857,25 +2856,25 @@ rttSq(range(2,10))
 [9, 2, 3, 4, 5, 6, 7, 8]
 </pre>
 
-<h5>�֐����̂̉����揜�Z�� `X,`Y,`Z,`T </h5>
+<h5>関数自体の加減乗除算と `X,`Y,`Z,`T </h5>
 <p>
-basicFnctns ���W���[���ɂ� ClAF �N���X����`���Ă���A�֐��̉����揜�ׂ���Z�Ɗ֐������̒P���L�q���\�ɂ��Ă��܂��BClAF �P���֐��ϐ��N���X�E�C���X�^���X `X �� customize.py �ɒ�`���邱�Ƃő������̒P���ȋL�q���\�ɂ��܂����B
+basicFnctns モジュールには ClAF クラスが定義してあり、関数の加減乗除べき乗算と関数合成の単純記述を可能にしています。ClAF 恒等関数変数クラス・インスタンス `X を customize.py に定義することで多項式の単純な記述を可能にしました。
 <p>
-��ʂ� python �̊֐��ɂ́A�֐����̂������揜����@�\�͔�����Ă��܂���B������ Python sf �̊�{���l�֐� exp, sin, cos, tan, sinh, cosh, tanh, arcsin, arccos, arctan, log, log10, sqrt �� `X,`Y,`Z,`T �P���֐��� ClAF �Ń��b�v����Ă���A�����揜�Ƃׂ���Z�Ɗ֐������@�\��������Ă��܂��B����́APython sf ���̋L�q�̊ȕւȋL�q�ɏd�v�ȓ��������܂��B�� �֐��̎g�p������I�Ɍ��炵�Ă���܂��B
+一般に python の関数には、関数自体を加減乗除する機能は備わっていません。しかし Python sf の基本数値関数 exp, sin, cos, tan, sinh, cosh, tanh, arcsin, arccos, arctan, log, log10, sqrt と `X,`Y,`Z,`T 恒等関数は ClAF でラップされており、加減乗除とべき乗算と関数合成機能が備わっています。これは、Python sf 式の記述の簡便な記述に重要な働きをします。λ 関数の使用を画期的に減らしてくれます。
 <p>
-�t�� numpy �� sin,cos �֐����̂̂̑����Z�͂ł��܂���B������s�킹��ɂ� �� �֐�����݂�����K�v������܂��B
+逆に numpy の sin,cos 関数自体のの足し算はできません。それを行わせるには λ 関数を介在させる必要があります。
 <pre class=sf>
 (sc.sin+sc.cos)(pi/3)
 unsupported operand type(s) for +: 'numpy.ufunc' and 
 'numpy.ufunc' at excecuting:(sc.sin+sc.cos)(pi/3)
 
-(�� x:sin(x)+cos(x))(pi/3)
+(λ x:sin(x)+cos(x))(pi/3)
 ===============================
 1.36602540378
 
 </pre>
 <p>
-�ł� Python sf �� ClAF �Ń��b�v���Ă��� sin,cos �͉����揜�ׂ���Z�Ɗ֐��������\�ł��B
+でも Python sf の ClAF でラップしてある sin,cos は加減乗除べき乗算と関数合成が可能です。
 <pre class=sf>
 (sin+cos)(pi/3)
 ===============================
@@ -2885,18 +2884,18 @@ unsupported operand type(s) for +: 'numpy.ufunc' and
 ===============================
 -0.767949192431
 
-#�֐��ׂ̂���
+#関数のべき乗
 (sin^2)(pi/3)
 ===============================
 0.761759981416
 
-#�֐�����
+#関数合成
 cos(sin)(pi/3)
 ===============================
 0.647859344852
 </pre>
 <p>
-�����揜�ׂ���Z���\��`X �P���֐��́A�������֐��̊ȕւȋL�q���\�ɂ��܂��B
+加減乗除べき乗算が可能な`X 恒等関数は、多項式関数の簡便な記述を可能にします。
 <pre class=sf>
 (`X^2+ 2`X+1)(2)
 ===============================
@@ -2906,23 +2905,23 @@ cos(sin)(pi/3)
 ===============================
 16.0
 
-#�L����
+#有理式
 x=`X; ((x^2+x+1)/(2x+1))(3)
 ===============================
 1.85714285714
 
-�������Ƃ̊֐�����
+多項式との関数合成
 exp(-`X^2/3)(1)
 ===============================
 0.716531310574
 </pre>
 <br>
-<h5>���ϐ��֐��� `X,`Y,`Z,`T </h5>
+<h5>多変数関数と `X,`Y,`Z,`T </h5>
 <p>
-<b>���̋@�\�� 2010,05,27 �Ɏ����������̂ł���A�܂��g�����܂�Ă��܂���B����C���������\���������܂܂ł��B</b>
+<b>この機能は 2010,05,27 に実装したものであり、まだ使い込まれていません。今後修正が加わる可能性が高いままです。</b>
 <p>
-`X �ȊO�� ,�P���֐� `Y,`Z,`T �ϐ��N���X�E�C���X�^���X�� customize.py �ɒ�`���邱�Ƃő��ϐ��֐���������悤�ɂ��܂����B�P���֐� `X �������^�v���� 0 �Ԗڂ����o���̂ɂ������A`Y,`Z,`T ��
-�����^�v���� 1 �ԖځA2 �Ԗ� �����čŌ�̗v�f�����o�����邱�ƂŁA���ϐ��֐���������悤�ɂ��Ă��܂��B
+`X 以外に ,恒等関数 `Y,`Z,`T 変数クラス・インスタンスを customize.py に定義することで多変数関数を扱えるようにしました。恒等関数 `X が引数タプルの 0 番目を取り出すのにたいし、`Y,`Z,`T は
+引数タプルの 1 番目、2 番目 そして最後の要素を取り出させることで、多変数関数を扱えるようにしています。
 <pre class=sf>
 (`X+`Y)(1,2,3)
 ===============================
@@ -2932,50 +2931,50 @@ sqrt(`X+`Y^2+`Z^2)(1,2,3)
 ===============================
 3.74165738677
 
-#���l�v�Z�ɂ�����
-��y(sqrt(`X+`Y^2+`Z^2))(1,2,3)
+#数値計算による微分
+∂y(sqrt(`X+`Y^2+`Z^2))(1,2,3)
 ===============================
 0.534522483688
 
-# sympy �ɂ�� symbolic �Ȕ����̌�ɔ����l�����߂�
-ts();float(��y(ts.sqrt(`x+`y^2+`z^2)).subs([(`x,1),(`y,2),(`z,3)]))
+# sympy による symbolic な微分の後に微分値を求める
+ts();float(∂y(ts.sqrt(`x+`y^2+`z^2)).subs([(`x,1),(`y,2),(`z,3)]))
 ===============================
 0.534522483825
 </pre>
 <p>
-`X,`Y,`Z,`T �̃^�v�������̏��Ԉʒu����l�𔲂��o���P���֐��𓱓����邱�ƂŁA���l�֐��ł���Ȃ�����V���{���b�N�����ɋ߂� Python sf ���̋L�q���\�ɂȂ邱�Ƃɒ��ڊ肢�܂��B
+`X,`Y,`Z,`T のタプル引数の順番位置から値を抜き出す恒等関数を導入することで、数値関数でありながらもシンボリック処理に近い Python sf 式の記述が可能になることに注目願います。
 <br>
 <br>
 <h4>kNumeric</h4>
 <p>
-kNumeric �ł͔����E�ϕ��𒆐S�Ƃ����p�ɂɎg���鐔�l���Z���������Ă���܂��B
+kNumeric では微分・積分を中心とした頻繁に使われる数値演算を実装してあります。
 <p>
-kNumeric �Ɏ������Ă�������͐��l�����ł��BkNumeric �ɒ�`���Ă��鐔�l�����֐��� P_(..) �ł����A����� customize.py �Ŏ󂯒����� ��x, ��y, ��z, ��t �Ŕ����ł���悤�ɂ��Ă��܂��B��x, ��y, ��z, ��t �́A0 �Ԗڂ̈���, ��Ԗڂ̈������A��Ԗڂ̈����A�Ō�̈����ɂ��Ă̔������Ӗ����܂��B
+kNumeric に実装してある微分は数値微分です。kNumeric に定義してある数値微分関数は P_(..) ですが、それを customize.py で受け直して ∂x, ∂y, ∂z, ∂t で微分できるようにしています。∂x, ∂y, ∂z, ∂t は、0 番目の引数, 一番目の引き数、二番目の引数、最後の引数についての微分を意味します。
 <pre class=sf>
-��x(sin)(0)
+∂x(sin)(0)
 ===============================
 0.999999998333
 
-��y(sin(`X+2`Y))(1,2)
+∂y(sin(`X+2`Y))(1,2)
 ===============================
 0.567324367144
 
-# sympy �ɂ�� symbolic �Ȕ����̌�ɔ����l�����߂�
-ts();float(��y(ts.sin(`x+2 `y)).subs([(`x,1),(`y,2),(`z,3)]))
+# sympy による symbolic な微分の後に微分値を求める
+ts();float(∂y(ts.sin(`x+2 `y)).subs([(`x,1),(`y,2),(`z,3)]))
 ===============================
 0.567324370926
 
-#���f���l����
-��x(exp)(1+2j)
+#複素数値微分
+∂x(exp)(1+2j)
 ===============================
 (-1.13120438564+2.47172667613j)
 </pre>
 <p>
-�����E�ϕ��ɂ��Ă͏������Ƃ���������̂ŁA�ʂɏ͂����߂�<a href="#bitAdvanced_derivative">�� ����</a>�C<a href="#bitAdvanced_integral">�� �ϕ�</a>�ŃV���{���b�N�Ȕ����E�ϕ����܂߂Đ������܂��B
+微分・積分については書くことが多すぎるので、別に章を改めて<a href="#bitAdvanced_derivative">■ 微分</a>，<a href="#bitAdvanced_integral">■ 積分</a>でシンボリックな微分・積分も含めて説明します。
 <p>
-nearlyEq(..) �֐��͕��������_�l��ϐ��A�V�[�P���X�E�f�[�^�A�s��A�x�N�^�����ΓI�� 6 ���܂ň�v����Ƃ� True ��Ԃ��܂��B
+nearlyEq(..) 関数は浮動小数点値を変数、シーケンス・データ、行列、ベクタが相対的に 6 桁まで一致するとき True を返します。
 <p>
-���������_�l�̐��l�v�Z�ɂ͌덷�������ł��B���_�I�E���z�I�ɂ͓��������藧���Ă��A���l�v�Z�ł͔��ɋ߂��l�ɂȂ邾���ŁA���������藧���Ȃ����Ƃ��p�ɂɔ������܂��B�ł����� ���������_�l�͓��������Ƃ� == ���Z�q���g���Ĕ�r���Ă��A���_�I�ɂ� True �ł��邪�A���������_�l���͂��ɈقȂ邽�߁A���̌��ʂ� False �ɂȂ邱�Ƃ��p�ɂɔ������܂��B���̂Ƃ� nearlyEq(..) ���g�����ƂŁA���������_�ϐ��A�V�[�P���X�E�f�[�^�A�s��A�x�N�^���w�Ǔ����l�ł��邱�Ƃ𒲂ׂ��܂��B
+浮動小数点値の数値計算には誤差がつき物です。理論的・理想的には等式が成り立っても、数値計算では非常に近い値になるだけで、等式が成り立たないことが頻繁に発生します。ですから 浮動小数点値は等しいことを == 演算子を使って比較しても、理論的には True であるが、浮動小数点値が僅かに異なるため、その結果が False になることが頻繁に発生します。このとき nearlyEq(..) を使うことで、浮動小数点変数、シーケンス・データ、行列、ベクタが殆ど同じ値であることを調べられます。
 <pre class=sf>
 nearlyEq(3, 3.0000000001)          
 ===============================
@@ -2997,43 +2996,43 @@ nearlyEq( [3,4], [3.01        , 4])
 ===============================
 False
 
-nearlyEq(`��x,~[[1e-7,1],[1+1e-7,0]])
+nearlyEq(`σx,~[[1e-7,1],[1+1e-7,0]])
 ===============================
 True
 
-nearlyEq(`��x,~[[1e-5,1],[1+1e-5,0]])
+nearlyEq(`σx,~[[1e-5,1],[1+1e-5,0]])
 ===============================
 False
 </pre>
 <p>
-�Z���̐��x�ň�v����Ƃ������Ƃ́A�w�Ǔ����ł��邱�Ƃ��Ӗ����܂��B�v�Z���ʂ������_���ɕ��z����Ƃ����� 100����Ɉ��̎��ۂɂɏo���킵�����Ƃ��Ӗ����܂��B���̂悤�Ȏ��ۂ͒P�Ȃ���R�ł͂Ȃ��A�K�R�Ǝv���Ă�������邱�Ƃ������ł��傤�B
+六桁の精度で一致するということは、殆ど同じであることを意味します。計算結果がランダムに分布するとしたら 100万回に一回の事象にに出くわしたことを意味します。そのような事象は単なる偶然ではなく、必然と思っても許されることが多いでしょう。
 <h5>fft, ifft</h5>
 <p>
-FFT �ɂ��t�[���G�ϊ��͑����̕���Ŏg���܂��B
+FFT によるフーリエ変換は多くの分野で使われます。
 <br>
 <br>
 <h4>vsGraph</h4>
 <p>
-vsGraph �� �񎟌��O���t�\���֐��FplotGr(..), �񎟌��^�O�����̋O�Օ\���֐��FplotTrajectory(..)�A�O�����O���t�\���֐�:plot3dGr(..),�^�C���`���[�g�\���֐��FplotTmCh(..) �Ȃǂ̃f�[�^�\���̂��߂̊֐����������Ă���܂��B
+vsGraph は 二次元グラフ表示関数：plotGr(..), 二次元／三次元の軌跡表示関数：plotTrajectory(..)、三次元グラフ表示関数:plot3dGr(..),タイムチャート表示関数：plotTmCh(..) などのデータ表示のための関数を実装してあります。
 <p>
-������ Python sf �̃����E���C�i�[�ł������₷���悤�ɁA�ŏ��̎�Ԃōő�̏���\��������悤�Ɏ�������Ă��܂��B�ŏ��̎�ԁA�_���Ȃǂ̐Ԃ̑��l�ɓǂ܂��邽�߂̖}��ȂǑ����̏�������΂߂��O���t���쐬���邽�߂ɂ́Apylab �Ȃǂ̃O���t�\���p�b�P�[�W���g���ׂ��ł��B
+これらは Python sf のワン・ライナーでも扱いやすいように、最小の手間で最大の情報を表示させるように実装されています。最小の手間、論文などの赤の他人に読ませるための凡例など多くの情報をちりばめたグラフを作成するためには、pylab などのグラフ表示パッケージを使うべきです。
 <h5>plotGr</h5>
 <p>
-�ł����p�����O���t�\���͈�ϐ��֐��� 2D �\���֐�:plotGr(..) �ł��傤�B�Ƃ肠�����́uplotGr(�֐�, �J�n�ʒu:�f�t�H���g0�A�I���ʒu:�f�t�H���g1)�v�ƁuplotGr(�V�[�P���X�E�f�[�^)�v�̓�̃O���t�\�����@���g�������邱�Ƃɂ��Ă����Ηǂ��ł��傤�B
+最も多用されるグラフ表示は一変数関数の 2D 表示関数:plotGr(..) でしょう。とりあえずは「plotGr(関数, 開始位置:デフォルト0、終了位置:デフォルト1)」と「plotGr(シーケンス・データ)」の二つのグラフ表示方法を使い分けることにしておけば良いでしょう。
 <pre class=sf>
-# �f�t�H���g [0,1] ��Ԃ� sin �֐����O���t�\��
+# デフォルト [0,1] 区間の sin 関数をグラフ表示
 plotGr(sin)
 </pre>
 <IMG SRC="./plotGrSin_0_1.jpg"> 
 <p>
-�O���t�\����Ԃ̊J�n�ʒu�A�I���ʒu�̐��l������ǉ����Ă��΁A���̋�Ԃ̃O���t�\�������܂��B
+グラフ表示区間の開始位置、終了位置の数値引数を追加してやれば、その区間のグラフ表示をします。
 <pre class=sf>
-# �f�t�H���g [0,1] ��Ԃ� sin �֐����O���t�\��
+# デフォルト [0,1] 区間の sin 関数をグラフ表示
 plotGr(sin, -pi, pi)
 </pre>
 <IMG SRC="./plotGrSin_mpi_pi.jpg"> 
 <p>
-color �L�[���[�h�������g�����ƂŁA�O���t�̐��̐F���w��ł��邱�ƁAplotGr(..) �֐��𕡐���Ăяo�����ƂŃO���t�̏d�ˏ������ł��邱�Ƃ��o���Ă����ƕ֗��ł��B
+color キーワード引数を使うことで、グラフの線の色を指定できること、plotGr(..) 関数を複数回呼び出すことでグラフの重ね書きができることを覚えておくと便利です。
 <pre class=sf>
 plotGr(`X^2);plotGr(`X^3,color=orange);plotGr(`X^5,0.5,0.9,color=green)
 </pre>
@@ -3041,40 +3040,40 @@ plotGr(`X^2);plotGr(`X^3,color=orange);plotGr(`X^5,0.5,0.9,color=green)
 <br>
 <h5>plotTrajectory</h5>
 <p>
-plotTrajectory(..) �֐��͓񎟌��܂��͎O�����ł̋O�Ղ�`���܂��B
+plotTrajectory(..) 関数は二次元または三次元での軌跡を描きます。
 <p>
-��̗v�f����Ȃ�V�[�P���X�E�f�[�^�A�Ⴆ�� [(1,2), (3,4),..] �̃f�[�^�������Ƃ��ė^����΁A(1,2), (3,4), ... �ʒu�𒼐��Ō��񂾓񎟌��̋O�Ղ�`���܂��B�O�Ղ̊J�n�ʒu�� |&gt;&lt;| �L�����O�Ճf�[�^�̊J�n�ʒu�������܂�
+二つの要素からなるシーケンス・データ、例えば [(1,2), (3,4),..] のデータを引数として与えれば、(1,2), (3,4), ... 位置を直線で結んだ二次元の軌跡を描きます。軌跡の開始位置に |&gt;&lt;| 記号が軌跡データの開始位置を示します
 <pre class=sf>
 plotTrajectory([(1,2),(3,4),(-1,4)])
 </pre>
 <IMG SRC="./plotTrajectory12_34_m14.jpg"> 
 <p>
-plotGr(..) �Ɠ��l�ɁA�d�ˏ������ł��܂��B�Acolor �����ŋO�Ղ̐F���w�肷�邱�Ƃ��ł��ł�
+plotGr(..) と同様に、重ね書きもできます。、color 引数で軌跡の色を指定することもできです
 <pre class=sf>
 f=plotTrajectory;f([(cos(x),sin(x)) for x in arsq(0,50,2pi/50)]);f([(0.5cos(2x),sin(3x)) for x in klsp(0,2pi)],color=orange)
 </pre>
 <IMG SRC="./plotTrajectory_circle_Lissajous.jpg"> 
 <p>
-[(1,2,3),(4,5,6),...] �̂悤�ȎO�v�f����ȃV�[�P���X�̃V�[�P���X�E�f�[�^�� plotTrajectory(..) �����ɗ^����΁A�����O�v�f�ɑΉ�����O�����ŋ�Ԉʒu�𒼐��Ō��񂾋O�Ղ�`���܂��B���ɂ��O�Ղ̊J�n�ʒu�������܂��B
+[(1,2,3),(4,5,6),...] のような三つ要素からなシーケンスのシーケンス・データを plotTrajectory(..) 引数に与えれば、それら三つ要素に対応する三次元で空間位置を直線で結んだ軌跡を描きます。球により軌跡の開始位置を示します。
 <pre class=sf>
 plotTrajectory([(cos(x),sin(x),0.03x) for x in klsp(0,4pi)])
 </pre>
 <IMG SRC="./plotTrajectory_cos_sin_03.jpg"> 
 <h5>plot3dGr</h5>
 <p>
-plotGr(..) �ɃV�[�P���X�E�f�[�^��^���Ă��΁A���̗^����ꂽ�_�𒼐��Ō��񂾐܂���O���t��\�����܂��B50 �_�ȏ�̃f�[�^��^���Ă��΁A�f�B�X�v���[��ł͐܂���ł͂Ȃ��A�����Ă���悤�Ɍ�����悤�ɂȂ�܂��B�������A���̂Ƃ������̓V�[�P���X�E�f�[�^�̃C���f�b�N�X�����l�ɂȂ�܂��B�V�[�P���X�E�f�[�^�Ƃ��Ă� lit, tuple, sc.ndarray �x�N�g��, ClTensor �x�N�g������ł��O���t��\�����܂��B
+plotGr(..) にシーケンス・データを与えてやれば、その与えられた点を直線で結んだ折れ線グラフを表示します。50 点以上のデータを与えてやれば、ディスプレー上では折れ線ではなく連続しているように見えるようになります。ただし、このとき横軸はシーケンス・データのインデックス整数値になります。シーケンス・データとしては lit, tuple, sc.ndarray ベクトル, ClTensor ベクトル何れでもグラフを表示します。
 <pre class=sf>
-# �f�t�H���g [0,1] ��Ԃ� sin �֐����O���t�\��
+# デフォルト [0,1] 区間の sin 関数をグラフ表示
 plotGr([0V`, 1V`, 1.5V`, 1.75V`, 1.9V`])
 </pre>
 <p>
 <IMG SRC="./plotGr0_1_15_175_19.jpg"> 
 <p>
 <p>
-plot3dGr(..) �͓񎟌����ʏ�ɕ��z����֐��� 3D �\�����܂��B
+plot3dGr(..) は二次元平面上に分布する関数を 3D 表示します。
 <pre class=sf>
-#(x^2-3xy+y^2)/(3+x+y) �̃j�ϐ��L���֐��̃O���t���O�����\��������
-# �\���̈�� x �� [-1,1], y �� [-1,1] �̐����`�̈�
+#(x^2-3xy+y^2)/(3+x+y) のニ変数有理関数のグラフを三次元表示させる
+# 表示領域は x ∈ [-1,1], y ∈ [-1,1] の正方形領域
 plot3dGr((`X^2- 3`X `Y + `Y^2)/(3+`X+`Y), [-1,1])
 </pre>
 <p>
@@ -3082,21 +3081,21 @@ plot3dGr((`X^2- 3`X `Y + `Y^2)/(3+`X+`Y), [-1,1])
 <p>
 <pre class=sf>
 #
-# �\���̈�� ������ [-2,2], ������ [-2i,2i] �̗̈�
+# 表示領域は 実数∈ [-2,2], 虚数∈ [-2i,2i] の領域
 plot3dGr((`X^2+`X+1)/(`X^2-1), [-2,2],[-2 `i, 2 `i])
 </pre>
 <IMG SRC="./plot3d_1_1_1__1_0_M1.jpg"> 
 <br>
 <h5>plotTmCh</h5>
 <p>
-plotTmCh(..) �֐��ɉ����̍s��f�[�^��^���邱�ƂŁA�����f�[�^�̃^�C���`���[�g�\�����\�ł��B
+plotTmCh(..) 関数に横長の行列データを与えることで、複数データのタイムチャート表示が可能です。
 <pre class=sf>
 lst=range(32);plotTmCh(~[ [ 0.75^n sin(n pi/6) for n in lst], lst, lst[::-1], [0,1]*16])
 </pre>
 <p>
 <IMG SRC="./timcChart.jpg"> 
 <p>
-�^�C���`���[�g�\���́A�s�񂾂��łȂ��x�N�g���ɂ��g���܂��B�ł�����ȈՃq�X�g�O�����\���ɂ� plotTmCh(..) ���g���܂��B
+タイムチャート表示は、行列だけでなくベクトルにも使えます。ですから簡易ヒストグラム表示にも plotTmCh(..) が使えます。
 <pre class=sf>
 plotTmCh([ 0.75^n sin(n pi/6) for n in range(32)])
 </pre>
@@ -3107,11 +3106,11 @@ help(plotTrajectory)
 sc.source(plotTrajectory)
 
 <p>
-vsGraph.py �\�[�X�E�R�[�h�����J����Ă��܂��B���������Ă��炦�΁A���[�U�[���]�ރO���t�\���֐�����邱�Ƃ��e�Ղł��邱�Ƃ𕪂����Ă��炦��Ǝv���܂��B����ŁA�O���t�\���ւ̗v�]���獷���ʂł��B���[�U�[�̐�啪��ɂ���Ă��K�v�ȃO���t���قȂ��Ă��܂��B�䎩���ɕK�v�ȃO���t�E���[�`���̏C���E�쐬�ɐ���Ƃ��`�������W���Ă݂Ă��������B
+vsGraph.py ソース・コードも公開されています。それらを見てもらえば、ユーザーが望むグラフ表示関数を作ることも容易であることを分かってもらえると思います。一方で、グラフ表示への要望も千差万別です。ユーザーの専門分野によっても必要なグラフが異なってきます。御自分に必要なグラフ・ルーチンの修正・作成に是非ともチャレンジしてみてください。
 <br>
 <h4>rational</h4>
 <p>
-rational ���W���[���Ɏ������Ă��� ClRtnl �N���X�́A���`�V�X�e�����L�q���邽�߂̗L���֐����L�q����N���X�ł��B�uClRtnl(���q�������W�����X�g�A���ꑽ����)�v�ŃC���X�^���X�𐶐����܂��B
+rational モジュールに実装してある ClRtnl クラスは、線形システムを記述するための有理関数を記述するクラスです。「ClRtnl(分子多項式係数リスト、分母多項式)」でインスタンスを生成します。
 <pre class=sf>
 ClRtnl([1,2], [4,5,6])
 ===============================
@@ -3132,7 +3131,7 @@ cl=ClRtnl([1,2],[4,5,6]);cl.m_plDenom
 1 s + 1.25 s + 1.5
 </pre>
 <div class=nex>
-���ꑽ�����̍ő原���̌W���� 1 �ɂȂ�悤�ɐ��K�����ꂽ���q������:m_plNumer �ƕ��ꑽ����:m_plDenom �̃y�A�̃f�[�^�E�����o�[����\������܂��B�[���_��ɂ��v�Z����Ȃǂ̂Ƃ���m_plNumer/m_plDenom �������v�f���𒼐ڎg���܂��B
+分母多項式の最大次数の係数が 1 になるように正規化された分子多項式:m_plNumer と分母多項式:m_plDenom のペアのデータ・メンバーから構成されます。ゼロ点や極を計算するなどのときにm_plNumer/m_plDenom 多項式要素名を直接使います。
 </div>
 <pre class=sf>
 # pole
@@ -3141,7 +3140,7 @@ cl=ClRtnl([1,2],[4,5,6]);cl.m_plDenom.roots
 [-0.625+1.05326872j -0.625-1.05326872j]
 </pre>
 <p>
-Laplace�ϊ��� s ���Ȃ킿�������Z�q�����̗L������ `s �����蓖�ĂĂ��܂��B`s �ɂ��������揜�ׂ���Z�̑g�ݍ��킹���Z���\�ł��B����𗘗p���� `s ���ꑽ�����^`s ���q�������̌`���� ClRtnl �ŗL�������L�q�ł��܂��B
+Laplace変換の s すなわち微分演算子相当の有理式に `s を割り当てています。`s についた加減乗除べき乗算の組み合わせ演算が可能です。それを利用して `s 分母多項式／`s 分子多項式の形式で ClRtnl で有理式を記述できます。
 <pre class=sf>
 (`s+2)/(4`s^2+5`s+6)
 ===============================
@@ -3180,16 +3179,16 @@ s + 2.25 s + 2.75 s + 1.5
 [-0.8+0.9797959j -0.8-0.9797959j]
 </pre>
 <div class=next>
-���`�V�X�e���̐��w�I���f������������ꍇ�A�����̏ꍇ `s �̗L�����ŋL�q���܂��B���̕���������Ă��鐔���ɋ߂�����ł��BCRtnl([..],[...]) �ŋL�q���邱�Ƃ͏��Ȃ��ł��傤�B
+線形システムの数学的モデルを検討する場合、多くの場合 `s の有理式で記述します。その方が見慣れている数式に近いからです。CRtnl([..],[...]) で記述することは少ないでしょう。
 </pre>
 <p>
-ClRtnl �L���֐��͊֐��̐����������A�^����ꂽ���������ɑ΂��Ė߂�l�������܂�
+ClRtnl 有理関数は関数の性質を持ち、与えられた実数引数に対して戻り値を持ちます
 <pre class=sf>
 g=(`s+2)/(4`s^2+5`s+6) +1/(`s+1); [g(x) for x in range(3)]
 ===============================
 [1.3333333333333333, 0.69999999999999996, 0.45833333333333331]
 </pre>
-ClRtnl �L���֐��A���f�������ɑ΂��Ă��߂�l��Ԃ��܂��B
+ClRtnl 有理関数、複素数引数に対しても戻り値を返します。
 <pre class=sf>
 g=(`s+2)/(4`s^2+5`s+6) +1/(`s+1); [g(2pi `i f) for f in range(3)]
 ===============================
@@ -3201,22 +3200,22 @@ g=(`s+2)/(4`s^2+5`s+6) +1/(`s+1);plot3dGr(g,[-1.5,-0.5],[-2`i,2`i])
 <p>
 <IMG SRC="./plot3d12_456p1_11.jpg"> 
 <div class=next>
-��̕��f���l���z�� 3D �}�͋ɂƃ[���_���L�����Z�����������Ă���l�q��I�m�ɕ\���Ă��܂��B
+上の複素数値分布の 3D 図は極とゼロ点がキャンセルしかかっている様子を的確に表しています。
 </div>
 <p>
-���`�V�X�e���̂��߂Ɏ��������L���֐��ł�����A�{�[�h���}�A�C���p���X�����A�C���f�B�V���������A���͐M���ɑ΂��鉞���o�͂�\�����\�b�h������Ă��܂��B
+線形システムのために実装した有理関数ですから、ボード線図、インパルス応答、インディシャル応答、入力信号に対する応答出力を表すメソッドを備えています。
 <pre class=sf>
 # Bode Plot
 ((`s+2)/(4`s^2+5`s+6) +1/(`s+1)).plotBode(0.01Hz`, 100 Hz`)
 </pre>
 <p>
 <IMG SRC="./Bode12_456p1_11.jpg"> 
-<h5>���� </h5>
+<h5>注意 </h5>
 <p>
-(`s �̑�����)(..) �Ə����� .. ������ (`s �̑�����)�֐� �̈����ɂȂ��Ă��܂��܂��B.. �������������ł����Ă��ł��B(`s �̑�����)*(..) �̈Ӗ��ɂ͂Ȃ�܂���B
+(`s の多項式)(..) と書くと .. 部分は (`s の多項式)関数 の引数になってしまいます。.. 部分が多項式であってもです。(`s の多項式)*(..) の意味にはなりません。
 <pre class=sf>
 
-# (`s+1)(`s+2) �� (`s+2) �������Ƃ���֐��l�ł�
+# (`s+1)(`s+2) は (`s+2) を引数とする関数値です
 # (`s+1)(`s+2) == ((`s+2)+1) == `s+ 
 (`s+1)(`s+2) == (`s+3)
 ===============================
@@ -3233,7 +3232,7 @@ True
 1 s + 3 s + 2
 </pre>
 <p>
-1/������left ������right �� ������right/������left �̈Ӗ��ł��B1/������left ������right == (1/������left) ������right ������ł��B1/( ������left ������right) �̈Ӗ��ł͂���܂���B
+1/多項式left 多項式right は 多項式right/多項式left の意味です。1/多項式left 多項式right == (1/多項式left) 多項式right だからです。1/( 多項式left 多項式right) の意味ではありません。
 <pre class=sf>
 1/(`s+1)(`s+2) == 1/(`s+3)
 ===============================
@@ -3252,72 +3251,72 @@ True
 1/((`s+1) (`s+2)) + 1/((`s+2) (`s+3))
 
 </pre>
-<h5>�R���f���T ��R��H </h5>
+<h5>コンデンサ 抵抗回路 </h5>
 <p>
-ClRtnl �L���֐��̃C���X�^���X������΁A���̃C���p���X�����A�C���f�B�V���������A�C�ӂ̓��͂ɑ΂��鉞�����v�Z�ł��܂��B���̒P���� R C �ꎟ�x��ŁA��̓I�Ɍ��Ă����܂��傤�B
+ClRtnl 有理関数のインスタンスを作れれば、そのインパルス応答、インディシャル応答、任意の入力に対する応答を計算できます。下の単純な R C 一次遅れで、具体的に見ていきましょう。
 <pre class=box>
-                    1k��
-  ����������������MWMWMWMW������������������      
-    ��                        ��       ��         
-    ��   10kHz sin wave     ������ 1uF ��         
-    Vin                     ������     Vout       
-    ��                        ��       ��         
-  ������������������������������������������      
+                    1kΩ
+  ────────MWMWMWMW──┬──────      
+    ↑                        │       ↑         
+    │   10kHz sin wave     ─┴─ 1uF │         
+    Vin                     ─┬─     Vout       
+    ↓                        │       ↓         
+  ──────────────┴──────      
 </pre>
 <p>
-�R���f���T�̃C���s�[�_���X�� 1/(C s) �ł��B�ł�����AVout/Vin �`�B�֐��͉��̂悤�ɂȂ�܂��B
+コンデンサのインピーダンスは 1/(C s) です。ですから、Vout/Vin 伝達関数は下のようになります。
 <pre class=sf>
-#Vin/Vout �`�B�֐�
-R,C=1k��`,1uF`;(1/(C `s)) / (R+1/(C `s))
+#Vin/Vout 伝達関数
+R,C=1kΩ`,1uF`;(1/(C `s)) / (R+1/(C `s))
 ===============================
   1000
 --------
 s + 1000
 </pre>
 <p>
-���� Bode ���}�͉��̂悤�ɂȂ�܂�
+この Bode 線図は下のようになります
 <pre class
-R,C=1k��`,1uF`;Gs=(1/(C `s)) / (R+1/(C `s)); Gs.plotBode(0.1Hz`,10k` Hz`)
+R,C=1kΩ`,1uF`;Gs=(1/(C `s)) / (R+1/(C `s)); Gs.plotBode(0.1Hz`,10k` Hz`)
 </pre>
 <p>
 <IMG SRC="./rational_R_C.jpg"> 
 <p>
-���̉�H�� inpulse �����͎��̂悤�ɂȂ�܂��B
+この回路の inpulse 応答は次のようになります。
 <pre class=sf>
-R,C=1k��`,1uF`;Gs=(1/(C `s)) / (R+1/(C `s)); plotGr(Gs.getAnImpls(10ms`))
+R,C=1kΩ`,1uF`;Gs=(1/(C `s)) / (R+1/(C `s)); plotGr(Gs.getAnImpls(10ms`))
 </pre>
 <p>
 <IMG SRC="./rational_R_C_impls.jpg"> 
 <p>
-���̉�H�� inditial �����͎��̂悤�ɂȂ�܂��B
+この回路の inditial 応答は次のようになります。
 <pre class=sf>
-R,C=1k��`,1uF`;Gs=(1/(C `s)) / (R+1/(C `s)); Gs.plotAnRspns(10ms`)
+R,C=1kΩ`,1uF`;Gs=(1/(C `s)) / (R+1/(C `s)); Gs.plotAnRspns(10ms`)
 </pre>
 <p>
 <IMG SRC="./rational_R_C_indtl.jpg"> 
 <p>
-���̉�H�� sin(2pi 10k` Hz) ����͂����Ƃ��̉����͎��̂悤�ɂȂ�܂��B
+この回路に sin(2pi 10k` Hz) を入力したときの応答は次のようになります。
 <pre class=sf>
-��t=3ms`;R,C=1k��`,1uF`;Gs=(1/(C `s)) / (R+1/(C `s)); Gs.plotAnRspns(��t, [sin(2pi 10k` Hz` t) for t in arsq(0,256,��t/512)]);plotGr(0.03 sin(2pi 10k` Hz` `T), 0, 3ms`, N=512,color=orange)
+Δt=3ms`;R,C=1kΩ`,1uF`;Gs=(1/(C `s)) / (R+1/(C `s)); Gs.plotAnRspns(Δt, [sin(2pi 10k` Hz` t) for t in arsq(0,256,Δt/512)]);plotGr(0.03 sin(2pi 10k` Hz` `T), 0, 3ms`, N=512,color=orange)
 </pre>
 <p>
-`s �͉����揜�ׂ���Z���ł���Ƃ����Ӗ��ł� `X �Ɏ��Ă��܂��B�ł� `X �̗L���֐��ł̓{�[�h���}��C���f�B�V�����������v�Z����֐��������Ă��܂���B�䒍�ӂ��������B
-<h3>�� scipy, sympy, visual, mayavi.mlab �p�b�P�[�W�̓��I�ȑg�ݍ���</h3>
+`s は加減乗除べき乗算ができるという意味では `X に似ています。でも `X の有理関数ではボード線図やインディシャル応答を計算する関数を持っていません。御注意ください。
+<h3>■ scipy, sympy, visual, mayavi.mlab パッケージの動的な組み込み</h3>
 <p>
-sfFnctns.py �͎��ɏq�ׂ� scipy, sympy package �𓮓I�� import ���邽�߂� sy(),ts() �֐��������Ă��܂�
+sfFnctns.py は次に述べる scipy, sympy package を動的に import するための sy(),ts() 関数も備えています
 <p>
-scipy, sympy, visual, mayavi �́APython sf �Ŗ������Ɏ�荞�ނɂ͑�K�͂�����p�b�P�[�W�ł��B�����<b>�S��</b>��荞�ނƉ��b���̎��Ԃ�����Ă��܂��܂��B�ł��A�����͌v�Z�����̂��߂ɂ͗L�p�ł���APython sf ����ȒP�ɃA�N�Z�X�ł���悤�ɂ��邱�Ƃ��K�v�ł��B���̂��� sy, ts, mlb �̃p�b�P�[�W�ʖ����Asy(), ts(),vs(), mlb() �̊֐������s�����Ƃ��ɁA���� ����炪�K�v�ɂȂ����Ƃ��Ɍ����āA�����ʂ̃p�b�P�[�W�̕ʖ����O���[�o�����O��ԂɎ�荞�ނ悤�ɂ��Ă��܂��B
+scipy, sympy, visual, mayavi は、Python sf で無条件に取り込むには大規模すぎるパッケージです。それら<b>全部</b>取り込むと何秒もの時間を消費してしまいます。でも、これらは計算処理のためには有用であり、Python sf から簡単にアクセスできるようにすることも必要です。そのため sy, ts, mlb のパッケージ別名を、sy(), ts(),vs(), mlb() の関数を実行したときに、即ち それらが必要になったときに限って、それら個別のパッケージの別名をグローバル名前空間に取り込むようにしています。
 <p>
-<h4> sy():scipy �p�b�P�[�W�̑g�ݍ���</h3>
+<h4> sy():scipy パッケージの組み込み</h3>
 <p>
-sy() �֐������s����� sy �T�u���O��Ԃ� scipy package ����荞�݂܂��Bscipy package �� numpy package ���܂���c��� package �ł��Bscipy package �̉��� linalg, integrat,special,signal �Ȃǂ̃T�u��T�v���O��Ԃ������A�g���؂�Ȃ��L�p�ȋ@�\���������Ă��܂��B  �ł� sy �T�u���O��Ԃ� sc ���O��Ԏ��͔̂��ɗǂ����Ă��܂��B���Ƃ��΍s��N���X sc.ndarray �� sy.ndarray �͑S���������̂ł��B���̂��Ƃ� ���̂悤�� identifier �ԍ��������ł��邱�Ƃ��m�F�ł��܂��B
+sy() 関数を実行すると sy サブ名前空間に scipy package を取り込みます。scipy package は numpy package を包含する膨大な package です。scipy package の下に linalg, integrat,special,signal などのサブ･サプ名前空間を持ち、使い切れない有用な機能を実装しています。  でも sy サブ名前空間と sc 名前空間自体は非常に良く似ています。たとえば行列クラス sc.ndarray と sy.ndarray は全く同じものです。このことは 下のように identifier 番号が同じであることより確認できます。
 <pre class=sf>
 sy();id(sy.ndarray) == id(sc.ndarray)
 ===============================
 True
 </pre>
 <p>
-����� numpy �� sqrt,log �� scipy �� sqrt,log �Ɗ֐��̓���̎��̂��ق��Ă��܂��Bnumpy �� sqrt(..),log(..) �� -1 �����ɂ������� nan:not a number ��Ԃ��̂ł����Ascipy �� sqrt(..) �� i ��Ԃ��܂��Blog(..) �� pi `i ��Ԃ��܂��B
+一方で numpy の sqrt,log は scipy の sqrt,log と関数の動作の自体が異っています。numpy の sqrt(..),log(..) は -1 引数にたいして nan:not a number を返すのですが、scipy の sqrt(..) は i を返します。log(..) は pi `i を返します。
 <pre class=sf>
 sc.sqrt(-1)
 ===============================
@@ -3336,10 +3335,10 @@ sy();sy.log(-1)
 3.14159265359j
 </pre>
 <div class=next>
-sc, sy �T�u���O��Ԃ̈Ⴂ�͔����ł��B�F�X�Ǝg���Ă�����Ċ���邵���g�������̕��@�͂Ȃ������ł��B
+sc, sy サブ名前空間の違いは微妙です。色々と使ってもらって慣れるしか使い分けの方法はなさそうです。
 </div>
 <p>
-sqrt,log �̔����Ȗ��� Python sf �̊�{���l�֐����g�����ɂ͕����B����Ă��܂��B���̃\�[�X�̂悤�ȑ΍�����Ă������肵�܂��B
+sqrt,log の微妙な問題は Python sf の基本数値関数を使う分には覆い隠されています。次のソースのような対策をしてあったりします。
 <pre class=sf>
 sc.source(kNumeric.__log)
 In file: D:\my\vc7\mtCm\pysf\kNumeric.py
@@ -3359,16 +3358,16 @@ def __log(ag):
 None
 </pre>
 <div class=next>
-����ɏ�� __log �� ClAF �N���X�Ń��b�v���Ă�邱�ƂŁAPython sf ��{���l�֐��Ƃ̉����揜�ׂ���Ɋ֐��������\�ɂ��Ă��܂��B
+さらに上の __log を ClAF クラスでラップしてやることで、Python sf 基本数値関数との加減乗除べき乗に関数合成を可能にしています。
 </div>
 <pre class=box>
 log = sf.ClAF(__log)
 </pre>
 <div class=next>
-���� Python sf ��{���l�֐����A��{�I�ɂ�  numpy �� exp, sin, cos, tan, sinh, cosh, tanh, arcsin, arccos, arctan, log10, sqrt �� ClAF �Ń��b�v���āA�ꕔ�A�΍􂪓����Ă��܂��B���̈Ӗ��� Python sf ��{���l�֐��� numpy �� exp, sin, cos, tan, sinh, cosh, tanh, arcsin, arccos, arctan, log,log10, sqrt �Ƃ͌����ɂ͏����قȂ�܂��B
+他の Python sf 基本数値関数も、基本的には  numpy の exp, sin, cos, tan, sinh, cosh, tanh, arcsin, arccos, arctan, log10, sqrt も ClAF でラップして、一部、対策が入っています。この意味で Python sf 基本数値関数は numpy の exp, sin, cos, tan, sinh, cosh, tanh, arcsin, arccos, arctan, log,log10, sqrt とは厳密には少し異なります。
 </div>
 <p>
-scipy package �̐����́Ascipy ���܂ޕ��삲�Ƃɋ@�\���܂Ƃ߂� sub package �����ɂ���܂��B���̂悤�� sub package �� scipy �͊܂�ł��܂��B���ʂ̌����҂�Z�p�҂ł́A�����̈ꊄ���g�����Ȃ��Ȃ��Ǝv���܂��B
+scipy package の凄さは、scipy が含む分野ごとに機能をまとめた sub package たちにあります。下のような sub package を scipy は含んでいます。普通の研究者や技術者では、これらの一割も使いこなせないと思います。
 <pre class=sf>
 sy(); sc.info(sy)
 SciPy: A scientific computing package for Python
@@ -3446,16 +3445,16 @@ Utility tools
 None
 </pre>
 <p>
-������ sub package �̂����g�p�p�x�̍����ȉ��̂��̂ɂ��Ă� sy() �֐��Ăяo���ŁA�����ɃO���[�o�����O��Ԃ� sub package alias name:<b>so,si,sl,ss,sg</b> �Ƃ��Ď�荞��ł��܂��B 
+これらの sub package のうち使用頻度の高い以下のものについては sy() 関数呼び出しで、同時にグローバル名前空間に sub package alias name:<b>so,si,sl,ss,sg</b> として取り込んでいます。 
 <ol>
-<li>so optimize ����̏����𖞂����ϐ��l�����߂�֐��Q
-<li>si integrate �ϕ����s���֐��Q
-<li>sl linalg �s��̐��`�������s���֐��Q
-<li>ss specia ����֐��Q
-<li>sg signal ���`�V�X�e������������֐��Q
+<li>so optimize 特定の条件を満たす変数値を求める関数群
+<li>si integrate 積分を行う関数群
+<li>sl linalg 行列の線形処理を行う関数群
+<li>ss specia 特殊関数群
+<li>sg signal 線形システムを処理する関数群
 </ol>
 <p>
-�e�T�u�E���W���[���ɔ�����Ă���@�\�́u sy();sc.info(so �Ȃǂ̃��W���[����)�v�� Python sf ���őł��o���܂��B
+各サブ・モジュールに備わっている機能は「 sy();sc.info(so などのモジュール名)」の Python sf 式で打ち出せます。
 <pre class=sf>
 sy();sc.info(so)
 Optimization Tools
@@ -3468,11 +3467,11 @@ A collection of general-purpose optimization routines.::
    fmin_powell --  Powell's (modified) level set method (uses only
                      function calls)
    fmin_cg     --  Non-linear (Polak-Ribiere) conjugate gradient algorithm
-    �E
-    �E
+    ・
+    ・
    brentq      --  quadratic interpolation Brent method
-    �E
-    �E
+    ・
+    ・
    anderson            --  extended Anderson method, the same as the
                            broyden_generalized, but added w_0^2*I to before
                            taking inversion to improve the stability
@@ -3490,7 +3489,7 @@ None
 
 <p>
 </pre>
-�������Ă݂܂��傤�Bso �T�u��p�b�P�[�W�� brentq(..) �֐��� f(x)==0 �ƂȂ� x �� brent �@�ŋ��߂܂��B������g���΋t�֐����ȒP�ɍ��܂��B���ۂ� Python sf �ɂ́A������g�����t�֐���Ԃ� invF(..) ��g�ݍ���ł���܂��B���̂悤�Ȉ�s�ōςޒP���ȃR�[�h�ł��B
+一例を見てみましょう。so サブ･パッケージの brentq(..) 関数は f(x)==0 となる x を brent 法で求めます。これを使えば逆関数を簡単に作れます。実際に Python sf には、これを使った逆関数を返す invF(..) を組み込んであります。下のような一行で済む単純なコードです。
 <pre class=sf>
 sc.source(invF)
 In file: D:\my\vc7\mtCm\pysf\basicFnctns.py
@@ -3511,27 +3510,27 @@ def invF(f, rangeLeft=-1,rangeRight=1):
     return lambda x:so.brentq(lambda t:f(t)-x, rangeLeft, rangeRight)
 </pre>
 <p>
-so optimize, si integrate, sl linalg, ss specia, sg signal �ɂ́A�����؂�Ȃ��قǂ̗L�p�ȋ@�\���l�ߍ��܂�Ă��܂��Bsc.info(..) �ŁA�����̋@�\����x�͌��Ă������Ƃ�E�߂܂��B
+so optimize, si integrate, sl linalg, ss specia, sg signal には、数え切れないほどの有用な機能が詰め込まれています。sc.info(..) で、それらの機能を一度は見ておくことを薦めます。
 <p>
-scipy �̑S�����������Ȃ�Đ^���͂ł��܂��񂪁A���̎傾�����@�\��<a href="#scipyChapter">���� scipy</a>�̏͂ɐ������܂��B
+scipy の全部を説明するなんて真似はできませんが、その主だった機能を<a href="#scipyChapter">■■ scipy</a>の章に説明します。
 
 <!--
-Numeric...�V�܁D�J���������؂�ĉ��U��錾�D�{�����e�B�A�J���Ɉڍs���� 
-�܂��ϋɓI�Ɏg���Ă���DNumPy�Ƃ������畁�ʂ���̂��ƂŁCnumpy�� 
-�͕ʕ��D 
-numarray...Numeric�̊J����~�����ɂȂ�Ǝv��ꂽ���C��芷�����i�� 
-������D�J�������͋߁X�؂��C�{�����e�B�A�J���Ɉڍs����D�܂��ϋɓI�� 
-�g���Ă���D�摜�����Ƃ��I�u�W�F�N�g�A���C������D 
-SciPy...�R�A������Numeric��numarray���g���Ă���D�R�A�̈�{���̂��߂� 
-�Ǝ���scipy_core���J�����Ă����inumpy�ɖ��O��ς����j�D�ŏI�I�ɂ� 
-numpy���g���\��D����Enthought�̊�t�Ƃ�numpy�̗L���}�j���A�������� 
-���ɂ��Ă�D����Ȃ�Ɏg���Ă���D 
-numpy...Numeric/numarray�̒u��������_����scipy_core�����O��ς��� 
-���́D���C�u�������܂Ƃ߂��������ɂ͍D�]�����Cnumpy�̃}�j���A�����L 
-���Ȃ��ƂɃ��[�U�������D�������܂��Ă�́H�ꂵ�݂Ȃ�����J���i�s���D 
-Numeric��7-8�����炢�̋@�\�T�|�[�g�Dnumarray�Ǝ��̃��C�u�����͂��܂� 
-��������ĂȂ��D 
-ScientificPython...���̃v���W�F�N�g�����Ă�́H���ł�Numeric���g���Ă�͂�
+Numeric...老舗．開発資金が切れて解散を宣言．ボランティア開発に移行して 
+まだ積極的に使われている．NumPyといったら普通これのことで，numpyと 
+は別物． 
+numarray...Numericの開発停止後主役になると思われたが，乗り換えが進ま 
+ず分裂．開発資金は近々切れる，ボランティア開発に移行する．まだ積極的に 
+使われている．画像処理とかオブジェクトアレイが売り． 
+SciPy...コア部分でNumericとnumarrayを使っている．コアの一本化のために 
+独自にscipy_coreを開発していた（numpyに名前を変えた）．最終的には 
+numpyを使う予定．多分Enthoughtの寄付とかnumpyの有償マニュアルを資金 
+源にしてる．それなりに使われている． 
+numpy...Numeric/numarrayの置き換えを狙ったscipy_coreが名前を変えた 
+もの．ライブラリをまとめたい向きには好評だが，numpyのマニュアルが有 
+償なことにユーザが反発．資金あつまってんの？苦しみながらも開発進行中． 
+Numericの7-8割くらいの機能サポート．numarray独自のライブラリはあまり 
+取り入れられてない． 
+ScientificPython...このプロジェクト生きてんの？中ではNumericを使ってるはず
 
 scipy
 SciPy is an open source library of scientific tools for Python. SciPy supplements the popular Numeric module, gathering a variety of high level science and engineering modules together as a single package.
@@ -3539,19 +3538,19 @@ SciPy includes modules for graphics and plotting, optimization, integration, spe
 
 scipy_core
 This package contains a powerful N-dimensional array object, sophisticated (broadcasting) functions, tools for integrating C/C++ and Fortran code, and useful linear algebra, Fourier transform, and random number capabilities. It derives from the old Numeric code base and can be used as a replacement for Numeric. It also adds the features introduced by numarray and can be used to replace numarray. It is part of the latest 'scipy' version.  
-��Environment For Interactive Data Analysis and Development ;;http://www.astro.umd.edu/~teuben/python/groningen-python.html
+←Environment For Interactive Data Analysis and Development ;;http://www.astro.umd.edu/~teuben/python/groningen-python.html
 -->
 
-<h4> ts():sympy �p�b�P�[�W�̑g�ݍ���</h3>
+<h4> ts():sympy パッケージの組み込み</h3>
 <p>
-sympy �p�b�P�[�W�̓V���{���b�N�Ȍv�Z�������\�ɂ���p�b�P�[�W�ł��Bts() �֐����Ăяo�����ƂŁAsympy �p�b�P�[�W�� ts �� alias ���ɂ��ăO���[�o�����O��ԂɎ�荞�݂܂��B
+sympy パッケージはシンボリックな計算処理を可能にするパッケージです。ts() 関数を呼び出すことで、sympy パッケージを ts の alias 名にしてグローバル名前空間に取り込みます。
 <p>
-sympy �p�b�P�[�W�̓ǂݍ��݂� N280 CPU:�l�b�g�u�b�N���x�̃p�\�R���ł� 0.5 �b���x�������Ă��܂��܂��B���̓���x��������A sympy �p�b�P�[�W���g���Ƃ��Ɍ����āAts() ���Ăяo�����Ƃ�  sympy �p�b�P�[�W���_�C�i�~�b�N�� import ���܂��B
+sympy パッケージの読み込みに N280 CPU:ネットブック程度のパソコンでは 0.5 秒程度かかってしまいます。この動作遅れを嫌い、 sympy パッケージを使うときに限って、ts() を呼び出すことで  sympy パッケージをダイナミックに import します。
 <p>
-ts() ���Ăяo���ƁA���� sympy �� import ����ƁAts �̉��̖��O��ԂŁA���܂��܂̃V���{���b�N�Ȍv�Z���\�ɂȂ�܂��B
+ts() を呼び出すと、即ち sympy を import すると、ts の下の名前空間で、さまざまのシンボリックな計算が可能になります。
 
 <p>
-ts() �����s�����Ƃ��Aimport sypy ������ق��ɁA`x,`y,`z,`t,`p,`q,`n_ �� sympy �̃V���{���b�N�ȕϐ��Ƃ��Ē�`�� ts �T�u���O��ԂɎ�荞��ł��܂��Bts() ���Ăяo������� Python sf ���ŁA�����̃V���{���b�N�ϐ����`�ς݂Ƃ��Ĉ�����悤�ɂȂ�܂��B�����̂悤�ȋ�ł��B
+ts() を実行したとき、import sypy をするほかに、`x,`y,`z,`t,`p,`q,`n_ を sympy のシンボリックな変数として定義し ts サブ名前空間に取り込んでいます。ts() を呼び出した後は Python sf 式で、これらのシンボリック変数を定義済みとして扱えるようになります。を下のような具合です。
 <pre class=sf>
 ts();((`x+1)^5).expand()
 ===============================
@@ -3561,44 +3560,44 @@ ts();((`x+`y)^3).expand()
 ===============================
 3*x*y**2 + 3*y*x**2 + x**3 + y**3
 
-#�V���{���b�N����
+#シンボリック微分
 ts();ts.diff(ts.cos(`x^2),`x)
 ===============================
 -2*x*sin(x**2)
 </pre>
-ts() �����s����ƁA��x,��y,��z,��t,��p,��q �� sympy ���ɂ��Ă̓V���{���b�N�Ȕ������A���l�֐��ɂ��Ă͐��l�������s���悤�ɂȂ�܂��B������ ts() ���Ăяo���Ȃ��Ɛ��l�������������s���܂���B
+ts() を実行すると、∂x,∂y,∂z,∂t,∂p,∂q は sympy 式についてはシンボリックな微分を、数値関数については数値微分を行うようになります。これらは ts() を呼び出さないと数値微分だけしか行えません。
 <pre class=sf>
-��x((`X+1)^2)(2)
+∂x((`X+1)^2)(2)
 ===============================
 5.99999999999
 
-ts();��x((`x+1)^2)
+ts();∂x((`x+1)^2)
 ===============================
 2 + 2*x
 
-ts();��x((`x+1)^2).subs(`x,2)
+ts();∂x((`x+1)^2).subs(`x,2)
 ===============================
 6
 
-ts();��y(ts.sin(`x+`y+1)^2)
+ts();∂y(ts.sin(`x+`y+1)^2)
 ===============================
 2*cos(1 + x + y)*sin(1 + x + y)
 </pre
 ,
 <p>
-ts() �̎��s�ɂ��A�����P�ʕt�̌v�Z���\�ɂȂ�܂��B
+ts() の実行により、物理単位付の計算も可能になります。
 <pre class=sf>
-ts();R,C = 10.0k��`, 1uF`; R C
+ts();R,C = 10.0kΩ`, 1uF`; R C
 ===============================
 0.01*s`
 </pre>
 <div class=next>
-�������APython sf �ɂ����镨���P�ʕt�̌v�Z�ɂ͑����̐������K�v�ł���A�߂����߂�<a href="#calculationWithUnits">�� �P�ʕt�̌v�Z</a>�ŏڏq���܂��B
+ただし、Python sf における物理単位付の計算には多くの説明が必要であり、節を改めて<a href="#calculationWithUnits">■ 単位付の計算</a>で詳述します。
 </div>
 <p>
-���̑��A���̂悤�ȃV���{���b�N�Ȍv�Z�� ts()�Ăяo���̌�Ɏ��s�ł��܂��B
+その他、次のようなシンボリックな計算が ts()呼び出しの後に実行できます。
 <pre class=sf>
-# �����֘A �L�����v�Z
+# 整数関連 有理数計算
 ts();[`1r/k for k in range(8)]
 ===============================
 [oo, 1, 1/2, 1/3, 1/4, 1/5, 1/6, 1/7]
@@ -3611,17 +3610,17 @@ ts();sum([`1r/k^2 for k in range(1,10)])
 ===============================
 9778141/6350400
 
-# ������f���̐ςɕ�������
+# 整数を素数の積に分解する
 ts();ts.factorint(2^12-1)
 ===============================
 {3: 2, 13: 1, 5: 1, 7: 1}
 
-# sympy ��{���l�֐�
+# sympy 基本数値関数
 ts();ts.sqrt(3)
 ===============================
 3**(1/2)
 
-# ts.I �̓V���{���b�N�ȋ��� i
+# ts.I はシンボリックな虚数 i
 ts();ts.sqrt(3+4 ts.I)
 ===============================
 (3 + 4*I)**(1/2)
@@ -3648,29 +3647,29 @@ ts();ts.solve([ts.Eq(`x^2,`p^2+0.1`q^2), ts.Eq(`y^2,`q^2+0.1`p^2)], [`p,`q])
  (-(1.01010101010101*x**2 - 0.101010101010101*y**2)**(1/2), -(1.01010101010101*y**2 - 0.101010101010101*x**2)**(1/2))]
 </pre>
 <p>
-sympy �̋@�\���c��ł���A���̑S�����������Ȃ�Đ^���͂ł��܂��񂪁A���̎傾�����@�\��<a href="#sympyChapter">���� scipy</a>�̏͂ɐ������܂��B
+sympy の機能も膨大であり、その全部を説明するなんて真似はできませんが、その主だった機能を<a href="#sympyChapter">■■ scipy</a>の章に説明します。
 <a name="calculationWithUnits"></a>
 <h4> kmayavi:mlb</h4>
 <p>
-mayavi package �̒��� mlab sub package ������܂��Bpylab �̂悤�ȃO���t�B�b�N�X�ɕ֗��Ȋ֐��E�N���X����������Ă��܂��B�L���v�f�@�̌v�Z���ʂ�\������悤�� 3D �O���t�\���ɗD��Ă��܂��B
+mayavi package の中に mlab sub package があります。pylab のようなグラフィックスに便利な関数・クラスが実装されています。有限要素法の計算結果を表示するような 3D グラフ表示に優れています。
 <p>
-������ 
+ただし 
 <ol>
-mlab �͔��W�r��ł���A�ȉ��̖�肪����܂��B
-<li>�o�[�W�����ɂ���āA�ׂ����_�Ŏd�l���ς�����肵�܂��B
-<li>mgrid �Ȃǂ�O��ɍ���Ă���A�g���̂ɑ傰���Ȃ��̂ɂȂ肪���ł��BPython sf �������C�i�[����Ăяo����悤�ȑ㕨�ł͂���܂���B
-<li>�}�j���A����������ɂ����B
-<li>���삪�d���BN280 ���x�� CPU �ł� 10 �b�ȏォ���邱�Ƃ������B
+mlab は発展途上であり、以下の問題があります。
+<li>バージョンによって、細かい点で仕様が変わったりします。
+<li>mgrid などを前提に作られており、使うのに大げさなものになりがちです。Python sf ワンライナーから呼び出せるような代物ではありません。
+<li>マニュアルが分かりにくい。
+<li>動作が重い。N280 程度の CPU では 10 秒以上かかることが多い。
 </ol>
 <a name="littleAdvanced_calculationWithUnits"></a>
-<h3>�� �P�ʕt���̌v�Z</h3>
+<h3>■ 単位付きの計算</h3>
 <p>
-PYthon sf �ł� �d�� V`, �d�� A`,��R ��`, �v�� uF` �Ȃǂ� SI �P�ʌn�t���̉��Z�E�����萔�������܂��B�����̒P�ʌn�E�����萔�� customize.py �ɒ�`���Ă��邩��ł��B
+PYthon sf では 電圧 V`, 電流 A`,抵抗 Ω`, 要領 uF` などの SI 単位系付きの演算・物理定数を扱えます。これらの単位系・物理定数が customize.py に定義してあるからです。
 <p>
-�������A�f�t�H���g�ł� V`, A`,��`, uF` �̋L���͎g���܂����A���̒l�͒P�Ȃ� Python �� float �l�ɂ����܂���Bts() ���g���� sympy ���g����悤�ɂ���ƁA�V���{���b�N�� SI �P�ʕt�� sympy �l�ɕς��܂��B
+ただし、デフォルトでは V`, A`,Ω`, uF` の記号は使えますが、その値は単なる Python の float 値にすぎません。ts() を使って sympy を使えるようにすると、シンボリックな SI 単位付の sympy 値に変わります。
 <pre class=sf>
-# ���l�݂̂̒P�ʌn
-C,R=2.2uF`,10k��`; C R
+# 数値のみの単位系
+C,R=2.2uF`,10kΩ`; C R
 ===============================
 0.022
 
@@ -3682,8 +3681,8 @@ c`  # light spped
 ===============================
 44.7027777778
 
-# sympy �P�ʂ��������A�V���{���b�N�ȕ����l
-ts();C,R=2.2uF`,10k��`; C R
+# sympy 単位を持った、シンボリックな物理値
+ts();C,R=2.2uF`,10kΩ`; C R
 ===============================
 0.022*s`
 
@@ -3694,11 +3693,11 @@ ts();100mile`/hour`
 44.7027777777778*m`/s`
 </pre>
 <p>
-�ǂ̂悤�ȒP�ʌn�A�����萔���g�����̓��[�U�[���ƂɈقȂ�܂��B�S�Ẵ��[�U�[�𖞑�������P�ʌn�E�����萔���L�q���邱�Ƃ͖����ł��B�z�z���� customize.py �ɂ���P�ʌn�E�����萔�̐ݒ���Q�l�ɁA���[�U�[���g���䎩���ɕK�v�ȒP�ʁE�����萔��ҏW���������B
+どのような単位系、物理定数を使うかはユーザーごとに異なります。全てのユーザーを満足させる単位系・物理定数を記述することは無理です。配布した customize.py にある単位系・物理定数の設定を参考に、ユーザー自身が御自分に必要な単位・物理定数を編集ください。
 
-<h4> �V���{���b�N�ȒP�ʌn�ł́A�����E�L������ۂ��܂�</h4>
+<h4> シンボリックな単位系では、整数・有理数を保ちます</h4>
 <p>
-�V���{���b�N�ȒP�ʌn�ł́A�����揜�Z�̌��ʂł������E�L������ۂƂ��Ƃ��܂��B�v�Z���ʂƂ��ĕ��������_�ł̐��l���~�����Ƃ��́A�����ʂ��u1. �P�ʁv�Ȃǂƕ��������_���w�肵�Ă��������B
+シンボリックな単位系では、加減乗除算の結果でも整数・有理数を保とうとします。計算結果として浮動小数点での数値が欲しいときは、物理量も「1. 単位」などと浮動小数点を指定してください。
 <pre>
 ts(); 1 uH`/s`
 ===============================
@@ -3709,40 +3708,40 @@ ts(); 1. uH`/s`
 1.0e-6*V`/A`
 </pre>
 
-<h4> �V���{���b�N�ȒP�ʌn�t���l�� Python sf ��{���l�֐�</h4>
+<h4> シンボリックな単位系付き値と Python sf 基本数値関数</h4>
 <p>
-Python sf ��{���l�֐� exp, sin, cos, tan, sinh, cosh, tanh, arcsin, arccos, arctan, log, log10 �̈����ɃV���{���b�N�ȒP�ʕt�̒l��^����Ƃ��A���̕����P�ʂ��ł����������Ă��Ȃ��ƃG���[�ɂ��Ă��܂��Bexp(..) �Ȃǂ̈����ɕ����P�ʂ��������l�����Čv�Z�����Ă��A���̌��ʂɕ����I�Ӗ�����������ł��B�v�Z���ʂɐݒ肷�ׂ��P�ʂ���܂�Ȃ�����ł��B
+Python sf 基本数値関数 exp, sin, cos, tan, sinh, cosh, tanh, arcsin, arccos, arctan, log, log10 の引数にシンボリックな単位付の値を与えるとき、その物理単位が打ち消しあっていないとエラーにしています。exp(..) などの引数に物理単位を持った値を入れて計算させても、その結果に物理的意味が無いからです。計算結果に設定すべき単位が定まらないからです。
 <pre class=sf>
-ts();R,C = 10.0k��`, 1uF`; R C
+ts();R,C = 10.0kΩ`, 1uF`; R C
 ===============================
 0.01*s`
 
-ts();R,C = 10.0k��`, 1uF`; exp( 2 pi 10 Hz` R C )
+ts();R,C = 10.0kΩ`, 1uF`; exp( 2 pi 10 Hz` R C )
 ===============================
 1.87445608759
 
-ts();R,C = 10.0k��`, 1uF`; exp( R C )
+ts();R,C = 10.0kΩ`, 1uF`; exp( R C )
 AssertionError: At Float(.), you set physical quantity parameter,the units of which are not cancelled:0.01*s`
 </pre>
 <div class=next>
-��̂悤�ȃG���[���������邱�Ƃ́A�����I�ɖ��Ӗ��Ȍv�Z���s�킹�����Ƃ��Ӗ����܂��B�������ɕ����I�Ȍ�肪���邱�Ƃ��Ӗ����܂��B
+上のようなエラーが発生することは、物理的に無意味な計算を行わせたことを意味します。何か式に物理的な誤りがあることを意味します。
 </div>
 
 <p>
-����  sympy �̊֐����ƁAexp(..) �ȂǂɒP�ʕt�̒l��ݒ�ł��Čv�Z�ł��Ă��܂��܂��B
+実は  sympy の関数だと、exp(..) などに単位付の値を設定できて計算できてしまいます。
 <pre class=sf>
-ts();R,C = 10.0k��`, 1uF`; ts.exp( R C )
+ts();R,C = 10.0kΩ`, 1uF`; ts.exp( R C )
 ===============================
 exp(0.01*s`)
 </pre>
 <div class=sf>
-�ł��A���̌v�Z���ʂ𐮍����̂��镨���P�ʂ��`�ł��܂���Bexp(..) �֐��� Taylor �W�J�����𐬂藧������v�Z���ʂ����݂��܂���B
+でも、この計算結果を整合性のある物理単位を定義できません。exp(..) 関数の Taylor 展開等式を成り立たせる計算結果が存在しません。
 </div>
 
 <p>
- sqrt �� `X,`Y,`Z,`T �P���֐��� ���̉����揜�ׂ���ɂ��Ă̓V���{���b�N�ȒP�ʕt�̐��l���󂯕t���܂��B���̌v�Z���ʂɂ��ĕ����P�ʂ��߂��邩��ł��B
+ sqrt と `X,`Y,`Z,`T 恒等関数と その加減乗除べき乗についてはシンボリックな単位付の数値を受け付けます。その計算結果について物理単位を定められるからです。
 <pre class=sf>
-ts();R,C = 10.0k��`, 1uF`; sqrt( R C )
+ts();R,C = 10.0kΩ`, 1uF`; sqrt( R C )
 ===============================
 0.1*s`**(1/2)
 
@@ -3755,37 +3754,37 @@ ts();m,v = 10.0 kg`, 2m`/s`; 1/2 m (`X^2)( v )
 20.0*m`**2*kg`/s`**2
 </pre>
 
-<h4> �V���{���b�N�ȒP�ʌn���]�܂����Ƃ͌���܂���</h4>
+<h4> シンボリックな単位系が望ましいとは限りません</h4>
 <p>
-�ꌩ ts() ����ɌĂяo���ăV���{���b�N�ȒP�ʌn�������g���Ă����ׂ��Ɏv����ł��傤�B�ł� ���ꂪ�����ȂƂ�������܂��B
+一見 ts() を常に呼び出してシンボリックな単位系だけを使っておくべきに思えるでしょう。でも それが無理なときがあります。
 <p>
-�T�^�I�Ȃ̂��`�B�֐��ł��B`s �ƕ����l��g�ݍ��킹�邱�Ƃ��ł��܂���B`s �� 1/s`�F[1/����] �̈Ӗ���^������Ηǂ��̂ł��傤���A����� sympy �� scipy �����݂�������ł́A���̂悤�� ClRtnl �N���X�����͎̂���̋Ƃł��B�ł����牺�̂悤�� ts() ���Ăяo���Ȃ��A�V���{���b�N�ȕ����l�ł͂Ȃ��A���l�����̕����W���l���g��˂΂Ȃ�܂���BplotBode(..) ���\�b�h�� sympy �P�ʕt���̈����l���󂯕t���܂���BPython sf ��{���l�֐��� sympy �P�ʕt���̈����l���󂯕t���܂����A���̂悤�� Python �R�[�h�ɂ��Ă��邩��ł��BPython �֐���ʂ� sympy �P�ʕt�������l���󂯕t���܂���B
+典型的なのが伝達関数です。`s と物理値を組み合わせることができません。`s に 1/s`：[1/時間] の意味を与えられれば良いのでしょうが、現状の sympy と scipy を混在させる環境では、そのような ClRtnl クラスを作るのは至難の業です。ですから下のように ts() を呼び出さない、シンボリックな物理値ではなく、数値だけの物理係数値を使わねばなりません。plotBode(..) メソッドも sympy 単位付きの引数値を受け付けません。Python sf 基本数値関数は sympy 単位付きの引数値を受け付けますが、そのような Python コードにしてあるからです。Python 関数一般は sympy 単位付き引数値を受け付けません。
 
 <pre class=sf>
-                    1k��`
-  ����������������MWMWMWMW������������������      
-    ��                        ��       ��         
-    ��   10kHz sin wave     ������ 1uF ��         
-    Vin                     ������     Vout       
-    ��                        ��       ��         
-  ������������������������������������������      
-#Vin/Vout �`�B�֐�
-R,C=1k��`,1uF`;(1/(C `s)) / (R+1/(C `s))
+                    1kΩ`
+  ────────MWMWMWMW──┬──────      
+    ↑                        │       ↑         
+    │   10kHz sin wave     ─┴─ 1uF │         
+    Vin                     ─┬─     Vout       
+    ↓                        │       ↓         
+  ──────────────┴──────      
+#Vin/Vout 伝達関数
+R,C=1kΩ`,1uF`;(1/(C `s)) / (R+1/(C `s))
 ===============================
   1000
 --------
 s + 1000
 
-# Bode ���}
-R,C=1k��`,1uF`;Gs=(1/(C `s)) / (R+1/(C `s)); Gs.plotBode(0.1Hz`,10k` Hz`)
+# Bode 線図
+R,C=1kΩ`,1uF`;Gs=(1/(C `s)) / (R+1/(C `s)); Gs.plotBode(0.1Hz`,10k` Hz`)
 </pre>
 <div class=next>
-���l�����̕����P�ʐ��l���g�����Ƃ́A�P�ʌn�ɖ����������Ă��A�v�Z�ł��Ă��܂��܂����APython sf ���̕����I�ȈӖ��𖾎���������͎c���Ă��܂��B�P�ʌn���� Python sf ���̓h�L�������g���������܂��B�ڍׂȃR�����g�����Ȃ��Ă��A�P�ʌn���� Python sf ���́A���̕����I�ȈӖ��� Python sf �����̂��\�L���Ă��܂��B���̂悤�� Python sf ���́A����������Ō��������Ƃ��ł��A�����ɉ����v�Z�����Ă���̂������ł��邱�Ƃ��������̂ł��B������H�w�̌v�Z��������Ƃ��A���̒P�ʌn�� Python sf �����ɋL�q���Ă������Ƃ��������߂܂��B���Ƃ����l�����̒P�ʌn�ł����Ă��B
+数値だけの物理単位数値を使うことは、単位系に矛盾があっても、計算できてしまいますが、Python sf 式の物理的な意味を明示する役割は残っています。単位系つきの Python sf 式はドキュメント性を持ちます。詳細なコメント文がなくても、単位系つきの Python sf 式は、その物理的な意味を Python sf 式自体が表記しています。そのような Python sf 式は、何ヶ月か後で見直したときでも、直ぐに何を計算させているのか理解できることが多いものです。物理や工学の計算をさせるとき、その単位系も Python sf 式中に記述しておくことを強く勧めます。たとえ数値だけの単位系であっても。
 </div>
 
-<h4> MKSA+V �P�ʌn</h4>
+<h4> MKSA+V 単位系</h4>
 <p>
-Python sf �ł� sympy �� SI �P�ʌn�� symIntf.py �Œ�`�������Ă��܂��Bsympy �ɂ��P�ʌn���`���Ă���̂ł����A����� SI �P�ʌn�ɉ�������`�ł��B������ SI �P�ʌn�ł́A���̂悤�ɒ�R�� m**2*kg/(A**2*s**3) �̒P�ʂɂȂ��Ă��܂��Ƃ����s����t���܂Ƃ��܂��B���̒P�ʂ����߂� V/A �ŕ\�����Βʏ�̃G���W�j�A�ɂ������\�ł����Am**2*kg/(2*s**3) �̒P�ʂ���R�̒P�ʂł���Ɨ����ł�����͖w�ǂ��Ȃ��ł��傤�B
+Python sf では sympy の SI 単位系を symIntf.py で定義し直しています。sympy にも単位系を定義してあるのですが、これは SI 単位系に沿った定義です。そして SI 単位系では、下のように抵抗が m**2*kg/(A**2*s**3) の単位になってしまうという不具合が付きまといます。Ωの単位がせめて V/A で表されれば通常のエンジニアにも理解可能ですが、m**2*kg/(2*s**3) の単位が抵抗の単位であると理解できる方は殆どいないでしょう。
 <pre class=sf>
 ts();ts.ut.A
 import sympy.physics.units as ut;1 ut.V/(2 ut.A)
@@ -3793,11 +3792,11 @@ import sympy.physics.units as ut;1 ut.V/(2 ut.A)
 m**2*kg/(2*A**2*s**3)
 </pre>
 <p>
-��̂��Ƃ� SI �P�ʌn:MKSA �P�ʌn�� M:m:meter:����, K:kg:kilo gram:����, S:s:sec:����, A:A:ampere:�d������{�P�ʂƂ���P�ʌn������ł��B��R�FV/A�� MKSA �̊�{�P�ʂŕ\���� A ���Ȃ��Ȃ��� m**2*kg/(2*s**3) �ɂȂ��Ă��܂��܂��B
+上のことは SI 単位系:MKSA 単位系が M:m:meter:長さ, K:kg:kilo gram:質量, S:s:sec:時間, A:A:ampere:電流を基本単位とする単位系だからです。抵抗：V/Aを MKSA の基本単位で表すと A がなくなって m**2*kg/(2*s**3) になってしまいます。
 <p>
-�命���̃G���W�j�A�͒�R�� V/A �̒P�ʂŗ������Ă��܂��Bm**2*kg/(2*s**3) �̒P�ʂŗ������Ă��܂���B���̂��Ƃ́A��{�P�ʂ̑g�ݍ��킹�� MKSA �ł͂Ȃ� MKSA + V �ŗ������Ă��邱�Ƃ��Ӗ����܂��B�i�����̕��� ���̂��Ƃ𗝉����Ă���܂���B�@���ł��傤���B�j
+大多数のエンジニアは抵抗を V/A の単位で理解しています。m**2*kg/(2*s**3) の単位で理解していません。このことは、基本単位の組み合わせを MKSA ではなく MKSA + V で理解していることを意味します。（多くの方が このことを理解してくれません。如何でしょうか。）
 <p>
-Python sf �ł�  symIntf.py �̒��� MKSA �� V ����{�P�ʂƂ���P�ʌn�ɒ����Ă��܂��B�ł�����Asympy.physics,units �ł̒P�ʌn�Ƃ͈قȂ�A��R�� V/A �ɂȂ�܂��B�d�� V ����{�P�ʂƂ���ƁA����ȏ�̊�{�P�ʂ̑g�ݍ��킹�����ł��Ȃ�����ł��B
+Python sf では  symIntf.py の中で MKSA と V を基本単位とする単位系に直しています。ですから、sympy.physics,units での単位系とは異なり、抵抗は V/A になります。電圧 V も基本単位とすると、それ以上の基本単位の組み合わせ分解できないからです。
 
 <pre class=sf>
 ts(); 1 V`/ (2 A`)
@@ -3805,7 +3804,7 @@ ts(); 1 V`/ (2 A`)
 V`/(2*A`)
 </pre>
 
-������ MKSA+V �P�ʌn�͏璷�ł��邱�Ƃ��Ӗ����܂��B�d�C�ł̔�������P�ʎ��ԓ�����̔M�� W`:watt ��P�ʎ��Ԃ�����@�B�I�M�� J`/s` �Ɍ��݂ɕϊ����邱�Ƃ̓��[�U�[���s��˂΂Ȃ�܂���B
+ただし MKSA+V 単位系は冗長であることを意味します。電気での発生する単位時間当たりの熱量 W`:watt を単位時間あたり機械的熱量 J`/s` に交互に変換することはユーザーが行わねばなりません。
 <pre class=sf>
 ts();1V` 2A`
 ===============================
@@ -3816,53 +3815,53 @@ ts();1V` 2A` (J`/s`)/W`
 2*m`**2*kg`/s`**3
 </pre>
 <div class=sf>
-�G�l���M�[ J` �� W` s` �����������P�ʂł��邱�Ƃ�� J` �� W` s` �̊��Z���ēd�C�G�l���M�[�Ƌ@�B�G�l���M�[�����Z�������l������啔���̃G���W�j�A�͍s���Ă��܂��BMKSA �ł͂Ȃ� MKSA+V �� SI �P�ʌn���g���Ă��܂��B�ł����� Python sf �́AMKSA+V �P�ʌn�ō\�����܂����B
+エネルギー J` と W` s` が同じ物理単位であることより J` と W` s` の換算して電気エネルギーと機械エネルギーを換算しあう考え方を大部分のエンジニアは行っています。MKSA ではなく MKSA+V で SI 単位系を使っています。ですから Python sf は、MKSA+V 単位系で構成しました。
 </div>
 <p>
-��R�� m**2*kg/(A**2*s**3) �̒P�ʂň������Ƃ����ł͂���܂���B�������w�ǂ̃G���W�j�A�ɂ͒ʂ��Ȃ��Ƃ��v���܂��B����ł� ������̒P�ʌn���g���������́Acustomize.py ���䎩���ŕҏW�肢�܂��Bsympy.physics,units ���g���ď������������ł�����e�Ղł��B
+抵抗を m**2*kg/(A**2*s**3) の単位で扱うことも誤りではありません。ただし殆どのエンジニアには通じないとも思います。それでも こちらの単位系を使いたい方は、customize.py を御自分で編集願います。sympy.physics,units を使って書き直すだけですから容易です。
 
 
 
 <h4>tr()</h4>
 <p>
-sympy �̌v�Z�����Ă���Ƃ��ł��A�V���{���b�N�ȕ����P�ʂł͂Ȃ����l�����̕����P�ʂ��g�����Ƃ��\�ɂ��Ă��܂��B���̂��߂ɂ� ts() �֐��Ăяo���̌�� tr() �֐����Ăяo���܂��B
+sympy の計算をしているときでも、シンボリックな物理単位ではなく数値だけの物理単位を使うことを可能にしています。そのためには ts() 関数呼び出しの後に tr() 関数を呼び出します。
 <pre class=sf>
-ts();R,C = 10.0k��`, 1uF`; ts.exp( R C )
+ts();R,C = 10.0kΩ`, 1uF`; ts.exp( R C )
 ===============================
 exp(0.01*s`)
 
-ts();tr(); R,C = 10.0k��`, 1uF`; ts.exp( R C )
+ts();tr(); R,C = 10.0kΩ`, 1uF`; ts.exp( R C )
 ===============================
 exp(0.01)
 </pre>
 <h4>Float/Complex </h4>
 <p>
-�����P�ʕt���̒l��ϐ��ɉ����揜�ׂ���Z���J��Ԃ������ʁA���̕����P�ʂ��ł����������Ă���Ƃ��A���̒l�� Float(..)/Complex(..) �֐��ɂ���� Python �� float/complex �l�ɕύX�ł��܂��B�ł������P�ʂ����������Ă��ȂƂ��� Float(..)/Complex(..) �֐����g���ƃG���[�ɂȂ�܂��B
+物理単位付きの値や変数に加減乗除べき乗算を繰り返した結果、その物理単位が打ち消しあっているとき、その値を Float(..)/Complex(..) 関数によって Python の float/complex 値に変更できます。でも物理単位が消しあっていなときに Float(..)/Complex(..) 関数を使うとエラーになります。
 <pre class=sf>
-ts();R,C = 10.0k��`, 1uF`; Float(2 s`/( R C))
+ts();R,C = 10.0kΩ`, 1uF`; Float(2 s`/( R C))
 ===============================
 200.0
 
-ts();R,C = 10.0k��`, 1uF`; Float( R C )
+ts();R,C = 10.0kΩ`, 1uF`; Float( R C )
 AssertionError: At Float(.), you set physical quantity parameter,the units of which are not cancelled:0.01*s`
 </pre>
 
 <p>
-Python sf ��{���l�֐� exp, sin, cos, tan, sinh, cosh, tanh, arcsin, arccos, arctan, log, log10 �̈����ɃV���{���b�N�ȒP�ʕt�̒l��^����Ƃ��A���̕����P�ʂ��ł����������Ă��Ȃ��ƃG���[�ɂȂ�̂́AFloat/Complex ���v�Z�̓r���ŌĂяo���Ă��邩��ł��B
+Python sf 基本数値関数 exp, sin, cos, tan, sinh, cosh, tanh, arcsin, arccos, arctan, log, log10 の引数にシンボリックな単位付の値を与えるとき、その物理単位が打ち消しあっていないとエラーになるのは、Float/Complex を計算の途中で呼び出しているからです。
 <br>
 <br>
 <a name="littleAdvanced_octn"></a>
-<h3>�� octn:oc</h3>
+<h3>■ octn:oc</h3>
 <p>
-Python sf ���p�ӂ��Ă��� octn ���W���[���� Bool �́A�������A8bit Galois �L����, p���� Zp, ��ʑ̌W���̑����� Pl�A�L���Q Sn �̑㐔�n���`���Ă��܂��BPython sf �� octn ���W���[�����̃N���X��֐��� oc �T�u���O��Ԃ̉��ň����܂��B
+Python sf が用意している octn モジュールは Bool 体、八元数、8bit Galois 有元体, p元体 Zp, 一般体係数の多項式 Pl、有限群 Sn の代数系を定義しています。Python sf は octn モジュール内のクラスや関数を oc サブ名前空間の下で扱います。
 <p>
-��ŏq�ׂ�A�C�ӂ̈�ʑ̗v�f����Ȃ�s��x�N�g�������� ClFldTns �Ƒg�ݍ��킹�Ďg���ƁA����ȏ��Ȃ��̂����ł��l�X�̕���ŋ��͂Ȍv�Z�c�[���ƂȂ�܂��B
+後で述べる、任意の一般体要素からなる行列ベクトルを扱う ClFldTns と組み合わせて使うと、こんな少ない体だけでも様々の分野で強力な計算ツールとなります。
 <P>
-ClFldTns �͔C�ӂ̑́A�������܂��B���[�U�[�������Œ�`����㐔�n�̑����� ClFldTns �s��N���X�ň�����͂��ł��B���̂Ƃ� octn.py ���W���[�����ǂ���ɂȂ�Ǝv���܂��B
+ClFldTns は任意の体、環を扱えます。ユーザーが自分で定義する代数系の多くを ClFldTns 行列クラスで扱えるはずです。そのとき octn.py モジュールが良い例になると思います。
 <p>
-Python sf �̌v�Z�Ώۂ� Python sf �ŋL�q�ł�����̑S�Ăł��B��ʂ̐��l�v�Z�����Ƃ͌���܂���B�Q�_�⌗�_���������܂��B���̂悤�Ȏ��_������A�ȉ��̐�����ǂ�ł݂Ă���Ă��������B
+Python sf の計算対象は Python sf で記述できるもの全てです。一般の数値計算だけとは限りません。群論や圏論さえ扱えます。そのような視点からも、以下の説明を読んでみてやってください。
 <h4>oc.BF:Bool Field</h4>
-Bool �̂̓f�W�^����H�ȂǑ����̕���ŗ��p����܂��B���̂��� oc.BF �u�[���̂�݂��܂����Boc.BF �̃C���X�^���X��  cusotomize.py ��`1,`0 �Ɋ���U���Ă���܂��B
+Bool 体はデジタル回路など多くの分野で利用されます。そのため oc.BF ブール体を設けました。oc.BF のインスタンスは  cusotomize.py で`1,`0 に割り振ってあります。
 <pre class=sf>
 help(oc.BF)
 class BF(__builtin__.object)
@@ -3875,11 +3874,11 @@ class BF(__builtin__.object)
  |      `1 + `1 = `0
  |      `0 + `0 = `0
  |  '
-        �E
-        �E
+        ・
+        ・
 </pre>
 <p>
-`1,`0 �͑̂ł���AClFldTns �s��N���X�ł̍s��E�x�N�g�����Z���\�ł��B
+`1,`0 は体であり、ClFldTns 行列クラスでの行列・ベクトル演算が可能です。
 <pre class=sf>
 # oc.BF vector
 ~[`1,`0,`1]
@@ -3894,12 +3893,12 @@ class BF(__builtin__.object)
 [1 0 0]
 ---- ClFldTns:<class 'pysf.octn.BF'> ----
 
-# oc.BF ����
+# oc.BF 内積
 ~[`1,`0,`1]  ~[`0,`0,`1]
 ===============================
 1
 
-# oc.BF �s��
+# oc.BF 行列
 ~[[`1,`0,`1],[`0,`1,`1],[`0,`0,`1]]
 ===============================
 [[1 0 1]
@@ -3907,7 +3906,7 @@ class BF(__builtin__.object)
  [0 0 1]]
 ---- ClFldTns:<class 'pysf.octn.BF'> ----
 
-# oc.BF �t�s��
+# oc.BF 逆行列
 mt=~[[`1,`0,`1],[`0,`1,`1],[`0,`0,`1]];1/mt
 ===============================
 [[1 0 1]
@@ -3915,7 +3914,7 @@ mt=~[[`1,`0,`1],[`0,`1,`1],[`0,`0,`1]];1/mt
  [0 0 1]]
 ---- ClFldTns:<class 'pysf.octn.BF'> ----
 
-# oc.BF �ׂ���
+# oc.BF べき乗
 mt=~[[`1,`0,`1],[`0,`1,`1],[`0,`0,`1]];mt^2
 ===============================
 [[1 0 0]
@@ -3923,7 +3922,7 @@ mt=~[[`1,`0,`1],[`0,`1,`1],[`0,`0,`1]];mt^2
  [0 0 1]]
 ---- ClFldTns:<class 'pysf.octn.BF'> ----
 
-# oc.BF �s�� * vector
+# oc.BF 行列 * vector
 
 mt,vc=~[[`1,`0,`1],[`0,`1,`1],[`0,`0,`1]], ~[`1,`0,`1]; mt vc
 ===============================
@@ -3933,7 +3932,7 @@ mt,vc=~[[`1,`0,`1],[`0,`1,`1],[`0,`0,`1]], ~[`1,`0,`1]; mt vc
 
 <h4>oc.Oc:Octonion</h4>
 <p>
-����ȑ㐔�n�A�܂����ڗ��������藧���Ȃ��㐔�n�̗�Ƃ��Ĕ�����: ClOctonion ���������܂����Bcl.Oc �� alias ���������܂��B
+非可換な代数系、また推移率さえ成り立たない代数系の例として八元数: ClOctonion を実装しました。cl.Oc の alias 名を持ちます。
 <pre class=sf>
 help(oc.Oc)
 Help on class ClOctonion in module pysf.octn:
@@ -3993,11 +3992,11 @@ class ClOctonion(__builtin__.object)
  |          ===============================
  |          (-0.64705882352941146, 0.76470588235294079, 3.8235294117647052, 4.4117647058823533, 1.7058823529411766, 8.882352941176471, 4.5294117647058822, 10.058823529411764)
  |  
-        �E
-        �E
+        ・
+        ・
 </pre>
 <p>
-�����̂̕����̂Ƃ��� Quaternion �������Ƃɂ��Ȃ�܂��Boc.Oc(1,3,5,7) �Ȃǎl�̗v�f����Ȃ�Ƃ����l���������̂ɂȂ�悤�ɍ���Ă���܂��B
+八元体の部分体として Quaternion を持つことにもなります。oc.Oc(1,3,5,7) など四つの要素からなるときが四元数部分体になるように作ってあります。
 <pre class =sf>
 O=oc.Oc;O(0,1,0,0) O(0,1,0,0)
 ===============================
@@ -4008,7 +4007,7 @@ O=oc.Oc;O(0,1,0,0) O(0,0,1,0)
 (0, 0, 0, 1)
 </pre>
 <p>
-����̂ł͋t�s�񂪈Ӗ��������܂���B�ł� L U �����A���S���Y���͔���̗v�f�̍s��ł����삵�Ă��܂��܂��B�t�s����v�Z���Ă��܂��܂��B�ł�����A����̂ōs��� ���̋t�s��ς��P�ʍs��ɂȂ�Ȃ����Ƃ𐔒l�����Ŋm�F�ł��܂��B
+非可換体では逆行列が意味を持ちません。でも L U 分解アルゴリズムは非可換体要素の行列でも動作してしまいます。逆行列を計算してしまいます。ですから、非可換体で行列と その逆行列積が単位行列にならないことを数値実験で確認できます。
 <pre class=sf>
 O=oc.Oc;mt=~[[O(0,1,2),O(1,2,3)],[O(2,3,4),O(9)]]
 ===============================
@@ -4024,9 +4023,9 @@ O=oc.Oc;mt=~[[O(0,1,2),O(1,2,3)],[O(2,3,4),O(9)]]; mt/mt
   (0.93107692307692291, 0.3593846153846153, -0.23507692307692296, -0.2683076923076923)]]
 ---- ClFldTns:<class 'pysf.octn.ClOctonion'> ----
 </pre>
-<h4>oc.Pl: �C�ӑ̌W���̑�����</h4>
+<h4>oc.Pl: 任意体係数の多項式</h4>
 <p>
-oc.Pl �͔C�ӂ̑̌W���ɂƂ�鑽�����N���X�ł��B
+oc.Pl は任意の体係数にとれる多項式クラスです。
 <pre class=sf>
 help(oc.Pl)
 class Pl(__builtin__.object)
@@ -4061,11 +4060,11 @@ class Pl(__builtin__.object)
  |      oc.Pl(1,2,3,`1)                 # assign type estimating from argments
  |      =============================== # ;;type(sum([1,2,3,`1]))   #== oc.BF
  |      x^3+x+1
-        �E
-        �E
+        ・
+        ・
 </pre>
 <p>
-���̈�ʑ������͉����揜�ׂ���Z���\�ł��B��ʑ������̊���Z�� ���Ɨ]��̃y�A��Ԃ��܂��B�L���֐��ł͂���܂���B
+この一般多項式は加減乗除べき乗算が可能です。一般多項式の割り算は 商と余りのペアを返します。有理関数ではありません。
 <pre class=sf>
 oc.Pl(1,2,3,4)+oc.Pl(5,6,7,8)
 ===============================
@@ -4084,7 +4083,7 @@ oc.Pl(1,2,3,4)/oc.Pl(5,6,7,8)
 (Pl(0), Pl(1x^3+2x^2+3x+4))
 </pre>
 <p>
-��ʑ̑������ł̊���Z�́A�㐔�n�̊g���ŕp�ɂɎg���܂��B���̂悤�� GF(2^8) Galois �L���̂ł̐ω��Z���v�Z�ł��܂��B
+一般体多項式での割り算は、代数系の拡張で頻繁に使われます。下のように GF(2^8) Galois 有元体での積演算を計算できます。
 <pre class=sf>
 oc.Pl([1, 0,0,0,1, 1,1,0,1], oc.BF)
 ===============================
@@ -4095,9 +4094,9 @@ oc.Pl([1,1,0,0, 0,0,0,1], oc.BF) oc.Pl([0,1,1,0, 0,0,0,1], oc.BF)/oc.Pl([1, 0,0,
 (Pl(x^5+x^3+x+1), Pl(x^7+x^6+x^3+x^2+x))
 </pre>
 
-<h4>oc.RS: Galois �L����</h4>
+<h4>oc.RS: Galois 有元体</h4>
 <p>
-x^8 + x^4 + x^3 + x^2 + 1 �� primitive polynomial �Ƃ��� Galois �L���̂��`���Ă���܂��BCD �� DVD �t�H�[�}�b�g�Ŏg���Ă���L���̂ł��B
+x^8 + x^4 + x^3 + x^2 + 1 を primitive polynomial とする Galois 有元体を定義してあります。CD や DVD フォーマットで使われている有元体です。
 <pre class=sf>
 help(oc.RS)
 Help on class RS in module pysf.octn:
@@ -4123,17 +4122,17 @@ class RS(__builtin__.object)
  |  hex(oc.RS.m_lstPwrStt[28+113])
  |  ===============================
  |  0x15
-        �E
-        �E
+        ・
+        ・
 </pre>
 <p>
-ClFldTns �� oc.RS Galois �L���̂�v�f�Ƃ���s�񉉎Z���\�ł��� Reed Solomon �G���[�����R�[�h�Ȃǂ̐��l�������\�ł��B
+ClFldTns は oc.RS Galois 有元体を要素とする行列演算が可能であり Reed Solomon エラー訂正コードなどの数値実験が可能です。
 <pre class=sf>
-��=oc.RS(2);gx=oc.Pl(1,��^0) oc.Pl(1,��) oc.Pl(1,��^2) oc.Pl(1,��^3)
+α=oc.RS(2);gx=oc.Pl(1,α^0) oc.Pl(1,α) oc.Pl(1,α^2) oc.Pl(1,α^3)
 ===============================
 0x01x^4+0x0fx^3+0x36x^2+0x78x+0x40
 
-��=oc.RS(2);gx=oc.Pl(1,��^0) oc.Pl(1,��) oc.Pl(1,��^2) oc.Pl(1,��^3); gx(1)
+α=oc.RS(2);gx=oc.Pl(1,α^0) oc.Pl(1,α) oc.Pl(1,α^2) oc.Pl(1,α^3); gx(1)
 ===============================
 0x00
 
@@ -4155,34 +4154,34 @@ mt=~[ [1,2],[3,4], oc.RS]; mt^-1 [3,4]
 ---- ClFldTns:<class 'pysf.octn.RS'> ----
 </pre>
 
-<h4>oc.Zp: p ����</h4>
+<h4>oc.Zp: p 元体</h4>
 pass
-<h4>oc.Sn: n ���u���Q</h4>
+<h4>oc.Sn: n 次置換群</h4>
 pass
 
 <a name="littleAdvanced_tlRcGn"></a>
-<h3>�� tlRcGn:tn</h3>
+<h3>■ tlRcGn:tn</h3>
 <p>
-tlRnGn ���W���[���͖����J��Ԃ������֘A�̋@�\���������Ă���܂��B���ɖ�������ɂ��Ă̎��������p�I�ȃ��x���ɂ���Ǝv���܂��Btn �̃T�u���O��Ԃ̉��� �����u���܂��B
+tlRnGn モジュールは無限繰り返し処理関連の機能を実装してあります。特に無限数列についての実装が実用的なレベルにあると思います。tn のサブ名前空間の下に これを置きます。
 <p>
-Python �͊֐��̑�ꋉ�̃I�u�W�F�N�g�ł���A�֐��v���O���~���O�ɋ߂��L�q���\�ł��B������ itertools ���W���[���Ŗ������̌J��Ԃ��Ɋ֘A����R�[�h����������Ă��܂��B
+Python は関数の第一級のオブジェクトであり、関数プログラミングに近い記述が可能です。そして itertools モジュールで無限解の繰り返しに関連するコードが実装されています。
 <p>
-������ itertools �͌J��Ԃ��̂��߂̃W�F�l���[�^����������Ă���̂ł���A������������������߂ɂ͎�������Ă��܂���B���� intertools �Œ�`����Ă���N���X�ɂ� __getitem(..) method ����`����Ă��܂���Bsequence[idx] or sequence[idxS:idxE] �̂悤�ȋL�q���ł��܂���B������\�ɂ��� tn.cout, tn.imap, tn.cycle, tn.repeat, tn.izip, tn.ifilter, tn.ifilterfalse, tn.islice, tn.startmap, tn.chain, tn.takewhile, tn.dropwhile, tn.groupby, tn.mix ��݂��܂����B
+ただし itertools は繰り返しのためのジェネレータが実装されているのであり、無限数数列を扱うためには実装されていません。特に intertools で定義されているクラスには __getitem(..) method が定義されていません。sequence[idx] or sequence[idxS:idxE] のような記述ができません。それを可能にする tn.cout, tn.imap, tn.cycle, tn.repeat, tn.izip, tn.ifilter, tn.ifilterfalse, tn.islice, tn.startmap, tn.chain, tn.takewhile, tn.dropwhile, tn.groupby, tn.mix を設けました。
 
 <a name="littleAdvanced_sfBasicFnctns_"></a>
-<h3>�� Python sf ��{���l�֐�</h3>
+<h3>■ Python sf 基本数値関数</h3>
 `X,`Y,`Z,`T
 <p>
-exp, sin, cos, tan, sinh, cosh, tanh, arcsin, arccos, arctan, log, log10, sqrt �� `X,`Y,`Z,`T�́uPython sf ��{���l�֐��v�Ɩ��Â��Ă�����ʂȊ֐��ł��B
+exp, sin, cos, tan, sinh, cosh, tanh, arcsin, arccos, arctan, log, log10, sqrt と `X,`Y,`Z,`Tは「Python sf 基本数値関数」と名づけている特別な関数です。
 <p>
-������ numpy �̊֐����p�����Ă���̂ŁA���f���l�������v�Z�\�ł��B�ł�����A���̂悤�� arctan(..) �֐��̕��z�̗l�q�𕡑f���ʏ�ŕ��f�ʑ��܂߂āA�ȒP�ɕ\���ł��܂��B
+これらは numpy の関数を継承してあるので、複素数値引数も計算可能です。ですから、下のように arctan(..) 関数の分布の様子を複素平面上で複素位相含めて、簡単に表示できます。
 <pre class=sf>
 plot3dGr(arctan,[-pi,pi],[-pi `i, pi `i])
 </pre>
 <p>
 <IMG SRC="./arctan_cplx.jpg"> 
 <p>
-Python �� math built in module �̎O�p�֐��́A�����l���������v�Z�ł��܂���B
+Python の math built in module の三角関数は、実数値引数しか計算できません。
 <pre class=sf>
 import math;math.cos(pi/3)
 ===============================
@@ -4191,13 +4190,13 @@ import math;math.cos(pi/3)
 import math;math.cos(pi/3+1j)
 can't convert complex to float at excecuting:math.cos(pi/3+1j)
 
-# Python sf ��{���l�֐��Ȃ̂ŕ��f���l�����ł��v�Z�ł��܂�
+# Python sf 基本数値関数なので複素数値引数でも計算できます
 cos(pi/3+1j)
 ===============================
 (0.771540317408-1.01775408825j)
 </pre>
 <p>
-Python sf ��{���l�֐��� numpy �֐����p�����Ă���̂� ufunc �ł��B���Ȃ킿�x�N�g����s�������^����ƁA���̗v�f�����̊֐��l��v�f�Ƃ���s���Ԃ��܂��B
+Python sf 基本数値関数は numpy 関数を継承しているので ufunc です。すなわちベクトルや行列引数を与えると、その要素たちの関数値を要素とする行列を返します。
 <pre class=sf>
 sc.arange(4)
 ===============================
@@ -4208,20 +4207,20 @@ sc.arange(-4,4)
 [-4 -3 -2 -1  0  1  2  3]
 
 
-# ndarray ������^����� ndarray �l��Ԃ��܂�
+# ndarray 引数を与えると ndarray 値を返します
 sin(sc.arange(-4,4) pi/4)
 ===============================
 [ -1.22464680e-16  -7.07106781e-01  -1.00000000e+00  -7.07106781e-01
    0.00000000e+00   7.07106781e-01   1.00000000e+00   7.07106781e-01]
 
-# ClTensor ������^����� ClTensor �l��Ԃ��܂�
+# ClTensor 引数を与えると ClTensor 値を返します
 sin(~[range(-4,4)] pi/4)
 ===============================
 [ -1.22464680e-16  -7.07106781e-01  -1.00000000e+00  -7.07106781e-01
    0.00000000e+00   7.07106781e-01   1.00000000e+00   7.07106781e-01]
 ---- ClTensor ----
 
-# ����֐��F�G���[�֐��Ferf(..) �� ufunc �ł��� ClTensor �����̂Ƃ� ClTensor ��Ԃ��܂�
+# 特殊関数：エラー関数：erf(..) も ufunc であり ClTensor 引数のとき ClTensor を返します
 sy();ss.erf(~[range(-4,4)] pi/4)
 ===============================
 [-0.99999112 -0.99913826 -0.97367893 -0.73331143  0.          0.73331143
@@ -4229,18 +4228,18 @@ sy();ss.erf(~[range(-4,4)] pi/4)
 ---- ClTensor ----
 
 
-# Python sf ��{���l�֐�(�s�����)
-cos(`��x)
+# Python sf 基本数値関数(行列引数)
+cos(`σx)
 ===============================
 [[ 1.          0.54030231]
  [ 0.54030231  1.        ]]
 ---- ClTensor ----
 </pre>
 <div class=next>
-Matlab �g���̕��ɂ͎����ł��傤���A��̋@�\�͈ӊO�ƕ֗��ł���A���p����܂��B
+Matlab 使いの方には自明でしょうが、上の機能は意外と便利であり、多用されます。
 </div>
 <p>
-list �� tuple �V�[�P���X�E�f�[�^��^�����Ƃ��APython sf ��{���l�֐��� ClTensor �x�N�g����Ԃ��܂��B
+list や tuple シーケンス・データを与えたとき、Python sf 基本数値関数は ClTensor ベクトルを返します。
 <pre class=sf>
 (`X^2)( (1,2,3,4) )
 ===============================
@@ -4258,54 +4257,54 @@ sin(arsq(0, 6, pi/3))
 ---- ClTensor ----
 </pre>
 <p>
-Python sf ��{���l�֐��ɂ��ẮA�֐��̂܂܂ŉ����揜�ׂ���Z�Ɗ֐��̍������\�ɂ��Ă��܂��B�ł�����ȉ��̂悤�� Python sf ���ł̌v�Z���\�ł��B
+Python sf 基本数値関数については、関数のままで加減乗除べき乗算と関数の合成を可能にしています。ですから以下のような Python sf 式での計算が可能です。
 <pre class=sf>
-#`X �̑�����
+#`X の多項式
 (`X^2+ 2`X + 1)(2)
 ===============================
 9.0
 
-#`X �̗L�����̕��f���l���z
+#`X の有理式の複素数値分布
 plot3dGr( (`X-1)/(`X^2 + `X + 1), [-2,2],[-2`i, 2`i], True)
 </pre>
 <p>
 <IMG SRC="./XM1_XP2PX1.jpg"> 
 <div class=next>
-��� pole �̉��ňʑ��� 360 �x��]���Ă���A0 �_�̉��ŋt�� �ʑ��� 306 �x��]���� pole �� 720 �x��]�����]�������ł������Ă���l�q�������܂��B
+二つの pole の回りで位相が 360 度回転しており、0 点の回りで逆に 位相が 306 度回転して pole の 720 度回転を一回転文だけ打ち消している様子が見られます。
 </div>
 <pre class=sf>
-# �֐��̐�
+# 関数の積
 f=(2 sin cos); f(pi/2)
 ===============================
 1.22464679915e-16
 
-# �֐��̍���
+# 関数の合成
 plotGr(tan(cos),-2pi,2pi)
 </pre>
 <p>
 <IMG SRC="./tan_cos_mpi_ppi.jpg"> 
 <p>
-<h4>Python sf ��{���l�֐��ɒP�ʕt�̈�����^����</h4>
+<h4>Python sf 基本数値関数に単位付の引数を与える</h4>
 <p>
 
 plotGr(sin cos, -pi, pi)
 plotGr(sin(`X^2), -pi, pi)
 
-����;; (`X^2)(3)
+注意;; (`X^2)(3)
 
-ufunc �ƍs��E�x�N�g��
-�x�N�g���E�s�� �v�f�ɍ�p����
-�^��ۂ�
+ufunc と行列・ベクトル
+ベクトル・行列 要素に作用する
+型を保つ
 
-`X(..) �֐��̈����ɗ^������̂� int,float,complex �̂݁BBF:`1 �� oc.RS(1) �Ȃǂ͗^�����Ȃ�
-�� int,float,complex �W���̑��������g���� `X ����������Ă��邩��B
+`X(..) 関数の引数に与えられるのは int,float,complex のみ。BF:`1 や oc.RS(1) などは与えられない
+← int,float,complex 係数の多項式を使って `X が実装されているから。
 
 help(ClRtnl)
 
-��{���l�֐��̉����揜�ׂ���Z�ƍ���
-sympy �P�ʕt���l�̌v�Z
+基本数値関数の加減乗除べき乗算と合成
+sympy 単位付数値の計算
 
-<h4>:=, =: �L���ƃt�@�C���ϐ�</h4>
+<h4>:=, =: 記号とファイル変数</h4>
 
 ts()
 
@@ -4328,10 +4327,10 @@ a,b,c=1,2,3; ( -b + sqrt(b^2-4 a c) )/(2a)
 (-1+1.41421356237j)
 </pre>
 <div class=next>
-Python sf �ł́A��̓�̏������ė����Ƃ��v�Z�ł��܂��B
+Python sf では、上の二つの書き方て両方とも計算できます。
 </div>
 <p>
-sin(pi/3) ���v�Z������̂ɁAPython �ł͉��̗l�ɏ����˂΂Ȃ�܂���B
+sin(pi/3) を計算させるのに、Python では下の様に書かねばなりません。
 <pre class=python_code>
 //@@
 import numpy as sc
@@ -4341,36 +4340,36 @@ print sc.sin(sc.pi/3)
 0.866025403784
 </pre>
 <p>
-���W���[�������� import ���Ă��Ȃ�����Python �ɂ� sin/cos �Ȃǂ̊�{���l�֐����v�Z����@�\�͓����Ă��܂���Bscipy �Ȃǂ̃��W���[���� import ���Ă���āA���߂� sin,cos, exp, log,.. �Ȃǂ̌v�Z���\�ɂȂ�܂��B
+モジュールを何も import していない裸のPython には sin/cos などの基本数値関数を計算する機能は入っていません。scipy などのモジュールを import してやって、初めて sin,cos, exp, log,.. などの計算が可能になります。
 <p>
-�uimport numpy as sc�v�̈�s�́unumpy ���W���[�����C���|�[�g���� sc �̖��O��Ԃ̉��ň�����悤�ɂ���v���Ƃ��Ӗ����Ă��܂��Bsc.sin, sc.pi �̖��O�ɂ���āAnumpy ���W���[���ɒ�`���Ă���֐���ϐ��l���A�N�Z�X���Ă��܂��B
+「import numpy as sc」の一行は「numpy モジュールをインポートして sc の名前空間の下で扱えるようにする」ことを意味しています。sc.sin, sc.pi の名前によって、numpy モジュールに定義してある関数や変数値をアクセスしています。
 <p>
-�ł��v�Z�\�t�g�Ƃ��Ă� sin,cos,exp.. pi �̂悤�Ȋ�{�I�Ȋ֐���萔�� sc �Ȃǂ̖��O��Ԃɕ����߂Ă����ׂ��ł͂���܂���B�v�Z�̓x�� import numpy as sc �̍s���L�q���邱�Ƃ��n�����Ă��܂��B����Ɍ����΁A�v�Z�������ŏI�l�͐l�Ԃ������ł��镶����Ƃ��ďo�͂���̂����� print �������璷�ł��B
+でも計算ソフトとしては sin,cos,exp.. pi のような基本的な関数や定数を sc などの名前空間に閉じ込めておくべきではありません。計算の度に import numpy as sc の行を記述することも馬鹿げています。さらに言えば、計算させた最終値は人間が理解できる文字列として出力するのだから print 文さえ冗長です。
 <p>
-Python sf �v���v���Z�b�T��
+Python sf プリプロセッサは
 <ol>
-<li>�g����p�x�̍����uimport numpy as sc�v�͏�Ɏ��s�ς݂̏�Ԃɂ���
-<li>sc.sin, sc.cos, sc.exp ..., sc.pi �Ȃǂ̊�{���l�֐��E�萔�� sin, cos, exp, ..., pi �Ɓusc.�v����苎�����֐����E�萔���ɂ���
-<li>�Ō�̎��̒l�ɂ��Ă� print ���������I�ɒǉ�����
+<li>使われる頻度の高い「import numpy as sc」は常に実行済みの状態にして
+<li>sc.sin, sc.cos, sc.exp ..., sc.pi などの基本数値関数・定数は sin, cos, exp, ..., pi と「sc.」を取り去った関数名・定数名にして
+<li>最後の式の値については print 文を自動的に追加して
 </ol>
-���s���܂��B��� sin �v�Z�� Python �R�[�h�́Apython sf ���ł͉��̗l�ɒP���ɂł��܂��B
+実行します。先の sin 計算の Python コードは、python sf 式では下の様に単純にできます。
 <pre class = sf>
 sin(pi/3)
 ===============================
 0.866025403784
 </pre>
 <p>
-Python sf �v���v���Z�b�T�͕ϐ����E�֐������g�����܂��BPython ���@�𒴂���
+Python sf プリプロセッサは変数名・関数名を拡張します。Python 文法を超えた
 <p>
-Python �� scipy ���W���[���ɂ́A�Ȋw�v�Z�̂��߂̖c��ȃN���X�E�֐����~�ς���Ă��܂��B�c��� Matlab �̌v�Z�@�\�̔������炢���~�ύς݂ƌ�����Ƃ����܂��B
+Python の scipy モジュールには、科学計算のための膨大なクラス・関数が蓄積されています。膨大な Matlab の計算機能の八割ぐらいが蓄積済みと言えるともいます。
 
-plotGr(��x(sin + 2 cos(�� x:3 x)), -pi, pi)
-plotGr(sin + 2 cos(�� x:3 x), -pi, pi)
+plotGr(∂x(sin + 2 cos(λ x:3 x)), -pi, pi)
+plotGr(sin + 2 cos(λ x:3 x), -pi, pi)
 
-����sc.source(~+)
+無理sc.source(~+)
 1 ~+ 2
-�v���v���Z�b�T
-���Z�q�L��
+プリプロセッサ
+演算子記号
 import ModuleName as mn
 
 <pre class = sf>
@@ -4386,13 +4385,13 @@ ts,sc,tn
 
 
 <a name="littleAdvanced_matrixOperations2"></a>
-<h3>�� �s�񑀍� II</h3>
+<h3>■ 行列操作 II</h3>
 sc.diag([1,2,3,4])
 ~[sc.diag([1,2,3,4])]
 krry(sc.diag([1,2,3,4]))
-<h4>���̂ق��̍s��x�N�g���̎�ȋ@�\</h4>
-<h4>�s��,�]�u�s��A���f����]�u�s��Ar</h4>
-mt=`��x;mt.r[0]=100;`��x
+<h4>そのほかの行列ベクトルの主な機能</h4>
+<h4>行列式,転置行列、複素共役転置行列、r</h4>
+mt=`σx;mt.r[0]=100;`σx
 ===============================
 [[ 100.    1.]
  [   1.    0.]]
@@ -4405,9 +4404,9 @@ r
 help(ClTensor)
 
 <p>
-�e���\���� index:[..] �� tuple/list ��^�����Ƃ��œ���͈قȂ�܂��B���ł͂��܂������ŋC�Ȃ̂ŁA���ۂ̓�������Ă�������
+テンソルの index:[..] に tuple/list を与えたときで動作は異なります。口ではうまく説明で気なので、実際の動作を見てください
 <pre class=sf>
-            `��L
+            `εL
 ===============================
 [[[ 0.  0.  0.]
   [ 0.  0.  1.]
@@ -4422,7 +4421,7 @@ help(ClTensor)
   [ 0.  0.  0.]]]
 ---- ClTensor ----
 
-idx=[0,2,1];`��L[idx]
+idx=[0,2,1];`εL[idx]
 ===============================
 [[[ 0.  0.  0.]
   [ 0.  0.  1.]
@@ -4437,19 +4436,19 @@ idx=[0,2,1];`��L[idx]
   [ 1.  0.  0.]]]
 ---- ClTensor ----
 
-idx=(0,2,1);`��L[idx]
+idx=(0,2,1);`εL[idx]
 ===============================
 -1.0
 
-idx=(0,2,1);`��L[*idx]
+idx=(0,2,1);`εL[*idx]
 invalid syntax (<string>, line 1) at excecuting:k__bq__sEpsilon_L___[*idx]
 
 
 </pre>
 <p>
-sc.ndarray �ɂ��Ă��AClTensor �Ɠ��l�ȓ����ł��B
+sc.ndarray についても、ClTensor と同様な動きです。
 <pre class=sf>
-sc.array(`��L)
+sc.array(`εL)
 ===============================
 [[[ 0.  0.  0.]
   [ 0.  0.  1.]
@@ -4463,7 +4462,7 @@ sc.array(`��L)
   [-1.  0.  0.]
   [ 0.  0.  0.]]]
 
-idx=[0,2,1];sc.array(`��L[idx])
+idx=[0,2,1];sc.array(`εL[idx])
 ===============================
 [[[ 0.  0.  0.]
   [ 0.  0.  1.]
@@ -4477,11 +4476,11 @@ idx=[0,2,1];sc.array(`��L[idx])
   [ 0.  0.  0.]
   [ 1.  0.  0.]]]
 
-idx=(0,2,1);sc.array(`��L[idx])
+idx=(0,2,1);sc.array(`εL[idx])
 ===============================
 -1.0
 
-idx=(0,2,1);sc.array(`��L[*idx])
+idx=(0,2,1);sc.array(`εL[*idx])
 invalid syntax (<string>, line 1) at excecuting:sc.array(k__bq__sEpsilon_L___[*idx])
 </pre>
 
@@ -4490,56 +4489,56 @@ m_dtrm
 .t
 .r
 
-<h4>�ŗL�l�^�ŗL�x�N�^</h4>
+<h4>固有値／固有ベクタ</h4>
 <p>
-scipy �ɂ͕��ʂ̕����g���A�s��Ɋւ���v�Z�̖w�ǂ����ɔ�����Ă��܂��B
+scipy には普通の方が使う、行列に関する計算の殆どが既に備わっています。
 sc.info(sc)
 
-�s��̌ŗL�l
+行列の固有値
 <pre class = sf>
-H = `��x + `��y + `��z; eigvals(H)
+H = `σx + `σy + `σz; eigvals(H)
 </pre>
 <pre class = sf>
-H = `��x + `��y + `��z; eig(H)[1]
+H = `σx + `σy + `σz; eig(H)[1]
 </pre>
 
-<h4>�O�K�ȏ�� tensor</h4>
+<h4>三階以上の tensor</h4>
 <h4>(vector or matrix or tensor) ^ (vector or matrix or tensor)</h4>
 
 
 <a name="littleAdvanced_ClFldTnd"></a>
-<h3>�� ClFldTns ��ʑ̂�v�f�Ƃ���s��</h3>
+<h3>■ ClFldTns 一般体を要素とする行列</h3>
 <p>
-scipy �̍s��E�x�N�g���͐����E�����E���f����v�f�Ƃ���s��E�x�N�g���ł���ABool �̂ȂǁA��ʂ̑̂�v�f�Ƃ���s��͈����܂���B�����ɂ͗v�f�� object �^�C�v�Ƃ��čs��Ƃ���� scipy �ł��C�ӂ̗v�f���������s�������̂ł����A�����揜�Z�ɖ���������܂��B�Ƃ��� object �^�C�v�̍s��ł͋t�s�񂪌v�Z�ł��Ȃ��̂͒v���I�ł��Blapack ���g���č����ɋt�s����v�Z���Ă���̂ł����瓖�R�ł����B
+scipy の行列・ベクトルは整数・実数・複素数を要素とする行列・ベクトルであり、Bool 体など、一般の体を要素とする行列は扱えません。厳密には要素を object タイプとして行列とすれば scipy でも任意の要素をもった行列を作れるのですが、加減乗除算に無理があります。とくに object タイプの行列では逆行列が計算できないのは致命的です。lapack を使って高速に逆行列を計算しているのですから当然ですが。
 <p>
-Python sf �ł́A�C�ӂ̑̂�v�f�Ƃ���s��������܂��B���̂��߂� ClFldTns �s��N���X���������Ă��܂��B�ǂ�ȑ̂�v�f�Ƃ���s��ł����Ă��t�s����v�Z�ł��܂��B�𒼂� L R �����A���S���Y���ŋt�s����v�Z���Ă��܂��B�ł����� ���[�U�[��������̃N���X��v�f�Ƃ��� ClFldTns �s��ł����Ă��A�t�s����v�Z�ł��܂��BDuck typing �ŉ����揜���J��Ԃ� L R �����A���S���Y�������s���邾���ł��B
+Python sf では、任意の体を要素とする行列を扱えます。そのために ClFldTns 行列クラスを実装しています。どんな体を要素とする行列であっても逆行列も計算できます。愚直に L R 分解アルゴリズムで逆行列を計算しています。ですから ユーザーが作った体クラスを要素とする ClFldTns 行列であっても、逆行列を計算できます。Duck typing で加減乗除を繰り返す L R 分解アルゴリズムを実行するだけです。
 <p>
-��ʑ̂ł� ~[...] �ɂ��s���x�N�g���̐������g���܂��Bint, float, complex �ȊO�̗v�f�������Ă����Ƃ� ClFldTns �N���X�̃C���X�^���X�ɂ��Ă��܂��B`1,`0 Bool �̂�v�f�Ƃ���s������̂悤�ɍ�� �܂��v�Z�ł��܂��B
+一般体でも ~[...] による行列やベクトルの生成を使えます。int, float, complex 以外の要素が入ってきたとき ClFldTns クラスのインスタンスにしています。`1,`0 Bool 体を要素とする行列を次のように作り また計算できます。
 <pre class=sf>
-# Bool �̗v�f���x�N�g���Ƃ���s��̐���
+# Bool 体要素をベクトルとする行列の生成
 ~[`1,`0,`1,`1]
 ===============================
 [1 0 1 1]
 ---- ClFldTns:<class 'pysf.octn.BF'> ----
 
-# type �w��ɂ�� ClFldTns �x�N�g���̐���
+# type 指定による ClFldTns ベクトルの生成
 ~[1,0,1,1,1,1,0,0,1, oc.BF]
 ===============================
 [1 0 1 1 1 1 0 0 1]
 ---- ClFldTns:<class 'pysf.octn.BF'> ----
 
-# �a
+# 和
 ~[`1,`0,`1,`1] + ~[`1,`0,`0,`1]
 ===============================
 [0 0 1 0]
 ---- ClFldTns:<class 'pysf.octn.BF'> ----
 
-# ����
+# 内積
 ~[`1,`0,`1,`1]   ~[`1,`0,`0,`1]
 ===============================
 0
 
-# Diadic �O��
+# Diadic 外積
 ~[`1,`0,`1,`1] ^  ~[`1,`0,`0,`1]
 ===============================
 [[1 0 0 1]
@@ -4548,21 +4547,21 @@ Python sf �ł́A�C�ӂ̑̂�v�f�Ƃ���s��������܂��B���̂��߂� ClFldTns �s��N��
  [1 0 0 1]]
 ---- ClFldTns:<class 'pysf.octn.BF'> ----
 
-# �s��̐���
+# 行列の生成
 ~[ [`0,`1],[`1,`0]]
 ===============================
 [[0 1]
  [1 0]]
 ---- ClFldTns:<class 'pysf.octn.BF'> ----
 
-# �s��ƃx�N�g���̐�
+# 行列とベクトルの積
 
 ~[ [`0,`1],[`1,`0]] ~[`1,`0]
 ===============================
 [0 1]
 ---- ClFldTns:<class 'pysf.octn.BF'> ----
 
-# �s��ׂ̂���
+# 行列のべき乗
 ~[ [`0,`1],[`1,`0]]^3
 ===============================
 [[0 1]
@@ -4570,37 +4569,37 @@ Python sf �ł́A�C�ӂ̑̂�v�f�Ƃ���s��������܂��B���̂��߂� ClFldTns �s��N��
 ---- ClFldTns:<class 'pysf.octn.BF'> ----
 </pre>
 <div class=sf>
-�f�W�^����H�ȂǑ����̕���ŁABool �̂̍s��E�x�N�g�����Z�����p�ł��܂��B
+デジタル回路など多くの分野で、Bool 体の行列・ベクトル演算を活用できます。
 </div>
 
 <p>
-�t�s����g��Ȃ��̂Ȃ�΁A�̗v�f����Ȃ�s���x�N�g�������A������ׂ���Z���\�ł��B
+逆行列を使わないのならば、環の要素からなる行列やベクトルを作り、加減乗べき乗算も可能です。
 <pre class=sf>
-# �������̐���
+# 多項式の生成
 P=oc.Pl; P(1,2,3,4,5)
 ===============================
 1x^4+2x^3+3x^2+4x+5
 
-# �������x�N�g���̐���
+# 多項式ベクトルの生成
 P=oc.Pl; ~[P([1,2,3]),P([4,5,6])]
 ===============================
 [1x^2+2x+3 4x^2+5x+6]
 ---- ClFldTns:<class 'pysf.octn.Pl'> ----
 
-# �������x�N�g���̈����l��^���Čv�Z������
+# 多項式ベクトルの引数値を与えて計算させる
 P=oc.Pl; ~[P([1,2,3]),P([4,5,6])](1)
 ===============================
 [  6.  15.]
 ---- ClTensor ----
 
-# �������s��̐���
+# 多項式行列の生成
 P=oc.Pl; ~[ [P([1,2,3]),P([4,5,6])],[P([1,2]),P([4,5])] ]
 ===============================
 [[1x^2+2x+3 4x^2+5x+6]
  [1x+2 4x+5]]
 ---- ClFldTns:<class 'pysf.octn.Pl'> ----
 
-# �������s��ׂ̂���
+# 多項式行列のべき乗
 P=oc.Pl; ~[ [P([1,2,3]),P([4,5,6])],[P([1,2]),P([4,5])] ]^3
 ===============================
 [[1x^6+14x^5+79x^4+224x^3+358x^2+326x+159
@@ -4608,32 +4607,32 @@ P=oc.Pl; ~[ [P([1,2,3]),P([4,5,6])],[P([1,2]),P([4,5])] ]^3
  [1x^5+14x^4+76x^3+194x^2+241x+122 4x^5+53x^4+262x^3+581x^2+628x+281]]
 ---- ClFldTns:<class 'pysf.octn.Pl'> ----
 
-# �������s��̋t�s����v�Z������͖̂����ł�
+# 多項式行列の逆行列を計算させるのは無理です
 P=oc.Pl; ~[ [P([1,2,3]),P([4,5,6])],[P([1,2]),P([4,5])] ]^-1
 int() argument must be a string or a number, not 'tuple' at excecuting:krry__(*[ [P([1,2,3]),P([4,5,6])],[P([1,2]),P([4,5])] ])**-1
 </pre
-<h4>�֐���v�f�Ƃ���s��</h4>
+<h4>関数を要素とする行列</h4>
 <p>
 
 
-python ��{���l�֐�: exp, sin, cos, tan, sinh, cosh, tanh, arcsin, arccos, arctan, log, log10, sqrt �� `X,`Y,`Z,`T �͉����揜�Z���\�ł��B�ɂȂ��Ă��܂��B�Ȃ�� Python ��{���l�֐��� ���̑g�ݍ��킹�֐���v�f�Ƃ���s������܂��B
+python 基本数値関数: exp, sin, cos, tan, sinh, cosh, tanh, arcsin, arccos, arctan, log, log10, sqrt と `X,`Y,`Z,`T は加減乗除算が可能です。環になっています。ならば Python 基本数値関数と その組み合わせ関数を要素とする行列を作れます。
 <pre class=sf>
-��J(~[`X+`Y,`X^2+`Y^2+`Z^2, `X `Y `Z])
+∂J(~[`X+`Y,`X^2+`Y^2+`Z^2, `X `Y `Z])
 `div(~[`X+`Y,`X^2+`Y^2+`Z^2, `X `Y `Z])
 `rot(~[`X+`Y,`X^2+`Y^2+`Z^2, `X `Y `Z])
 </pre>
 
-<h4>�����揜�ׂ���Z���\�� norm �֐�</h4>
+<h4>加減乗除べき乗算が可能な norm 関数</h4>
 
 <a name="littleAdvanced_derivativ"></a>
-<h3>�� ����</h3>
+<h3>■ 微分</h3>
 <p>
-Pythons sf �ł͔����̂��߂̃J�X�^�}�C�Y���s���Ă��܂��Bnumpy �̔����֐��Fsc.derivative(..) �� simpy �̔����֐�:ts.diff(..) ���g���΁A�֐��̔������s���܂��B�ł� �����𒼐ڂɎg�����̂ł͕��G�ɂȂ肷���܂��B���̂��� ��x,��y,��z,��t,��p,��p �� customize.py �ɒ�`���܂����B�������g���Ί֐��̔������ȒP�ɍs���܂��B
+Pythons sf では微分のためのカスタマイズを行っています。numpy の微分関数：sc.derivative(..) や simpy の微分関数:ts.diff(..) を使えば、関数の微分を行えます。でも これらを直接に使ったのでは複雑になりすぎます。そのため ∂x,∂y,∂z,∂t,∂p,∂p を customize.py に定義しました。これらを使えば関数の微分が簡単に行えます。
 <p>
-��x,��y,��z,��t,��p,��p �ɂ������̑O�ɁA���̃\�[�X�����Ă����܂��傤�BPython �͉���Ȑ������͂���������\�[�X�������ق������邱�Ƃ�����������܂���B
+∂x,∂y,∂z,∂t,∂p,∂p による微分の前に、そのソースを見ておきましょう。Python は下手な説明文章を見るよりもソースを見たほうが分ることが珍しくありません。
 <p>
 <pre class== sf>
-sc.source(��x)
+sc.source(∂x)
 def __k_P0__(fnAg):
     if False:
         pass
@@ -4641,39 +4640,39 @@ def __k_P0__(fnAg):
         return sf.P_(0,fnAg)
 </pre>
 <div class=next>
-sf.P_(..) �� kNumeric.py ����܂��B�����ł� 0 �Ԗڂ̈����ɂ��Ĕ������� closure �֐���Ԃ��܂��B
+sf.P_(..) は kNumeric.py あります。ここでは 0 番目の引数について微分する closure 関数を返します。
 </div>
 <p>
-��x ���g���āA����ȋ�Ɍv�Z�ł��܂��B
+∂x を使って、こんな具合に計算できます。
 <pre class=sf>
-f=�� x,y:sin(x+y); ��x(f)
+f=λ x,y:sin(x+y); ∂x(f)
 ===============================
 <pysf.kNumeric.P_ object at 0x00BB8550>
 unpicklable
 
-x,y=1,2; f=�� x,y:sin(x+y); ��x(f)(x,y)
+x,y=1,2; f=λ x,y:sin(x+y); ∂x(f)(x,y)
 ===============================
 -0.989992494948
 </pre>
 <p>
-�������A��ϐ��֐��������ł��܂��B��ϐ��֐��Ȃ�΁A`X �֐��� ���̍����֐����g����̂ŁA���̂悤�� Python sf �����\�ł��B
+もちろん、一変数関数も微分できます。一変数関数ならば、`X 関数と その合成関数を使えるので、下のような Python sf 式が可能です。
 <pre class=sf>
-��x( sin(`X^2+1) )(1)
+∂x( sin(`X^2+1) )(1)
 ===============================
 -0.832293685732
 </pre>
 <p>
-��x(..) �͊֐���Ԃ��̂ł�����AplotGr(..) �Ɉ����n���Ă��΁A�O���t��`���܂��B
+∂x(..) は関数を返すのですから、plotGr(..) に引き渡してやれば、グラフを描けます。
 
 <pre class=sf>
-plotGr( sin(`X^2+1),-pi,pi );plotGr(��x( sin(`X^2+1) ), -pi,pi, color=orange)
+plotGr( sin(`X^2+1),-pi,pi );plotGr(∂x( sin(`X^2+1) ), -pi,pi, color=orange)
 </pre>
 <p>
 <IMG SRC="./sin_x2_p1_derived.jpg"> 
 <p>
-�V���{���b�N�ȏ����������邽�� ts() �����s���� sympy �� ts ���O��ԂɎ�荞�܂���Ƃ������� ��x(..) �֐������̂悤�ɏ��������܂��B��x(..) �̈����� sympy �� symbolic �Ȋ֐��̂Ƃ��� ts.diff(..) ���Ăяo���� symbolic �Ȕ������s�킹�܂��B
+シンボリックな処理をさせるため ts() を実行して sympy を ts 名前空間に取り込ませるとき同時に ∂x(..) 関数も下のように書き換えます。∂x(..) の引数が sympy の symbolic な関数のときは ts.diff(..) を呼び出して symbolic な微分を行わせます。
 <pre class=sf>
-ts();sc.source(��x)
+ts();sc.source(∂x)
 In file: D:\lng\Python26\lib\site-packages\pysf\customize.py
 
     def __k_P0__(fnAg):
@@ -4691,7 +4690,7 @@ In file: D:\lng\Python26\lib\site-packages\pysf\customize.py
 None
 </pre>
 <p>
-ts() �����s�����Ƃ��A`x,`y,`z,`t,`p,`q,`n_ �� sympy �̃V���{���b�N�ȕϐ��Ƃ��Ē�`�� ts �T�u���O��ԂɎ�荞��ł��܂��Bts() ���Ăяo������� Python sf ���ŁA�����̃V���{���b�N�ϐ������̂悤�Ɏg����悤�ɂȂ�܂��B
+ts() を実行したとき、`x,`y,`z,`t,`p,`q,`n_ を sympy のシンボリックな変数として定義し ts サブ名前空間に取り込んでいます。ts() を呼び出した後は Python sf 式で、これらのシンボリック変数を下のように使えるようになります。
 <pre class>
      `x^2+`y^2
 name 'k__bq_x___' is not defined at excecuting:k__bq_x___**2+k__bq_y___**2
@@ -4701,70 +4700,70 @@ ts();`x^2+`y^2
 x**2 + y**2
 </pre>
 <p>
-ts() �Ăяo���ɂ��g����悤�ɂȂ��̃V���{���b�N�ϐ��� ts:sympy ���W���[�� alias ���� customize.py �Œ�`���Ă��� ��x,��y,��z,��t,��p,��p ���g���΁A���̂悤�ȃV���{���b�N�� Python sf �����v�Z�����g���܂��B
+ts() 呼び出しにより使えるようになる上のシンボリック変数と ts:sympy モジュール alias 名と customize.py で定義してある ∂x,∂y,∂z,∂t,∂p,∂p を使えば、下のようなシンボリックな Python sf 微分計算式を使えます。
 <pre class=sf>
-ts();��x(`x^2+`y^2)
+ts();∂x(`x^2+`y^2)
 ===============================
 2*x
 
-ts();��y(`x^2+`y^2+`z^2-`t^2)
+ts();∂y(`x^2+`y^2+`z^2-`t^2)
 ===============================
 2*y
 
-ts();��t(`x^2+`y^2+`z^2-`t^2)
+ts();∂t(`x^2+`y^2+`z^2-`t^2)
 ===============================
 -2*t
 
-ts();��y( ts.sin(`x^2+`y^2+`z^2-`t^2) )
+ts();∂y( ts.sin(`x^2+`y^2+`z^2-`t^2) )
 ===============================
 2*y*cos(x**2 + y**2 + z**2 - t**2)
 
-ts();��p( 1/ts.sqrt(`p^2+`q^2) )
+ts();∂p( 1/ts.sqrt(`p^2+`q^2) )
 ===============================
 -p/(p**2 + q**2)**(3/2)
 
-ts();��q( 1/(`p^2+`q^2) )^(2/3)
+ts();∂q( 1/(`p^2+`q^2) )^(2/3)
 ===============================
 (-2)**0.666666666666667*q**0.666666666666667*((p**2 + q**2)**(-2))**0.666666666666667
 
 # `1r is a sympy rational number defined in customize.py
-ts();��q( 1/(`p^2+`q^2) )^(2 `1r/3)
+ts();∂q( 1/(`p^2+`q^2) )^(2 `1r/3)
 ===============================
 2**(2/3)*(-q/(p**2 + q**2)**2)**(2/3)
 </pre>
 <p>
-���l�����ɂ����� ��x,��y,��z �́u0 �Ԗڂ̈����̔����v�A�u1 �Ԗڂ̈����̔����v�A�u2 �Ԗڂ̈����̔����v�̈Ӗ��ł��B��t �́u�Ō�̈����̔����v�̈Ӗ��ł��B�V���{���b�N�����Ƃ͈قȂ�Ax,y,z,t �����̎��ʂ͍s���܂���B
+数値微分において ∂x,∂y,∂z は「0 番目の引数の微分」、「1 番目の引数の微分」、「2 番目の引数の微分」の意味です。∂t は「最後の引数の微分」の意味です。シンボリック微分とは異なり、x,y,z,t 文字の識別は行いません。
 
 <pre class=sf>
-pos=(1,2); f=�� x,y:x^2+y; ��x(f)(*pos)
+pos=(1,2); f=λ x,y:x^2+y; ∂x(f)(*pos)
 ===============================
 2.0
 
-# ��� Python sf ���� x,y �����ւ���
-pos=1,2; f=�� y,x:x^2+y; ��x(f)(*pos)
+# 上の Python sf 式で x,y を入れ替える
+pos=1,2; f=λ y,x:x^2+y; ∂x(f)(*pos)
 ===============================
 0.999999999998
 
-pos=1,2; f=�� x,y:x^2+y; ��y(f)(*pos)
+pos=1,2; f=λ x,y:x^2+y; ∂y(f)(*pos)
 ===============================
 1.0
 
-pos=1,2,3; f=�� x,y,t:x^2+y-3t; ��t(f)(*pos)
+pos=1,2,3; f=λ x,y,t:x^2+y-3t; ∂t(f)(*pos)
 ===============================
 -3.00000000001
 </pre>
 
 <p>
-���l�����̓V���{���b�N�����Ƃ͈قȂ�덷���t���܂Ƃ��܂��B�����̔������s���ƁA����Ɍ덷���d�Ȃ�܂��B�����̔����̔������s���ƎO�����x�̐��x�ɂ܂ŗ����Ă��܂��B�����ӂ��������B
+数値微分はシンボリック微分とは異なり誤差が付きまといます。微分の微分を行うと、さらに誤差が重なります。微分の微分の微分を行うと三桁程度の精度にまで落ちてきます。ご注意ください。
 <pre class=sf>
 # rank 2 derivative
-f=(��x(��x(`X^2)));[f(x) for x in range(10)]
+f=(∂x(∂x(`X^2)));[f(x) for x in range(10)]
 ===============================
 [1.9999999999999998, 1.9999999989472883, 2.0000000433562093, 1.9999999878450581, 1.9999998990272161
 , 1.9999999878450581, 2.000000165480742, 2.000000165480742, 2.000000165480742, 2.000000165480742]
 
 # rank 3 derivative
-f=��x(��x(��x(`X^3)));[f(x) for x in range(10)]
+f=∂x(∂x(∂x(`X^3)));[f(x) for x in range(10)]
 ===============================
 [6.0, 6.0000338031329647, 6.0002003365866585, 5.9996452250743459, 5.9960925113955454
 , 6.0005334034940461, 5.9934279761364451, 5.9969806898152456, 5.9969806898152456, 5.9969806898152456]
@@ -4772,41 +4771,41 @@ f=��x(��x(��x(`X^3)));[f(x) for x in range(10)]
 
 <h4>Jacobian</h4>
 <p>
-customize.py �� ��J:Jacobian �������`���Ă���܂��B����͐��l�����Ɍ����Čv�Z���܂��B�ł��C�ӌ��̈����̊֐��ł��v�Z�ł���̂ŁA�ӊO�ƕ֗��ł��B
+customize.py に ∂J:Jacobian 微分を定義してあります。これは数値微分に限って計算します。でも任意個数の引数の関数でも計算できるので、意外と便利です。
 <p>
-���̂悤�ɁAscalar �֐��� Jacobian �� gradient �ɂȂ�܂��B
+下のように、scalar 関数の Jacobian は gradient になります。
 <pre class=sf>
-pos=1,2; f=�� x,y:1/norm(x,y);��J(f)(*pos)
+pos=1,2; f=λ x,y:1/norm(x,y);∂J(f)(*pos)
 ===============================
 [-0.08944272 -0.17888544]
 ---- ClTensor ----
 
-pos=1,2,3; f=�� x,y,z:1/norm(x,y,z);��J(f)(*pos)
+pos=1,2,3; f=λ x,y,z:1/norm(x,y,z);∂J(f)(*pos)
 ===============================
 [-0.01909009 -0.03818018 -0.05727027]
 ---- ClTensor ----
 
-pos=1,2,3,4; f=�� x0,x1,x2,x3:1/norm(x0,x1,x2,x3);��J(f)(*pos)
+pos=1,2,3,4; f=λ x0,x1,x2,x3:1/norm(x0,x1,x2,x3);∂J(f)(*pos)
 ===============================
 [-0.00608581 -0.01217161 -0.01825742 -0.02434322]
 ---- ClTensor ----
 
 
-��J([`X,`Y,`Z], inDim=3)(1,2,3)
+∂J([`X,`Y,`Z], inDim=3)(1,2,3)
 ===============================
 [[ 1.  0.  0.]
  [ 0.  1.  0.]
  [ 0.  0.  1.]]
 ---- ClTensor ----
 
-��J([`X,`Y,`X^2+`Y^2], inDim=2)(1,2)
+∂J([`X,`Y,`X^2+`Y^2], inDim=2)(1,2)
 ===============================
 [[ 1.  0.]
  [ 0.  1.]
  [ 2.  4.]]
 ---- ClTensor ----
 
-r=sqrt(`X^2+`Y^2+`Z^2);��J([`X/r,`Y/r,`Z/r],inDim=3)(1,2,3)
+r=sqrt(`X^2+`Y^2+`Z^2);∂J([`X/r,`Y/r,`Z/r],inDim=3)(1,2,3)
 ===============================
 [[ 0.24817115 -0.03818018 -0.05727027]
  [-0.03818018  0.19090089 -0.11454053]
@@ -4833,42 +4832,42 @@ r=sqrt(`X^2+`Y^2+`Z^2);`rot([`X/r,`Y/r,`Z/r],inDim=3)(1,2,3)
 </pre><
 
 <p>
-���̂悤�ɁAscalar �֐��� Jacobian �� Jacobian �� trace �� ��:���v���V�A�����Z�ɂȂ�܂��B
+下のように、scalar 関数の Jacobian の Jacobian の trace は △:ラプラシアン演算になります。
 <pre class=sf>
-pos=1,2; f=�� x,y:1/norm(x,y);��J(��J(f))(*pos).trace()
+pos=1,2; f=λ x,y:1/norm(x,y);∂J(∂J(f))(*pos).trace()
 ===============================
 0.0894427185094
 
-pos=1,2; f=�� x,y:log(1/normSq(x,y));��J(��J(f))(*pos).trace()
+pos=1,2; f=λ x,y:log(1/normSq(x,y));∂J(∂J(f))(*pos).trace()
 ===============================
 -1.11022302463e-08
 
-pos=1,2,3; f=�� x,y,z:-1/norm(x,y,z);��J(��J(f))(*pos).trace()
+pos=1,2,3; f=λ x,y,z:-1/norm(x,y,z);∂J(∂J(f))(*pos).trace()
 ===============================
 1.38777878078e-09
 
-pos=1,2,3,4; f=�� x0,x1,x2,x3:-1/norm(x0,x1,x2,x3);��J(��J(f))(*pos).trace()
+pos=1,2,3,4; f=λ x0,x1,x2,x3:-1/norm(x0,x1,x2,x3);∂J(∂J(f))(*pos).trace()
 ===============================
 0.00608580200123
 </pre>
 
 <p>
-���̂悤�ɁAscalar �֐��� Jacobian �́u Jacobian - Jacobiand.transpose) �� rot ���Z���Ӗ����܂��B
+下のように、scalar 関数の Jacobian の「 Jacobian - Jacobiand.transpose) は rot 演算を意味します。
 <pre class=sf>
-pos=1,2; f=�� x,y:1/norm(x,y);��J(��J(f))(*pos)-��J(��J(f))(*pos).t
+pos=1,2; f=λ x,y:1/norm(x,y);∂J(∂J(f))(*pos)-∂J(∂J(f))(*pos).t
 ===============================
 [[ 0.  0.]
  [ 0.  0.]]
 ---- ClTensor ----
 
-pos=1,2,3; f=�� x,y,z:1/norm(x,y,z);��J(��J(f))(*pos)-��J(��J(f))(*pos).t
+pos=1,2,3; f=λ x,y,z:1/norm(x,y,z);∂J(∂J(f))(*pos)-∂J(∂J(f))(*pos).t
 ===============================
 [[ 0.  0.  0.]
  [ 0.  0.  0.]
  [ 0.  0.  0.]]
 ---- ClTensor ----
 
-pos=1,2,3,4; f=�� x0,x1,x2,x3:1/norm(x0,x1,x2,x3);��J(��J(f))(*pos)-��J(��J(f))(*pos).t
+pos=1,2,3,4; f=λ x0,x1,x2,x3:1/norm(x0,x1,x2,x3);∂J(∂J(f))(*pos)-∂J(∂J(f))(*pos).t
 ===============================
 [[ 0.  0.  0.  0.]
  [ 0.  0.  0.  0.]
@@ -4877,12 +4876,12 @@ pos=1,2,3,4; f=�� x0,x1,x2,x3:1/norm(x0,x1,x2,x3);��J(��J(f))(*pos)-��J(��J(f))(
 ---- ClTensor ----
 </pre>
 <div class=next>
-��̃e���\�����S�� 0 �ɂȂ��Ă���̂́Asclar �֐��� gradient ���Q�����ł��邱�Ƃ������Ă��܂��B
+上のテンソルが全て 0 になっているのは、sclar 関数の gradient が渦無しであることを示しています。
 </div>
 <p>
-�����`����e���\����͂ɂȂ�Ă��Ȃ��ƁA�ŏ��� ���̃^�C�v�� rot ���Z�Ɍ˘f����������܂���B�ł��A������̌`���Ȃ�΁A�C�ӎ����� rot ���v�Z�ł��܂��B�O�����ȊO�ł� rot ���Z���\�ł��Bcustomize.py �ɂ́A���̈Ӗ��ł� `rot(..) �֐����`���Ă���܂��B
+微分形式やテンソル解析になれていないと、最初は このタイプの rot 演算に戸惑うかもしれません。でも、こちらの形式ならば、任意次元の rot を計算できます。三次元以外でも rot 演算が可能です。customize.py には、この意味での `rot(..) 関数を定義してあります。
 <pre class=sf>
-pos=1,2,3,4; f=�� x0,x1,x2,x3:1/norm(x0,x1,x2,x3);`rot(��J(f))(*pos)
+pos=1,2,3,4; f=λ x0,x1,x2,x3:1/norm(x0,x1,x2,x3);`rot(∂J(f))(*pos)
 ===============================
 [[ 0.  0.  0.  0.]
  [ 0.  0.  0.  0.]
@@ -4891,63 +4890,63 @@ pos=1,2,3,4; f=�� x0,x1,x2,x3:1/norm(x0,x1,x2,x3);`rot(��J(f))(*pos)
 ---- ClTensor ----
 </pre>
 
-<h4>�V���{���b�N����</h4>
+<h4>シンボリック微分</h4>
 <p>
-`x `y `z `t `p `q `n �� sympy �ϐ��� customize.py �Œ�`���Ă���A�܂� ��x ��y ��z ��t ��p ��q �����֐��� customize.py �ɒ�`���Ă���̂ŁA�V���{���b�N�Ȕ����� Python sf ���ŏ_��ɋL�q�ł��܂��B
+`x `y `z `t `p `q `n の sympy 変数を customize.py で定義してあり、また ∂x ∂y ∂z ∂t ∂p ∂q 微分関数も customize.py に定義してあるので、シンボリックな微分も Python sf 式で柔軟に記述できます。
 <pre class=sf>
-ts();��x(ts.sin(`x)/`x)
+ts();∂x(ts.sin(`x)/`x)
 ===============================
 cos(x)/x - sin(x)/x**2
 
-ts();��y(ts.sin(`x `y)/(`x^2+`y^2))
+ts();∂y(ts.sin(`x `y)/(`x^2+`y^2))
 ===============================
 x*cos(x*y)/(x**2 + y**2) - 2*y*sin(x*y)/(x**2 + y**2)**2
 
-ts();��y(ts.sin(`x `y)/(`x^2+`y^2)).subs([(`x,1),(`y,2)])
+ts();∂y(ts.sin(`x `y)/(`x^2+`y^2)).subs([(`x,1),(`y,2)])
 ===============================
 -4*sin(2)/25 + cos(2)/5
 
-ts();float(��y(ts.sin(`x `y)/(`x^2+`y^2)).subs([(`x,1),(`y,2)]))
+ts();float(∂y(ts.sin(`x `y)/(`x^2+`y^2)).subs([(`x,1),(`y,2)]))
 ===============================
 -0.228716955602
 
-ts();(�� x,y:float(��y(ts.sin(`x `y)/(`x^2+`y^2)).subs([(`x,x),(`y,y)])))(1,2)
+ts();(λ x,y:float(∂y(ts.sin(`x `y)/(`x^2+`y^2)).subs([(`x,x),(`y,y)])))(1,2)
 ===============================
 -0.228716955602
 </pre>
 <p>
-sympy �̊֐��ł����Ă������l��Ԃ��֐��ɕϊ����Ă��� plot3dGr(..) �Ȃǂ��g���ăO���t�\���������܂��B
+sympy の関数であっても実数値を返す関数に変換してやれば plot3dGr(..) などを使ってグラフ表示させられます。
 <pre class=sf>
-ts();plot3dGr(�� x,y:float(   (ts.sin(`x `y)/(`x^2+`y^2)).subs([(`x,x),(`y,y)])),[-pi,pi],[-pi,pi])
+ts();plot3dGr(λ x,y:float(   (ts.sin(`x `y)/(`x^2+`y^2)).subs([(`x,x),(`y,y)])),[-pi,pi],[-pi,pi])
 </pre>
 <p>
 <IMG SRC="./sin_xy_x2_y2.jpg"> 
 <p>
 
 <pre class=sf>
-ts();plot3dGr(�� x,y:float(��y(ts.sin(`x `y)/(`x^2+`y^2)).subs([(`x,x),(`y,y)])),[-pi,pi],[-pi,pi])
+ts();plot3dGr(λ x,y:float(∂y(ts.sin(`x `y)/(`x^2+`y^2)).subs([(`x,x),(`y,y)])),[-pi,pi],[-pi,pi])
 </pre>
 <p>
 <IMG SRC="./diff_sin_xy_x2_y2.jpg"> 
 <p>
 
 <a name="bitAdvanced_integral"></a>
-<h3>�� �ϕ�</h3>
+<h3>■ 積分</h3>
 <p>
-scipy �p�b�P�[�W�� scipy.integrate �T�u�E�p�b�P�[�W���W���[���� quad(..) �Ȃǂ̒�ϕ��֐�������̂ł����A�F�X�Ɩʓ|�Ȃ̂� kNumeric.py �̂Ȃ��ŉ��̐ϕ��֐�����݂����Ă��܂��B
+scipy パッケージの scipy.integrate サブ・パッケージモジュールに quad(..) などの定積分関数があるのですが、色々と面倒なので kNumeric.py のなかで下の積分関数を介在させています。
 <ol>
-<li>quadR(realFunction, begin, end)�F�����l�֐��̐ϕ�
+<li>quadR(realFunction, begin, end)：実数値関数の積分
 <pre class=sf>
 quadR(exp(-`X^2), -sc.inf, sc.inf)
 ===============================
 1.77245385091
-# sc.inf == ��
+# sc.inf == ∞
 
 sqrt(pi)
 ===============================
 1.77245385091
 </pre>
-<li>quadC(complexFunction, realBegin, realEnd)�F���������ŕ��f���l�߂�֐��̐ϕ�
+<li>quadC(complexFunction, realBegin, realEnd)：実数引数で複素数値戻り関数の積分
 
 <pre class=sf>
 f=0.1Hz`;quadC(exp(-`X^2) exp(2 pi `i f `X), -sc.inf, sc.inf)
@@ -4958,12 +4957,12 @@ f=0.1Hz`;quadC(exp(-`X^2) exp(2 pi `i f `X), 0, sc.inf)
 </pre>
 
 
-<li>quadAn(fAn, sqPath)�F���f������ ���f���߂�l�֐��� sequence of path �ɉ������ϕ��l
+<li>quadAn(fAn, sqPath)：複素数引数 複素数戻り値関数の sequence of path に沿った積分値
 <pre class=sf>
 quadAn(1/`X, [1,`i,-1,-`i,1])
 ===============================
 (6.2831853071795862j, 6.9757369969054392e-14, 6.9757369969054392e-14)
-#&gt;== (�ϕ��l�A�����l���̌덷�A�����l���̌덷)�̏���
+#&gt;== (積分値、実数値側の誤差、虚数値側の誤差)の順序
 
 quadAn(1/`X, [2+2`i, -2+2`i, -2-2`i, 2-2`i,2+2`i])
 ===============================
@@ -4979,32 +4978,32 @@ ts();(1/ts.sin(`x)).series(`x)
 x/6 + 1/x + 7*x**3/360 + O(x**4)
 </pre>
 
-<li>quadN(fN, sqXN):N �����x�N�g�������� N �����x�N�g���߂�l�̊֐��� sqXN:N�����o�H�V�[�P���X �ɉ������ϕ�
+<li>quadN(fN, sqXN):N 次元ベクトル引数の N 次元ベクトル戻り値の関数の sqXN:N次元経路シーケンス に沿った積分
 <pre class=sf>
-vctE = �� vctP:vctP/normSq(vctP);quadN(vctE, ([1,1,0],[1,-1,0],[-1,-1,0],[-1,1,0],[1,1,0]) )
+vctE = λ vctP:vctP/normSq(vctP);quadN(vctE, ([1,1,0],[1,-1,0],[-1,-1,0],[-1,1,0],[1,1,0]) )
 ===============================
 (2.5967314670465034e-18, 3.0615980059724259e-14)
 
-vctE = �� vctP:vctP/normSq(vctP);quadN(vctE, ([1,1,0],[2,2,0]) )
+vctE = λ vctP:vctP/normSq(vctP);quadN(vctE, ([1,1,0],[2,2,0]) )
 ===============================
 (0.6931471805599454, 7.6954795931166216e-15)
-#&gt;== (�ϕ��l�A�덷)
+#&gt;== (積分値、誤差)
 
-vctE = �� vctP:vctP/normSq(vctP);quadN(vctE, ([1,0],[1,1],[0,1],[1,0]))
+vctE = λ vctP:vctP/normSq(vctP);quadN(vctE, ([1,0],[1,1],[0,1],[1,0]))
 
-vctE = �� vctP:vctP/norm(vctP);quadN(vctE, ([1,0],[1,1],[0,1],[1,0]))
+vctE = λ vctP:vctP/norm(vctP);quadN(vctE, ([1,0],[1,1],[0,1],[1,0]))
 ===============================
 (0.0, 2.7802086910857742e-09)
 
-vctE = �� vctP:vctP log(norm(vctP));quadN(vctE, ([1,0],[1,1],[0,1],[1,0]))
+vctE = λ vctP:vctP log(norm(vctP));quadN(vctE, ([1,0],[1,1],[0,1],[1,0]))
 ===============================
 (0.0, 7.0976215179519565e-10)
 </pre>
 </ol>
-<h4>scipy.odeint(...) ������������̐��l��</h4>
+<h4>scipy.odeint(...) 常微分方程式の数値解</h4>
 
 <p>
-scipy.integrate �ɂ͏�����������������֐� odeint(..) ��������Ă��܂��B
+scipy.integrate には常微分方程式を解く関数 odeint(..) が備わっています。
 <pre sf.class=sf>
 sy();help(si.odeint)
 odeint(func, y0, t, args=(), Dfun=None, col_deriv=0, full_output=0, ml=None, mu=None, rtol=None, atol=None, tcrit=None, h0=0.0, hmax=0.0, hmin=0.0, ixpr=0, mxstep=0, mxhnil=0, mxordn=12, mxords=5, printmessg=0)
@@ -5046,21 +5045,21 @@ odeint(func, y0, t, args=(), Dfun=None, col_deriv=0, full_output=0, ml=None, mu=
     y : array, shape (len(y0), len(t))
         Array containing the value of y for each desired time in t,
         with the initial value y0 in the first row.
-        �E
-        �E
+        ・
+        ・
 </pre>
 <div class=next>
-�ׂ������Ƃ������ƁA�v�́u dy/dt =f(y)�̏�������������^����ꂽ�Ƃ��Aodeint(f�Ay �̏����ʒu�A���߂鎞���̃x�N�^) ��^���Ă��΁A�����̃x�N�^�ɑΉ����鎞���ł� y �̒l�̔z���Ԃ��v�Ƃ������Ƃł��B
+細かいことを除くと、要は「 dy/dt =f(y)の常微分方程式が与えられたとき、odeint(f、y の初期位置、求める時刻のベクタ) を与えてやれば、時刻のベクタに対応する時刻での y の値の配列を返す」ということです。
 </div>
 <p>
 <pre class=expression>
 d^2(vctX)/dt^2 = - vctX/normSq(vctX)
-��������
-�ʒu [1,1]
-���x [1,0.5]
+初期条件
+位置 [1,1]
+速度 [1,0.5]
 </pre>
 <p>
-odeint ��������͈̂�K�̏�����������Ȃ̂ŁA���x���܂߂��l�̗v�f����Ȃ�x�N�g���̏�����������ɕϊ����܂��B
+odeint が扱えるのは一階の常微分方程式なので、速度も含めた四つの要素からなるベクトルの常微分方程式に変換します。
 <pre class=expression>
 d X[0]/dt = X[2]
 d X[1]/dt = X[3]
@@ -5068,16 +5067,16 @@ d X[1]/dt = X[3]
 d X[2]/dt = -X[0]/normSq(X[:2])
 d X[3]/dt = -X[1]/normSq(X[:2])
 
-��������
-�ʒu [1,1]
-���x [1,0.5]
+初期条件
+位置 [1,1]
+速度 [1,0.5]
 </pre>
 
 <pre class=sf>
-sy();f=�� x,t:sc.r_[x[2:], -x[:2]/normSq(x[:2])];si.odeint( f, [1,1,1,0.5], klsp(0,5))
-#&gt;== r_[vct1, vct2] �� vct1 �� vct2 ���q�����x�N�^�����܂�
+sy();f=λ x,t:sc.r_[x[2:], -x[:2]/normSq(x[:2])];si.odeint( f, [1,1,1,0.5], klsp(0,5))
+#&gt;== r_[vct1, vct2] は vct1 と vct2 を繋げたベクタを作ります
 
-sy();f=�� x,t:[x[2],x[3], -x[0]/(x[0]^2+x[1]^2), -x[1]/(x[0]^2+x[1]^2)];si.odeint( f, [1,1,1,0.5], klsp(0,5))
+sy();f=λ x,t:[x[2],x[3], -x[0]/(x[0]^2+x[1]^2), -x[1]/(x[0]^2+x[1]^2)];si.odeint( f, [1,1,1,0.5], klsp(0,5))
 ===============================
 [[ 1.          1.          1.          0.5       ]
  [ 1.09948036  1.04850109  0.9502175   0.4513988 ]
@@ -5132,7 +5131,7 @@ sy();f=�� x,t:[x[2],x[3], -x[0]/(x[0]^2+x[1]^2), -x[1]/(x[0]^2+x[1]^2)];si.odein
 </pre>
 
 <pre class=sf>
-sy();f=�� x,t:[x[2],x[3], -x[0]/(x[0]^2+x[1]^2), -x[1]/(x[0]^2+x[1]^2)];plotTrajectory(si.odeint( f, [1,1,1,0.5], klsp(0,5))[:,:2])
+sy();f=λ x,t:[x[2],x[3], -x[0]/(x[0]^2+x[1]^2), -x[1]/(x[0]^2+x[1]^2)];plotTrajectory(si.odeint( f, [1,1,1,0.5], klsp(0,5))[:,:2])
 </pre>
 <IMG SRC="./odeint_2d_v_r.jpg"> 
 <!--
@@ -5143,13 +5142,13 @@ sc.source(quadR)
 help(quadC)
 help(quadAn)
 sc.inf
-�ꎟ�� odeint
-�񎟌� odeint �͏ڍא�������
+一次元 odeint
+二次元 odeint は詳細説明側に
 cOdeInt
 quadAn
 quadN
 
-# symbolic �s��ϕ�
+# symbolic 不定積分
 ts();ts.integrate(`x^2 ts.cos(`x), `x)
 ===============================
 -2*sin(x) + x**2*sin(x) + 2*x*cos(x)
@@ -5158,7 +5157,7 @@ ts();ts.integrate(`x^2 ts.cos(`x^2), `x)
 ===============================
 Integral(x**2*cos(x**2), x)
 
-# symbolic ��ϕ�
+# symbolic 定積分
 ts();ts.integrate(`x, (`x,1,2) )
 ===============================
 3/2
@@ -5170,39 +5169,39 @@ I*pi**(1/2)*erf(-inf*I)/2 - I*pi**(1/2)*erf(+inf*I)/2
 ts();float(ts.integrate(ts.exp(`x^2), (`x,-ts.inf,ts.inf) ))
 </pre>
 
-<h4>si.odeint ������������̐��l��</h4>
-dx/dt = f(x, t) �̉���, �����l:����
-0 �ɂ����� x �̒l�A�m�肽������ t �̃V�[�P���X�E�f�[�^�ɑ΂��ċ��߂�B
-<== x ���V�[�P���X�E�f�[�^�ɂł���̂ŁAN �K�̏������������������ >
+<h4>si.odeint 常微分方程式の数値解</h4>
+dx/dt = f(x, t) の解を, 初期値:時刻
+0 における x の値、知りたい時刻 t のシーケンス・データに対して求める。
+<== x をシーケンス・データにできるので、N 階の常微分方程式も解ける >
 
-dx/dt = x, x[0]=1 �� [0,3] �̈� 50 �|�C���g�ł̉������߂�
+dx/dt = x, x[0]=1 を [0,3] 領域 50 ポイントでの解を求めた
 
-sy();f=�� x,t:cos(t);si.odeint( f, 1, klsp(0,3) )
-����;;[sin(t) for t in klsp(0,3)]
+sy();f=λ x,t:cos(t);si.odeint( f, 1, klsp(0,3) )
+同じ;;[sin(t) for t in klsp(0,3)]
 
-sy();vct=klsp(0,20,100);f=�� x,t:[x[2],x[3], -x[0]/(x[0]^2+x[1]^2), -x[1]/(x[0]^2+x[1]^2)];plotTrajectory(si.odeint( f, [1,1,-1,1], vct)[:,0:2])
+sy();vct=klsp(0,20,100);f=λ x,t:[x[2],x[3], -x[0]/(x[0]^2+x[1]^2), -x[1]/(x[0]^2+x[1]^2)];plotTrajectory(si.odeint( f, [1,1,-1,1], vct)[:,0:2])
 -->
 
-<h4>odeint ������������̐��l��</h4>
+<h4>odeint 常微分方程式の数値解</h4>
 <p>
-������������n�̊��m�֐������ԂɈˑ����Ȃ��Ƃ��Ɍ��肵�ă������C�i�[�ł��g���� odeint(..) �֐���p�ӂ��܂����B���Ԉ���������Ȃ����߁A���m�֐��𑽕ϐ��֐��Ƃ��ċL�q�ł��܂��BLaplace �ϊ��ł� s^2-2s+26 �ƕ\����锭�U�n�������Ă݂܂��B
+常微分方程式系の既知関数が時間に依存しないときに限定してワンライナーでも使える odeint(..) 関数を用意しました。時間引数が入らないため、既知関数を多変数関数として記述できます。Laplace 変換では s^2-2s+26 と表される発散系を解いてみます。
 
 <pre class=sf>
-;;plotGr(odeint(�� x,y:[y, 2y-26x],[0.01,0])(10, 256)[:,0])
+;;plotGr(odeint(λ x,y:[y, 2y-26x],[0.01,0])(10, 256)[:,0])
 </pre>
 <IMG SRC="./odeint_2d_divergentOsc.jpg"> 
 
 <p>
-�N���b�v���ꂽ���U�̂悤�Ȕ���`�������ł��ȒP�ɉ����܂��B
+クリップされた発振のような非線形方程式でも簡単に解けます。
 <pre class=sf>
-;;plotGr(odeint(�� x,y:[0 if x>1 and y>0 else 0 if x<-1 and y<0 else y, 2y-26x],[0.01,0])(10, 256)[:,0])
+;;plotGr(odeint(λ x,y:[0 if x>1 and y>0 else 0 if x<-1 and y<0 else y, 2y-26x],[0.01,0])(10, 256)[:,0])
 </pre>
 <IMG SRC="./odeint_2d_divergentOscLimited.jpg"> 
 
 <a name="littleAdvanced_fileExecuting"></a>
-<h3>�� Python sf�t�@�C�����s</h3>
+<h3>■ Python sfファイル実行</h3>
 <p>
-���G�Ȍv�Z��������Ƃ��ɂ́A�������C�i�[�ŏ����ׂ��ł͂���܂���B�ǐ����]���ɂ��Ă܂Ń������C�i�[���g���ׂ��ł͂���܂���B���̂Ƃ��� "-fs" �I�v�V���������� Python sf �v���v���Z�b�T�ɕ�����ϊ��݂̂��s�킹�܂��BPython sf �ł� -fs �I�v�V�����̌�Ƀt�@�C�������w�肷��ƁA�v���v���Z�X�������������ʂ� __tempConverted.py �t�@�C���ɏ����o���܂��B���̂悤�ȋ�ł��B���Ȃ݂Ɂu-fs�v �� convert File and Skip execution ���猈�߂܂���
+複雑な計算をさせるときには、ワンライナーで書くべきではありません。可読性を犠牲にしてまでワンライナーを使うべきではありません。このときは "-fs" オプションをつけて Python sf プリプロセッサに文字列変換のみを行わせます。Python sf でに -fs オプションの後にファイル名を指定すると、プリプロセスだけをした結果を __tempConverted.py ファイルに書き出します。次のような具合です。ちなみに「-fs」 は convert File and Skip execution から決めました
 <pre class = sfBlock>
 //@@
 def f(x,y):
@@ -5213,9 +5212,9 @@ def g(x,y):
     #return ~[[sin(x) y,  cos(x)],[tan(x) y, sinh(x+y) x]]
 
 px=(1,2)
-pp(��J(�� x,y: f(x,y) g(x,y))(*px))
+pp(∂J(λ x,y: f(x,y) g(x,y))(*px))
 print
-pp(��J(f)(*px) g(*px) + f(*px) ��J(g)(*px))
+pp(∂J(f)(*px) g(*px) + f(*px) ∂J(g)(*px))
 //@@@
 //copy \#####.### temp.py /y
 //sfPP.py -fs temp.py
@@ -5225,20 +5224,20 @@ pp(��J(f)(*px) g(*px) + f(*px) ��J(g)(*px))
 [ 7.39293, 1.53359]
 </pre>
 <p>
-���̓G�f�B�^�[�Łu//@@ .... //@@@ �̊Ԃɂ���e�L�X�g�� C:\#####.### �t�@�C���ɏ������݁A���̎��ɂ��� // �Ŏn�܂�R�}���h�����s���Ă����}�N���v������Ă��܂��B���̃}�N�����֗��ł��B�R���\�[���E���[�h�������Ă���G�f�B�^�����g���Ȃ�΁A���̃}�N��������Ă����ƁAPython sf �Ɍ��炸�A�C�ӂ̌����ʂɎg���ĕ֗��ł���B
+私はエディターで「//@@ .... //@@@ の間にあるテキストを C:\#####.### ファイルに書き込み、その次にある // で始まるコマンドを実行していくマクロ」を作っています。このマクロも便利です。コンソール・モードを持っているエディタをお使いならば、このマクロを作っておくと、Python sf に限らず、任意の言語一般に使えて便利ですよ。
 <p>
-�Z���e�X�g�E�v���O�����E�R�[�h����̃t�@�C���Ɏ��n��ɏ]���ċL�^���Ă����܂��B���̃}�N���� Python �Ɍ��炸�AC++/STL/boost�ARuby�Aperl, OCaml, erlang, Java �Ȃǂɂ��g���Ă��܂��B�Z���e�X�g�R�[�h�����S�����ߍ���ł��܂��B�R���p�C���E�I�v�V�����A���s�I�v�V�����܂Ŋ܂߂āA�K�v�ȏ��͑S�Ďc���Ă����܂��B�����ł��Ď��s�ł��܂��B�{���ɕ֗��ł���B
+短いテスト・プログラム・コードを一つのファイルに時系列に従って記録していけます。このマクロを Python に限らず、C++/STL/boost、Ruby、perl, OCaml, erlang, Java などにも使っています。短いテストコードを何百も溜め込んでいます。コンパイル・オプション、実行オプションまで含めて、必要な情報は全て残していけます。何時でも再実行できます。本当に便利ですよ。
 <p>
-<a href="http://www.nasuinfo.or.jp/FreeSpace/kenji/other/kShell/kShell.htm">���̂悤�� WZ �G�f�B�^�̃}�N��</a>���A�����Ɍ��J���Ă���̂ŁAWZ �G�f�B�^�g���̕��͂����p���������B���̑��̃G�f�B�^�̕��́A����Ƃ��A���Ƃ悤�ɃG�f�B�^�̃}�N��������Ă݂Ă��������B
+<a href="http://www.nasuinfo.or.jp/FreeSpace/kenji/other/kShell/kShell.htm">このような WZ エディタのマクロ</a>も、ここに公開してあるので、WZ エディタ使いの方はご利用ください。その他のエディタの方は、是非とも、ことようにエディタのマクロを作ってみてください。
 <p>
 <p>
-���̂悤�ȃG�f�B�^�̃}�N���̂������ŁA���� html �t�@�C���ɏ����Ă��� Python sf ���́A�S�ď����Ɠ����ɍă`�F�b�N���Ă����Ă��܂��B����� �uctrl + O -&lt; E�v �̃L�[���삾���ŁA����� temp.py �t�@�C�������A�usfPP.py -fs temp.py�v �����s�����A�v���v���Z�b�T�� __tempConverted.py �t�@�C������点�A__tempConverted.py �����s�������邩��ł��B
+このようなエディタのマクロのおかげで、この html ファイルに書いてある Python sf 式は、全て書くと同時に再チェックしていっています。たんに 「ctrl + O -&lt; E」 のキー操作だけで、勝手に temp.py ファイルを作り、「sfPP.py -fs temp.py」 を実行させ、プリプロセッサに __tempConverted.py ファイルを作らせ、__tempConverted.py を実行させられるからです。
 <p>
-���Ȃ݂ɁA��� Python sf �t�@�C�����s�́A�x�N�g���l��Ԃ��֐��̓��ς� Jacobian �����𓭂������Ƃ��ɂ� (f g)' == f' g + f g' �̕��z�������藧���Ȃ����Ƃ��m�F���鐔�l�����ł��B��J �ɔėp�� Jacobian �����֐�������U��悤�ɁA��ŏq�ׂ� customize.py �t�@�C���ɓo�^���Ă���܂��B
+ちなみに、上の Python sf ファイル実行は、ベクトル値を返す関数の内積に Jacobian 微分を働かせたときにも (f g)' == f' g + f g' の分配則が成り立たないことを確認する数値実験です。∂J に汎用の Jacobian 微分関数を割り振るように、後で述べる customize.py ファイルに登録してあります。
 
-<h4>Python sf �v���v���Z�b�T����������t�@�C�� </h4>
+<h4>Python sf プリプロセッサが生成するファイル </h4>
 <p>
-�t�@�C�����s�̂��߂� Python sf �v���v���Z�b�T���f���o���� __tempConverted.py �t�@�C�������Ă��ƁA���̓������ǂ�����܂��B
+ファイル実行のために Python sf プリプロセッサが吐き出した __tempConverted.py ファイルを見てやると、その働きが良く判ります。
 
 <pre class = dos>
 type __tempConverted.py
@@ -5260,9 +5259,9 @@ pp(k__Round_J___(lambda x,y: f(x,y) * g(x,y))(*px))
 pp(k__Round_J___(f)(*px) * g(*px) + f(*px) * k__Round_J___(g)(*px))
 </pre>
 <p>
-�ufrom __future__ import division�v�͐����^�����̊���Z�̂Ƃ� float �l��Ԃ��悤�ɂ����Ă��܂��B���ꂪ�Ȃ��� 2/3 �� 0 �ɂȂ��Ă��܂��܂��B
+「from __future__ import division」は整数／整数の割り算のとき float 値を返すようにさせています。これがないと 2/3 は 0 になってしまいます。
 <p>
-Python 3000 �ł́A�f�t�H���g�Ő����^������ float �l�ɂ���d�l�ɕς��܂��B�ł� 2.x �o�[�W������ python �́ufrom __future__ import division�v���Ȃ��Ɛ����^�����͐����ɂȂ��Ă��܂��܂��B
+Python 3000 では、デフォルトで整数／整数は float 値にする仕様に変わります。でも 2.x バージョンの python は「from __future__ import division」がないと整数／整数は整数になってしまいます。
 <pre class = code>
 //@@
 a=2/3
@@ -5273,28 +5272,28 @@ print a
 0
 </pre>
 <p>
-�����̐��l�v�Z����ȂƂ��A����ł͍���܂��B2.0/3 �Ə����΂悢�̂ł����A�ǂ����Ă�2/3 �Ə����Ă��܂��܂��B�ʏ폑���Ă��鐔���� 2/3 �Ə�������ł��B�������A��̂悤�ȓ�s�����ł�����A�����ɋC�Â��܂��B�ł� 20 �s�̃R�[�h�̒��ɁA���̃~�X�����ꍞ�ނƊȒP�ɂ͕�����܂���B����������������ƃf�o�b�K�ŉ��\���������Ă����ď��߂Ċ���Z�̏����ԈႢ���ƋC�Â����Ƃ����x���������܂��B���������邽�߂� Python sf �ł́A�������Łufrom __future__ import division�v��L���ɂ��Ă��܂��B�������C�i�[�̂Ƃ��������ł��B
+実数の数値計算が主なとき、これでは困ります。2.0/3 と書けばよいのですが、どうしても2/3 と書いてしまいます。通常書いている数式が 2/3 と書くからです。しかも、上のような二行だけでしたら、直ぐに気づきます。でも 20 行のコードの中に、このミスが紛れ込むと簡単には分かりません。何かおかしいからとデバッガで何十分もかけておって初めて割り算の書き間違いだと気づくことが何度も発生します。これを避けるために Python sf では、無条件で「from __future__ import division」を有効にしています。ワンライナーのときも同じです。
 <p>
-�ufrom sf import *�v�ɂ��A Python sf �̊�{�@�\�F�s�񉉎Z�A�\���֐��Ȃǂ̖��O��Ԃ� global �ϐ��Ɏ�荞��ł��܂��Bkzrs(3) �Ə��������� sf.py �ɒ�`���Ă���A0 �x�N�g���^�s��𐶐����� kzrs �֐����ŌĂяo���܂��B�uimport sf;sf.kzrs(3)�v �ȂǂƏ璷�ȏ������������ɍς܂�����悤�ɂ��Ă��܂��B
+「from sf import *」により、 Python sf の基本機能：行列演算、表示関数などの名前空間を global 変数に取り込んでいます。kzrs(3) と書くだけで sf.py に定義してある、0 ベクトル／行列を生成する kzrs 関数をで呼び出せます。「import sf;sf.kzrs(3)」 などと冗長な書き方をせずに済ませられるようにしています。
 <p>
-�ufrom customize import *�v�����l�� customize.py �t�@�C�����Ő錾�E��`���Ă���ϐ����A�֐����A���W���[������ global �ϐ��Ɏ�荞�܂��Ă��܂��Bcustomize.py �̓��[�U�[���K�v�Ƃ���f�t�H���g�̖��O��Ԃ��w�肷�邽�߂ɐ݂��Ă��܂��B���[�U�[���� customize.py ��ҏW���A�K�v�ȃ��[�U�[���Ɍ����ăJ�X�^�}�C�Y���Ă��������B
+「from customize import *」も同様に customize.py ファイル内で宣言・定義してある変数名、関数名、モジュール名を global 変数に取り込ませています。customize.py はユーザーが必要とするデフォルトの名前空間を指定するために設けています。ユーザー側で customize.py を編集し、必要なユーザー環境に向けてカスタマイズしてください。
 
 <!--
 
-<h3>�� </h3>
-<h3>�� </h3>
-<h3>�� </h3>
-<h3>�� �����R�[�h�� shift-jis </h3>
+<h3>■ </h3>
+<h3>■ </h3>
+<h3>■ </h3>
+<h3>■ 漢字コードは shift-jis </h3>
 <p>
-Python sf �̃v���v���Z�b�T�ɂ��A�M���V�������Ɓށ��݁��L�����g����悤�ɂ��Ă��܂��B�����͒Z���ǐ��̂��鐔�����L�q����ɕK�{�̋L���ł��B�c�O�ł����A���̊����R�[�h�́A���݂̂Ƃ��� shift-jis ��O��Ƃ��Ă��܂��Butf-8 ���g����悤�ɂ������̂ł����A���̏��A�肪����Ă��܂���B
+Python sf のプリプロセッサにより、ギリシャ文字と∇□∂△記号を使えるようにしています。これらは短く可読性のある数式を記述するに必須の記号です。残念ですが、この漢字コードは、現在のところ shift-jis を前提としています。utf-8 も使えるようにしたいのですが、今の所、手が回っていません。
 <BR>
 
-<h3>�� ���d���[�v�E�C�^���[�^ </h3>
+<h3>■ 多重ループ・イタレータ </h3>
 <h4> arsq </h4>
 <h4> mrng </h4>
 <h4> mitr </h4>
 <h4> klsp </h4>
-sc.linspace �� ClTensor �łł��BClTensor �x�N�g����Ԃ��܂��B
+sc.linspace の ClTensor 版です。ClTensor ベクトルを返します。
 <pre class = sf>
 klsp(-2,2)
 ===============================
@@ -5310,46 +5309,46 @@ klsp(-2,2)
 ---- ClTensor ----
 </pre>
 
-<h3>�� �O���t�\�� </h3>
-<h3>�� �������C�i�[���s </h3>
+<h3>■ グラフ表示 </h3>
+<h3>■ ワンライナー実行 </h3>
 <p>
-�������C�i�[���s�ł��� python �\���ɋ�������������܂��B�t�ɁA�������������邩�炱���A�������C�i�[�ł��ǐ���ۂĂ�킯�ł��BPerl �ł̂悤�Ȏ����ł����Ȃ��������C�i�[�́APython �ł͊��Q�ɂ͏����܂���B
+ワンライナー実行できる python 構文に強い制限があります。逆に、強い制限があるからこそ、ワンライナーでも可読性を保てるわけです。Perl でのような呪文でしかないワンライナーは、Python では感嘆には書けません。
 <p>
 
-<h3>�� �t�@�C�����s </h3>
+<h3>■ ファイル実行 </h3>
 <p>
-:=, =: ���g���Ȃ��BputPv(..) getPv(..) ���g���܂�
+:=, =: を使えない。putPv(..) getPv(..) を使います
 -->
 <a name="scipyChapter"></a>
-<h2>���� scipy</h2>
+<h2>■■ scipy</h2>
 
-<h4> scipy si ���W���[��</h4>
+<h4> scipy si モジュール</h4>
 <p>
-�ϕ��� quadR �� si.quad ���A���P���Ɏg����悤�� kNumeric �ŏ��������C���������̂ł��B
+積分の quadR は si.quad を、より単純に使えるように kNumeric で少しだけ修正したものです。
 
-<h4> scipy sl ���W���[��</h4>
+<h4> scipy sl モジュール</h4>
 <p>
-numpy.linalg ���� scipy.linalg �̕����A�����̋@�\�������Ă��܂��B�s��� sin/cos �֐��� numpy.linalg �ɂ͂���܂��񂪁Ascipy.linalg �ɂ͎�������Ă��܂��B
+numpy.linalg よりも scipy.linalg の方が、多くの機能を持っています。行列の sin/cos 関数は numpy.linalg にはありませんが、scipy.linalg には実装されています。
 <p>
-sl �� scipy �p�b�P�[�W�� linalg ���W���[�������蓖�Ă� Python sf ���O��Ԃɓ���Ă���܂��B����ɂ��Alinalg ���W���[���ɂ�����`�㐔�֘A�̊֐����g����悤��Ȃ�܂��B�Ⴆ�΍s��� sin �֐��̌v�Z�����̂悤�ɍs���܂��B
+sl に scipy パッケージの linalg モジュールを割り当てて Python sf 名前空間に入れてあります。これにより、linalg モジュールにある線形代数関連の関数を使えるようりなります。例えば行列の sin 関数の計算を次のように行えます。
 
 <pre class = sf>
-sy();H = `��x + `��y+`��z; sl.sinm(H)
+sy();H = `σx + `σy+`σz; sl.sinm(H)
 ===============================
 [[ 0.5698601+0.j         0.5698601-0.5698601j]
  [ 0.5698601+0.5698601j -0.5698601-0.j       ]]
 </pre>
 <p>
-��� sinm �̌v�Z�͗v�f���Ƃ� sin ���v�Z�����Ă���̂ł͂���܂���B���̌v�Z�l����̒l�Ɠ����ł��邱�Ƃ��������悤�ɁA�s�񎩑̂� sin ���v�Z�����Ă��܂��B
+上の sinm の計算は要素ごとの sin を計算させているのではありません。下の計算値が上の値と同じであることからも分るように、行列自体の sin を計算させています。
 <pre class = sf>
 
-sy();N,H =20, `��x + `��y+`��z; sum([(`i H)^(2n+1)/sy.factorial(2n+1) for n in range(N)])/`i
+sy();N,H =20, `σx + `σy+`σz; sum([(`i H)^(2n+1)/sy.factorial(2n+1) for n in range(N)])/`i
 ===============================
 [[ 0.5698601+0.j         0.5698601-0.5698601j]
  [ 0.5698601+0.5698601j -0.5698601+0.j       ]]
 ---- ClTensor ----
 
-H=`��x + `��y+`��z; (expm(`i H) - expm(-`i H))/(2`i)
+H=`σx + `σy+`σz; (expm(`i H) - expm(-`i H))/(2`i)
 ===============================
 [[ 0.5698601+0.j         0.5698601-0.5698601j]
  [ 0.5698601+0.5698601j -0.5698601+0.j       ]]
@@ -5358,7 +5357,7 @@ H=`��x + `��y+`��z; (expm(`i H) - expm(-`i H))/(2`i)
 
 
 <pre class = sf>
-sy();H = `��x + `��y+`��z; sl.cosm(H)
+sy();H = `σx + `σy+`σz; sl.cosm(H)
 ===============================
 [[ -1.60556539e-01 +0.00000000e+00j   1.11022302e-16 -1.11022302e-16j]
  [  1.66533454e-16 +1.66533454e-16j  -1.60556539e-01 +0.00000000e+00j]]
@@ -5367,12 +5366,12 @@ sy();H = `��x + `��y+`��z; sl.cosm(H)
 
 
 <a name="sympyChapter"></a>
-<h2>���� sympy</h2>
-sympy �̃o�[�W������ 2010 �N 5 ���̒i�K�� 0.6... �̃o�[�W�����ł���A�����������̂ł͂���܂���B�ł���{�I�ȂƂ���͓����Ă��܂��B�\���Ɏ��p�ł���c��ɓ��B���Ă��܂��B
+<h2>■■ sympy</h2>
+sympy のバージョンは 2010 年 5 月の段階で 0.6... のバージョンであり、完成したものではありません。でも基本的なところは動いています。十分に実用できる団塊に到達しています。
 
-����
-�ϕ�
-�s��
+微分
+積分
+行列
 
 
 ts();ts.symbols('xy');x+y
@@ -5380,7 +5379,7 @@ ts();ts.symbols('xy');x+y
 <h4> S("...")</h4>
 <p>
 
-S(������) �ɂ��A������� sympy �̎��Ƃ��ĕ]�����܂��B���\�֗��ł��B<!-- �Ⴆ�� maxima �̏������ʂ̕�����v�Z�����g���� sympy �ł̌v�Z�ɖ𗧂Ă�悤�Ȑ^�����ł��܂��BMaxima �� sympy ���w�Ǔ����v�Z���ʕ�����-->
+S(文字列) により、文字列を sympy の式として評価します。結構便利です。<!-- 例えば maxima の処理結果の文字列計算式を使って sympy での計算に役立てるような真似ができます。Maxima の sympy も殆ど同じ計算結果文字列-->
 <pre class=sf>
 ts();x,y,z=ts.symbols('xyz');x+y+ ts.S('x+y+z')
 ===============================
@@ -5391,7 +5390,7 @@ ts();x,y,z=ts.symbols('xyz');ts.sin(x)+y+ ts.S('sin(x)+y+z')
 z + 2*y + 2*sin(x)
 </pre>
 <a name="bitAdvanced_derivative"></a>
-<h4> sympy �L����</h4>
+<h4> sympy 有理数</h4>
 
 ts();ts.sin(`1f/5)
 ===============================
@@ -5411,4 +5410,4 @@ sin(1/5)
 </BODY>
 </HTML>
 P:\my\sf\other\sfHtm\pySfHtm\readMeOfPythonSf.htm
-10.10.07 ver 095c python(x,y) �C���X�g�[����ǉ�
+10.10.07 ver 095c python(x,y) インストールを追加
