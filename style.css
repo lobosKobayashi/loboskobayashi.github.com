@@ -51,7 +51,7 @@ H6 {
 }
 
 pre{
-     BORDER-RIGHT: thin outset;PADDING-RIGHT: 1em; BORDER-TOP: thin outset; PADDING-LEFT: 1em; FONT-SIZE:medium; PADDING-BOTTOM: 0.5em; MARGIN: 4px 4px 4px; BORDER-LEFT: thin outset; LINE-HEIGHT: 140%; PADDING-TOP: 0.5em; BORDER-BOTTOM: thin outset; FONT-FAMILY: monospace; WHITE-SPACE: pre; TEXT-ALIGN: left;
+     BORDER-RIGHT: thin outset;PADDING-RIGHT: 1em; BORDER-TOP: thin outset; PADDING-LEFT: 1em; FONT-SIZE:105%; PADDING-BOTTOM: 0.5em; MARGIN: 4px 4px 4px; BORDER-LEFT: thin outset; LINE-HEIGHT: 140%; PADDING-TOP: 0.5em; BORDER-BOTTOM: thin outset; FONT-FAMILY: monospace; WHITE-SPACE: pre; TEXT-ALIGN: left;
      BACKGROUND: #eee;
     white-space: pre-wrap;
     word-wrap: break-word;
