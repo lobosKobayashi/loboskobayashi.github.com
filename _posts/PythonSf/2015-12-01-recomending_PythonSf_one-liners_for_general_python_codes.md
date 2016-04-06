@@ -404,4 +404,4 @@ git も vim/emacs エディタの日報月報テキスト上で実行できま�
 
 ## 結論
 
-以上のように PythonSf の機能を使って vim/emacs 上で Python code の rapid iterative test and evaluation が行えます。これは PythonSf を使った vim/emacs の RITE ツール化だとも言えると思います。如何でしょうか。
+以上のように PythonSf の機能を使って vim/emacs 上で Python code の RITE:rapid iterative test and evaluation が行えます。これは PythonSf を使った vim/emacs の RITE ツール化だとも言えると思います。如何でしょうか。

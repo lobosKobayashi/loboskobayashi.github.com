@@ -52,13 +52,16 @@ XX
 無次元数 dimensionless number
 e0,u0 are dimensionless numbers at the Gauss system of the units.
 
+組み立て単位:drived unit
+循環論法: circular reasoning
+
 <iframe id="ytplayer" type="text/html" width="640" height="390" src="http://www.youtube.com/embed/Z29MekfkPqc" frameborder="0"/>
 -->
 
 
 ## introduction
 
-Are you satisfied with **the definitions of a unit current and μ0** in [the SI system of units](#http://physics.nist.gov/Pubs/SP330/sp330.pdf)
+Can you accept **the definitions of a unit current and μ0** in [the SI system of units](#http://physics.nist.gov/Pubs/SP330/sp330.pdf)
 
 
 >The ampere is that constant current which, if maintained in two straight
@@ -68,10 +71,10 @@ these conductors a force equal to 2 × 10^-7 newton per meter of length.
 It follows that the magnetic constant μ0, also known as the permeability of vacuum,
 is exactly 4π × 10^-7 henries per meter, μ0 = 4π × 10^-7 H/m.
 
-The sentence after "It follows" is unreasonable. What is the permeability of vacuum, There is a big jump in the logic. (Moreover there is no other explanation for the  permeability of vacuum in the standards). 
+The sentence after "It follows" is absurd. What is the permeability of vacuum, There is a big jump in the logic. (Moreover there is no other explanation for the  permeability of vacuum in the standards). The drived unit of μ0 should be Newton/A^2. It is a circular reasoning to use the H:henry that must be drived from the A:Ampere basic unit. Because the H:henry drived unit contains A:ampere unit.
 
 Let's go back to more basics.
-At Gausian unit system ε0,μ0 are 1 physical quantities without units. It is not logical that the physical quantities without unit become quantities with units associated with a selection of basic units.
+At Gausian unit system ε0,μ0 are 1 and are physical quantities without units. It is not logical that the physical quantities without unit become quantities with units associated with a selection of basic units.
 
 (I claim that the definition of the unit of current should be modified to [one that was described afterwards](#definition_of_the_unit_current))
 
