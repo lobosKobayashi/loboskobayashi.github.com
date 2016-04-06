@@ -7378,9 +7378,9 @@ rp3=λ x:norm(x[:2])^2.5;mt=kOde(λ *x:[x[2],x[3],-x[0]/rp3(x),-x[1]/rp3(x)], [1
 <a name="■■ PythonSf Octernion と Cayley/Dickson construction"></a>
 <h2>■■ PythonSf 有限体八元数：Cayley/Dickson construction</h2>
 <p>
-この章では、Zp(N) を八元数化した代数系を扱います。有限体の八元数は、非可換であったり、結合律が成り立たなかったりする代数系であり、同時に加減乗除も可能です。有限体八元数はコンピュータによる虱潰しテストが可能であり、非可換など、少し広い範囲の代数系の検討がワンライナーで書けて便利です。圏論での Functor, Natural Transformation の具体例をワン・ライナーで記述できてしまいます。
+この章では、Zp(N) を八元数化した代数系を扱います。有限体の八元数は、非可換であったり、結合律が成り立たなかったりする代数系ですが、同時に加減乗除が可能な扱いやすい代数系です。コンピュータによる虱潰しテストが可能です。非可換代数系など、広い範囲の代数系の検討がワンライナーで書けて便利です。圏論での Functor, Natural Transformation の具体例をワン・ライナーで記述できてしまいます。
 <p>
-PythonSf には八元数:ClOctornion:oc.Oc:Oc を備えており、非可換な代数での挙動、結合率さえ成り立たない代数での挙動を簡単にコンピュータ上で実行させ試してみることができりす。八元数 Oc だといっても、八個の値の上位側が 0 のときは、それを表示しないので、引数を四つ以下に限定にしてやれば quaternion としての動作になります。引数を二つ以下に限定してやれば複素数の動作になります。次のような具合です。
+PythonSf には八元数:ClOctornion:oc.Oc: Oc を備えており、非可換な代数での挙動、結合率さえ成り立たない代数での挙動を簡単にコンピュータ上で実行させ試してみることができりす。八元数 Oc だといっても、八個の値の上位側が 0 のときは、それを表示しないので、引数を四つ以下に限定にしてやれば quaternion としての動作になります。引数を二つ以下に限定してやれば複素数の動作になります。次のような具合です。
 
 <pre>
 <code>
@@ -7403,20 +7403,129 @@ Oc(-7, 16)
 </code>
 </pre>
 <p>
-この oc.Oc の八元数演算の実装は、愚直に積と和の組み合わせ演算だけでなされています。ですから oc.Oc に 実数以外の体インスタンスを渡してやれば、その一般体の上で、八元数の加減乗除算が実行されてしまいます。すなわち一般体複素数、一般体四元数、一般体八元数の演算が行われるように代数系を拡張できてしまいます。(厳密には ClOctonion は monad として実装してあるわけではなく、Zp(N) との組み合わせしかテストしていません。他の代数系と組み合わせると、細かな問題が出る可能性が高いと思います。)
+この oc.Oc の八元数演算の実装は、愚直に積と和の組み合わせ演算だけでなされています。ですから oc.Oc に 実数以外の体インスタンスを渡してやれば、その一般体の上で、八元数の加減乗除算が実行されてしまいます。すなわち一般体複素数、一般体四元数、一般体八元数の演算が行われるように代数系を拡張できてしまいます。(厳密には ClOctonion は monad として実装してあるわけではなく、Zp(N) との組み合わせしかテストしていません。他の代数系と組み合わせると、細かな問題が出てくるかもしれません。)
 <p>
-体の八元数化による体代数系の拡張は<a href="http://en.wikipedia.org/wiki/Cayley?Dickson_construction">Cayley_Dickson_construction
-</a>,<a href="http://ja.wikipedia.org/wiki/ケーリー＝ディクソンの構成法">「ケーリー＝ディクソンの構成法」として知られています。</a>
+体の八元数化による体代数系の拡張は<a href="https://en.wikipedia.org/wiki/Cayley%E2%80%93Dickson_construction">Cayley_Dickson_construction
+</a>,<a href="https://ja.wikipedia.org/wiki/ケーリー＝ディクソンの構成法">「ケーリー＝ディクソンの構成法」として知られています。</a>
 <p>
 ケーリー＝ディクソンの構成法の良いところは拡張された代数系の挙動の予測が付けやすいことです。足し算については、元の体代数系のベクトル足し算になります。積演算については、四元数にしてやることで非可換な代数系が得られます。八元数にしてやることで結合律さえ成り立たない代数系が得られます。
 <p>
-このケーリー＝ディクソンの構成法を Zp(N) に適用してやれば、簡単に非可換であったり結合律が成り立たない有限な代数系を作れます。そして有限：小規模な代数系ならばコンピュータで虱潰しに調べ上げられるので便利です。といっても、実際にそのようなプログラムを 0 から作り上げるのは普通の人間では月単位の仕事になってしまうでしょう。でも PythonSf ならば八元数の要素を Zp(N) 要素にしてやるだけで、それを実装できしまいます。
+このケーリー＝ディクソンの構成法を Zp(N) に適用してやれば、簡単に非可換であったり結合律が成り立たない有限な代数系を作れます。そして有限：小規模な代数系ならばコンピュータで虱潰しに調べ上げられるので便利です。といっても、実際にそのようなプログラムを 0 から作り上げるのは普通の人間では人月単位の仕事になってしまうでしょう。でも PythonSf ならば八元数の要素を Zp(N) インスタンスにしてやるだけで、それを実装できたものとして動いてしまいます。以下のような具合です。
 <p>
-ClOctonion による「ケーリー＝ディクソンの構成法」の適用は、まだ実験的な実装段階です。Compatibility のない仕様変更が将来なされる可能性があります。
+<pre>
+<code>
+<span style="color: #9f009f;">
+<b>PythonSf ワンライナー</b>
+# Zp(3) 四元数  
+Z3=oc.Zp(3); Oc(Z3(1),Z3(2),Z3(3),Z3(4))
+===============================
+Oc(1, 2, 0, 1)
+pickle exeption
+
+Z3=oc.Zp(3); x=Oc(Z3(1),Z3(2),Z3(1),Z3(4)); 2x, x+x, 3x, x^2, x^-1, x x^-1
+===============================
+(Oc(2, 1, 2, 2), Oc(2, 1, 2, 2), Oc(0), Oc(1, 1, 2, 2), Oc(1, 1, 2, 2), Oc(1))
+pickle exeption
+
+# Zp(127) ランダムな八元数  
+seed(0); Z127=oc.Zp(127); x=Oc([Z127(a) for a in randi(127,[8])]); 2x, x+x, 3x, x^2, x^-1, x x^-1
+===============================
+(Oc( 88,  94, 107,   1,   7, 119,   7,  79), Oc( 88,  94, 107,   1,   7, 119,   7,  79), Oc(  5,  14,  97,  65,  74, 115,  74,  55), Oc( 58,  72,   9,  44,  54,  29,  54,  47), Oc( 11,  20,  66, 111,  15,   1,  15,   6), Oc(  1))
+pickle exeption
+
+
+# bi-quaternion:複素数を要素とする四元数
+x=Oc(1+2j,3+4j,5+6j,7+8j); 2x, x+x, 3x, x^2, x^-1, x x^-1
+===============================
+(Oc((2+4j), (6+8j), (10+12j), (14+16j)),
+ Oc((2+4j), (6+8j), (10+12j), (14+16j)),
+ Oc((3+6j), (9+12j), (15+18j), (21+24j)),
+ Oc((30-192j), (-10+20j), (-14+32j), (-18+44j)),
+ Oc((0.008814413018209996-0.006586594343277799j), (-0.016757070902750873+0.018016272762495157j),
+    (-0.024699728787291746+0.029445951181712518j), (-0.03264238667183263+0.04087562960092987j)),
+ Oc((1+3.122502256758253e-17j), -5.551115123125783e-17j, 2.0816681711721685e-17j,
+    (-2.7755575615628914e-17+2.0816681711721685e-17j)))
+
+# Zp(3) 複素数を要素とする四元数
+Z3=oc.Zp(3); x=Oc(Oc(Z3(1),Z3(2)), Oc(Z3(1),Z3(4)), Oc(Z3(5),Z3(6)), Oc(Z3(7),Z3(8))); 2x, x+x, 3x, x^2, x^-1, x x^-1
+===============================
+(Oc(Oc(2, 1), Oc(2, 2), Oc(1), Oc(2, 1)),
+ Oc(Oc(2, 1), Oc(2, 2), Oc(1), Oc(2, 1)),
+ Oc(Oc(0)),
+ Oc(Oc(2, 1), Oc(1), Oc(1, 2), Oc(0, 2)),
+ Oc(Oc(0, 2), Oc(2), Oc(2, 1), Oc(0, 1)),
+ Oc(Oc(1)))
+pickle exeption
+
+
+# 有理式:複素数を要素とする四元数の逆元
+s=`s; x=Oc(s+2,3s+4,5s+6,7s+8); for y in (x^-1)[:4]:print(y) 
+ 
+0.0119 s + 0.02381
+------------------
+ 2
+s + 2.381 s + 1.429
+ 
+-0.03571 s - 0.04762
+-------------------
+ 2
+s + 2.381 s + 1.429
+ 
+-0.05952 s - 0.07143
+-------------------
+ 2
+s + 2.381 s + 1.429
+ 
+-0.08333 s - 0.09524
+-------------------
+ 2
+s + 2.381 s + 1.429
+ 
+0.0119 s + 0.02381
+------------------
+ 2
+s + 2.381 s + 1.429
+ 
+-0.03571 s - 0.04762
+-------------------
+ 2
+s + 2.381 s + 1.429
+ 
+-0.05952 s - 0.07143
+-------------------
+ 2
+s + 2.381 s + 1.429
+ 
+-0.08333 s - 0.09524
+-------------------
+ 2
+s + 2.381 s + 1.429
+
+# 有理式四元数の逆元との積が単位元になることを数値実験で確認
+s=`s; x=Oc(s+2,3s+4,5s+6,7s+8); x x^-1
+===============================
+Oc(ClRtnl([ 1.],[ 1.]),
+   ClRtnl([ 0.],[1]),
+   ClRtnl([ 0.],[1]),
+   ClRtnl([  1.38777878e-17,   0.00000000e+00,   0.00000000e+00],
+          [ 1.        ,  2.38095238,  1.42857143]))
+</span>
+</code>
+</pre>
+
 <!--
+ClOctonion による「ケーリー＝ディクソンの構成法」の適用は、まだ実験的な実装段階です。Compatibility のない仕様変更が将来なされる可能性があります。
+
 ただし、この代数系の拡張は Python の duck typing の上で動いてしまっている実装になっています。加減乗除べき乗算を Zp(N) 側で行うのか、Octonion 側で行うのかは実装に依存します。八元体のクラス実装がよほど旨くないと、八元数のクラスと一般体のクラスを直行的に組み合わせるようなことは、どこかで問題を起こします。理想を言えば Caley-Dickson 構成法だけをとりだし Monad として実装しておき、任意の Ring と組み合わせられるようにしておくべきです。その Cayley-Dicson Monad には自然数構造を備えなければなりません。自然数との加減乗算とべき乗算を備えなければなりません。そこまでやっても、使いこなせる方が どれぐらいいるのか？ 実際には Zp(N) 側で Octonion に合わせた加減乗除算にしてやらねばなりません。PythonSf の Zp(N) は、そのような Octonion に合わせた実装になっています。それ以外の代数系についても ケーリー＝ディクソンの構成法を適用できるようにするためには注意深い見直しが必要です。Coverage100% のテストぐらいは必須です。まだ その段階にありません。
 -->
+
 <h3>O3:Z3 四元数</h3>
+<p>
+oc.Zp(N) インスタンスを要素とする八元数はファイル変数を生成できまないので pickle exeption が発生しています。 oc.Zp(..) は factory 関数であり、引数 N に対応するクラスをダイナミックに生成しているためです。
+<p>
+これでは不便なこともあるので、配布している sfCrrntInii の中で Zp(2),...Zp(7), Zp(127) に相当する静的なクラス Z2,Z3,Z4,Z5,Z6,Z7,Zb を実装してあります。これらを要素とする八元数を O2,O3,O4,O5,O6,O7,Ob として実装してあります。以下、これらについて説明します。
+<p>
+
 <pre>
 <code>
 <span style="color: #9f009f;">
@@ -7497,7 +7606,7 @@ O=oc.Oc; a,b,c=O(~[1,2,3,4,5,Z3]),O(~[2,1,4,5,6,Z3]),O(~[3,4,1,6,7,Z3]); str((a 
 
 <h3>norm 保持特性</h3>
 <p>
-八元数には、積演算された結果の norm が、二つの積要素の norm の積になる特徴があります。これが Zp(N) 八元数でも成り立っています。次のような具合です。
+実数要素の八元数には、積演算された結果の norm が、二つの積要素の norm の積になる特徴があります。この性質は Zp(N) 有限体八元数でも成り立っています。次のような具合です。
 <pre>
 <code>
 <span style="color: #9f009f;">
@@ -7703,107 +7812,11 @@ None
 </code>
 </pre>
 
-<h3>O3,O5 圏論操作</h3>
-<p>
-下の fO5toO3 は O5 から O3 への圏に関連する関手や自然変換の具体例を記述するのに使えます。
-<pre>
-●関手
-
-Z5    O5 複素数
-│        │   
-↓        ↓   
-Z3    O3 複素数
-
-
-●自然変換
-
-Z5    O5 複素数 ─→ O5 四元数
-│        │            │
-↓        ↓            ↓
-Z3    O3 複素数 ─→ O3 四元数
-</pre>
-<pre>
-<code>
-<span style="color: #9f009f;">
-<b>PythonSf ワンライナー</b>
-fO5toO3 = fCT(λ x:O3(x.m_tpl), O5, O3); fO5toO3(O5(1,2,3,4)) 
-===============================
-(1, 2, 0, 1)
-
-fO5toO3 = fCT(λ x:O3(x.m_tpl), O5, O3); fO5toO3.dom, fO5toO3.cod
-===============================
-((<class 'sfCrrntIni.O5'>,), (<class 'sfCrrntIni.O3'>,))
-
-fO5toO3 = fCT(λ x:O3(x.m_tpl), O5, O3); fO5toO3(O3(1,2,6,4)) 
-Traceback (most recent call last):
-  File "C:\Python27\lib\runpy.py", line 162, in _run_module_as_main
-    "__main__", fname, loader, pkg_name)
-  File "C:\Python27\lib\runpy.py", line 72, in _run_code
-    exec code in run_globals
-  File "D:\my\vc7\mtCm\sfPP.py", line 2, in <module>
-    pysf.sfPPrcssr.start()
-  File "pysf\sfPPrcssr.py", line 2739, in start
-    __execLine( (" ".join(sys.argv[1:])).strip() )
-  File "pysf\sfPPrcssr.py", line 2355, in __execLine
-    valStt = eval(ustConvertedAt, globals(), locals() )
-  File "<string>", line 1, in <module>
-  File "sfCrrntIni.py", line 155, in _
-    + str(sqAg[k])
-  File "sfCrrntIni.py", line 37, in Assert
-    raise sf.ClAppError(strAg)
-pysf.sfFnctns.ClAppError: Error at CT:__call__(..) input type check:(1, 2, 0, 1)
-
-
-</span>
-</code>
-</pre>
-<p>
-fO5toO3 と product, sum を組み合わせた操作は、 O5 から O3 への圏に関連するより単純な関手や自然変換の具体例を記述するのに使えます。
-<pre>
-●関手
-
-Z5    O5 複素数
-│        │   
-↓        ↓   
-Z3        Z3
-
-
-●自然変換
-
-Z5    O5 複素数 ─→ O5 四元数
-│        │            │
-↓        ↓            ↓
-Z3        Z3    ─→    Z3
-</pre>
-<p>
-ただし product は八元数での product になっており、四元数に適用すると、上位の 0 が掛かってしまって その値は 0 になってしまう。明示的に slice してやらねばならない。
-<pre>
-<code>
-<span style="color: #9f009f;">
-<b>PythonSf ワンライナー</b>
-# sum は OK
-sum(O3(1,2,3,4))
-===============================
-1
-
-# product は 0 になってしまう。
-product(O3(1,2,1,4))
-===============================
-0
-
-# slice を介在させる
-product(O3(1,2,1,4)[:4])
-===============================
-2
-
-</span>
-</code>
-</pre>
 <a name="■■ Category Theory"></a>
 <h2>■■ Category Theory</h2>
 <h3>CategoryTheory で使える PythonSf ツール</h3>
 <p>
-標準配布のカレント・ディレクトリの sfCrrntIni.py ファイルには圏論を扱うための dom, cod を扱えるようにする CT クラス、関数 fCT(..) が実装されています。圏論で頻出する monoid 構造を扱うため：即ち二項関数を扱うための関数 f2CT(..) も設けてあります。また~% user 演算子を関数合成操作に割り当ててあります。さらに Z2,Z3,Z4,Z5,Z5 有限体クラス、 O2,O3,O4,O5,O7 有限八元数クラスを設けてあり、圏論における様々の実例を実際に計算できる PythonSf one-liner 式で表現できます。
+標準配布のカレント・ディレクトリの sfCrrntIni.py ファイルには圏論を扱うための dom, cod を扱えるようにする CT クラス、関数 fCT(..) が実装されています。圏論で頻出する monoid 構造を扱うため：即ち二項関数を扱うための関数 f2CT(..) も設けてあります。また~% user 演算子を関数合成操作に割り当ててあります。さらに Z2,Z3,Z4,Z5,Z5 有限体クラス、 O2,O3,O4,O5,O7 有限八元数クラスを設けてあります。これらを使って、圏論における様々の具体例を実際に計算できる PythonSf one-liner 式として表現できます。
 <h4>CT: a class defining input parameter types and output parameter types</h4>
 <p>
 クラス CT は関数の入出力パラメータのタイプを指定するクラスです。Python でも、C や Java 言語での float function(int) のような、関数の型指定を可能にします。例えば CT(int,float) で、入力が int タイプの引数であり、戻り値が float タイプの関数型指定を行うクラスのインスタンスを作ります。
@@ -7926,7 +7939,7 @@ f=fCT(λ x:x+1.5, int); f(0)
 </pre>
 <h4>f2CT: make monoid typed functions</h4>
 <p>
-圏論で頻出する monoid のために二項関数の型指定を行う f2CT(..) も sfCrrntIn.py に実装しています。
+圏論で頻出する monoid のために二項関数の型指定を行う f2CT(..) も sfCrrntIn.py に実装しています。通常使うのは fCT(..) ではなく f2CT(..) になると思います。Curry 化された closure 関数を f2CT(..).fst(引数), f2CT(..).lst(引数) だけで生成できます。
 <pre>
 <code>
 <span style="color: #9f009f;">
@@ -7989,9 +8002,9 @@ pysf.sfFnctns.ClAppError: Error at CT:__call__(..) output type check:3
 </code>
 </pre>
 <p>
-CT クラスを使って関数の入出力型を指定できることは、圏論の dom/cod を明示する意味で便利です。でも C/C++/Java でのように、プログラム全体に渡る整合性の確認を行わせる型指定の便利さまでは享受できません。Python では全ての関数で型指定・チェックが行われるわけではないからです。CT に過度に期待すべきではありません。また圏論での PythonSf 式による検討で、型チェックを行わずに済ますことも多くあります。
+CT クラスを使って関数の入出力型を指定できることは、圏論の dom/cod を明示する意味で便利です。でも C/C++/Java でのように、プログラム全体に渡る整合性の確認を行わせる型指定の便利さまでは享受できません。Python では全ての関数で型指定・チェックが行われるわけではないからです。CT に過度に期待すべきではありません。また圏論での PythonSf 式による検討で、型チェックを行わずに済ますことも多くあります。PythonSf 式を書いている本人にとって dom/cod は文脈上自明であることが多く、型指定なしの方が、PythonSf 式記述を少し楽にできるからです。
 <p>
-圏論の議論では Curry 化関数になっている CT クラスの fst,lst メンバーのほうが、型指定よりも便利に使えるかもしれません。fst は最初の引数の、lst は最後の引数の Curry 化関数です。次のように使います。
+圏論の議論では Curry 化関数になっている CT クラスの fst,lst メンバーのほうが、型指定よりも便利に使えるでしょう。fst は最初の引数の、lst は最後の引数の Curry 化関数です。次のように使います。
 <pre>
 <code>
 <span style="color: #9f009f;">
@@ -8020,7 +8033,7 @@ k__tilda__UsOp_mul____ = lambda x,y:Oc(sf.krry((Oc(x) * Oc(y)).m_tpl, Z5)) # ~*
 <code>
 <span style="color: #9f009f;">
 <b>PythonSf ワンライナー</b>
-# f.fst(Z3(2)) と f.fsz(Z3(2)) の関数合成が f.fsz(Z3(2) Z3(2)) であることの確認
+# f.fst(Z3(2)) と f.fst(Z3(2)) の関数合成が f.fst(Z3(2) Z3(2)) であることの確認
 ls=[Z3(k) for k in range(3)]; f=f2CT(λ x,y:x y, Z3); [(f.fst(Z3(2)) ~% f.fst(Z3(2)))(x) == f.fst(Z3(2) Z3(2))(x) for x in ls]
 ===============================
 [True, True, True]
@@ -8045,7 +8058,7 @@ CT: class Casting Types
 -->
 <h3>圏論のイントロダクション</h3>
 <p>
-abstract nonsence と揶揄されることもある圏論なんかを、何が嬉しくてやるのかと言えば、集合論が弱すぎるからです。集合論では対象の構造を論じるのに {式(x) for x in ... } しかありません。あとは自然言語で補足・記述していくことになります。
+Abstract nonsence と揶揄されることもある圏論なんかを、何が嬉しくてやるのかと言えば、集合論が弱すぎるからです。集合論では対象の構造を論じるのに {式(x) for x in ... } しかありません。あとは自然言語で補足・記述していくことになります。
 <p>
 圏論は集合に結合律を満たす arrow 構造を追加します。集まりの性質しかなかった集合に、arrow:関数構造を付け加えることで、豊穣な構造を持った集合が扱えるようになります。また arrow により対象の構造を視覚化できます。数学の世界では広く出てくる結合律による縛りが、豊富なグラフ構造をもたらします。
 <p>
@@ -8194,7 +8207,7 @@ X,Y={1,2},{5,6,7}; XxY=kfs([(x,y) for x,y in mitr(X,Y)]);p,q=fCT(λ x_y:x_y[0],X
 
 <h4>{0,1,2,3,4,5} を直積集合にする</h4>
 <p>
-圏論の直積集合の定義ならば、集合 WW:{0,1,2,3,4,5} も X,Y の直積集合にできます。次のような pp,qq を考えて見ましょう。
+圏論の直積集合の定義ならば、集合 WW:{0,1,2,3,4,5} も X,Y の直積集合に分割できます。次のような pp,qq を考えて見ましょう。
 <pre>
 <code>
 # 圏論での直積集合 
@@ -8427,7 +8440,7 @@ MxM を lst=[`X,μμ.fst(Z4(0)), μμ.fst(Z4(2))]; MxM=list(mitr(lst,lst)) の�
 <p>
 Category の公理は単純です。functor と natural transformation は category theory の肝でしょう。これを前提に、抽象 category theory を構築していくのですから。
 <p>
-でも、これらの定義を見ても、何を言っているのかさっぱり分からんのが普通の人間でしょう。Maclane の教科書でも、これらの定義の直後に幾つかの具体例を示してくれるのですが、
+でも、これらの定義を見ても、何を言っているのかさっぱり分からんのが普通の人間でしょう。MacLane の教科書でも、これらの定義の直後に幾つかの具体例を示してくれるのですが、
 <h4>Category の公理</h4>
 <!--
 http://www.amazon.co.jp/gp/reader/0387984038/ref=sib_dp_ptu/d/schdl09.txtreader-link#reader_0387984038
@@ -8453,7 +8466,100 @@ morphing from category to category
 Commutative Ring K と GL_n(K)
 -->
 <h4>natural transformation 構造</h4>
-to be discussed
+<p>
+下の fO5toO3 は O5 から O3 への圏に関連する関手や自然変換の具体例を記述するのに使えます。
+<pre>
+●関手
+
+Z5    O5 複素数
+│        │   
+↓        ↓   
+Z3    O3 複素数
+
+
+●自然変換
+
+Z5    O5 複素数 ─→ O5 四元数
+│        │            │
+↓        ↓            ↓
+Z3    O3 複素数 ─→ O3 四元数
+</pre>
+<pre>
+<code>
+<span style="color: #9f009f;">
+<b>PythonSf ワンライナー</b>
+fO5toO3 = fCT(λ x:O3(x.m_tpl), O5, O3); fO5toO3(O5(1,2,3,4)) 
+===============================
+(1, 2, 0, 1)
+
+fO5toO3 = fCT(λ x:O3(x.m_tpl), O5, O3); fO5toO3.dom, fO5toO3.cod
+===============================
+((<class 'sfCrrntIni.O5'>,), (<class 'sfCrrntIni.O3'>,))
+
+fO5toO3 = fCT(λ x:O3(x.m_tpl), O5, O3); fO5toO3(O3(1,2,6,4)) 
+Traceback (most recent call last):
+  File "C:\Python27\lib\runpy.py", line 162, in _run_module_as_main
+    "__main__", fname, loader, pkg_name)
+  File "C:\Python27\lib\runpy.py", line 72, in _run_code
+    exec code in run_globals
+  File "D:\my\vc7\mtCm\sfPP.py", line 2, in <module>
+    pysf.sfPPrcssr.start()
+  File "pysf\sfPPrcssr.py", line 2739, in start
+    __execLine( (" ".join(sys.argv[1:])).strip() )
+  File "pysf\sfPPrcssr.py", line 2355, in __execLine
+    valStt = eval(ustConvertedAt, globals(), locals() )
+  File "<string>", line 1, in <module>
+  File "sfCrrntIni.py", line 155, in _
+    + str(sqAg[k])
+  File "sfCrrntIni.py", line 37, in Assert
+    raise sf.ClAppError(strAg)
+pysf.sfFnctns.ClAppError: Error at CT:__call__(..) input type check:(1, 2, 0, 1)
+</span>
+</code>
+</pre>
+<p>
+fO5toO3 と product, sum を組み合わせた操作は、 O5 から O3 への圏に関連するより単純な関手や自然変換の具体例を記述するのに使えます。
+<pre>
+●関手
+
+Z5    O5 複素数
+│        │   
+↓        ↓   
+Z3        Z3
+
+
+●自然変換
+
+Z5    O5 複素数 ─→ O5 四元数
+│        │            │
+↓        ↓            ↓
+Z3        Z3    ─→    Z3
+</pre>
+<p>
+ただし product は八元数での product になっており、四元数に適用すると、上位の 0 が掛かってしまって その値は 0 になってしまう。明示的に slice してやらねばならない。
+<pre>
+<code>
+<span style="color: #9f009f;">
+<b>PythonSf ワンライナー</b>
+# sum は OK
+sum(O3(1,2,3,4))
+===============================
+1
+
+# product は 0 になってしまう。
+product(O3(1,2,1,4))
+===============================
+0
+
+# slice を介在させる
+product(O3(1,2,1,4)[:4])
+===============================
+2
+
+</span>
+</code>
+</pre>
+
 <!--
 MacLane の教科書は amazon で参照できない
 Piers 51/110 page
